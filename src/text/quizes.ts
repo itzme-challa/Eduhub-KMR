@@ -51,7 +51,7 @@ const quizes = () => async (ctx: Context) => {
   if (!subject) return;
 
   try {
-    const response = await fetch('https://raw.githubusercontent.com/itzme-challa/eduhub-bot/master/quiz.json');
+    const response = await fetch('https://raw.githubusercontent.com/itzfew/Eduhub-KMR/master/quiz.json');
     const allQuestions = await response.json();
 
     const subjectQuestions = allQuestions.filter((q: any) => q.subject?.toLowerCase() === subject);
