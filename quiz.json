@@ -278,5 +278,159 @@
     "correct_option": "B",
     "explanation": "In kinetic theory, pressure arises from molecules colliding with the container walls.",
     "image": ""
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Some Basic Concepts of Chemistry",
+    "question": "Which of the following is the SI unit of amount of substance?",
+    "options": {
+      "A": "Kilogram",
+      "B": "Mole",
+      "C": "Liter",
+      "D": "Gram"
+    },
+    "correct_option": "B",
+    "explanation": "The SI unit of the amount of substance is the mole.",
+    "image": ""
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Structure of Atom",
+    "question": "Which of the following particles has the least mass?",
+    "options": {
+      "A": "Neutron",
+      "B": "Proton",
+      "C": "Electron",
+      "D": "Alpha particle"
+    },
+    "correct_option": "C",
+    "explanation": "Electron has the least mass among the subatomic particles listed.",
+    "image": ""
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Periodic Table",
+    "question": "What is the period number of an element with the electronic configuration 2, 8, 4?",
+    "options": {
+      "A": "2",
+      "B": "3",
+      "C": "4",
+      "D": "5"
+    },
+    "correct_option": "B",
+    "explanation": "The number of shells determines the period, so 2, 8, 4 means 3 shells → Period 3.",
+    "image": ""
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Chemical Bonding",
+    "question": "Which of the following is a polar covalent molecule?",
+    "options": {
+      "A": "O2",
+      "B": "H2",
+      "C": "HCl",
+      "D": "Cl2"
+    },
+    "correct_option": "C",
+    "explanation": "HCl has a difference in electronegativity between H and Cl, making it polar.",
+    "image": ""
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "States of Matter",
+    "question": "Which of the following gases will diffuse the fastest?",
+    "options": {
+      "A": "Cl2",
+      "B": "O2",
+      "C": "H2",
+      "D": "CO2"
+    },
+    "correct_option": "C",
+    "explanation": "According to Graham’s law, lighter gases diffuse faster. H2 is the lightest.",
+    "image": ""
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Thermodynamics",
+    "question": "Which of the following quantities is a state function?",
+    "options": {
+      "A": "Work",
+      "B": "Heat",
+      "C": "Internal Energy",
+      "D": "Path"
+    },
+    "correct_option": "C",
+    "explanation": "Internal energy depends only on the state of the system, not the path.",
+    "image": ""
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Equilibrium",
+    "question": "At equilibrium:",
+    "options": {
+      "A": "Forward reaction stops",
+      "B": "Backward reaction stops",
+      "C": "Rates of forward and backward reactions are equal",
+      "D": "Concentrations of reactants and products are equal"
+    },
+    "correct_option": "C",
+    "explanation": "At equilibrium, the rate of the forward and backward reactions become equal.",
+    "image": ""
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Redox Reactions",
+    "question": "Oxidation involves:",
+    "options": {
+      "A": "Gain of electrons",
+      "B": "Loss of electrons",
+      "C": "Gain of protons",
+      "D": "Loss of neutrons"
+    },
+    "correct_option": "B",
+    "explanation": "Oxidation is defined as the loss of electrons.",
+    "image": ""
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Hydrogen",
+    "question": "Which of the following is used in the manufacture of margarine?",
+    "options": {
+      "A": "Hydrogen",
+      "B": "Oxygen",
+      "C": "Nitrogen",
+      "D": "Helium"
+    },
+    "correct_option": "A",
+    "explanation": "Hydrogen is used in the hydrogenation of oils to make margarine.",
+    "image": ""
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "The s-Block Element",
+    "question": "Which alkali metal is the most reactive?",
+    "options": {
+      "A": "Sodium",
+      "B": "Potassium",
+      "C": "Cesium",
+      "D": "Lithium"
+    },
+    "correct_option": "C",
+    "explanation": "Reactivity increases down the group. Cesium is more reactive than others listed.",
+    "image": ""
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Organic Chemistry - Basics",
+    "question": "IUPAC name of CH3CH2OH is:",
+    "options": {
+      "A": "Ethyl alcohol",
+      "B": "Ethanol",
+      "C": "Ethene",
+      "D": "Methanol"
+    },
+    "correct_option": "B",
+    "explanation": "According to IUPAC, CH3CH2OH is named as Ethanol.",
+    "image": ""
   }
-] 
+]
