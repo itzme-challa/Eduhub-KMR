@@ -1,851 +1,851 @@
 [
-  {
-    "subject": "Biology",
-    "chapter": "Cell - The Unit of Life",
-    "question": "Which organelle is known as the 'powerhouse of the cell'?",
-    "options": {
-      "A": "Nucleus",
-      "B": "Mitochondrion",
-      "C": "Ribosome",
-      "D": "Endoplasmic reticulum"
+    {
+        "subject": "Biology",
+        "chapter": "Cell - The Unit of Life",
+        "question": "Which organelle is known as the 'powerhouse of the cell'?",
+        "options": {
+            "A": "Nucleus",
+            "B": "Mitochondrion",
+            "C": "Ribosome",
+            "D": "Endoplasmic reticulum"
+        },
+        "correct_option": "B",
+        "explanation": "Mitochondria are known as the 'powerhouse of the cell' because they produce ATP through oxidative phosphorylation.",
+        "image": ""
     },
-    "correct_option": "B",
-    "explanation": "Mitochondria are known as the 'powerhouse of the cell' because they produce ATP through oxidative phosphorylation.",
-    "image": ""
-  },
-  {
-    "subject": "Biology",
-    "chapter": "Plant Kingdom",
-    "question": "Which of the following is a characteristic of monocot plants?",
-    "options": {
-      "A": "Net-veined leaves",
-      "B": "Two cotyledons",
-      "C": "Parallel-veined leaves",
-      "D": "Tap root system"
+    {
+        "subject": "Biology",
+        "chapter": "Plant Kingdom",
+        "question": "Which of the following is a characteristic of monocot plants?",
+        "options": {
+            "A": "Net-veined leaves",
+            "B": "Two cotyledons",
+            "C": "Parallel-veined leaves",
+            "D": "Tap root system"
+        },
+        "correct_option": "C",
+        "explanation": "Monocot plants typically have parallel-veined leaves, one cotyledon, and a fibrous root system.",
+        "image": ""
     },
-    "correct_option": "C",
-    "explanation": "Monocot plants typically have parallel-veined leaves, one cotyledon, and a fibrous root system.",
-    "image": ""
-  },
-  {
-    "subject": "Biology",
-    "chapter": "Human Physiology",
-    "question": "Which hormone is responsible for regulating blood sugar levels?",
-    "options": {
-      "A": "Insulin",
-      "B": "Adrenaline",
-      "C": "Thyroxine",
-      "D": "Cortisol"
+    {
+        "subject": "Biology",
+        "chapter": "Human Physiology",
+        "question": "Which hormone is responsible for regulating blood sugar levels?",
+        "options": {
+            "A": "Insulin",
+            "B": "Adrenaline",
+            "C": "Thyroxine",
+            "D": "Cortisol"
+        },
+        "correct_option": "A",
+        "explanation": "Insulin, produced by the pancreas, helps regulate blood sugar levels by facilitating the uptake of glucose into cells.",
+        "image": ""
     },
-    "correct_option": "A",
-    "explanation": "Insulin, produced by the pancreas, helps regulate blood sugar levels by facilitating the uptake of glucose into cells.",
-    "image": ""
-  },
-  {
-    "subject": "Biology",
-    "chapter": "Human Physiology",
-    "question": "Which blood type is known as the universal donor?",
-    "options": {
-      "A": "Type A",
-      "B": "Type B",
-      "C": "Type AB",
-      "D": "Type O"
+    {
+        "subject": "Biology",
+        "chapter": "Human Physiology",
+        "question": "Which blood type is known as the universal donor?",
+        "options": {
+            "A": "Type A",
+            "B": "Type B",
+            "C": "Type AB",
+            "D": "Type O"
+        },
+        "correct_option": "D",
+        "explanation": "Type O blood is considered the universal donor because it lacks A and B antigens, reducing the risk of immune reactions.",
+        "image": ""
     },
-    "correct_option": "D",
-    "explanation": "Type O blood is considered the universal donor because it lacks A and B antigens, reducing the risk of immune reactions.",
-    "image": ""
-  },
-  {
-    "subject": "Biology",
-    "chapter": "Genetics and Evolution",
-    "question": "Which process results in the formation of gametes?",
-    "options": {
-      "A": "Mitosis",
-      "B": "Meiosis",
-      "C": "Fertilization",
-      "D": "Binary fission"
+    {
+        "subject": "Biology",
+        "chapter": "Genetics and Evolution",
+        "question": "Which process results in the formation of gametes?",
+        "options": {
+            "A": "Mitosis",
+            "B": "Meiosis",
+            "C": "Fertilization",
+            "D": "Binary fission"
+        },
+        "correct_option": "B",
+        "explanation": "Meiosis is the cell division process that produces gametes (sperm and egg cells) with half the number of chromosomes.",
+        "image": ""
     },
-    "correct_option": "B",
-    "explanation": "Meiosis is the cell division process that produces gametes (sperm and egg cells) with half the number of chromosomes.",
-    "image": ""
-  },
-  {
-    "subject": "Biology",
-    "chapter": "Human Physiology",
-    "question": "Which vitamin is synthesized by the human body when exposed to sunlight?",
-    "options": {
-      "A": "Vitamin A",
-      "B": "Vitamin B12",
-      "C": "Vitamin C",
-      "D": "Vitamin D"
+    {
+        "subject": "Biology",
+        "chapter": "Human Physiology",
+        "question": "Which vitamin is synthesized by the human body when exposed to sunlight?",
+        "options": {
+            "A": "Vitamin A",
+            "B": "Vitamin B12",
+            "C": "Vitamin C",
+            "D": "Vitamin D"
+        },
+        "correct_option": "D",
+        "explanation": "Vitamin D is synthesized in the skin upon exposure to ultraviolet (UV) rays from sunlight.",
+        "image": ""
     },
-    "correct_option": "D",
-    "explanation": "Vitamin D is synthesized in the skin upon exposure to ultraviolet (UV) rays from sunlight.",
-    "image": ""
-  },
-  {
-    "subject": "Biology",
-    "chapter": "Cell - The Unit of Life",
-    "question": "What is the primary function of the large intestine?",
-    "options": {
-      "A": "Nutrient absorption",
-      "B": "Water absorption",
-      "C": "Protein digestion",
-      "D": "Fat emulsification"
+    {
+        "subject": "Biology",
+        "chapter": "Cell - The Unit of Life",
+        "question": "What is the primary function of the large intestine?",
+        "options": {
+            "A": "Nutrient absorption",
+            "B": "Water absorption",
+            "C": "Protein digestion",
+            "D": "Fat emulsification"
+        },
+        "correct_option": "B",
+        "explanation": "The large intestine primarily absorbs water from indigestible food matter, forming solid waste (feces).",
+        "image": ""
     },
-    "correct_option": "B",
-    "explanation": "The large intestine primarily absorbs water from indigestible food matter, forming solid waste (feces).",
-    "image": ""
-  },
-  {
-    "subject": "Biology",
-    "chapter": "Structural Organisation in Animals",
-    "question": "Which of the following is a vestigial organ in humans?",
-    "options": {
-      "A": "Liver",
-      "B": "Appendix",
-      "C": "Heart",
-      "D": "Kidney"
+    {
+        "subject": "Biology",
+        "chapter": "Structural Organisation in Animals",
+        "question": "Which of the following is a vestigial organ in humans?",
+        "options": {
+            "A": "Liver",
+            "B": "Appendix",
+            "C": "Heart",
+            "D": "Kidney"
+        },
+        "correct_option": "B",
+        "explanation": "The appendix is considered a vestigial organ in humans, having lost most of its original function through evolution.",
+        "image": ""
     },
-    "correct_option": "B",
-    "explanation": "The appendix is considered a vestigial organ in humans, having lost most of its original function through evolution.",
-    "image": ""
-  },
-  {
-    "subject": "Biology",
-    "chapter": "Plant Physiology",
-    "question": "What is the term for the symbiotic relationship between fungi and plant roots?",
-    "options": {
-      "A": "Lichen",
-      "B": "Mycorrhiza",
-      "C": "Rhizobium",
-      "D": "Epiphyte"
+    {
+        "subject": "Biology",
+        "chapter": "Plant Physiology",
+        "question": "What is the term for the symbiotic relationship between fungi and plant roots?",
+        "options": {
+            "A": "Lichen",
+            "B": "Mycorrhiza",
+            "C": "Rhizobium",
+            "D": "Epiphyte"
+        },
+        "correct_option": "B",
+        "explanation": "Mycorrhiza refers to the mutualistic association between fungi and plant roots, enhancing nutrient uptake.",
+        "image": ""
     },
-    "correct_option": "B",
-    "explanation": "Mycorrhiza refers to the mutualistic association between fungi and plant roots, enhancing nutrient uptake.",
-    "image": ""
-  },
-  {
-    "subject": "Biology",
-    "chapter": "Human Physiology",
-    "question": "What is the main function of hemoglobin in the blood?",
-    "options": {
-      "A": "Digesting proteins",
-      "B": "Transporting oxygen",
-      "C": "Clotting blood",
-      "D": "Fighting infections"
+    {
+        "subject": "Biology",
+        "chapter": "Human Physiology",
+        "question": "What is the main function of hemoglobin in the blood?",
+        "options": {
+            "A": "Digesting proteins",
+            "B": "Transporting oxygen",
+            "C": "Clotting blood",
+            "D": "Fighting infections"
+        },
+        "correct_option": "B",
+        "explanation": "Hemoglobin in red blood cells binds to oxygen in the lungs and transports it to tissues throughout the body.",
+        "image": ""
     },
-    "correct_option": "B",
-    "explanation": "Hemoglobin in red blood cells binds to oxygen in the lungs and transports it to tissues throughout the body.",
-    "image": ""
-  }, 
-  {
-    "subject": "Physics",
-    "chapter": "Gravitation",
-    "question": "What is the acceleration due to gravity on Earth?",
-    "options": {
-      "A": "9.8 m/s²",
-      "B": "8.9 m/s²",
-      "C": "10.2 m/s²",
-      "D": "9.2 m/s²"
+    {
+        "subject": "Physics",
+        "chapter": "Gravitation",
+        "question": "What is the acceleration due to gravity on Earth?",
+        "options": {
+            "A": "9.8 m/s²",
+            "B": "8.9 m/s²",
+            "C": "10.2 m/s²",
+            "D": "9.2 m/s²"
+        },
+        "correct_option": "A",
+        "explanation": "The standard acceleration due to gravity on Earth is 9.8 m/s².",
+        "image": ""
     },
-    "correct_option": "A",
-    "explanation": "The standard acceleration due to gravity on Earth is 9.8 m/s².",
-    "image": ""
-  },
-  {
-    "subject": "Physics",
-    "chapter": "Work, Energy and Power",
-    "question": "Which physical quantity is measured in Joules?",
-    "options": {
-      "A": "Force",
-      "B": "Power",
-      "C": "Energy",
-      "D": "Velocity"
+    {
+        "subject": "Physics",
+        "chapter": "Work, Energy and Power",
+        "question": "Which physical quantity is measured in Joules?",
+        "options": {
+            "A": "Force",
+            "B": "Power",
+            "C": "Energy",
+            "D": "Velocity"
+        },
+        "correct_option": "C",
+        "explanation": "Energy is measured in Joules (J) in the SI system.",
+        "image": ""
     },
-    "correct_option": "C",
-    "explanation": "Energy is measured in Joules (J) in the SI system.",
-    "image": ""
-  },
-  {
-    "subject": "Physics",
-    "chapter": "Thermodynamics",
-    "question": "Which law states that energy can neither be created nor destroyed?",
-    "options": {
-      "A": "First Law of Thermodynamics",
-      "B": "Zeroth Law of Thermodynamics",
-      "C": "Second Law of Thermodynamics",
-      "D": "Law of Conservation of Momentum"
+    {
+        "subject": "Physics",
+        "chapter": "Thermodynamics",
+        "question": "Which law states that energy can neither be created nor destroyed?",
+        "options": {
+            "A": "First Law of Thermodynamics",
+            "B": "Zeroth Law of Thermodynamics",
+            "C": "Second Law of Thermodynamics",
+            "D": "Law of Conservation of Momentum"
+        },
+        "correct_option": "A",
+        "explanation": "The First Law of Thermodynamics is a version of the law of conservation of energy for thermodynamic systems.",
+        "image": ""
     },
-    "correct_option": "A",
-    "explanation": "The First Law of Thermodynamics is a version of the law of conservation of energy for thermodynamic systems.",
-    "image": ""
-  },
-  {
-    "subject": "Physics",
-    "chapter": "Optics",
-    "question": "Which mirror always forms a virtual, erect, and diminished image?",
-    "options": {
-      "A": "Concave mirror",
-      "B": "Convex mirror",
-      "C": "Plane mirror",
-      "D": "None"
+    {
+        "subject": "Physics",
+        "chapter": "Optics",
+        "question": "Which mirror always forms a virtual, erect, and diminished image?",
+        "options": {
+            "A": "Concave mirror",
+            "B": "Convex mirror",
+            "C": "Plane mirror",
+            "D": "None"
+        },
+        "correct_option": "B",
+        "explanation": "Convex mirrors always produce virtual, erect, and diminished images regardless of the object's position.",
+        "image": ""
     },
-    "correct_option": "B",
-    "explanation": "Convex mirrors always produce virtual, erect, and diminished images regardless of the object's position.",
-    "image": ""
-  },
-  {
-    "subject": "Physics",
-    "chapter": "Waves",
-    "question": "What is the unit of frequency?",
-    "options": {
-      "A": "Hertz",
-      "B": "Newton",
-      "C": "Joule",
-      "D": "Decibel"
+    {
+        "subject": "Physics",
+        "chapter": "Waves",
+        "question": "What is the unit of frequency?",
+        "options": {
+            "A": "Hertz",
+            "B": "Newton",
+            "C": "Joule",
+            "D": "Decibel"
+        },
+        "correct_option": "A",
+        "explanation": "Frequency is measured in Hertz (Hz), which is equivalent to one cycle per second.",
+        "image": ""
     },
-    "correct_option": "A",
-    "explanation": "Frequency is measured in Hertz (Hz), which is equivalent to one cycle per second.",
-    "image": ""
-  },
-  {
-    "subject": "Physics",
-    "chapter": "Current Electricity",
-    "question": "Ohm’s Law states that current is directly proportional to:",
-    "options": {
-      "A": "Voltage",
-      "B": "Power",
-      "C": "Resistance",
-      "D": "Energy"
+    {
+        "subject": "Physics",
+        "chapter": "Current Electricity",
+        "question": "Ohm’s Law states that current is directly proportional to:",
+        "options": {
+            "A": "Voltage",
+            "B": "Power",
+            "C": "Resistance",
+            "D": "Energy"
+        },
+        "correct_option": "A",
+        "explanation": "Ohm’s Law: V = IR, which shows that current (I) is directly proportional to voltage (V).",
+        "image": ""
     },
-    "correct_option": "A",
-    "explanation": "Ohm’s Law: V = IR, which shows that current (I) is directly proportional to voltage (V).",
-    "image": ""
-  },
-  {
-    "subject": "Physics",
-    "chapter": "Electromagnetic Induction",
-    "question": "Who discovered electromagnetic induction?",
-    "options": {
-      "A": "Ampere",
-      "B": "Faraday",
-      "C": "Maxwell",
-      "D": "Ohm"
+    {
+        "subject": "Physics",
+        "chapter": "Electromagnetic Induction",
+        "question": "Who discovered electromagnetic induction?",
+        "options": {
+            "A": "Ampere",
+            "B": "Faraday",
+            "C": "Maxwell",
+            "D": "Ohm"
+        },
+        "correct_option": "B",
+        "explanation": "Michael Faraday discovered electromagnetic induction in 1831.",
+        "image": ""
     },
-    "correct_option": "B",
-    "explanation": "Michael Faraday discovered electromagnetic induction in 1831.",
-    "image": ""
-  },
-  {
-    "subject": "Physics",
-    "chapter": "Modern Physics",
-    "question": "Which particle has no charge?",
-    "options": {
-      "A": "Proton",
-      "B": "Neutron",
-      "C": "Electron",
-      "D": "Positron"
+    {
+        "subject": "Physics",
+        "chapter": "Modern Physics",
+        "question": "Which particle has no charge?",
+        "options": {
+            "A": "Proton",
+            "B": "Neutron",
+            "C": "Electron",
+            "D": "Positron"
+        },
+        "correct_option": "B",
+        "explanation": "Neutrons are electrically neutral particles found in the nucleus of atoms.",
+        "image": ""
     },
-    "correct_option": "B",
-    "explanation": "Neutrons are electrically neutral particles found in the nucleus of atoms.",
-    "image": ""
-  },
-  {
-    "subject": "Physics",
-    "chapter": "Electrostatics",
-    "question": "Coulomb's law is applicable to:",
-    "options": {
-      "A": "Current carrying wires",
-      "B": "Stationary point charges",
-      "C": "Moving charges",
-      "D": "Charged capacitors"
+    {
+        "subject": "Physics",
+        "chapter": "Electrostatics",
+        "question": "Coulomb's law is applicable to:",
+        "options": {
+            "A": "Current carrying wires",
+            "B": "Stationary point charges",
+            "C": "Moving charges",
+            "D": "Charged capacitors"
+        },
+        "correct_option": "B",
+        "explanation": "Coulomb's law applies to the electrostatic force between two stationary point charges.",
+        "image": ""
     },
-    "correct_option": "B",
-    "explanation": "Coulomb's law applies to the electrostatic force between two stationary point charges.",
-    "image": ""
-  },
-  {
-    "subject": "Physics",
-    "chapter": "Kinetic Theory of Gases",
-    "question": "The pressure of an ideal gas is due to:",
-    "options": {
-      "A": "Collision of atoms with each other",
-      "B": "Collision of atoms with the container walls",
-      "C": "Temperature of gas",
-      "D": "Volume of gas"
+    {
+        "subject": "Physics",
+        "chapter": "Kinetic Theory of Gases",
+        "question": "The pressure of an ideal gas is due to:",
+        "options": {
+            "A": "Collision of atoms with each other",
+            "B": "Collision of atoms with the container walls",
+            "C": "Temperature of gas",
+            "D": "Volume of gas"
+        },
+        "correct_option": "B",
+        "explanation": "In kinetic theory, pressure arises from molecules colliding with the container walls.",
+        "image": ""
     },
-    "correct_option": "B",
-    "explanation": "In kinetic theory, pressure arises from molecules colliding with the container walls.",
-    "image": ""
-  },
-  {
-    "subject": "Chemistry",
-    "chapter": "Some Basic Concepts of Chemistry",
-    "question": "Which of the following is the SI unit of amount of substance?",
-    "options": {
-      "A": "Kilogram",
-      "B": "Mole",
-      "C": "Liter",
-      "D": "Gram"
+    {
+        "subject": "Chemistry",
+        "chapter": "Some Basic Concepts of Chemistry",
+        "question": "Which of the following is the SI unit of amount of substance?",
+        "options": {
+            "A": "Kilogram",
+            "B": "Mole",
+            "C": "Liter",
+            "D": "Gram"
+        },
+        "correct_option": "B",
+        "explanation": "The SI unit of the amount of substance is the mole.",
+        "image": ""
     },
-    "correct_option": "B",
-    "explanation": "The SI unit of the amount of substance is the mole.",
-    "image": ""
-  },
-  {
-    "subject": "Chemistry",
-    "chapter": "Structure of Atom",
-    "question": "Which of the following particles has the least mass?",
-    "options": {
-      "A": "Neutron",
-      "B": "Proton",
-      "C": "Electron",
-      "D": "Alpha particle"
+    {
+        "subject": "Chemistry",
+        "chapter": "Structure of Atom",
+        "question": "Which of the following particles has the least mass?",
+        "options": {
+            "A": "Neutron",
+            "B": "Proton",
+            "C": "Electron",
+            "D": "Alpha particle"
+        },
+        "correct_option": "C",
+        "explanation": "Electron has the least mass among the subatomic particles listed.",
+        "image": ""
     },
-    "correct_option": "C",
-    "explanation": "Electron has the least mass among the subatomic particles listed.",
-    "image": ""
-  },
-  {
-    "subject": "Chemistry",
-    "chapter": "Periodic Table",
-    "question": "What is the period number of an element with the electronic configuration 2, 8, 4?",
-    "options": {
-      "A": "2",
-      "B": "3",
-      "C": "4",
-      "D": "5"
+    {
+        "subject": "Chemistry",
+        "chapter": "Periodic Table",
+        "question": "What is the period number of an element with the electronic configuration 2, 8, 4?",
+        "options": {
+            "A": "2",
+            "B": "3",
+            "C": "4",
+            "D": "5"
+        },
+        "correct_option": "B",
+        "explanation": "The number of shells determines the period, so 2, 8, 4 means 3 shells → Period 3.",
+        "image": ""
     },
-    "correct_option": "B",
-    "explanation": "The number of shells determines the period, so 2, 8, 4 means 3 shells → Period 3.",
-    "image": ""
-  },
-  {
-    "subject": "Chemistry",
-    "chapter": "Chemical Bonding",
-    "question": "Which of the following is a polar covalent molecule?",
-    "options": {
-      "A": "O2",
-      "B": "H2",
-      "C": "HCl",
-      "D": "Cl2"
+    {
+        "subject": "Chemistry",
+        "chapter": "Chemical Bonding",
+        "question": "Which of the following is a polar covalent molecule?",
+        "options": {
+            "A": "O2",
+            "B": "H2",
+            "C": "HCl",
+            "D": "Cl2"
+        },
+        "correct_option": "C",
+        "explanation": "HCl has a difference in electronegativity between H and Cl, making it polar.",
+        "image": ""
     },
-    "correct_option": "C",
-    "explanation": "HCl has a difference in electronegativity between H and Cl, making it polar.",
-    "image": ""
-  },
-  {
-    "subject": "Chemistry",
-    "chapter": "States of Matter",
-    "question": "Which of the following gases will diffuse the fastest?",
-    "options": {
-      "A": "Cl2",
-      "B": "O2",
-      "C": "H2",
-      "D": "CO2"
+    {
+        "subject": "Chemistry",
+        "chapter": "States of Matter",
+        "question": "Which of the following gases will diffuse the fastest?",
+        "options": {
+            "A": "Cl2",
+            "B": "O2",
+            "C": "H2",
+            "D": "CO2"
+        },
+        "correct_option": "C",
+        "explanation": "According to Graham’s law, lighter gases diffuse faster. H2 is the lightest.",
+        "image": ""
     },
-    "correct_option": "C",
-    "explanation": "According to Graham’s law, lighter gases diffuse faster. H2 is the lightest.",
-    "image": ""
-  },
-  {
-    "subject": "Chemistry",
-    "chapter": "Thermodynamics",
-    "question": "Which of the following quantities is a state function?",
-    "options": {
-      "A": "Work",
-      "B": "Heat",
-      "C": "Internal Energy",
-      "D": "Path"
+    {
+        "subject": "Chemistry",
+        "chapter": "Thermodynamics",
+        "question": "Which of the following quantities is a state function?",
+        "options": {
+            "A": "Work",
+            "B": "Heat",
+            "C": "Internal Energy",
+            "D": "Path"
+        },
+        "correct_option": "C",
+        "explanation": "Internal energy depends only on the state of the system, not the path.",
+        "image": ""
     },
-    "correct_option": "C",
-    "explanation": "Internal energy depends only on the state of the system, not the path.",
-    "image": ""
-  },
-  {
-    "subject": "Chemistry",
-    "chapter": "Equilibrium",
-    "question": "At equilibrium:",
-    "options": {
-      "A": "Forward reaction stops",
-      "B": "Backward reaction stops",
-      "C": "Rates of forward and backward reactions are equal",
-      "D": "Concentrations of reactants and products are equal"
+    {
+        "subject": "Chemistry",
+        "chapter": "Equilibrium",
+        "question": "At equilibrium:",
+        "options": {
+            "A": "Forward reaction stops",
+            "B": "Backward reaction stops",
+            "C": "Rates of forward and backward reactions are equal",
+            "D": "Concentrations of reactants and products are equal"
+        },
+        "correct_option": "C",
+        "explanation": "At equilibrium, the rate of the forward and backward reactions become equal.",
+        "image": ""
     },
-    "correct_option": "C",
-    "explanation": "At equilibrium, the rate of the forward and backward reactions become equal.",
-    "image": ""
-  },
-  {
-    "subject": "Chemistry",
-    "chapter": "Redox Reactions",
-    "question": "Oxidation involves:",
-    "options": {
-      "A": "Gain of electrons",
-      "B": "Loss of electrons",
-      "C": "Gain of protons",
-      "D": "Loss of neutrons"
+    {
+        "subject": "Chemistry",
+        "chapter": "Redox Reactions",
+        "question": "Oxidation involves:",
+        "options": {
+            "A": "Gain of electrons",
+            "B": "Loss of electrons",
+            "C": "Gain of protons",
+            "D": "Loss of neutrons"
+        },
+        "correct_option": "B",
+        "explanation": "Oxidation is defined as the loss of electrons.",
+        "image": ""
     },
-    "correct_option": "B",
-    "explanation": "Oxidation is defined as the loss of electrons.",
-    "image": ""
-  },
-  {
-    "subject": "Chemistry",
-    "chapter": "Hydrogen",
-    "question": "Which of the following is used in the manufacture of margarine?",
-    "options": {
-      "A": "Hydrogen",
-      "B": "Oxygen",
-      "C": "Nitrogen",
-      "D": "Helium"
+    {
+        "subject": "Chemistry",
+        "chapter": "Hydrogen",
+        "question": "Which of the following is used in the manufacture of margarine?",
+        "options": {
+            "A": "Hydrogen",
+            "B": "Oxygen",
+            "C": "Nitrogen",
+            "D": "Helium"
+        },
+        "correct_option": "A",
+        "explanation": "Hydrogen is used in the hydrogenation of oils to make margarine.",
+        "image": ""
     },
-    "correct_option": "A",
-    "explanation": "Hydrogen is used in the hydrogenation of oils to make margarine.",
-    "image": ""
-  },
-  {
-    "subject": "Chemistry",
-    "chapter": "The s-Block Element",
-    "question": "Which alkali metal is the most reactive?",
-    "options": {
-      "A": "Sodium",
-      "B": "Potassium",
-      "C": "Cesium",
-      "D": "Lithium"
+    {
+        "subject": "Chemistry",
+        "chapter": "The s-Block Element",
+        "question": "Which alkali metal is the most reactive?",
+        "options": {
+            "A": "Sodium",
+            "B": "Potassium",
+            "C": "Cesium",
+            "D": "Lithium"
+        },
+        "correct_option": "C",
+        "explanation": "Reactivity increases down the group. Cesium is more reactive than others listed.",
+        "image": ""
     },
-    "correct_option": "C",
-    "explanation": "Reactivity increases down the group. Cesium is more reactive than others listed.",
-    "image": ""
-  },
-  {
-    "subject": "Chemistry",
-    "chapter": "Organic Chemistry - Basics",
-    "question": "IUPAC name of CH3CH2OH is:",
-    "options": {
-      "A": "Ethyl alcohol",
-      "B": "Ethanol",
-      "C": "Ethene",
-      "D": "Methanol"
+    {
+        "subject": "Chemistry",
+        "chapter": "Organic Chemistry - Basics",
+        "question": "IUPAC name of CH3CH2OH is:",
+        "options": {
+            "A": "Ethyl alcohol",
+            "B": "Ethanol",
+            "C": "Ethene",
+            "D": "Methanol"
+        },
+        "correct_option": "B",
+        "explanation": "According to IUPAC, CH3CH2OH is named as Ethanol.",
+        "image": ""
     },
-    "correct_option": "B",
-    "explanation": "According to IUPAC, CH3CH2OH is named as Ethanol.",
-    "image": ""
-  },
-  {
-    "subject": "biology",
-    "chapter": "biomolecules",
-    "question": "A non-proteinaceous enzyme is",
-    "options": {
-      "A": "Iysozyme",
-      "B": "ribozyme",
-      "C": "ligase",
-      "D": "deoxyribonuclease"
+    {
+        "subject": "biology",
+        "chapter": "biomolecules",
+        "question": "A non-proteinaceous enzyme is",
+        "options": {
+            "A": "Iysozyme",
+            "B": "ribozyme",
+            "C": "ligase",
+            "D": "deoxyribonuclease"
+        },
+        "correct_option": "B",
+        "explanation": "A ribozyme is a ribonucleic acid (RNA) enzyme that catalyses a chemical reaction in a similar way to that of a protein enzyme. These are found in ribosomes and are also called catalytic RNAs.",
+        "image": ""
     },
-    "correct_option": "B",
-    "explanation": "A ribozyme is a ribonucleic acid (RNA) enzyme that catalyses a chemical reaction in a similar way to that of a protein enzyme. These are found in ribosomes and are also called catalytic RNAs.",
-    "image": ""
-  },
-  {
-    "subject": "chemistry",
-    "chapter": "ionic-equilibrum",
-    "question": "Which of these is least likely to act as a lewis base ?",
-    "options": {
-      "A": "BF3",
-      "B": "PF3",
-      "C": "CO",
-      "D": "F$$-$$"
+    {
+        "subject": "chemistry",
+        "chapter": "ionic-equilibrum",
+        "question": "Which of these is least likely to act as a lewis base ?",
+        "options": {
+            "A": "BF3",
+            "B": "PF3",
+            "C": "CO",
+            "D": "F$$-$$"
+        },
+        "correct_option": "A",
+        "explanation": "BF3 acts as Lewis acid. It is electron pair acceptor.",
+        "image": ""
     },
-    "correct_option": "A",
-    "explanation": "BF3 acts as Lewis acid. It is electron pair acceptor.",
-    "image": ""
-  },
-  {
-    "subject": "biology",
-    "chapter": "body-fluids-and-its-circulation",
-    "question": "Name the blood cells, whose reduction in number can cause clotting disorder, leading to excessive loss of blood from the body.",
-    "options": {
-      "A": "Erythrocytes",
-      "B": "Leucocytes",
-      "C": "Neutrophils",
-      "D": "Thrombocytes"
+    {
+        "subject": "biology",
+        "chapter": "body-fluids-and-its-circulation",
+        "question": "Name the blood cells, whose reduction in number can cause clotting disorder, leading to excessive loss of blood from the body.",
+        "options": {
+            "A": "Erythrocytes",
+            "B": "Leucocytes",
+            "C": "Neutrophils",
+            "D": "Thrombocytes"
+        },
+        "correct_option": "D",
+        "explanation": "Thrombocytes are called blood platelets. They play an important role in blood clotting and release chemicals which lead to the formation of a plug at the site of damage, thus preventing blood loss.",
+        "image": ""
     },
-    "correct_option": "D",
-    "explanation": "Thrombocytes are called blood platelets. They play an important role in blood clotting and release chemicals which lead to the formation of a plug at the site of damage, thus preventing blood loss.",
-    "image": ""
-  },
-  {
-    "subject": "chemistry",
-    "chapter": "ionic-equilibrum",
-    "question": "Which of the following fluro-compounds is most likely to behave as a Lewis base ?",
-    "options": {
-      "A": "BF3",
-      "B": "PF3",
-      "C": "CF4",
-      "D": "SiF4"
+    {
+        "subject": "chemistry",
+        "chapter": "ionic-equilibrum",
+        "question": "Which of the following fluro-compounds is most likely to behave as a Lewis base ?",
+        "options": {
+            "A": "BF3",
+            "B": "PF3",
+            "C": "CF4",
+            "D": "SiF4"
+        },
+        "correct_option": "B",
+        "explanation": "PF3 is a Lewis base because it has a lone pair on the phosphorus atom.",
+        "image": ""
     },
-    "correct_option": "B",
-    "explanation": "PF3 is a Lewis base because it has a lone pair on the phosphorus atom.",
-    "image": ""
-  },
-  {
-    "subject": "biology",
-    "chapter": "body-fluids-and-its-circulation",
-    "question": "Erythropoiesis starts in",
-    "options": {
-      "A": "spleen",
-      "B": "red bone marrow",
-      "C": "kidney",
-      "D": "liver"
+    {
+        "subject": "biology",
+        "chapter": "body-fluids-and-its-circulation",
+        "question": "Erythropoiesis starts in",
+        "options": {
+            "A": "spleen",
+            "B": "red bone marrow",
+            "C": "kidney",
+            "D": "liver"
+        },
+        "correct_option": "B",
+        "explanation": "Red bone marrow becomes the principal site of erythropoiesis from 6 months onwards in fetal development.",
+        "image": ""
     },
-    "correct_option": "B",
-    "explanation": "Red bone marrow becomes the principal site of erythropoiesis from 6 months onwards in fetal development.",
-    "image": ""
-  },
-  {
-    "subject": "biology",
-    "chapter": "reproductive-health",
-    "question": "Embryo with more than 16 blastgomeres formed due to in vitro fertilization is transferred into",
-    "options": {
-      "A": "fimbriae",
-      "B": "cervix",
-      "C": "uterus",
-      "D": "fallopian tube"
+    {
+        "subject": "biology",
+        "chapter": "reproductive-health",
+        "question": "Embryo with more than 16 blastgomeres formed due to in vitro fertilization is transferred into",
+        "options": {
+            "A": "fimbriae",
+            "B": "cervix",
+            "C": "uterus",
+            "D": "fallopian tube"
+        },
+        "correct_option": "C",
+        "explanation": "Embryo with more than 16 blastomeres is transferred into the uterus (intra-uterine transfer, IUT).",
+        "image": ""
     },
-    "correct_option": "C",
-    "explanation": "Embryo with more than 16 blastomeres is transferred into the uterus (intra-uterine transfer, IUT).",
-    "image": ""
-  },
-  {
-    "subject": "biology",
-    "chapter": "biodiversity-and-conservation",
-    "question": "The region of Biosphere Reserve which is legally protected and where no human activity is allowed is known as :",
-    "options": {
-      "A": "Transition zone",
-      "B": "Restoration zone",
-      "C": "Buffer zone",
-      "D": "Core zone"
+    {
+        "subject": "biology",
+        "chapter": "biodiversity-and-conservation",
+        "question": "The region of Biosphere Reserve which is legally protected and where no human activity is allowed is known as :",
+        "options": {
+            "A": "Transition zone",
+            "B": "Restoration zone",
+            "C": "Buffer zone",
+            "D": "Core zone"
+        },
+        "correct_option": "D",
+        "explanation": "Core zone of a biosphere reserve is an undisturbed and legally protected ecosystem where no human activity is permitted.",
+        "image": ""
     },
-    "correct_option": "D",
-    "explanation": "Core zone of a biosphere reserve is an undisturbed and legally protected ecosystem where no human activity is permitted.",
-    "image": ""
-  },
-  {
-    "subject": "biology",
-    "chapter": "sexual-reproduction-in-flowering-plants",
-    "question": "Which one of the following may require pollinators, but is genetically similar to autogamy?",
-    "options": {
-      "A": "Apogamy",
-      "B": "Cleistogamy",
-      "C": "Geitonogamy",
-      "D": "Xenogamy"
+    {
+        "subject": "biology",
+        "chapter": "sexual-reproduction-in-flowering-plants",
+        "question": "Which one of the following may require pollinators, but is genetically similar to autogamy?",
+        "options": {
+            "A": "Apogamy",
+            "B": "Cleistogamy",
+            "C": "Geitonogamy",
+            "D": "Xenogamy"
+        },
+        "correct_option": "C",
+        "explanation": "Geitonogamy involves pollen transfer between different flowers of the same plant, hence genetically similar to autogamy.",
+        "image": ""
     },
-    "correct_option": "C",
-    "explanation": "Geitonogamy involves pollen transfer between different flowers of the same plant, hence genetically similar to autogamy.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "semiconductor-electronics",
-    "question": "For a p-type semiconductor, which of the following statements is true?",
-    "options": {
-      "A": "Holes are the majority carriers and trivalent atoms are the dopants.",
-      "B": "Holes are the majority carriers and pentavalent atoms are the dopants.",
-      "C": "Electrons are the majority carriers and pentavalent atoms are the dopants",
-      "D": "Electrons are the majority carriers and trivalent atoms are the dopants."
+    {
+        "subject": "physics",
+        "chapter": "semiconductor-electronics",
+        "question": "For a p-type semiconductor, which of the following statements is true?",
+        "options": {
+            "A": "Holes are the majority carriers and trivalent atoms are the dopants.",
+            "B": "Holes are the majority carriers and pentavalent atoms are the dopants.",
+            "C": "Electrons are the majority carriers and pentavalent atoms are the dopants",
+            "D": "Electrons are the majority carriers and trivalent atoms are the dopants."
+        },
+        "correct_option": "A",
+        "explanation": "In p-type semiconductor, an intrinsic semiconductor is doped with trivalent impurities, that creates deficiencies of valence electrons called holes which are majority charge carriers.",
+        "image": ""
     },
-    "correct_option": "A",
-    "explanation": "In p-type semiconductor, an intrinsic semiconductor is doped with trivalent impurities, that creates deficiencies of valence electrons called holes which are majority charge carriers.",
-    "image": ""
-  },
-  {
-    "subject": "biology",
-    "chapter": "chemical-coordination-and-integration",
-    "question": "A chemical signal that has both endocrine and neural roles is",
-    "options": {
-      "A": "epinephrine",
-      "B": "cortisol",
-      "C": "melatonin",
-      "D": "calcitonin."
+    {
+        "subject": "biology",
+        "chapter": "chemical-coordination-and-integration",
+        "question": "A chemical signal that has both endocrine and neural roles is",
+        "options": {
+            "A": "epinephrine",
+            "B": "cortisol",
+            "C": "melatonin",
+            "D": "calcitonin."
+        },
+        "correct_option": "A",
+        "explanation": "Epinephrine has two roles as a hormone and as a neurotransmitter.",
+        "image": ""
     },
-    "correct_option": "A",
-    "explanation": "Epinephrine has two roles as a hormone and as a neurotransmitter.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "gravitation",
-    "question": "The kinetic energies of a planet in an elliptical orbit about the Sun, at positions A, B and C are KA, KB and KC, respectively. AC is the major axis and SB is perpendicular to AC at the position of the Sun S as shown in the figure.",
-    "options": {
-      "A": "KA < KB < KC",
-      "B": "KA > KB > KC",
-      "C": "KB < KA < KC",
-      "D": "KB > KA > KC"
+    {
+        "subject": "physics",
+        "chapter": "gravitation",
+        "question": "The kinetic energies of a planet in an elliptical orbit about the Sun, at positions A, B and C are KA, KB and KC, respectively. AC is the major axis and SB is perpendicular to AC at the position of the Sun S as shown in the figure.",
+        "options": {
+            "A": "KA < KB < KC",
+            "B": "KA > KB > KC",
+            "C": "KB < KA < KC",
+            "D": "KB > KA > KC"
+        },
+        "correct_option": "B",
+        "explanation": "Speed of the planet will be maximum when its distance from the sun is minimum as mvr = constant.",
+        "image": "https://neetcare-image.cdn.examgoal.net/1qpqahkka42m8vz/026398ad-536b-4002-bc25-78353ce615cf/5da120f0-9465-11ea-aedc-f1c8d8e0194b/file-1qpqahkka42m8w0-333w.png"
     },
-    "correct_option": "B",
-    "explanation": "Speed of the planet will be maximum when its distance from the sun is minimum as mvr = constant.",
-    "image": "https://neetcare-image.cdn.examgoal.net/1qpqahkka42m8vz/026398ad-536b-4002-bc25-78353ce615cf/5da120f0-9465-11ea-aedc-f1c8d8e0194b/file-1qpqahkka42m8w0-333w.png"
-  },
-  {
-    "subject": "biology",
-    "chapter": "morphology-of-flowering-plants",
-    "question": "Which of the following statement is not correct?",
-    "options": {
-      "A": "The rhizome is thick, prostrate and branched",
-      "B": "Rhizome is a condensed form of stem",
-      "C": "The apical bud in rhizome always remains above the ground",
-      "D": "The rhizome is aerial with no distinct nodes and internodes"
+    {
+        "subject": "biology",
+        "chapter": "morphology-of-flowering-plants",
+        "question": "Which of the following statement is not correct?",
+        "options": {
+            "A": "The rhizome is thick, prostrate and branched",
+            "B": "Rhizome is a condensed form of stem",
+            "C": "The apical bud in rhizome always remains above the ground",
+            "D": "The rhizome is aerial with no distinct nodes and internodes"
+        },
+        "correct_option": "D",
+        "explanation": "Rhizome is an underground (sub-aerial) stem. It bears distinct nodes and internodes.",
+        "image": ""
     },
-    "correct_option": "D",
-    "explanation": "Rhizome is an underground (sub-aerial) stem. It bears distinct nodes and internodes.",
-    "image": ""
-  },
-  {
-    "subject": "biology",
-    "chapter": "biomolecules",
-    "question": "The major role of minor elements inside living organisms is to act as",
-    "options": [
-      "co-factors of enzymes",
-      "building blocks of important amino acids",
-      "constituent of hormones",
-      "binder of cell structure."
-    ],
-    "correct_option": "A",
-    "explanation": "Minor elements are those which are required by plants in very small amounts. These elements have a significant role in enzyme activities (zinc activates carboxylases, carbonic anhydrase and various dehydrogenases)."
-  },
-  {
-    "subject": "biology",
-    "chapter": "locomotion-and-movement",
-    "question": "The H-zone in the skeletal muscle fibre is due to",
-    "options": [
-      "the central gap between actin filaments extending through myosin filaments in the A-bond",
-      "extension of myosin filaments in the central portion of the A-band",
-      "the absence of myofibrils in the central portion of A-band",
-      "the central gap between myosin filaments in the A-band."
-    ],
-    "correct_option": "A",
-    "explanation": "Central part of thick filament, not overlapped by thin filaments is called the ‘H’ zone. ‘H’ zone is also called Hensen’s Line."
-  },
-  {
-    "subject": "biology",
-    "chapter": "principles-of-inheritance-and-variation",
-    "question": "Among the following characters, which one was not considered by Mendel in his experiments on pea?",
-    "options": [
-      "Stem-Tall or dwarf",
-      "Pod-Inflated or constricted",
-      "Trichomes-Glandular or non-glandular",
-      "Seed-Green or yellow"
-    ],
-    "correct_option": "C",
-    "explanation": "During his experiments Mendel have taken seven characters in a pea plant. In which nature of trichomes i.e., glandular or non-glandular was not considered by Mendel."
-  },
-  {
-    "subject": "biology",
-    "chapter": "plant-kingdom",
-    "question": "Select the correct statement",
-    "options": [
-      "*Sequoia* is one of the tallest trees.",
-      "The leaves of gymnosperms are not well adapted to extremes of climate.",
-      "Gymnosperms are both homosporous and heteroporous.",
-      "*Salvinia, Ginkgo* and *Pinus* all are gymnosperms."
-    ],
-    "correct_option": "A",
-    "explanation": "Sequoia semepervirans is one of the tallest trees."
-  },
-  {
-    "subject": "biology",
-    "chapter": "cell-the-unit-of-life",
-    "question": "Which type of substance would face difficulty to pass through the cell membrane?",
-    "options": [
-      "Substance soluble in lipids",
-      "Substance with hydrophobic moiety",
-      "Substance with hydrophilic moiety",
-      "All substance irrespective of hydrophobic and hydrophilic moiety"
-    ],
-    "correct_option": "C",
-    "explanation": "Substances that have a hydrophilic moiety find it difficult to pass through the plasma membrane; thus, their movement has to be facilitated."
-  },
-  {
-    "subject": "biology",
-    "chapter": "animal-kingdom",
-    "question": "Metagenesis refers to",
-    "options": [
-      "occurrence of a drastic change in form during post-embryonic development",
-      "presence of a segmented body and parthenogenetic mode of reproduction",
-      "presence of different morphic forms",
-      "alternation of generation between asexual and sexual phases of an organisms."
-    ],
-    "correct_option": "D",
-    "explanation": "An alternation of generation between asexual and sexual phases of an organism is referred to as metagenesis. E.g., in Obelia (a coelenterate), polyps reproduce asexually and medusae reproduce sexually."
-  },
-  {
-    "subject": "biology",
-    "chapter": "animal-kingdom",
-    "question": "Which group of animals belong to the same phylum?",
-    "options": [
-      "Prawn, Scorpion, *Locusta*",
-      "Sponge, Sea anemone, Starfish",
-      "Malarial parasite, *Amoeba,* Mosquito",
-      "Earthworm, Pinworm, Tapeworm"
-    ],
-    "correct_option": "A",
-    "explanation": "Animals belonging to option (d) have earthworm an Annelida and Tapeworm a platyhelminth. Option (b) have sponge of Phylum Porifera and Starfish of Phylum Echinodermata. Option (c) have malarial parasite a protozoan and Mosquito of phylum Arthropoda."
-  },
-  {
-    "subject": "biology",
-    "chapter": "sexual-reproduction-in-flowering-plants",
-    "question": "Double fertilisation is exhibited by",
-    "options": [
-      "algae",
-      "fungi",
-      "angiosperms",
-      "gymnosperms."
-    ],
-    "correct_option": "C",
-    "explanation": "Double fertilisation is the characteristic feature of angiosperms. Here, two male gametes are released in the embryo sac or female gametophyte. One male gamete fuses with the egg cell to form zygote that gives rise to embryo whereas the other male gamete fuses with the secondary nucleus to form primary endosperm nucleus (PEN) that gives rise to endosperm."
-  },
-  {
-    "subject": "biology",
-    "chapter": "biological-classification",
-    "question": "The imperfect fungi which are decomposers of litter and help in mineral cycling belong to",
-    "options": [
-      "Ascomycetes",
-      "Phycomycetes",
-      "Basidiomycetes",
-      "Deuteromycetes"
-    ],
-    "correct_option": "D",
-    "explanation": "Class- deuteromycetes comprises of imperfect fungi which play role in decomposition of organic wastes."
-  },
-  {
-    "subject": "biology",
-    "chapter": "biomolecules",
-    "question": "Which of the following is the least likely to be involved in stablishing the three-dimensional folding of most proteins?",
-    "options": [
-      "Hydrogen bonds",
-      "Electrostatic interaction",
-      "Hydrophobic interaction",
-      "Ester bonds"
-    ],
-    "correct_option": "D",
-    "explanation": "Tertiary structure or three dimensional structure of protein is stabilised by several types of bonds—hydrogen bonds, ionic bonds, van der Waal’s interactions, covalent bonds and hydrophobic bonds."
-  },
-  {
-    "subject": "biology",
-    "chapter": "chemical-coordination-and-integration",
-    "question": "A chemical signal that has both endocrine and neural roles is",
-    "options": [
-      "epinephrine",
-      "cortisol",
-      "melatonin",
-      "calcitonin."
-    ],
-    "correct_option": "A",
-    "explanation": "Epinephrine has two role as a hormone and as a neurotransmitter."
-  },
-  {
-    "subject": "biology",
-    "chapter": "animal-kingdom",
-    "question": "A jawless fish, which lays eggs in fresh water and whose ammocoetes larvae after metamorphosis return to the ocean is",
-    "options": [
-      "*Neomyxine*",
-      "*Petromyzon*",
-      "*Eptatretus*",
-      "*Myxine*"
-    ],
-    "correct_option": "B",
-    "explanation": "Petrormyzon marinus, commonly known as sea lamprey lays eggs in fresh water and its larvae, after metamorphosis, return to the ocean (saline water)."
-  },
-  {
-    "subject": "biology",
-    "chapter": "molecular-basis-of-inheritance",
-    "question": "Which of the following RNAs is not required for the synthesis of protein?",
-    "options": [
-      "siRNA",
-      "mRNA",
-      "tRNA",
-      "rRNA"
-    ],
-    "correct_option": "A",
-    "explanation": "siRNA mainly protect the cell from exogenous mRNA attacks. It degrades the growing mRNA and stop gene expression. It is highly specific and reduces the synthesis of particular proteins by reducing the translation of specific messenger RNAs."
-  },
-  {
-    "subject": "biology",
-    "chapter": "chemical-coordination-and-integration",
-    "question": "Which one of the following hormones though synthesised elsewhere, is stored and released by the master gland?",
-    "options": [
-      "Prolactin",
-      "Melanocyte stimulating hormone",
-      "Antidiuretic hormone",
-      "Luteinising hormone"
-    ],
-    "correct_option": "C",
-    "explanation": "ADH (Antidiuretic hormone) and oxytocin are produced by hypothalamus and stored in posterior pituitary."
-  },
-  {
-    "subject": "biology",
-    "chapter": "molecular-basis-of-inheritance",
-    "question": "Select the correct option ;",
-    "options": [
-      "Direction of RNA synthesis 3’−5’, Direction of reading of the template DNA strand 5’−3’",
-      "Direction of RNA synthesis 5’−3’, Direction of reading of the template DNA strand 5’−3’",
-      "Direction of RNA synthesis 5’−3’, Direction of reading of the template DNA strand 3’−5’",
-      "Direction of RNA synthesis 3’−5’, Direction of reading of the template DNA strand 3’−5’"
-    ],
-    "correct_option": "C",
-    "explanation": "RNA polymerase initiates and extends the RNA (chain elongation) and functions always in 5' to 3' direction. The structural component of DNA has 3' to 5' polarity. It is also called template DNA strand or antisense (–) strand."
-  },
-  {
-    "subject": "biology",
-    "chapter": "human-reproduction",
-    "question": "Ectopic pregnancies are referred to as",
-    "options": [
-      "implantation of defective embryo in the uterus",
-      "pregnancies terminated due to hormonal imbalance",
-      "pregnancies with genetic abnormality",
-      "implantation of embryo at site other than uterus."
-    ],
-    "correct_option": "D",
-    "explanation": "In ectopic pregnancies, the implantation of embryo does not occur in uterus but at other site"
-  },
-  {
-    "subject": "biology",
-    "chapter": "locomotion-and-movement",
-    "question": "Which of the following is not a function of the skeletal system?",
-    "options": [
-      "Production of body heat",
-      "Locomotion",
-      "Production of erythrocytes",
-      "Storage of minerals"
-    ],
-    "correct_option": "A",
-    "explanation": "Production of body heat is caused by the process of metabolism (respiration)."
-  },
-  {
-    "subject": "biology",
-    "chapter": "morphology-of-flowering-plants",
-    "question": "The morphological nature of the edible part of coconut is",
-    "options": [
-      "cotyledon",
-      "endosperm",
-      "pericarp",
-      "perisperm."
-    ],
-    "correct_option": "B",
-    "explanation": "The edible part of coconut is its endosperm. Coconut has double endosperm, liquid endosperm and cellular."
-  },
-  {
-    "subject": "biology",
-    "chapter": "plant-kingdom",
-    "question": "Select the wrong statement",
-    "options": [
-      "In Oomycetes, female gamete is smaller and motile, while male gamete is larger and non-motile.",
-      "*Chlamydomonas* exhibits both isogamy and amisogamy and *Fucas* shows oogamy.",
-      "Isogametes are similar in structure, function and behaviour.",
-      "Anisogametes differ either in structure, function or behaviour."
-    ],
-    "correct_option": "A",
-    "explanation": "In oomycetes, like other oogamous organisms female gamete is large and non- motile, while male gamete is small and motile."
-  }
+    {
+        "subject": "biology",
+        "chapter": "biomolecules",
+        "question": "The major role of minor elements inside living organisms is to act as",
+        "options": [
+            "co-factors of enzymes",
+            "building blocks of important amino acids",
+            "constituent of hormones",
+            "binder of cell structure."
+        ],
+        "correct_option": "A",
+        "explanation": "Minor elements are those which are required by plants in very small amounts. These elements have a significant role in enzyme activities (zinc activates carboxylases, carbonic anhydrase and various dehydrogenases)."
+    },
+    {
+        "subject": "biology",
+        "chapter": "locomotion-and-movement",
+        "question": "The H-zone in the skeletal muscle fibre is due to",
+        "options": [
+            "the central gap between actin filaments extending through myosin filaments in the A-bond",
+            "extension of myosin filaments in the central portion of the A-band",
+            "the absence of myofibrils in the central portion of A-band",
+            "the central gap between myosin filaments in the A-band."
+        ],
+        "correct_option": "A",
+        "explanation": "Central part of thick filament, not overlapped by thin filaments is called the ‘H’ zone. ‘H’ zone is also called Hensen’s Line."
+    },
+    {
+        "subject": "biology",
+        "chapter": "principles-of-inheritance-and-variation",
+        "question": "Among the following characters, which one was not considered by Mendel in his experiments on pea?",
+        "options": [
+            "Stem-Tall or dwarf",
+            "Pod-Inflated or constricted",
+            "Trichomes-Glandular or non-glandular",
+            "Seed-Green or yellow"
+        ],
+        "correct_option": "C",
+        "explanation": "During his experiments Mendel have taken seven characters in a pea plant. In which nature of trichomes i.e., glandular or non-glandular was not considered by Mendel."
+    },
+    {
+        "subject": "biology",
+        "chapter": "plant-kingdom",
+        "question": "Select the correct statement",
+        "options": [
+            "*Sequoia* is one of the tallest trees.",
+            "The leaves of gymnosperms are not well adapted to extremes of climate.",
+            "Gymnosperms are both homosporous and heteroporous.",
+            "*Salvinia, Ginkgo* and *Pinus* all are gymnosperms."
+        ],
+        "correct_option": "A",
+        "explanation": "Sequoia semepervirans is one of the tallest trees."
+    },
+    {
+        "subject": "biology",
+        "chapter": "cell-the-unit-of-life",
+        "question": "Which type of substance would face difficulty to pass through the cell membrane?",
+        "options": [
+            "Substance soluble in lipids",
+            "Substance with hydrophobic moiety",
+            "Substance with hydrophilic moiety",
+            "All substance irrespective of hydrophobic and hydrophilic moiety"
+        ],
+        "correct_option": "C",
+        "explanation": "Substances that have a hydrophilic moiety find it difficult to pass through the plasma membrane; thus, their movement has to be facilitated."
+    },
+    {
+        "subject": "biology",
+        "chapter": "animal-kingdom",
+        "question": "Metagenesis refers to",
+        "options": [
+            "occurrence of a drastic change in form during post-embryonic development",
+            "presence of a segmented body and parthenogenetic mode of reproduction",
+            "presence of different morphic forms",
+            "alternation of generation between asexual and sexual phases of an organisms."
+        ],
+        "correct_option": "D",
+        "explanation": "An alternation of generation between asexual and sexual phases of an organism is referred to as metagenesis. E.g., in Obelia (a coelenterate), polyps reproduce asexually and medusae reproduce sexually."
+    },
+    {
+        "subject": "biology",
+        "chapter": "animal-kingdom",
+        "question": "Which group of animals belong to the same phylum?",
+        "options": [
+            "Prawn, Scorpion, *Locusta*",
+            "Sponge, Sea anemone, Starfish",
+            "Malarial parasite, *Amoeba,* Mosquito",
+            "Earthworm, Pinworm, Tapeworm"
+        ],
+        "correct_option": "A",
+        "explanation": "Animals belonging to option (d) have earthworm an Annelida and Tapeworm a platyhelminth. Option (b) have sponge of Phylum Porifera and Starfish of Phylum Echinodermata. Option (c) have malarial parasite a protozoan and Mosquito of phylum Arthropoda."
+    },
+    {
+        "subject": "biology",
+        "chapter": "sexual-reproduction-in-flowering-plants",
+        "question": "Double fertilisation is exhibited by",
+        "options": [
+            "algae",
+            "fungi",
+            "angiosperms",
+            "gymnosperms."
+        ],
+        "correct_option": "C",
+        "explanation": "Double fertilisation is the characteristic feature of angiosperms. Here, two male gametes are released in the embryo sac or female gametophyte. One male gamete fuses with the egg cell to form zygote that gives rise to embryo whereas the other male gamete fuses with the secondary nucleus to form primary endosperm nucleus (PEN) that gives rise to endosperm."
+    },
+    {
+        "subject": "biology",
+        "chapter": "biological-classification",
+        "question": "The imperfect fungi which are decomposers of litter and help in mineral cycling belong to",
+        "options": [
+            "Ascomycetes",
+            "Phycomycetes",
+            "Basidiomycetes",
+            "Deuteromycetes"
+        ],
+        "correct_option": "D",
+        "explanation": "Class- deuteromycetes comprises of imperfect fungi which play role in decomposition of organic wastes."
+    },
+    {
+        "subject": "biology",
+        "chapter": "biomolecules",
+        "question": "Which of the following is the least likely to be involved in stablishing the three-dimensional folding of most proteins?",
+        "options": [
+            "Hydrogen bonds",
+            "Electrostatic interaction",
+            "Hydrophobic interaction",
+            "Ester bonds"
+        ],
+        "correct_option": "D",
+        "explanation": "Tertiary structure or three dimensional structure of protein is stabilised by several types of bonds—hydrogen bonds, ionic bonds, van der Waal’s interactions, covalent bonds and hydrophobic bonds."
+    },
+    {
+        "subject": "biology",
+        "chapter": "chemical-coordination-and-integration",
+        "question": "A chemical signal that has both endocrine and neural roles is",
+        "options": [
+            "epinephrine",
+            "cortisol",
+            "melatonin",
+            "calcitonin."
+        ],
+        "correct_option": "A",
+        "explanation": "Epinephrine has two role as a hormone and as a neurotransmitter."
+    },
+    {
+        "subject": "biology",
+        "chapter": "animal-kingdom",
+        "question": "A jawless fish, which lays eggs in fresh water and whose ammocoetes larvae after metamorphosis return to the ocean is",
+        "options": [
+            "*Neomyxine*",
+            "*Petromyzon*",
+            "*Eptatretus*",
+            "*Myxine*"
+        ],
+        "correct_option": "B",
+        "explanation": "Petrormyzon marinus, commonly known as sea lamprey lays eggs in fresh water and its larvae, after metamorphosis, return to the ocean (saline water)."
+    },
+    {
+        "subject": "biology",
+        "chapter": "molecular-basis-of-inheritance",
+        "question": "Which of the following RNAs is not required for the synthesis of protein?",
+        "options": [
+            "siRNA",
+            "mRNA",
+            "tRNA",
+            "rRNA"
+        ],
+        "correct_option": "A",
+        "explanation": "siRNA mainly protect the cell from exogenous mRNA attacks. It degrades the growing mRNA and stop gene expression. It is highly specific and reduces the synthesis of particular proteins by reducing the translation of specific messenger RNAs."
+    },
+    {
+        "subject": "biology",
+        "chapter": "chemical-coordination-and-integration",
+        "question": "Which one of the following hormones though synthesised elsewhere, is stored and released by the master gland?",
+        "options": [
+            "Prolactin",
+            "Melanocyte stimulating hormone",
+            "Antidiuretic hormone",
+            "Luteinising hormone"
+        ],
+        "correct_option": "C",
+        "explanation": "ADH (Antidiuretic hormone) and oxytocin are produced by hypothalamus and stored in posterior pituitary."
+    },
+    {
+        "subject": "biology",
+        "chapter": "molecular-basis-of-inheritance",
+        "question": "Select the correct option ;",
+        "options": [
+            "Direction of RNA synthesis 3’−5’, Direction of reading of the template DNA strand 5’−3’",
+            "Direction of RNA synthesis 5’−3’, Direction of reading of the template DNA strand 5’−3’",
+            "Direction of RNA synthesis 5’−3’, Direction of reading of the template DNA strand 3’−5’",
+            "Direction of RNA synthesis 3’−5’, Direction of reading of the template DNA strand 3’−5’"
+        ],
+        "correct_option": "C",
+        "explanation": "RNA polymerase initiates and extends the RNA (chain elongation) and functions always in 5' to 3' direction. The structural component of DNA has 3' to 5' polarity. It is also called template DNA strand or antisense (–) strand."
+    },
+    {
+        "subject": "biology",
+        "chapter": "human-reproduction",
+        "question": "Ectopic pregnancies are referred to as",
+        "options": [
+            "implantation of defective embryo in the uterus",
+            "pregnancies terminated due to hormonal imbalance",
+            "pregnancies with genetic abnormality",
+            "implantation of embryo at site other than uterus."
+        ],
+        "correct_option": "D",
+        "explanation": "In ectopic pregnancies, the implantation of embryo does not occur in uterus but at other site"
+    },
+    {
+        "subject": "biology",
+        "chapter": "locomotion-and-movement",
+        "question": "Which of the following is not a function of the skeletal system?",
+        "options": [
+            "Production of body heat",
+            "Locomotion",
+            "Production of erythrocytes",
+            "Storage of minerals"
+        ],
+        "correct_option": "A",
+        "explanation": "Production of body heat is caused by the process of metabolism (respiration)."
+    },
+    {
+        "subject": "biology",
+        "chapter": "morphology-of-flowering-plants",
+        "question": "The morphological nature of the edible part of coconut is",
+        "options": [
+            "cotyledon",
+            "endosperm",
+            "pericarp",
+            "perisperm."
+        ],
+        "correct_option": "B",
+        "explanation": "The edible part of coconut is its endosperm. Coconut has double endosperm, liquid endosperm and cellular."
+    },
+    {
+        "subject": "biology",
+        "chapter": "plant-kingdom",
+        "question": "Select the wrong statement",
+        "options": [
+            "In Oomycetes, female gamete is smaller and motile, while male gamete is larger and non-motile.",
+            "*Chlamydomonas* exhibits both isogamy and amisogamy and *Fucas* shows oogamy.",
+            "Isogametes are similar in structure, function and behaviour.",
+            "Anisogametes differ either in structure, function or behaviour."
+        ],
+        "correct_option": "A",
+        "explanation": "In oomycetes, like other oogamous organisms female gamete is large and non- motile, while male gamete is small and motile."
+    }
 ]
