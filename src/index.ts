@@ -148,7 +148,50 @@ bot.on('message', async (ctx) => {
     await greeting()(ctx);
   }
 });
+bot.on('new_chat_members', async (ctx) => {
+  const members = ctx.message?.new_chat_members || [];
+  const groupName = ctx.chat.title || 'this group';
 
+  for (const member of members) {
+    const username = member.username ? `@${member.username}` : member.first_name;
+    await ctx.reply(`Hey dear ${username}, welcome to *${groupName}*!`, {
+      parse_mode: 'Markdown'
+    });
+  }
+}); 
+bot.command('ban', async (ctx) => {
+  const chat = ctx.chat;
+  const from = ctx.from;
+
+  if (!isGroupOrSupergroup(chat.type)) return;
+
+  // Check if message is a reply
+  if (!ctx.message.reply_to_message) {
+    return ctx.reply('Please reply to the user you want to ban using /ban.');
+  }
+
+  const userToBan = ctx.message.reply_to_message.from;
+  const botMember = await ctx.getChatMember(ctx.botInfo.id);
+  const admin = await ctx.getChatMember(from.id);
+
+  if (!admin || (admin.status !== 'administrator' && admin.status !== 'creator')) {
+    return ctx.reply('Only group admins can use this command.');
+  }
+
+  if (botMember.status !== 'administrator') {
+    return ctx.reply('I need admin rights to ban users.');
+  }
+
+  try {
+    await ctx.kickChatMember(userToBan.id);
+    await ctx.reply(`User [${userToBan.first_name}](tg://user?id=${userToBan.id}) has been banned.`, {
+      parse_mode: 'Markdown'
+    });
+  } catch (error) {
+    console.error('Ban error:', error);
+    await ctx.reply('Failed to ban the user. Make sure I have the right permissions.');
+  }
+}); 
 // --- DEPLOYMENT ---
 export const startVercel = async (req: VercelRequest, res: VercelResponse) => {
   await production(req, res, bot);
