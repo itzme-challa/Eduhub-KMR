@@ -1,7 +1,7 @@
 [
   {
     "subject": "biology",
-    "question": "Given below are two statements: One is labelled as Assertion A and the other is labelled as Reason R:\n\n**Assertion A**: Late wood has fewer xylary elements with narrow vessels.\n\n**Reason R**: Cambium is less active in winters.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
+    "question": "Given below are two statements: One is labelled as Assertion  A and the other is labelled as Reason R:\n\n**Assertion A**: Late wood has fewer xylary elements with narrow vessels.\n\n**Reason R**: Cambium is less active in winters.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
     "options": {
       "A": "Both A and R are true but R is NOT the correct explanation of A",
       "B": "A is true but R is false",
