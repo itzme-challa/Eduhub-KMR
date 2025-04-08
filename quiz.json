@@ -544,5 +544,61 @@
     "correct_option": "C",
     "explanation": "Geitonogamy involves pollen transfer between different flowers of the same plant, hence genetically similar to autogamy.",
     "image": ""
+  },
+  {
+    "subject": "physics",
+    "chapter": "semiconductor-electronics",
+    "question": "For a p-type semiconductor, which of the following statements is true?",
+    "options": {
+      "A": "Holes are the majority carriers and trivalent atoms are the dopants.",
+      "B": "Holes are the majority carriers and pentavalent atoms are the dopants.",
+      "C": "Electrons are the majority carriers and pentavalent atoms are the dopants",
+      "D": "Electrons are the majority carriers and trivalent atoms are the dopants."
+    },
+    "correct_option": "A",
+    "explanation": "In p-type semiconductor, an intrinsic semiconductor is doped with trivalent impurities, that creates deficiencies of valence electrons called holes which are majority charge carriers.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "chemical-coordination-and-integration",
+    "question": "A chemical signal that has both endocrine and neural roles is",
+    "options": {
+      "A": "epinephrine",
+      "B": "cortisol",
+      "C": "melatonin",
+      "D": "calcitonin."
+    },
+    "correct_option": "A",
+    "explanation": "Epinephrine has two roles as a hormone and as a neurotransmitter.",
+    "image": ""
+  },
+  {
+    "subject": "physics",
+    "chapter": "gravitation",
+    "question": "The kinetic energies of a planet in an elliptical orbit about the Sun, at positions A, B and C are KA, KB and KC, respectively. AC is the major axis and SB is perpendicular to AC at the position of the Sun S as shown in the figure.",
+    "options": {
+      "A": "KA < KB < KC",
+      "B": "KA > KB > KC",
+      "C": "KB < KA < KC",
+      "D": "KB > KA > KC"
+    },
+    "correct_option": "B",
+    "explanation": "Speed of the planet will be maximum when its distance from the sun is minimum as mvr = constant.",
+    "image": "https://neetcare-image.cdn.examgoal.net/1qpqahkka42m8vz/026398ad-536b-4002-bc25-78353ce615cf/5da120f0-9465-11ea-aedc-f1c8d8e0194b/file-1qpqahkka42m8w0-333w.png"
+  },
+  {
+    "subject": "biology",
+    "chapter": "morphology-of-flowering-plants",
+    "question": "Which of the following statement is not correct?",
+    "options": {
+      "A": "The rhizome is thick, prostrate and branched",
+      "B": "Rhizome is a condensed form of stem",
+      "C": "The apical bud in rhizome always remains above the ground",
+      "D": "The rhizome is aerial with no distinct nodes and internodes"
+    },
+    "correct_option": "D",
+    "explanation": "Rhizome is an underground (sub-aerial) stem. It bears distinct nodes and internodes.",
+    "image": ""
   }
-  ]
+]
