@@ -11,7 +11,6 @@ import { groups } from './commands/groups';
 import { quizes } from './text';
 import { greeting } from './text';
 import { development, production } from './core';
-import { Message } from 'telegraf/typings/core/types/typegram';
 
 const BOT_TOKEN = process.env.BOT_TOKEN || '';
 const ENVIRONMENT = process.env.NODE_ENV || '';
@@ -31,7 +30,7 @@ bot.command('groups', groups());
 
 bot.command('broadcast', async (ctx) => {
   if (ctx.from?.id !== ADMIN_ID) return ctx.reply('You are not authorized to use this command.');
-  const msg = ctx.message && 'text' in ctx.message ? ctx.message.text?.split(' ').slice(1).join(' ') : null;
+  const msg = 'text' in ctx.message ? ctx.message.text?.split(' ').slice(1).join(' ') : null;
   if (!msg) return ctx.reply('Usage:\n/broadcast Your message here');
 
   const chatIds = getAllChatIds();
@@ -51,23 +50,22 @@ bot.command('broadcast', async (ctx) => {
 
 const notifiedUsers = new Set<number>();
 
-// On any message
+// Message handler
 bot.on('message', async (ctx) => {
   const chat = ctx.chat;
   const msg = ctx.message;
 
   if (!chat || typeof chat.id === 'undefined') return;
 
-  // Save to memory and sheet
   saveChatId(chat.id);
   await saveToSheet(chat);
 
-  // Notify admin once
+  // Notify admin on first use
   if (chat.id !== ADMIN_ID && !notifiedUsers.has(chat.id)) {
     notifiedUsers.add(chat.id);
 
-    const firstName = chat.type === 'private' ? chat.first_name || '' : 'Group';
-    const username = chat.type === 'private' ? chat.username || 'N/A' : 'N/A';
+    const firstName = 'first_name' in chat ? chat.first_name || '' : '';
+    const username = 'username' in chat ? chat.username || 'N/A' : 'N/A';
 
     await ctx.telegram.sendMessage(
       ADMIN_ID,
@@ -76,15 +74,18 @@ bot.on('message', async (ctx) => {
     );
   }
 
-  // Handle /contact command
-  if ('text' in msg && msg.text?.startsWith('/contact')) {
-    const userMessage =
-      msg.text.replace('/contact', '').trim() ||
-      ('reply_to_message' in msg && 'text' in msg.reply_to_message ? msg.reply_to_message.text : '');
+  // Handle /contact
+  if ('text' in msg && msg.text.startsWith('/contact')) {
+    let userMessage = msg.text.replace('/contact', '').trim();
+
+    // If not typed, try replied message
+    if (!userMessage && msg.reply_to_message && 'text' in msg.reply_to_message) {
+      userMessage = msg.reply_to_message.text;
+    }
 
     if (userMessage) {
-      const firstName = chat.type === 'private' ? chat.first_name || '' : 'Group';
-      const username = chat.type === 'private' ? chat.username || 'N/A' : 'N/A';
+      const firstName = 'first_name' in chat ? chat.first_name || '' : '';
+      const username = 'username' in chat ? chat.username || 'N/A' : 'N/A';
 
       await ctx.telegram.sendMessage(
         ADMIN_ID,
@@ -93,14 +94,19 @@ bot.on('message', async (ctx) => {
       );
       await ctx.reply('Your message has been sent to the admin!');
     } else {
-      await ctx.reply('Please provide a message or reply to a message using /contact.');
+      await ctx.reply('Please provide a message or reply to one using /contact.');
     }
   } else {
     await Promise.all([quizes()(ctx), greeting()(ctx)]);
   }
 
   // Admin reply forwarding
-  if (ctx.chat.id === ADMIN_ID && 'reply_to_message' in msg && msg.reply_to_message?.text) {
+  if (
+    ctx.chat.id === ADMIN_ID &&
+    msg.reply_to_message &&
+    'text' in msg.reply_to_message &&
+    'text' in msg
+  ) {
     const match = msg.reply_to_message.text.match(/Chat ID: `(\d+)`/);
     if (match) {
       const targetId = parseInt(match[1], 10);
