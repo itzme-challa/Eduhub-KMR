@@ -1,77 +1,15 @@
-[
-  {
-    "id": 1,
-    "subject": "Biology",
-    "chapter": "Biomolecules",
-    "question": "Which of the following is a disaccharide?",
-    "options": {
-      "A": "Glucose",
-      "B": "Fructose",
-      "C": "Maltose",
-      "D": "Ribose"
-    },
-    "correct_option": "C",
-    "explanation": "Maltose is a disaccharide made of two glucose units. The others are monosaccharides.",
-    "image": "https://www.esaral.com/media/uploads/2024/6/17/111835-Copy%20of%20Copy%20of%20Add%20a%20heading%20(1).png"
-  },
-  {
-  "id": 2,
+{
+  "id": 1,
   "subject": "Biology",
-  "chapter": "biodiversity and conservation",
-  "question": "The historic Convention on Biological Diversity. The Earth Summit was held in Rio de Janeiro in the year?",
+  "chapter": "Biomolecules",
+  "question": "Which of the following is a disaccharide?",
   "options": {
-    "A": "1992",
-    "B": "1986",
-    "C": "2002",
-    "D": "1985"
+    "A": "Glucose",
+    "B": "Fructose",
+    "C": "Maltose",
+    "D": "Ribose"
   },
-  "correct_option": "A",
-  "explanation": "The Earth Summit formally known as the United Nations ",
+  "correct_option": "C",
+  "explanation": "Maltose is a disaccharide made of two glucose units. The others are monosaccharides.",
   "image": "https://www.esaral.com/media/uploads/2024/6/17/111835-Copy%20of%20Copy%20of%20Add%20a%20heading%20(1).png"
-}, 
-  {
-    "id": 3,
-    "subject": "Chemistry",
-    "chapter": "Chemical Bonding",
-    "question": "Which of the following has a linear geometry?",
-    "options": {
-      "A": "NH3",
-      "B": "H2O",
-      "C": "BeCl2",
-      "D": "CH4"
-    },
-    "correct_option": "C",
-    "explanation": "BeCl2 has a linear geometry due to sp hybridization of Be.",
-    "image": "https://chemistrysteps.com/wp-content/uploads/2021/01/BeCl2-linear-geometry.png"
-  },
-  {
-    "id": 4,
-    "subject": "Physics",
-    "chapter": "Kinematics",
-    "question": "A body is projected vertically upwards. The time taken to reach maximum height is 5s. What is the initial velocity?",
-    "options": {
-      "A": "49 m/s",
-      "B": "9.8 m/s",
-      "C": "19.6 m/s",
-      "D": "50 m/s"
-    },
-    "correct_option": "D",
-    "explanation": "Use v = u - gt; at max height v = 0. So, u = gt = 9.8 × 5 = 49 ≈ 50 m/s.",
-    "image": "https://physicscatalyst.com/mechanics/wp-content/uploads/sites/3/2021/03/upward-motion.png"
-  },
-  {
-    "id": 5,
-    "subject": "Biology",
-    "chapter": "Biomolecules",
-    "question": "Which of the following is a disaccharide are patehr?",
-    "options": {
-      "A": "Glucose",
-      "B": "Fructose",
-      "C": "Maltose",
-      "D": "Ribose"
-    },
-    "correct_option": "C",
-    "explanation": "Maltose is a disaccharide made of two glucose units. The others are monosaccharides.",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/0/02/Maltose2.png"
-  }
-]
+}
