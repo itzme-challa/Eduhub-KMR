@@ -138,5 +138,145 @@
     "correct_option": "B",
     "explanation": "Hemoglobin in red blood cells binds to oxygen in the lungs and transports it to tissues throughout the body.",
     "image": ""
+  }, 
+  {
+    "subject": "Physics",
+    "chapter": "Gravitation",
+    "question": "What is the acceleration due to gravity on Earth?",
+    "options": {
+      "A": "9.8 m/s²",
+      "B": "8.9 m/s²",
+      "C": "10.2 m/s²",
+      "D": "9.2 m/s²"
+    },
+    "correct_option": "A",
+    "explanation": "The standard acceleration due to gravity on Earth is 9.8 m/s².",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Work, Energy and Power",
+    "question": "Which physical quantity is measured in Joules?",
+    "options": {
+      "A": "Force",
+      "B": "Power",
+      "C": "Energy",
+      "D": "Velocity"
+    },
+    "correct_option": "C",
+    "explanation": "Energy is measured in Joules (J) in the SI system.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Thermodynamics",
+    "question": "Which law states that energy can neither be created nor destroyed?",
+    "options": {
+      "A": "First Law of Thermodynamics",
+      "B": "Zeroth Law of Thermodynamics",
+      "C": "Second Law of Thermodynamics",
+      "D": "Law of Conservation of Momentum"
+    },
+    "correct_option": "A",
+    "explanation": "The First Law of Thermodynamics is a version of the law of conservation of energy for thermodynamic systems.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Optics",
+    "question": "Which mirror always forms a virtual, erect, and diminished image?",
+    "options": {
+      "A": "Concave mirror",
+      "B": "Convex mirror",
+      "C": "Plane mirror",
+      "D": "None"
+    },
+    "correct_option": "B",
+    "explanation": "Convex mirrors always produce virtual, erect, and diminished images regardless of the object's position.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Waves",
+    "question": "What is the unit of frequency?",
+    "options": {
+      "A": "Hertz",
+      "B": "Newton",
+      "C": "Joule",
+      "D": "Decibel"
+    },
+    "correct_option": "A",
+    "explanation": "Frequency is measured in Hertz (Hz), which is equivalent to one cycle per second.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Current Electricity",
+    "question": "Ohm’s Law states that current is directly proportional to:",
+    "options": {
+      "A": "Voltage",
+      "B": "Power",
+      "C": "Resistance",
+      "D": "Energy"
+    },
+    "correct_option": "A",
+    "explanation": "Ohm’s Law: V = IR, which shows that current (I) is directly proportional to voltage (V).",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Electromagnetic Induction",
+    "question": "Who discovered electromagnetic induction?",
+    "options": {
+      "A": "Ampere",
+      "B": "Faraday",
+      "C": "Maxwell",
+      "D": "Ohm"
+    },
+    "correct_option": "B",
+    "explanation": "Michael Faraday discovered electromagnetic induction in 1831.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Modern Physics",
+    "question": "Which particle has no charge?",
+    "options": {
+      "A": "Proton",
+      "B": "Neutron",
+      "C": "Electron",
+      "D": "Positron"
+    },
+    "correct_option": "B",
+    "explanation": "Neutrons are electrically neutral particles found in the nucleus of atoms.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Electrostatics",
+    "question": "Coulomb's law is applicable to:",
+    "options": {
+      "A": "Current carrying wires",
+      "B": "Stationary point charges",
+      "C": "Moving charges",
+      "D": "Charged capacitors"
+    },
+    "correct_option": "B",
+    "explanation": "Coulomb's law applies to the electrostatic force between two stationary point charges.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Kinetic Theory of Gases",
+    "question": "The pressure of an ideal gas is due to:",
+    "options": {
+      "A": "Collision of atoms with each other",
+      "B": "Collision of atoms with the container walls",
+      "C": "Temperature of gas",
+      "D": "Volume of gas"
+    },
+    "correct_option": "B",
+    "explanation": "In kinetic theory, pressure arises from molecules colliding with the container walls.",
+    "image": ""
   }
-]
+] 
