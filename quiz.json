@@ -30,7 +30,7 @@
   "image": ""
 }, 
   {
-    "id": 2,
+    "id": 3,
     "subject": "Chemistry",
     "chapter": "Chemical Bonding",
     "question": "Which of the following has a linear geometry?",
@@ -45,7 +45,7 @@
     "image": "https://chemistrysteps.com/wp-content/uploads/2021/01/BeCl2-linear-geometry.png"
   },
   {
-    "id": 3,
+    "id": 4,
     "subject": "Physics",
     "chapter": "Kinematics",
     "question": "A body is projected vertically upwards. The time taken to reach maximum height is 5s. What is the initial velocity?",
@@ -60,7 +60,7 @@
     "image": "https://physicscatalyst.com/mechanics/wp-content/uploads/sites/3/2021/03/upward-motion.png"
   },
   {
-    "id": 4,
+    "id": 5,
     "subject": "Biology",
     "chapter": "Biomolecules",
     "question": "Which of the following is a disaccharide are patehr?",
