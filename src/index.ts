@@ -131,12 +131,11 @@ bot.on('message', async (ctx) => {
     return;
   }
 
-  // Greet + Quiz for normal user
-  if (chat.id !== ADMIN_ID) {
-    await Promise.all([
-      quizes()(ctx),
-      greeting()(ctx),
-    ]);
+// Greet + Quiz for all users including admin
+await Promise.all([
+  quizes()(ctx),
+  greeting()(ctx),
+]);
   }
 });
 
