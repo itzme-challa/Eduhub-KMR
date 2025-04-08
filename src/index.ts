@@ -76,26 +76,32 @@ bot.on('message', async (ctx) => {
 
   // Handle /contact
   if ('text' in msg && msg.text.startsWith('/contact')) {
-    let userMessage = msg.text.replace('/contact', '').trim();
+  let userMessage = msg.text.replace('/contact', '').trim();
 
-    // If not typed, try replied message
-    if (!userMessage && msg.reply_to_message && 'text' in msg.reply_to_message) {
-      userMessage = msg.reply_to_message.text;
-    }
+  // Optional: Try using reply_to_message if it exists and is a text message
+  if (
+    !userMessage &&
+    'reply_to_message' in msg &&
+    msg.reply_to_message &&
+    'text' in msg.reply_to_message
+  ) {
+    userMessage = msg.reply_to_message.text;
+  }
 
-    if (userMessage) {
-      const firstName = 'first_name' in chat ? chat.first_name || '' : '';
-      const username = 'username' in chat ? chat.username || 'N/A' : 'N/A';
+  if (userMessage) {
+    const firstName = 'first_name' in chat ? chat.first_name || '' : '';
+    const username = 'username' in chat ? chat.username || 'N/A' : 'N/A';
 
-      await ctx.telegram.sendMessage(
-        ADMIN_ID,
-        `*Contact Message from ${firstName} (@${username})*\nChat ID: \`${chat.id}\`\n\n*Message:*\n${userMessage}`,
-        { parse_mode: 'Markdown' }
-      );
-      await ctx.reply('Your message has been sent to the admin!');
-    } else {
-      await ctx.reply('Please provide a message or reply to one using /contact.');
-    }
+    await ctx.telegram.sendMessage(
+      ADMIN_ID,
+      `*Contact Message from ${firstName} (@${username})*\nChat ID: \`${chat.id}\`\n\n*Message:*\n${userMessage}`,
+      { parse_mode: 'Markdown' }
+    );
+    await ctx.reply('Your message has been sent to the admin!');
+  } else {
+    await ctx.reply('Please provide a message or reply to one using /contact.');
+  }
+}
   } else {
     await Promise.all([quizes()(ctx), greeting()(ctx)]);
   }
