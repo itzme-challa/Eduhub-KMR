@@ -432,5 +432,117 @@
     "correct_option": "B",
     "explanation": "According to IUPAC, CH3CH2OH is named as Ethanol.",
     "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "biomolecules",
+    "question": "A non-proteinaceous enzyme is",
+    "options": {
+      "A": "Iysozyme",
+      "B": "ribozyme",
+      "C": "ligase",
+      "D": "deoxyribonuclease"
+    },
+    "correct_option": "B",
+    "explanation": "A ribozyme is a ribonucleic acid (RNA) enzyme that catalyses a chemical reaction in a similar way to that of a protein enzyme. These are found in ribosomes and are also called catalytic RNAs.",
+    "image": ""
+  },
+  {
+    "subject": "chemistry",
+    "chapter": "ionic-equilibrum",
+    "question": "Which of these is least likely to act as a lewis base ?",
+    "options": {
+      "A": "BF3",
+      "B": "PF3",
+      "C": "CO",
+      "D": "F$$-$$"
+    },
+    "correct_option": "A",
+    "explanation": "BF3 acts as Lewis acid. It is electron pair acceptor.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "body-fluids-and-its-circulation",
+    "question": "Name the blood cells, whose reduction in number can cause clotting disorder, leading to excessive loss of blood from the body.",
+    "options": {
+      "A": "Erythrocytes",
+      "B": "Leucocytes",
+      "C": "Neutrophils",
+      "D": "Thrombocytes"
+    },
+    "correct_option": "D",
+    "explanation": "Thrombocytes are called blood platelets. They play an important role in blood clotting and release chemicals which lead to the formation of a plug at the site of damage, thus preventing blood loss.",
+    "image": ""
+  },
+  {
+    "subject": "chemistry",
+    "chapter": "ionic-equilibrum",
+    "question": "Which of the following fluro-compounds is most likely to behave as a Lewis base ?",
+    "options": {
+      "A": "BF3",
+      "B": "PF3",
+      "C": "CF4",
+      "D": "SiF4"
+    },
+    "correct_option": "B",
+    "explanation": "PF3 is a Lewis base because it has a lone pair on the phosphorus atom.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "body-fluids-and-its-circulation",
+    "question": "Erythropoiesis starts in",
+    "options": {
+      "A": "spleen",
+      "B": "red bone marrow",
+      "C": "kidney",
+      "D": "liver"
+    },
+    "correct_option": "B",
+    "explanation": "Red bone marrow becomes the principal site of erythropoiesis from 6 months onwards in fetal development.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "reproductive-health",
+    "question": "Embryo with more than 16 blastgomeres formed due to in vitro fertilization is transferred into",
+    "options": {
+      "A": "fimbriae",
+      "B": "cervix",
+      "C": "uterus",
+      "D": "fallopian tube"
+    },
+    "correct_option": "C",
+    "explanation": "Embryo with more than 16 blastomeres is transferred into the uterus (intra-uterine transfer, IUT).",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "biodiversity-and-conservation",
+    "question": "The region of Biosphere Reserve which is legally protected and where no human activity is allowed is known as :",
+    "options": {
+      "A": "Transition zone",
+      "B": "Restoration zone",
+      "C": "Buffer zone",
+      "D": "Core zone"
+    },
+    "correct_option": "D",
+    "explanation": "Core zone of a biosphere reserve is an undisturbed and legally protected ecosystem where no human activity is permitted.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "sexual-reproduction-in-flowering-plants",
+    "question": "Which one of the following may require pollinators, but is genetically similar to autogamy?",
+    "options": {
+      "A": "Apogamy",
+      "B": "Cleistogamy",
+      "C": "Geitonogamy",
+      "D": "Xenogamy"
+    },
+    "correct_option": "C",
+    "explanation": "Geitonogamy involves pollen transfer between different flowers of the same plant, hence genetically similar to autogamy.",
+    "image": ""
   }
-]
+  ]
