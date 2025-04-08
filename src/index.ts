@@ -11,6 +11,7 @@ import { groups } from './commands/groups';
 import { quizes } from './text';
 import { greeting } from './text';
 import { development, production } from './core';
+import { isPrivateChat } from './utils/groupSettings';
 
 const BOT_TOKEN = process.env.BOT_TOKEN || '';
 const ENVIRONMENT = process.env.NODE_ENV || '';
@@ -76,10 +77,19 @@ bot.command('reply', async (ctx) => {
   }
 });
 
+// --- START HANDLER (Only respond in private) ---
+bot.start(async (ctx) => {
+  const chatType = ctx.chat.type;
+  if (isPrivateChat(chatType)) {
+    await ctx.reply('Welcome! Use /help to explore commands.');
+  }
+});
+
 // --- MESSAGE HANDLER ---
 bot.on('message', async (ctx) => {
   const chat = ctx.chat;
   const msg = ctx.message;
+  const chatType = chat.type;
 
   if (!chat?.id) return;
 
@@ -131,11 +141,12 @@ bot.on('message', async (ctx) => {
     return;
   }
 
-// Greet + Quiz for all users including admin
-await Promise.all([
-  quizes()(ctx),
-  greeting()(ctx),
-]);
+  // Run quiz for all chats
+  await quizes()(ctx);
+
+  // Greeting only in private chats
+  if (isPrivateChat(chatType)) {
+    await greeting()(ctx);
   }
 });
 
