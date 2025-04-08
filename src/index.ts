@@ -9,7 +9,6 @@ import { neet } from './commands/neet';
 import { jee } from './commands/jee';
 import { groups } from './commands/groups';
 import { quizes } from './text';
-import { greeting } from './text';
 import { development, production } from './core';
 
 const BOT_TOKEN = process.env.BOT_TOKEN || '';
@@ -28,6 +27,7 @@ bot.command('neet', neet());
 bot.command('jee', jee());
 bot.command('groups', groups());
 
+// /broadcast (admin only)
 bot.command('broadcast', async (ctx) => {
   if (ctx.from?.id !== ADMIN_ID) return ctx.reply('You are not authorized to use this command.');
   const msg = ctx.message.text?.split(' ').slice(1).join(' ');
@@ -48,19 +48,71 @@ bot.command('broadcast', async (ctx) => {
   await ctx.reply(`Broadcast sent to ${success} users.`);
 });
 
+// /reply <chat_id> <message> (admin only)
+bot.command('reply', async (ctx) => {
+  if (ctx.from?.id !== ADMIN_ID) return ctx.reply('You are not authorized.');
+  const args = ctx.message.text?.split(' ').slice(1);
+  const targetId = args?.[0];
+  const replyMsg = args?.slice(1).join(' ');
+
+  if (!targetId || !replyMsg) {
+    return ctx.reply('Usage:\n/reply <chat_id> <your message>');
+  }
+
+  try {
+    await ctx.telegram.sendMessage(
+      Number(targetId),
+      `*Admin's Reply:*\n${replyMsg}`,
+      { parse_mode: 'Markdown' }
+    );
+    await ctx.reply('Message sent successfully.');
+  } catch {
+    await ctx.reply('Failed to send message.');
+  }
+});
+
+// /users (admin only)
+bot.command('users', async (ctx) => {
+  if (ctx.from?.id !== ADMIN_ID) return;
+  const ids = getAllChatIds();
+  const userList = ids.map(id => `\`Chat ID:\` ${id}`).join('\n');
+  ctx.reply(`*Users:*\n${userList}`, { parse_mode: 'Markdown' });
+});
+
 const notifiedUsers = new Set<number>();
 
-// On any message
+// Start command with custom keyboard
+bot.start(async (ctx) => {
+  saveChatId(ctx.chat.id);
+  await saveToSheet(ctx.chat);
+
+  if (ctx.chat.id !== ADMIN_ID && !notifiedUsers.has(ctx.chat.id)) {
+    notifiedUsers.add(ctx.chat.id);
+    await ctx.telegram.sendMessage(
+      ADMIN_ID,
+      `*New user started the bot!*\n\n*Name:* ${ctx.chat.first_name || ''}\n*Username:* @${ctx.chat.username || 'N/A'}\nChat ID: \`${ctx.chat.id}\``,
+      { parse_mode: 'Markdown' }
+    );
+  }
+
+  await ctx.reply(`Welcome ${ctx.from.first_name}!`, {
+    reply_markup: {
+      keyboard: [['NEET PYQs', 'JEE PYQs'], ['Contact Admin']],
+      resize_keyboard: true,
+    },
+  });
+});
+
+// Message handler
 bot.on('message', async (ctx) => {
   const chat = ctx.chat;
   const msg = ctx.message;
 
-  if (chat?.id) {
-    // Save to sheet and memory
+  if (chat?.id && msg) {
     saveChatId(chat.id);
     await saveToSheet(chat);
 
-    // Notify admin only once
+    // Notify admin on first interaction
     if (chat.id !== ADMIN_ID && !notifiedUsers.has(chat.id)) {
       notifiedUsers.add(chat.id);
       await ctx.telegram.sendMessage(
@@ -70,10 +122,9 @@ bot.on('message', async (ctx) => {
       );
     }
 
-    // Handle /contact
+    // Handle contact message
     if (msg.text?.startsWith('/contact')) {
       const userMessage = msg.text.replace('/contact', '').trim() || msg.reply_to_message?.text;
-
       if (userMessage) {
         await ctx.telegram.sendMessage(
           ADMIN_ID,
@@ -84,33 +135,33 @@ bot.on('message', async (ctx) => {
       } else {
         await ctx.reply('Please provide a message or reply to a message using /contact.');
       }
-    } else {
-      // Greet and quiz
-      await Promise.all([quizes()(ctx), greeting()(ctx)]);
+      return;
     }
-  }
 
-  // Admin reply to user
-  if (ctx.chat.id === ADMIN_ID && ctx.message?.reply_to_message) {
-    const match = ctx.message.reply_to_message.text?.match(/Chat ID: `(\d+)`/);
-    if (match) {
-      const targetId = parseInt(match[1], 10);
-      await ctx.telegram.sendMessage(
-        targetId,
-        `*Admin's Reply:*\n${ctx.message.text}`,
-        { parse_mode: 'Markdown' }
-      );
+    // Quick actions from custom keyboard
+    if (msg.text === 'NEET PYQs') {
+      return await ctx.reply('Coming soon: NEET PYQ practice!');
     }
+
+    if (msg.text === 'JEE PYQs') {
+      return await ctx.reply('Coming soon: JEE PYQ practice!');
+    }
+
+    if (msg.text === 'Contact Admin') {
+      return await ctx.reply('Type your message and send it with /contact.');
+    }
+
+    // Only run quizzes now (greeting removed)
+    await quizes()(ctx);
   }
 });
-
 
 // Webhook for Vercel
 export const startVercel = async (req: VercelRequest, res: VercelResponse) => {
   await production(req, res, bot);
 };
 
-// Local dev mode
+// Local dev
 if (ENVIRONMENT !== 'production') {
   development(bot);
 }
