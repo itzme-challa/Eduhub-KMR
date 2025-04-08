@@ -587,265 +587,284 @@
         "explanation": "Speed of the planet will be maximum when its distance from the sun is minimum as mvr = constant.",
         "image": "https://neetcare-image.cdn.examgoal.net/1qpqahkka42m8vz/026398ad-536b-4002-bc25-78353ce615cf/5da120f0-9465-11ea-aedc-f1c8d8e0194b/file-1qpqahkka42m8w0-333w.png"
     },
-    {
-        "subject": "biology",
-        "chapter": "morphology-of-flowering-plants",
-        "question": "Which of the following statement is not correct?",
-        "options": {
-            "A": "The rhizome is thick, prostrate and branched",
-            "B": "Rhizome is a condensed form of stem",
-            "C": "The apical bud in rhizome always remains above the ground",
-            "D": "The rhizome is aerial with no distinct nodes and internodes"
-        },
-        "correct_option": "D",
-        "explanation": "Rhizome is an underground (sub-aerial) stem. It bears distinct nodes and internodes.",
-        "image": ""
+  {
+    "subject": "biology",
+    "chapter": "morphology-of-flowering-plants",
+    "question": "Which of the following statement is not correct?",
+    "options": {
+      "A": "The rhizome is thick, prostrate and branched",
+      "B": "Rhizome is a condensed form of stem",
+      "C": "The apical bud in rhizome always remains above the ground",
+      "D": "The rhizome is aerial with no distinct nodes and internodes"
     },
-    {
-        "subject": "biology",
-        "chapter": "biomolecules",
-        "question": "The major role of minor elements inside living organisms is to act as",
-        "options": {
-            "co factors of enzymes",
-            "building blocks of important amino acids",
-            "constituent of hormones",
-            "binder of cell structure."
-        },
-        "correct_option": "A",
-        "explanation": "Minor elements are those which are required by plants in very small amounts. These elements have a significant role in enzyme activities (zinc activates carboxylases, carbonic anhydrase and various dehydrogenases)."
+    "correct_option": "D",
+    "explanation": "Rhizome is an underground (sub-aerial) stem. It bears distinct nodes and internodes.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "biomolecules",
+    "question": "The major role of minor elements inside living organisms is to act as",
+    "options": {
+      "A": "co factors of enzymes",
+      "B": "building blocks of important amino acids",
+      "C": "constituent of hormones",
+      "D": "binder of cell structure."
     },
-    {
-        "subject": "biology",
-        "chapter": "locomotion-and-movement",
-        "question": "The H-zone in the skeletal muscle fibre is due to",
-        "options": {
-            "the central gap between actin filaments extending through myosin filaments in the A-bond",
-            "extension of myosin filaments in the central portion of the A-band",
-            "the absence of myofibrils in the central portion of A-band",
-            "the central gap between myosin filaments in the A-band."
-        },
-        "correct_option": "A",
-        "explanation": "Central part of thick filament, not overlapped by thin filaments is called the ‘H’ zone. ‘H’ zone is also called Hensen’s Line."
+    "correct_option": "A",
+    "explanation": "Minor elements are those which are required by plants in very small amounts. These elements have a significant role in enzyme activities (zinc activates carboxylases, carbonic anhydrase and various dehydrogenases).",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "locomotion-and-movement",
+    "question": "The H-zone in the skeletal muscle fibre is due to",
+    "options": {
+      "A": "the central gap between actin filaments extending through myosin filaments in the A-bond",
+      "B": "extension of myosin filaments in the central portion of the A-band",
+      "C": "the absence of myofibrils in the central portion of A-band",
+      "D": "the central gap between myosin filaments in the A-band."
     },
-    {
-        "subject": "biology",
-        "chapter": "principles-of-inheritance-and-variation",
-        "question": "Among the following characters, which one was not considered by Mendel in his experiments on pea?",
-        "options": {
-            "Stem-Tall or dwarf",
-            "Pod-Inflated or constricted",
-            "Trichomes-Glandular or non-glandular",
-            "Seed-Green or yellow"
-        },
-        "correct_option": "C",
-        "explanation": "During his experiments Mendel have taken seven characters in a pea plant. In which nature of trichomes i.e., glandular or non-glandular was not considered by Mendel."
+    "correct_option": "A",
+    "explanation": "Central part of thick filament, not overlapped by thin filaments is called the ‘H’ zone. ‘H’ zone is also called Hensen’s Line.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "principles-of-inheritance-and-variation",
+    "question": "Among the following characters, which one was not considered by Mendel in his experiments on pea?",
+    "options": {
+      "A": "Stem-Tall or dwarf",
+      "B": "Pod-Inflated or constricted",
+      "C": "Trichomes-Glandular or non-glandular",
+      "D": "Seed-Green or yellow"
     },
-    {
-        "subject": "biology",
-        "chapter": "plant-kingdom",
-        "question": "Select the correct statement",
-        "options": {
-            "*Sequoia* is one of the tallest trees.",
-            "The leaves of gymnosperms are not well adapted to extremes of climate.",
-            "Gymnosperms are both homosporous and heteroporous.",
-            "*Salvinia, Ginkgo* and *Pinus* all are gymnosperms."
-        },
-        "correct_option": "A",
-        "explanation": "Sequoia semepervirans is one of the tallest trees."
+    "correct_option": "C",
+    "explanation": "During his experiments Mendel have taken seven characters in a pea plant. In which nature of trichomes i.e., glandular or non-glandular was not considered by Mendel.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "plant-kingdom",
+    "question": "Select the correct statement",
+    "options": {
+      "A": "*Sequoia* is one of the tallest trees.",
+      "B": "The leaves of gymnosperms are not well adapted to extremes of climate.",
+      "C": "Gymnosperms are both homosporous and heteroporous.",
+      "D": "*Salvinia, Ginkgo* and *Pinus* all are gymnosperms."
     },
-    {
-        "subject": "biology",
-        "chapter": "cell-the-unit-of-life",
-        "question": "Which type of substance would face difficulty to pass through the cell membrane?",
-        "options": {
-            "Substance soluble in lipids",
-            "Substance with hydrophobic moiety",
-            "Substance with hydrophilic moiety",
-            "All substance irrespective of hydrophobic and hydrophilic moiety"
-        },
-        "correct_option": "C",
-        "explanation": "Substances that have a hydrophilic moiety find it difficult to pass through the plasma membrane; thus, their movement has to be facilitated."
+    "correct_option": "A",
+    "explanation": "Sequoia semepervirans is one of the tallest trees.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "cell-the-unit-of-life",
+    "question": "Which type of substance would face difficulty to pass through the cell membrane?",
+    "options": {
+      "A": "Substance soluble in lipids",
+      "B": "Substance with hydrophobic moiety",
+      "C": "Substance with hydrophilic moiety",
+      "D": "All substance irrespective of hydrophobic and hydrophilic moiety"
     },
-    {
-        "subject": "biology",
-        "chapter": "animal-kingdom",
-        "question": "Metagenesis refers to",
-        "options": {
-            "occurrence of a drastic change in form during post-embryonic development",
-            "presence of a segmented body and parthenogenetic mode of reproduction",
-            "presence of different morphic forms",
-            "alternation of generation between asexual and sexual phases of an organisms."
-        },
-        "correct_option": "D",
-        "explanation": "An alternation of generation between asexual and sexual phases of an organism is referred to as metagenesis. E.g., in Obelia (a coelenterate), polyps reproduce asexually and medusae reproduce sexually."
+    "correct_option": "C",
+    "explanation": "Substances that have a hydrophilic moiety find it difficult to pass through the plasma membrane; thus, their movement has to be facilitated.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "animal-kingdom",
+    "question": "Metagenesis refers to",
+    "options": {
+      "A": "occurrence of a drastic change in form during post-embryonic development",
+      "B": "presence of a segmented body and parthenogenetic mode of reproduction",
+      "C": "presence of different morphic forms",
+      "D": "alternation of generation between asexual and sexual phases of an organisms."
     },
-    {
-        "subject": "biology",
-        "chapter": "animal-kingdom",
-        "question": "Which group of animals belong to the same phylum?",
-        "options": {
-            "Prawn, Scorpion, *Locusta*",
-            "Sponge, Sea anemone, Starfish",
-            "Malarial parasite, *Amoeba,* Mosquito",
-            "Earthworm, Pinworm, Tapeworm"
-        },
-        "correct_option": "A",
-        "explanation": "Animals belonging to option (d) have earthworm an Annelida and Tapeworm a platyhelminth. Option (b) have sponge of Phylum Porifera and Starfish of Phylum Echinodermata. Option (c) have malarial parasite a protozoan and Mosquito of phylum Arthropoda."
+    "correct_option": "D",
+    "explanation": "An alternation of generation between asexual and sexual phases of an organism is referred to as metagenesis. E.g., in Obelia (a coelenterate), polyps reproduce asexually and medusae reproduce sexually.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "animal-kingdom",
+    "question": "Which group of animals belong to the same phylum?",
+    "options": {
+      "A": "Prawn, Scorpion, *Locusta*",
+      "B": "Sponge, Sea anemone, Starfish",
+      "C": "Malarial parasite, *Amoeba,* Mosquito",
+      "D": "Earthworm, Pinworm, Tapeworm"
     },
-    {
-        "subject": "biology",
-        "chapter": "sexual-reproduction-in-flowering-plants",
-        "question": "Double fertilisation is exhibited by",
-        "options": {
-            "algae",
-            "fungi",
-            "angiosperms",
-            "gymnosperms."
-        },
-        "correct_option": "C",
-        "explanation": "Double fertilisation is the characteristic feature of angiosperms. Here, two male gametes are released in the embryo sac or female gametophyte. One male gamete fuses with the egg cell to form zygote that gives rise to embryo whereas the other male gamete fuses with the secondary nucleus to form primary endosperm nucleus (PEN) that gives rise to endosperm."
+    "correct_option": "A",
+    "explanation": "Prawn, Scorpion, and *Locusta* all belong to phylum Arthropoda.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "sexual-reproduction-in-flowering-plants",
+    "question": "Double fertilisation is exhibited by",
+    "options": {
+      "A": "algae",
+      "B": "fungi",
+      "C": "angiosperms",
+      "D": "gymnosperms."
     },
-    {
-        "subject": "biology",
-        "chapter": "biological-classification",
-        "question": "The imperfect fungi which are decomposers of litter and help in mineral cycling belong to",
-        "options": {
-            "Ascomycetes",
-            "Phycomycetes",
-            "Basidiomycetes",
-            "Deuteromycetes"
-        },
-        "correct_option": "D",
-        "explanation": "Class- deuteromycetes comprises of imperfect fungi which play role in decomposition of organic wastes."
+    "correct_option": "C",
+    "explanation": "Double fertilisation is the characteristic feature of angiosperms. One male gamete fuses with the egg to form a zygote and the other with the secondary nucleus to form endosperm.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "biological-classification",
+    "question": "The imperfect fungi which are decomposers of litter and help in mineral cycling belong to",
+    "options": {
+      "A": "Ascomycetes",
+      "B": "Phycomycetes",
+      "C": "Basidiomycetes",
+      "D": "Deuteromycetes"
     },
-    {
-        "subject": "biology",
-        "chapter": "biomolecules",
-        "question": "Which of the following is the least likely to be involved in stablishing the three-dimensional folding of most proteins?",
-        "options": {
-            "Hydrogen bonds",
-            "Electrostatic interaction",
-            "Hydrophobic interaction",
-            "Ester bonds"
-        },
-        "correct_option": "D",
-        "explanation": "Tertiary structure or three dimensional structure of protein is stabilised by several types of bonds—hydrogen bonds, ionic bonds, van der Waal’s interactions, covalent bonds and hydrophobic bonds."
+    "correct_option": "D",
+    "explanation": "Class Deuteromycetes comprises of imperfect fungi which play role in decomposition of organic wastes.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "organisms-and-populations",
+    "question": "The term 'niche' refers to",
+    "options": {
+      "A": "an organism's role in an ecosystem",
+      "B": "the position of an organism in a food chain",
+      "C": "a group of similar populations in a given area",
+      "D": "a type of vegetation in an area"
     },
-    {
-        "subject": "biology",
-        "chapter": "chemical-coordination-and-integration",
-        "question": "A chemical signal that has both endocrine and neural roles is",
-        "options": {
-            "epinephrine",
-            "cortisol",
-            "melatonin",
-            "calcitonin."
-        },
-        "correct_option": "A",
-        "explanation": "Epinephrine has two role as a hormone and as a neurotransmitter."
+    "correct_option": "A",
+    "explanation": "Niche is the functional role played by an organism in its habitat, including its interaction with both biotic and abiotic factors.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "human-health-and-disease",
+    "question": "Which one of the following is a viral disease?",
+    "options": {
+      "A": "Typhoid",
+      "B": "Influenza",
+      "C": "Tuberculosis",
+      "D": "Cholera"
     },
-    {
-        "subject": "biology",
-        "chapter": "animal-kingdom",
-        "question": "A jawless fish, which lays eggs in fresh water and whose ammocoetes larvae after metamorphosis return to the ocean is",
-        "options": {
-            "*Neomyxine*",
-            "*Petromyzon*",
-            "*Eptatretus*",
-            "*Myxine*"
-        },
-        "correct_option": "B",
-        "explanation": "Petrormyzon marinus, commonly known as sea lamprey lays eggs in fresh water and its larvae, after metamorphosis, return to the ocean (saline water)."
+    "correct_option": "B",
+    "explanation": "Influenza is caused by the influenza virus. Other options are caused by bacteria.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "photosynthesis-in-higher-plants",
+    "question": "Which of the following is a C4 plant?",
+    "options": {
+      "A": "Wheat",
+      "B": "Potato",
+      "C": "Maize",
+      "D": "Rice"
     },
-    {
-        "subject": "biology",
-        "chapter": "molecular-basis-of-inheritance",
-        "question": "Which of the following RNAs is not required for the synthesis of protein?",
-        "options": {
-            "siRNA",
-            "mRNA",
-            "tRNA",
-            "rRNA"
-        },
-        "correct_option": "A",
-        "explanation": "siRNA mainly protect the cell from exogenous mRNA attacks. It degrades the growing mRNA and stop gene expression. It is highly specific and reduces the synthesis of particular proteins by reducing the translation of specific messenger RNAs."
+    "correct_option": "C",
+    "explanation": "C4 plants like maize have Kranz anatomy and show higher efficiency of photosynthesis under high temperature and light intensity.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "plant-growth-and-development",
+    "question": "Which hormone is responsible for apical dominance?",
+    "options": {
+      "A": "Cytokinin",
+      "B": "Abscisic acid",
+      "C": "Auxin",
+      "D": "Gibberellin"
     },
-    {
-        "subject": "biology",
-        "chapter": "chemical-coordination-and-integration",
-        "question": "Which one of the following hormones though synthesised elsewhere, is stored and released by the master gland?",
-        "options": {
-            "Prolactin",
-            "Melanocyte stimulating hormone",
-            "Antidiuretic hormone",
-            "Luteinising hormone"
-        },
-        "correct_option": "C",
-        "explanation": "ADH (Antidiuretic hormone) and oxytocin are produced by hypothalamus and stored in posterior pituitary."
+    "correct_option": "C",
+    "explanation": "Auxins promote apical dominance by inhibiting the growth of lateral buds.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "breathing-and-exchange-of-gases",
+    "question": "Most of the oxygen in blood is transported as",
+    "options": {
+      "A": "dissolved in plasma",
+      "B": "oxyhaemoglobin",
+      "C": "carbaminohaemoglobin",
+      "D": "bicarbonate"
     },
-    {
-        "subject": "biology",
-        "chapter": "molecular-basis-of-inheritance",
-        "question": "Select the correct option ;",
-        "options": {
-            "Direction of RNA synthesis 3’−5’, Direction of reading of the template DNA strand 5’−3’",
-            "Direction of RNA synthesis 5’−3’, Direction of reading of the template DNA strand 5’−3’",
-            "Direction of RNA synthesis 5’−3’, Direction of reading of the template DNA strand 3’−5’",
-            "Direction of RNA synthesis 3’−5’, Direction of reading of the template DNA strand 3’−5’"
-        },
-        "correct_option": "C",
-        "explanation": "RNA polymerase initiates and extends the RNA (chain elongation) and functions always in 5' to 3' direction. The structural component of DNA has 3' to 5' polarity. It is also called template DNA strand or antisense (–) strand."
+    "correct_option": "B",
+    "explanation": "About 97% of oxygen is transported by RBCs in the form of oxyhaemoglobin.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "body-fluids-and-circulation",
+    "question": "The 'lub' sound of the heart is produced due to",
+    "options": {
+      "A": "closing of semilunar valves",
+      "B": "closing of AV valves",
+      "C": "opening of tricuspid valves",
+      "D": "filling of ventricles"
     },
-    {
-        "subject": "biology",
-        "chapter": "human-reproduction",
-        "question": "Ectopic pregnancies are referred to as",
-        "options": {
-            "implantation of defective embryo in the uterus",
-            "pregnancies terminated due to hormonal imbalance",
-            "pregnancies with genetic abnormality",
-            "implantation of embryo at site other than uterus."
-        },
-        "correct_option": "D",
-        "explanation": "In ectopic pregnancies, the implantation of embryo does not occur in uterus but at other site"
+    "correct_option": "B",
+    "explanation": "'Lub' is the first heart sound produced by the closure of atrioventricular (AV) valves (tricuspid and bicuspid) at the beginning of ventricular systole.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "neural-control-and-coordination",
+    "question": "Nodes of Ranvier are found in",
+    "options": {
+      "A": "smooth muscles",
+      "B": "non-myelinated nerve fibres",
+      "C": "myelinated nerve fibres",
+      "D": "striated muscles"
     },
-    {
-        "subject": "biology",
-        "chapter": "locomotion-and-movement",
-        "question": "Which of the following is not a function of the skeletal system?",
-        "options": {
-            "Production of body heat",
-            "Locomotion",
-            "Production of erythrocytes",
-            "Storage of minerals"
-        },
-        "correct_option": "A",
-        "explanation": "Production of body heat is caused by the process of metabolism (respiration)."
+    "correct_option": "C",
+    "explanation": "Nodes of Ranvier are the gaps between successive myelin sheath segments along a myelinated nerve fibre.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "chemical-coordination-and-integration",
+    "question": "The hormone that regulates basal metabolic rate is",
+    "options": {
+      "A": "Cortisol",
+      "B": "Thyroxine",
+      "C": "Insulin",
+      "D": "Glucagon"
     },
-    {
-        "subject": "biology",
-        "chapter": "morphology-of-flowering-plants",
-        "question": "The morphological nature of the edible part of coconut is",
-        "options": {
-            "cotyledon",
-            "endosperm",
-            "pericarp",
-            "perisperm."
-        },
-        "correct_option": "B",
-        "explanation": "The edible part of coconut is its endosperm. Coconut has double endosperm, liquid endosperm and cellular."
+    "correct_option": "B",
+    "explanation": "Thyroxine, secreted by thyroid gland, controls the basal metabolic rate.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "ecosystem",
+    "question": "Which of the following is the major producer in a pond ecosystem?",
+    "options": {
+      "A": "Phytoplankton",
+      "B": "Zooplankton",
+      "C": "Fish",
+      "D": "Bacteria"
     },
-    {
-        "subject": "biology",
-        "chapter": "plant-kingdom",
-        "question": "Select the wrong statement",
-        "options": {
-            "In Oomycetes, female gamete is smaller and motile, while male gamete is larger and non-motile.",
-            "*Chlamydomonas* exhibits both isogamy and amisogamy and *Fucas* shows oogamy.",
-            "Isogametes are similar in structure, function and behaviour.",
-            "Anisogametes differ either in structure, function or behaviour."
-        },
-        "correct_option": "A",
-        "explanation": "In oomycetes, like other oogamous organisms female gamete is large and non- motile, while male gamete is small and motile."
-    }
+    "correct_option": "A",
+    "explanation": "Phytoplankton are microscopic plants that act as primary producers in an aquatic ecosystem like a pond.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "strategies-for-enhancement-in-food-production",
+    "question": "Artificial insemination means",
+    "options": {
+      "A": "keeping the semen of a healthy donor in frozen state for future use",
+      "B": "introduction of semen into the female reproductive tract",
+      "C": "introduction of sperms of a healthy donor into the vagina",
+      "D": "transfer of zygote into the fallopian tube"
+    },
+    "correct_option": "B",
+    "explanation": "Artificial insemination is the technique in which the semen is collected and introduced into the female reproductive tract for fertilisation.",
+    "image": ""
+  }
 ]
