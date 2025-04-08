@@ -2,7 +2,6 @@ import { getAllChatIds, saveChatId } from './utils/chatStore';
 import { saveToSheet } from './utils/saveToSheet';
 import { Telegraf } from 'telegraf';
 import { VercelRequest, VercelResponse } from '@vercel/node';
-import { handlePollAnswer } from './text/quizes';
 import { about } from './commands';
 import { help } from './commands';
 import { study } from './commands/study';
