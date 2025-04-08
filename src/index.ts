@@ -2,8 +2,7 @@ import { Telegraf } from 'telegraf';
 import { VercelRequest, VercelResponse } from '@vercel/node';
 import { getAllChatIds, saveChatId } from './utils/chatStore';
 import { saveToSheet } from './utils/saveToSheet';
-import { about } from './commands';
-import { help } from './commands';
+import { about, help } from './commands';
 import { study } from './commands/study';
 import { neet } from './commands/neet';
 import { jee } from './commands/jee';
@@ -79,10 +78,9 @@ bot.command('reply', async (ctx) => {
 
 // --- START HANDLER (Only respond in private) ---
 bot.start(async (ctx) => {
-  const chatType = ctx.chat.type;
-  if (isPrivateChat(chatType)) {
+  if (isPrivateChat(ctx.chat.type)) {
     await ctx.reply('Welcome! Use /help to explore commands.');
-    bot.start(greeting());
+    await greeting()(ctx);
   }
 });
 
@@ -125,7 +123,7 @@ bot.on('message', async (ctx) => {
   }
 
   // Admin reply via swipe
-  if (chat.id === ADMIN_ID && msg?.reply_to_message) {
+  if (chat.id === ADMIN_ID && msg.reply_to_message) {
     const match = msg.reply_to_message.text?.match(/Chat ID: `(\d+)`/);
     if (match) {
       const targetId = parseInt(match[1], 10);
@@ -145,7 +143,7 @@ bot.on('message', async (ctx) => {
   // Run quiz for all chats
   await quizes()(ctx);
 
-  // Greeting only in private chats
+  // Greet only in private
   if (isPrivateChat(chatType)) {
     await greeting()(ctx);
   }
