@@ -1,30 +1,32 @@
-{
-  "id": 1,
-  "subject": "Biology",
-  "chapter": "Biomolecules",
-  "question": "Which of the following is a disaccharide?",
-  "options": {
-    "A": "Glucose",
-    "B": "Fructose",
-    "C": "Maltose",
-    "D": "Ribose"
+[
+  {
+    "id": 1,
+    "subject": "Biology",
+    "chapter": "Biomolecules",
+    "question": "Which of the following is a disaccharide?",
+    "options": {
+      "A": "Glucose",
+      "B": "Fructose",
+      "C": "Maltose",
+      "D": "Ribose"
+    },
+    "correct_option": "C",
+    "explanation": "Maltose is a disaccharide made of two glucose units. The others are monosaccharides.",
+    "image": "https://www.esaral.com/media/uploads/2024/6/17/111835-Copy%20of%20Copy%20of%20Add%20a%20heading%20(1).png"
   },
-  "correct_option": "C",
-  "explanation": "Maltose is a disaccharide made of two glucose units. The others are monosaccharides.",
-  "image": "https://www.esaral.com/media/uploads/2024/6/17/111835-Copy%20of%20Copy%20of%20Add%20a%20heading%20(1).png"
-},
-{
-  "id": 2,
-  "subject": "Biology",
-  "chapter": "Biodiversity and Conservation",
-  "question": "The historic Convention on Biological Diversity, ‘The Earth Summit’, was held in Rio de Janeiro in the year:",
-  "options": {
-    "A": "1992",
-    "B": "1986",
-    "C": "2002",
-    "D": "1985"
-  },
-  "correct_option": "A",
-  "explanation": "The Earth Summit, formally known as the United Nations Conference on Environment and Development (UNCED), was held in Rio de Janeiro, Brazil, in 1992. This summit led to the establishment of the Convention on Biological Diversity, marking a major step in global conservation efforts.",
-  "image": ""
-}
+  {
+    "id": 2,
+    "subject": "Biology",
+    "chapter": "Biodiversity and Conservation",
+    "question": "The historic Convention on Biological Diversity, ‘The Earth Summit’, was held in Rio de Janeiro in the year:",
+    "options": {
+      "A": "1992",
+      "B": "1986",
+      "C": "2002",
+      "D": "1985"
+    },
+    "correct_option": "A",
+    "explanation": "The Earth Summit, formally known as the United Nations Conference on Environment and Development (UNCED), was held in Rio de Janeiro, Brazil, in 1992. This summit led to the establishment of the Convention on Biological Diversity, marking a major step in global conservation efforts.",
+    "image": ""
+  }
+]
