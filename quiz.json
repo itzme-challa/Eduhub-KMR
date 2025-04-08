@@ -14,7 +14,7 @@
   },
     {
   "subject": "biology",
-  "question": "The historic Convention on Biological Diversity, ‘The Earth Summit’ was held in Rio de Janeiro in the year",
+  "question": "The historic Convention on Biological Diversity The Earth Summit was held in Rio de Janeiro in the year",
   "options": {
     "A": "1992",
     "B": "1986",
@@ -22,7 +22,7 @@
     "D": "1985"
   },
   "correct_option": "A",
-  "explanation": "The Earth Summit, formally known as the United Nations Conference on Environment and Development (UNCED), was indeed held in Rio de Janeiro, Brazil, in 1992. This meeting marked a significant step forward in global conservation efforts, leading to the establishment of the Convention on Biological Diversity, among other important agreements.",
+  "explanation": "The Earth Summit, formally known as the United Nations Conference on Environment and Development was indeed held in Rio de Janeiro Brazil in 1992. This meeting marked a significant step forward.",
   "image": ""
 },
   {
