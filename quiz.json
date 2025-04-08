@@ -1,41 +1,28 @@
 [
   {
     "subject": "biology",
-    "question": "Which of the following is a prokaryote?",
+    "question": "Given below are two statements: One is labelled as Assertion A and the other is labelled as Reason R:\n\n**Assertion A**: Late wood has fewer xylary elements with narrow vessels.\n\n**Reason R**: Cambium is less active in winters.\n\nIn the light of the above statements, choose the correct answer from the options given below:",
     "options": {
-      "A": "Amoeba",
-      "B": "Paramecium",
-      "C": "Mycoplasma",
-      "D": "Yeast"
+      "A": "Both A and R are true but R is NOT the correct explanation of A",
+      "B": "A is true but R is false",
+      "C": "A is false but R is true",
+      "D": "Both A and R are true and R is the correct explanation of A"
     },
-    "correct_option": "C",
-    "explanation": "Mycoplasma is a prokaryote because it lacks a true nucleus and membrane-bound organelles.",
+    "correct_option": "D",
+    "explanation": "Late wood, formed in the latter part of the growing season, indeed has fewer xylary elements with narrower vessels. This is because the cambium is less active in colder temperatures like winter. So both Assertion A and Reason R are true, and R correctly explains A.",
     "image": ""
   },
   {
-    "subject": "physics",
-    "question": "What is the dimensional formula of force?",
+    "subject": "biology",
+    "question": "Melonate inhibits the growth of pathogenic bacteria by inhibiting the activity of:",
     "options": {
-      "A": "MLT⁻²",
-      "B": "ML²T⁻²",
-      "C": "MLT⁻¹",
-      "D": "ML⁻¹T²"
+      "A": "Amylase",
+      "B": "Lipase",
+      "C": "Dinitrogenase",
+      "D": "Succinic dehydrogenase"
     },
-    "correct_option": "A",
-    "explanation": "Force = mass × acceleration, so the dimensional formula is [M][LT⁻²] = MLT⁻².",
-    "image": ""
-  },
-  {
-    "subject": "chemistry",
-    "question": "Which of the following is a Lewis acid?",
-    "options": {
-      "A": "NH₃",
-      "B": "H₂O",
-      "C": "BF₃",
-      "D": "OH⁻"
-    },
-    "correct_option": "C",
-    "explanation": "BF₃ is a Lewis acid because it can accept a pair of electrons.",
+    "correct_option": "D",
+    "explanation": "Melonate is a known inhibitor of succinic dehydrogenase, a key enzyme in the citric acid cycle. By blocking this enzyme, it disrupts bacterial metabolism, thus inhibiting growth.",
     "image": ""
   }
 ]
