@@ -1,28 +1,142 @@
 [
   {
-    "subject": "biology",
-    "question": "Given below",
+    "subject": "Biology",
+    "chapter": "Cell - The Unit of Life",
+    "question": "Which organelle is known as the 'powerhouse of the cell'?",
     "options": {
-      "A": "Both A and R are true but R is NOT the correct explanation of A",
-      "B": "A is true but R is false",
-      "C": "A is false but R is true",
-      "D": "Both A and R are true and R is the correct explanation of A"
+      "A": "Nucleus",
+      "B": "Mitochondrion",
+      "C": "Ribosome",
+      "D": "Endoplasmic reticulum"
     },
-    "correct_option": "D",
-    "explanation": "Late wood, formed in the latter part of the growing season, indeed has fewer xylary elements with narrower vessels. This is because the cambium is less active in colder temperatures like winter. So both Assertion A and Reason R are true, and R correctly explains A.",
+    "correct_option": "B",
+    "explanation": "Mitochondria are known as the 'powerhouse of the cell' because they produce ATP through oxidative phosphorylation.",
     "image": ""
   },
   {
-    "subject": "biology",
-    "question": "Melonate inhibits the growth of pathogenic bacteria by inhibiting the activity of:",
+    "subject": "Biology",
+    "chapter": "Plant Kingdom",
+    "question": "Which of the following is a characteristic of monocot plants?",
     "options": {
-      "A": "Amylase",
-      "B": "Lipase",
-      "C": "Dinitrogenase",
-      "D": "Succinic dehydrogenase"
+      "A": "Net-veined leaves",
+      "B": "Two cotyledons",
+      "C": "Parallel-veined leaves",
+      "D": "Tap root system"
+    },
+    "correct_option": "C",
+    "explanation": "Monocot plants typically have parallel-veined leaves, one cotyledon, and a fibrous root system.",
+    "image": ""
+  },
+  {
+    "subject": "Biology",
+    "chapter": "Human Physiology",
+    "question": "Which hormone is responsible for regulating blood sugar levels?",
+    "options": {
+      "A": "Insulin",
+      "B": "Adrenaline",
+      "C": "Thyroxine",
+      "D": "Cortisol"
+    },
+    "correct_option": "A",
+    "explanation": "Insulin, produced by the pancreas, helps regulate blood sugar levels by facilitating the uptake of glucose into cells.",
+    "image": ""
+  },
+  {
+    "subject": "Biology",
+    "chapter": "Human Physiology",
+    "question": "Which blood type is known as the universal donor?",
+    "options": {
+      "A": "Type A",
+      "B": "Type B",
+      "C": "Type AB",
+      "D": "Type O"
     },
     "correct_option": "D",
-    "explanation": "Melonate is a known inhibitor of succinic dehydrogenase, a key enzyme in the citric acid cycle. By blocking this enzyme, it disrupts bacterial metabolism, thus inhibiting growth.",
+    "explanation": "Type O blood is considered the universal donor because it lacks A and B antigens, reducing the risk of immune reactions.",
+    "image": ""
+  },
+  {
+    "subject": "Biology",
+    "chapter": "Genetics and Evolution",
+    "question": "Which process results in the formation of gametes?",
+    "options": {
+      "A": "Mitosis",
+      "B": "Meiosis",
+      "C": "Fertilization",
+      "D": "Binary fission"
+    },
+    "correct_option": "B",
+    "explanation": "Meiosis is the cell division process that produces gametes (sperm and egg cells) with half the number of chromosomes.",
+    "image": ""
+  },
+  {
+    "subject": "Biology",
+    "chapter": "Human Physiology",
+    "question": "Which vitamin is synthesized by the human body when exposed to sunlight?",
+    "options": {
+      "A": "Vitamin A",
+      "B": "Vitamin B12",
+      "C": "Vitamin C",
+      "D": "Vitamin D"
+    },
+    "correct_option": "D",
+    "explanation": "Vitamin D is synthesized in the skin upon exposure to ultraviolet (UV) rays from sunlight.",
+    "image": ""
+  },
+  {
+    "subject": "Biology",
+    "chapter": "Cell - The Unit of Life",
+    "question": "What is the primary function of the large intestine?",
+    "options": {
+      "A": "Nutrient absorption",
+      "B": "Water absorption",
+      "C": "Protein digestion",
+      "D": "Fat emulsification"
+    },
+    "correct_option": "B",
+    "explanation": "The large intestine primarily absorbs water from indigestible food matter, forming solid waste (feces).",
+    "image": ""
+  },
+  {
+    "subject": "Biology",
+    "chapter": "Structural Organisation in Animals",
+    "question": "Which of the following is a vestigial organ in humans?",
+    "options": {
+      "A": "Liver",
+      "B": "Appendix",
+      "C": "Heart",
+      "D": "Kidney"
+    },
+    "correct_option": "B",
+    "explanation": "The appendix is considered a vestigial organ in humans, having lost most of its original function through evolution.",
+    "image": ""
+  },
+  {
+    "subject": "Biology",
+    "chapter": "Plant Physiology",
+    "question": "What is the term for the symbiotic relationship between fungi and plant roots?",
+    "options": {
+      "A": "Lichen",
+      "B": "Mycorrhiza",
+      "C": "Rhizobium",
+      "D": "Epiphyte"
+    },
+    "correct_option": "B",
+    "explanation": "Mycorrhiza refers to the mutualistic association between fungi and plant roots, enhancing nutrient uptake.",
+    "image": ""
+  },
+  {
+    "subject": "Biology",
+    "chapter": "Human Physiology",
+    "question": "What is the main function of hemoglobin in the blood?",
+    "options": {
+      "A": "Digesting proteins",
+      "B": "Transporting oxygen",
+      "C": "Clotting blood",
+      "D": "Fighting infections"
+    },
+    "correct_option": "B",
+    "explanation": "Hemoglobin in red blood cells binds to oxygen in the lungs and transports it to tissues throughout the body.",
     "image": ""
   }
 ]
