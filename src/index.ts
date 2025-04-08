@@ -19,7 +19,7 @@ const ADMIN_ID = 6930703214;
 if (!BOT_TOKEN) throw new Error('BOT_TOKEN not provided!');
 const bot = new Telegraf(BOT_TOKEN);
 
-// Admin-only user tracking
+// Track notified users
 const notifiedUsers = new Set<number>();
 
 // --- COMMANDS ---
@@ -30,8 +30,10 @@ bot.command('neet', neet());
 bot.command('jee', jee());
 bot.command('groups', groups());
 
+// Broadcast (admin only)
 bot.command('broadcast', async (ctx) => {
   if (ctx.from?.id !== ADMIN_ID) return ctx.reply('You are not authorized to use this command.');
+
   const msg = ctx.message.text?.split(' ').slice(1).join(' ');
   if (!msg) return ctx.reply('Usage:\n/broadcast Your message here');
 
@@ -48,20 +50,29 @@ bot.command('broadcast', async (ctx) => {
   await ctx.reply(`Broadcast sent to ${success} users.`);
 });
 
-// Admin reply using command
+// Admin reply via command
 bot.command('reply', async (ctx) => {
   if (ctx.from?.id !== ADMIN_ID) return ctx.reply('You are not authorized to use this command.');
-  const parts = ctx.message.text?.split(' ');
-  if (parts.length < 3) return ctx.reply('Usage:\n/reply <chat_id> <message>');
 
-  const chatId = parseInt(parts[1], 10);
+  const parts = ctx.message.text?.split(' ');
+  if (!parts || parts.length < 3) {
+    return ctx.reply('Usage:\n/reply <chat_id> <message>');
+  }
+
+  const chatIdStr = parts[1].trim();
+  const chatId = Number(chatIdStr);
   const message = parts.slice(2).join(' ');
+
+  if (isNaN(chatId)) {
+    return ctx.reply(`Invalid chat ID: ${chatIdStr}`);
+  }
 
   try {
     await ctx.telegram.sendMessage(chatId, `*Admin's Reply:*\n${message}`, { parse_mode: 'Markdown' });
-    await ctx.reply('Reply sent!');
-  } catch {
-    await ctx.reply('Failed to send reply.');
+    await ctx.reply(`Reply sent to \`${chatId}\``, { parse_mode: 'Markdown' });
+  } catch (error) {
+    console.error('Reply error:', error);
+    await ctx.reply(`Failed to send reply to \`${chatId}\``, { parse_mode: 'Markdown' });
   }
 });
 
@@ -72,11 +83,11 @@ bot.on('message', async (ctx) => {
 
   if (!chat?.id) return;
 
-  // Save user
+  // Save chat ID and Google Sheet
   saveChatId(chat.id);
   await saveToSheet(chat);
 
-  // Notify admin only once
+  // Notify admin once
   if (chat.id !== ADMIN_ID && !notifiedUsers.has(chat.id)) {
     notifiedUsers.add(chat.id);
     await ctx.telegram.sendMessage(
@@ -107,16 +118,20 @@ bot.on('message', async (ctx) => {
     const match = msg.reply_to_message.text?.match(/Chat ID: `(\d+)`/);
     if (match) {
       const targetId = parseInt(match[1], 10);
-      await ctx.telegram.sendMessage(
-        targetId,
-        `*Admin's Reply:*\n${msg.text}`,
-        { parse_mode: 'Markdown' }
-      );
+      try {
+        await ctx.telegram.sendMessage(
+          targetId,
+          `*Admin's Reply:*\n${msg.text}`,
+          { parse_mode: 'Markdown' }
+        );
+      } catch (err) {
+        console.error('Failed to send swipe reply:', err);
+      }
     }
     return;
   }
 
-  // Normal user - greet + quiz
+  // Greet + Quiz for normal user
   if (chat.id !== ADMIN_ID) {
     await Promise.all([
       quizes()(ctx),
