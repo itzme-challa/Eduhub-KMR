@@ -82,6 +82,7 @@ bot.start(async (ctx) => {
   const chatType = ctx.chat.type;
   if (isPrivateChat(chatType)) {
     await ctx.reply('Welcome! Use /help to explore commands.');
+    bot.start(greeting());
   }
 });
 
