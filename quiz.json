@@ -866,5 +866,425 @@
     "correct_option": "B",
     "explanation": "Artificial insemination is the technique in which the semen is collected and introduced into the female reproductive tract for fertilisation.",
     "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "microbes-in-human-welfare",
+    "question": "Which of the following is used in the production of ethanol?",
+    "options": {
+      "A": "Aspergillus",
+      "B": "Clostridium",
+      "C": "Saccharomyces",
+      "D": "Acetobacter"
+    },
+    "correct_option": "C",
+    "explanation": "Saccharomyces cerevisiae (yeast) is used for fermenting sugars to produce ethanol.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "principles-of-inheritance-and-variation",
+    "question": "Mendel's law of independent assortment is applicable when",
+    "options": {
+      "A": "genes are located on the same chromosome",
+      "B": "genes are located on different chromosomes",
+      "C": "genes are linked",
+      "D": "dominance is incomplete"
+    },
+    "correct_option": "B",
+    "explanation": "Independent assortment occurs when genes are on different chromosomes and segregate independently during gamete formation.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "molecular-basis-of-inheritance",
+    "question": "Which enzyme is responsible for unzipping the DNA helix during replication?",
+    "options": {
+      "A": "DNA polymerase",
+      "B": "Ligase",
+      "C": "Helicase",
+      "D": "Topoisomerase"
+    },
+    "correct_option": "C",
+    "explanation": "Helicase breaks the hydrogen bonds between DNA strands, unwinding the helix.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "evolution",
+    "question": "Industrial melanism is an example of",
+    "options": {
+      "A": "genetic drift",
+      "B": "natural selection",
+      "C": "mutation",
+      "D": "gene flow"
+    },
+    "correct_option": "B",
+    "explanation": "Industrial melanism in moths shows how natural selection favors darker forms in polluted environments.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "reproductive-health",
+    "question": "Which method is considered a barrier method of contraception?",
+    "options": {
+      "A": "Copper-T",
+      "B": "Oral pills",
+      "C": "Condoms",
+      "D": "Tubectomy"
+    },
+    "correct_option": "C",
+    "explanation": "Condoms are physical barriers that prevent sperm from reaching the egg.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "biotechnology-principles-and-processes",
+    "question": "The restriction enzymes were discovered by",
+    "options": {
+      "A": "Watson and Crick",
+      "B": "Avery et al.",
+      "C": "Herbert Boyer",
+      "D": "Arber and Smith"
+    },
+    "correct_option": "D",
+    "explanation": "Arber and Smith discovered restriction enzymes, which are used to cut DNA at specific sequences.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "biotechnology-and-its-applications",
+    "question": "Bt toxin gene has been cloned from",
+    "options": {
+      "A": "Bacillus subtilis",
+      "B": "Agrobacterium tumefaciens",
+      "C": "Bacillus thuringiensis",
+      "D": "Pseudomonas putida"
+    },
+    "correct_option": "C",
+    "explanation": "Bt toxin gene is derived from Bacillus thuringiensis and introduced in crops to make them pest resistant.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "organisms-and-populations",
+    "question": "A population growing in a habitat with limited resources shows",
+    "options": {
+      "A": "exponential growth",
+      "B": "geometrical growth",
+      "C": "sigmoid growth",
+      "D": "arithmetical growth"
+    },
+    "correct_option": "C",
+    "explanation": "Limited resources cause logistic (sigmoid) growth where growth slows as resources become scarce.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "environmental-issues",
+    "question": "Which of the following is the most abundant greenhouse gas?",
+    "options": {
+      "A": "Methane",
+      "B": "Nitrous oxide",
+      "C": "Carbon dioxide",
+      "D": "CFCs"
+    },
+    "correct_option": "C",
+    "explanation": "Carbon dioxide (CO₂) is the most abundant greenhouse gas and a major contributor to global warming.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "biomolecules",
+    "question": "Which of the following is a disaccharide?",
+    "options": {
+      "A": "Glucose",
+      "B": "Fructose",
+      "C": "Sucrose",
+      "D": "Ribose"
+    },
+    "correct_option": "C",
+    "explanation": "Sucrose is a disaccharide composed of glucose and fructose.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "photosynthesis-in-higher-plants",
+    "question": "Which of the following is the primary acceptor of electrons in the light reaction of photosynthesis?",
+    "options": {
+      "A": "Ferredoxin",
+      "B": "Cytochrome",
+      "C": "Plastoquinone",
+      "D": "Pheophytin"
+    },
+    "correct_option": "D",
+    "explanation": "Pheophytin is the first stable acceptor of electrons from PSII during the light reaction.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "respiration-in-plants",
+    "question": "The respiratory quotient (RQ) of fat is",
+    "options": {
+      "A": "1",
+      "B": "less than 1",
+      "C": "more than 1",
+      "D": "infinite"
+    },
+    "correct_option": "B",
+    "explanation": "Fats require more oxygen than the CO₂ they release, so RQ < 1.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "plant-growth-and-development",
+    "question": "Which plant hormone promotes seed dormancy?",
+    "options": {
+      "A": "Auxin",
+      "B": "Cytokinin",
+      "C": "Gibberellin",
+      "D": "Abscisic acid"
+    },
+    "correct_option": "D",
+    "explanation": "Abscisic acid (ABA) induces seed dormancy and prevents germination.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "digestion-and-absorption",
+    "question": "Bile salts help in digestion of",
+    "options": {
+      "A": "Carbohydrates",
+      "B": "Proteins",
+      "C": "Fats",
+      "D": "Vitamins"
+    },
+    "correct_option": "C",
+    "explanation": "Bile salts emulsify fats, increasing their surface area for enzyme action.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "breathing-and-exchange-of-gases",
+    "question": "The maximum volume of air a person can inhale after a normal expiration is called",
+    "options": {
+      "A": "Inspiratory reserve volume",
+      "B": "Expiratory reserve volume",
+      "C": "Residual volume",
+      "D": "Tidal volume"
+    },
+    "correct_option": "A",
+    "explanation": "Inspiratory Reserve Volume (IRV) is the additional air that can be inhaled after a normal inhalation.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "body-fluids-and-circulation",
+    "question": "Which of the following prevents backflow of blood in the heart?",
+    "options": {
+      "A": "Atrium",
+      "B": "Valves",
+      "C": "Ventricles",
+      "D": "Septum"
+    },
+    "correct_option": "B",
+    "explanation": "Heart valves ensure unidirectional flow and prevent backflow of blood.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "excretory-products-and-their-elimination",
+    "question": "The basic filtration unit of the kidney is",
+    "options": {
+      "A": "Ureter",
+      "B": "Nephron",
+      "C": "Collecting duct",
+      "D": "Tubule"
+    },
+    "correct_option": "B",
+    "explanation": "Each nephron is responsible for filtering blood and forming urine.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "locomotion-and-movement",
+    "question": "Actin and myosin are found in",
+    "options": {
+      "A": "Nerves",
+      "B": "Bones",
+      "C": "Muscles",
+      "D": "Skin"
+    },
+    "correct_option": "C",
+    "explanation": "Actin and myosin are contractile proteins found in muscle fibers.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "neural-control-and-coordination",
+    "question": "Nodes of Ranvier are found in",
+    "options": {
+      "A": "Non-myelinated axons",
+      "B": "Myelinated axons",
+      "C": "Dendrites",
+      "D": "Cell bodies"
+    },
+    "correct_option": "B",
+    "explanation": "Nodes of Ranvier are gaps in myelin sheath that help in saltatory conduction in myelinated neurons.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "chemical-coordination-and-integration",
+    "question": "Thyroxine is secreted by",
+    "options": {
+      "A": "Adrenal gland",
+      "B": "Pituitary gland",
+      "C": "Thyroid gland",
+      "D": "Pancreas"
+    },
+    "correct_option": "C",
+    "explanation": "Thyroid gland produces thyroxine, which regulates metabolism.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "reproduction-in-organisms",
+    "question": "Which of the following is a unisexual flower?",
+    "options": {
+      "A": "Hibiscus",
+      "B": "Mustard",
+      "C": "Corn",
+      "D": "Datura"
+    },
+    "correct_option": "C",
+    "explanation": "Corn has separate male and female flowers on the same plant, making them unisexual.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "sexual-reproduction-in-flowering-plants",
+    "question": "Double fertilization is a characteristic of",
+    "options": {
+      "A": "Gymnosperms",
+      "B": "Bryophytes",
+      "C": "Pteridophytes",
+      "D": "Angiosperms"
+    },
+    "correct_option": "D",
+    "explanation": "Angiosperms exhibit double fertilization: one male gamete fuses with the egg, the other with polar nuclei.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "human-reproduction",
+    "question": "In human females, meiosis-II is completed",
+    "options": {
+      "A": "Before ovulation",
+      "B": "After fertilization",
+      "C": "At birth",
+      "D": "During puberty"
+    },
+    "correct_option": "B",
+    "explanation": "Meiosis-II in oocytes completes only after sperm entry during fertilization.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "reproductive-health",
+    "question": "The technique called 'GIFT' is recommended for",
+    "options": {
+      "A": "Male infertility",
+      "B": "Female infertility due to blockage of fallopian tube",
+      "C": "Females who cannot produce ovum",
+      "D": "Females with functional ovary but blocked oviduct"
+    },
+    "correct_option": "D",
+    "explanation": "GIFT (Gamete Intra-Fallopian Transfer) is used when the female has a functional ovary but blocked fallopian tubes.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "principles-of-inheritance-and-variation",
+    "question": "Which of the following is an example of polygenic inheritance?",
+    "options": {
+      "A": "Skin color in humans",
+      "B": "Blood group in humans",
+      "C": "ABO blood system",
+      "D": "Rh factor"
+    },
+    "correct_option": "A",
+    "explanation": "Skin color is controlled by multiple genes (polygenic inheritance).",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "molecular-basis-of-inheritance",
+    "question": "The Okazaki fragments are joined by",
+    "options": {
+      "A": "Helicase",
+      "B": "Ligase",
+      "C": "Polymerase",
+      "D": "Primase"
+    },
+    "correct_option": "B",
+    "explanation": "DNA ligase joins the Okazaki fragments on the lagging strand during replication.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "evolution",
+    "question": "Which of the following is considered the first genetic material?",
+    "options": {
+      "A": "DNA",
+      "B": "Protein",
+      "C": "RNA",
+      "D": "Enzyme"
+    },
+    "correct_option": "C",
+    "explanation": "RNA is believed to be the first genetic material as it can store genetic information and act as an enzyme.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "human-health-and-disease",
+    "question": "The cause of malaria is",
+    "options": {
+      "A": "Bacteria",
+      "B": "Virus",
+      "C": "Plasmodium",
+      "D": "Fungus"
+    },
+    "correct_option": "C",
+    "explanation": "Malaria is caused by Plasmodium (a protozoan parasite), transmitted by female Anopheles mosquitoes.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "strategies-for-enhancement-in-food-production",
+    "question": "Which technique is used for selecting desirable recombinants?",
+    "options": {
+      "A": "Electrophoresis",
+      "B": "ELISA",
+      "C": "Marker-assisted selection",
+      "D": "Tissue culture"
+    },
+    "correct_option": "C",
+    "explanation": "Marker-assisted selection (MAS) uses molecular markers to select plants with desired traits.",
+    "image": ""
+  },
+  {
+    "subject": "biology",
+    "chapter": "microbes-in-human-welfare",
+    "question": "Which microbe is used in alcohol production?",
+    "options": {
+      "A": "Rhizobium",
+      "B": "Lactobacillus",
+      "C": "Saccharomyces cerevisiae",
+      "D": "Aspergillus"
+    },
+    "correct_option": "C",
+    "explanation": "Saccharomyces cerevisiae (yeast) is used in fermentation for alcohol production.",
+    "image": ""
   }
 ]
