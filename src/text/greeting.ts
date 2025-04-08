@@ -33,7 +33,7 @@ const greeting = () => async (ctx: Context) => {
 
     await ctx.reply(reply);
     await ctx.reply(`For practice, just send me your topic or need!`);
-  } else if (text === 'start') {
+} else if (text === '/start' || text === 'start') {
     await ctx.reply(
       `Dear ${userName}, today is ${today}, welcome to *Eduhub Bot 1.1.0*! 📚\nYour smart companion for NEET & JEE prep.`,
       { parse_mode: 'Markdown' }
