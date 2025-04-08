@@ -2,13 +2,14 @@ import { getAllChatIds, saveChatId } from './utils/chatStore';
 import { saveToSheet } from './utils/saveToSheet';
 import { Telegraf } from 'telegraf';
 import { VercelRequest, VercelResponse } from '@vercel/node';
-import { handlePollAnswer } from './text/quizes';
+
 import { about } from './commands';
 import { help } from './commands';
 import { study } from './commands/study';
 import { neet } from './commands/neet';
 import { jee } from './commands/jee';
 import { groups } from './commands/groups';
+
 import { quizes } from './text';
 import { greeting } from './text';
 import { development, production } from './core';
@@ -21,7 +22,7 @@ if (!BOT_TOKEN) throw new Error('BOT_TOKEN not provided!');
 
 const bot = new Telegraf(BOT_TOKEN);
 
-// Commands
+// ✅ Register slash commands
 bot.command('about', about());
 bot.command('help', help());
 bot.command('study', study());
@@ -31,6 +32,7 @@ bot.command('groups', groups());
 
 bot.command('broadcast', async (ctx) => {
   if (ctx.from?.id !== ADMIN_ID) return ctx.reply('You are not authorized to use this command.');
+
   const msg = ctx.message.text?.split(' ').slice(1).join(' ');
   if (!msg) return ctx.reply('Usage:\n/broadcast Your message here');
 
@@ -51,17 +53,16 @@ bot.command('broadcast', async (ctx) => {
 
 const notifiedUsers = new Set<number>();
 
-// On any message
 bot.on('message', async (ctx) => {
   const chat = ctx.chat;
   const msg = ctx.message;
 
   if (chat?.id) {
-    // Save to sheet and memory
+    // Save chat ID and send to sheet
     saveChatId(chat.id);
     await saveToSheet(chat);
 
-    // Notify admin only once
+    // Notify admin (only once)
     if (chat.id !== ADMIN_ID && !notifiedUsers.has(chat.id)) {
       notifiedUsers.add(chat.id);
       await ctx.telegram.sendMessage(
@@ -71,7 +72,7 @@ bot.on('message', async (ctx) => {
       );
     }
 
-    // Handle /contact
+    // /contact message handler
     if (msg.text?.startsWith('/contact')) {
       const userMessage = msg.text.replace('/contact', '').trim() || msg.reply_to_message?.text;
 
@@ -86,12 +87,12 @@ bot.on('message', async (ctx) => {
         await ctx.reply('Please provide a message or reply to a message using /contact.');
       }
     } else {
-      // Greet and quiz
+      // Quiz and greetings
       await Promise.all([quizes()(ctx), greeting()(ctx)]);
     }
   }
 
-  // Admin reply to user
+  // Admin replying to user
   if (ctx.chat.id === ADMIN_ID && ctx.message?.reply_to_message) {
     const match = ctx.message.reply_to_message.text?.match(/Chat ID: `(\d+)`/);
     if (match) {
@@ -105,12 +106,12 @@ bot.on('message', async (ctx) => {
   }
 });
 
-// Webhook for Vercel
+// ✅ Webhook for Vercel
 export const startVercel = async (req: VercelRequest, res: VercelResponse) => {
   await production(req, res, bot);
 };
 
-// Local dev mode
+// ✅ Local development
 if (ENVIRONMENT !== 'production') {
   development(bot);
 }
