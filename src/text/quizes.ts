@@ -79,21 +79,27 @@ const quizes = () => async (ctx: Context) => {
     }
 
     for (const question of questionsToSend) {
-      const options = [
-        question.options.A,
-        question.options.B,
-        question.options.C,
-        question.options.D,
-      ];
-      const correctOptionIndex = ['A', 'B', 'C', 'D'].indexOf(question.correct_option);
+  const options = [
+    question.options.A,
+    question.options.B,
+    question.options.C,
+    question.options.D,
+  ];
+  const correctOptionIndex = ['A', 'B', 'C', 'D'].indexOf(question.correct_option);
 
-      await ctx.sendPoll(question.question, options, {
-        type: 'quiz',
-        correct_option_id: correctOptionIndex,
-        is_anonymous: false,
-        explanation: question.explanation || 'No explanation provided.',
-      } as any);
-    }
+  // Send image if available
+  if (question.image) {
+    await ctx.replyWithPhoto({ url: question.image });
+  }
+
+  // Send quiz poll
+  await ctx.sendPoll(question.question, options, {
+    type: 'quiz',
+    correct_option_id: correctOptionIndex,
+    is_anonymous: false,
+    explanation: question.explanation || 'No explanation provided.',
+  } as any);
+}
 
   } catch (err) {
     debug('Error fetching questions:', err);
