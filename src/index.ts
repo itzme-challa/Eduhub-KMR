@@ -15,6 +15,7 @@ import { development, production } from './core';
 import { isPrivateChat } from './utils/groupSettings';
 import { banUser, unbanUser, muteUser, unmuteUser } from './commands/moderation';
 import { quote } from './commands/quote';
+import { logoCommand } from './commands/logo';
 
 const BOT_TOKEN = process.env.BOT_TOKEN || '';
 const ENVIRONMENT = process.env.NODE_ENV || '';
@@ -36,6 +37,7 @@ bot.command('unban', unbanUser());
 bot.command('mute', muteUser());
 bot.command('unmute', unmuteUser());
 bot.command('quote', quote());
+bot.command('gen', logoCommand());
 
 // Broadcast to all saved chat IDs
 bot.command('broadcast', async (ctx) => {
