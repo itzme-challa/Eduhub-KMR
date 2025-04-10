@@ -1,6 +1,7 @@
 import { Telegraf } from 'telegraf';
 import { VercelRequest, VercelResponse } from '@vercel/node';
 import { getAllChatIds, saveChatId } from './utils/chatStore';
+import { fetchChatIdsFromSheet } from './utils/chatStore'; 
 import { saveToSheet } from './utils/saveToSheet';
 import { about, help } from './commands';
 import { study } from './commands/study';
@@ -30,24 +31,37 @@ bot.command('neet', neet());
 bot.command('jee', jee());
 bot.command('groups', groups());
 
-// Broadcast (admin only)
+
 bot.command('broadcast', async (ctx) => {
   if (ctx.from?.id !== ADMIN_ID) return ctx.reply('You are not authorized to use this command.');
 
   const msg = ctx.message.text?.split(' ').slice(1).join(' ');
   if (!msg) return ctx.reply('Usage:\n/broadcast Your message here');
 
-  const chatIds = await fetchChatIdsFromSheet();
+  let chatIds: number[] = [];
+
+  try {
+    chatIds = await fetchChatIdsFromSheet();
+  } catch (err) {
+    console.error('Failed to fetch chat IDs:', err);
+    return ctx.reply('❌ Error: Unable to fetch chat IDs from Google Sheet.');
+  }
+
+  if (chatIds.length === 0) {
+    return ctx.reply('No users to broadcast to.');
+  }
+
   let success = 0;
   for (const id of chatIds) {
     try {
       await ctx.telegram.sendMessage(id, msg);
       success++;
-    } catch {
-      console.log(`Failed to send to ${id}`);
+    } catch (err) {
+      console.log(`Failed to send to ${id}`, err);
     }
   }
-  await ctx.reply(`Broadcast sent to ${success} users.`);
+
+  await ctx.reply(`✅ Broadcast sent to ${success} users.`);
 });
 
 // Admin reply via command
