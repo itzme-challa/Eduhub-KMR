@@ -20,9 +20,6 @@ const ADMIN_ID = 6930703214;
 if (!BOT_TOKEN) throw new Error('BOT_TOKEN not provided!');
 const bot = new Telegraf(BOT_TOKEN);
 
-// Track notified users
-const notifiedUsers = new Set<number>();
-
 // --- COMMANDS ---
 bot.command('about', about());
 bot.command('help', help());
@@ -31,7 +28,7 @@ bot.command('neet', neet());
 bot.command('jee', jee());
 bot.command('groups', groups());
 
-
+// Broadcast to all saved chat IDs
 bot.command('broadcast', async (ctx) => {
   if (ctx.from?.id !== ADMIN_ID) return ctx.reply('You are not authorized to use this command.');
 
@@ -64,7 +61,7 @@ bot.command('broadcast', async (ctx) => {
   await ctx.reply(`✅ Broadcast sent to ${success} users.`);
 });
 
-// Admin reply via command
+// Admin reply to user via command
 bot.command('reply', async (ctx) => {
   if (ctx.from?.id !== ADMIN_ID) return ctx.reply('You are not authorized to use this command.');
 
@@ -90,7 +87,7 @@ bot.command('reply', async (ctx) => {
   }
 });
 
-// --- START HANDLER (Only respond in private) ---
+// --- START HANDLER ---
 bot.start(async (ctx) => {
   if (isPrivateChat(ctx.chat.type)) {
     await ctx.reply('Welcome! Use /help to explore commands.');
@@ -106,13 +103,14 @@ bot.on('message', async (ctx) => {
 
   if (!chat?.id) return;
 
-  // Save chat ID and Google Sheet
+  // Save chat ID locally
   saveChatId(chat.id);
-  await saveToSheet(chat);
 
-  // Notify admin once
-  if (chat.id !== ADMIN_ID && !notifiedUsers.has(chat.id)) {
-    notifiedUsers.add(chat.id);
+  // Save to Google Sheet and check if user is new
+  const alreadyNotified = await saveToSheet(chat);
+
+  // Notify admin once only
+  if (chat.id !== ADMIN_ID && !alreadyNotified) {
     await ctx.telegram.sendMessage(
       ADMIN_ID,
       `*New user started the bot!*\n\n*Name:* ${chat.first_name || ''}\n*Username:* @${chat.username || 'N/A'}\nChat ID: \`${chat.id}\``,
@@ -120,7 +118,7 @@ bot.on('message', async (ctx) => {
     );
   }
 
-  // Handle /contact
+  // Handle /contact messages
   if (msg.text?.startsWith('/contact')) {
     const userMessage = msg.text.replace('/contact', '').trim() || msg.reply_to_message?.text;
     if (userMessage) {
@@ -136,7 +134,7 @@ bot.on('message', async (ctx) => {
     return;
   }
 
-  // Admin reply via swipe
+  // Admin replies via swipe reply
   if (chat.id === ADMIN_ID && msg.reply_to_message) {
     const match = msg.reply_to_message.text?.match(/Chat ID: `(\d+)`/);
     if (match) {
@@ -157,7 +155,7 @@ bot.on('message', async (ctx) => {
   // Run quiz for all chats
   await quizes()(ctx);
 
-  // Greet only in private
+  // Greet in private chats
   if (isPrivateChat(chatType)) {
     await greeting()(ctx);
   }
