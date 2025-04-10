@@ -1,40 +1,60 @@
 import { Context } from 'telegraf';
-import createDebug from 'debug';
-import axios from 'axios';
+import { createCanvas, registerFont } from 'canvas';
+import path from 'path';
+import fs from 'fs';
 
-const debug = createDebug('bot:logo');
+// Optional: Register custom font (make sure this font file exists)
+registerFont(path.join(__dirname, '../../assets/fonts/Poppins-Bold.ttf'), {
+  family: 'Poppins',
+});
 
-const logoCommand = () => async (ctx: Context) => {
+const WIDTH = 600;
+const HEIGHT = 300;
+
+export const logoCommand = () => async (ctx: Context) => {
   try {
-    debug('Triggered /gen command');
-
     const messageText = ctx.message?.text;
     if (!messageText) return;
 
-    const [command, ...args] = messageText.trim().split(' ');
-    const logoText = args.join(' ');
+    const [_, ...args] = messageText.trim().split(' ');
+    const logoText = args.join(' ').trim();
 
     if (!logoText) {
-      return ctx.reply('❗ Please provide a name.\nExample: `/gen EduHub`', {
+      return ctx.reply('❗ Please provide a name.\nExample: `/gen EduHub AI`', {
         parse_mode: 'Markdown',
       });
     }
 
-    const encodedText = encodeURIComponent(logoText);
-    const imageUrl = `https://flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&text=${encodedText}`;
+    // Create canvas and context
+    const canvas = createCanvas(WIDTH, HEIGHT);
+    const ctx2d = canvas.getContext('2d');
+
+    // Background: Gradient
+    const gradient = ctx2d.createLinearGradient(0, 0, WIDTH, HEIGHT);
+    gradient.addColorStop(0, '#1e3c72');
+    gradient.addColorStop(1, '#2a5298');
+    ctx2d.fillStyle = gradient;
+    ctx2d.fillRect(0, 0, WIDTH, HEIGHT);
+
+    // Text styles
+    ctx2d.font = 'bold 50px Poppins';
+    ctx2d.fillStyle = '#ffffff';
+    ctx2d.textAlign = 'center';
+    ctx2d.textBaseline = 'middle';
+
+    // Draw text
+    ctx2d.fillText(logoText, WIDTH / 2, HEIGHT / 2);
+
+    // Convert to buffer
+    const buffer = canvas.toBuffer('image/png');
 
     await ctx.replyWithChatAction('upload_photo');
-    await ctx.replyWithPhoto(
-      { url: imageUrl },
-      {
-        caption: `✨ Here's your generated logo for *${logoText}*`,
-        parse_mode: 'Markdown',
-      }
-    );
-  } catch (err) {
-    console.error('Logo command error:', err);
-    await ctx.reply('⚠️ Failed to generate logo. Try again later.');
+    await ctx.replyWithPhoto({ source: buffer }, {
+      caption: `🎨 Logo generated for *${logoText}*`,
+      parse_mode: 'Markdown',
+    });
+  } catch (error) {
+    console.error('Logo generation error:', error);
+    await ctx.reply('⚠️ Failed to generate logo. Please try again.');
   }
 };
-
-export { logoCommand };
