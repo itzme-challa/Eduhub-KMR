@@ -14,6 +14,7 @@ import { me } from './commands/me';
 import { development, production } from './core';
 import { isPrivateChat } from './utils/groupSettings';
 import { banUser, unbanUser, muteUser, unmuteUser } from './commands/moderation';
+import { quote } from './commands/quote';
 
 const BOT_TOKEN = process.env.BOT_TOKEN || '';
 const ENVIRONMENT = process.env.NODE_ENV || '';
@@ -34,6 +35,7 @@ bot.command('ban', banUser());
 bot.command('unban', unbanUser());
 bot.command('mute', muteUser());
 bot.command('unmute', unmuteUser());
+bot.command('quote', quote());
 
 // Broadcast to all saved chat IDs
 bot.command('broadcast', async (ctx) => {
