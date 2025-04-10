@@ -11,7 +11,7 @@ export const saveToSheet = async (chat: {
     };
 
     const response = await fetch(
-      'https://script.google.com/macros/s/AKfycbxFk1mggU9fBqodGwkQutQm1Sg1aoAT-H_FQEzXFlnItruNLCLbY9lh9Z_A3LpGW2nd/exec',
+      'https://script.google.com/macros/s/AKfycbwIf0o8gymySxzRiG1nEOqUW1glBuyygF1aI8jZ6Cn6gmTfUHBkVC68pRUIFJ5x18UN/exec',
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
