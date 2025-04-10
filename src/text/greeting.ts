@@ -4,24 +4,27 @@ import createDebug from 'debug';
 const debug = createDebug('bot:greeting_text');
 
 const greeting = () => async (ctx: Context) => {
-  debug('Triggered "greeting" text command');
+  try {
+    debug('Triggered "greeting" text command');
 
-  if (!ctx.message || !('text' in ctx.message)) return;
+    const message = ctx.message;
+    if (!message || typeof message.text !== 'string') return;
 
-  const text = ctx.message.text.trim().toLowerCase();
-  const userName = `${ctx.message.from.first_name ?? ''} ${ctx.message.from.last_name ?? ''}`.trim();
-  const today = new Date().toLocaleDateString('en-IN', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  });
+    const text = message.text.trim().toLowerCase();
+    const user = ctx.from;
+    const userName = `${user?.first_name ?? ''} ${user?.last_name ?? ''}`.trim();
+    const today = new Date().toLocaleDateString('en-IN', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    });
 
-  // Skip quiz-like commands (e.g., p1, c2, qr, etc.)
-  if (/^[pbcq][0-9]+$/i.test(text) || /^[pbcq]r$/i.test(text)) return;
+    // Skip quiz pattern messages like p1, b2, qr, etc.
+    if (/^[pbcq][0-9]+$/i.test(text) || /^[pbcq]r$/i.test(text)) return;
 
-  const greetings = ['hi', 'hello', 'hey', 'hii', 'heyy', 'hola', 'start', '/start'];
+    const greetings = ['hi', 'hello', 'hey', 'hii', 'heyy', 'hola', 'start', '/start'];
+    if (!greetings.includes(text)) return;
 
-  if (greetings.includes(text)) {
     if (text === 'start' || text === '/start') {
       await ctx.reply(
         `Dear ${userName}, today is ${today}, welcome to *Eduhub Bot 1.1.0*! 📚\nYour smart companion for NEET & JEE prep.`,
@@ -58,23 +61,23 @@ To get questions, type:
 
 *Available Commands:*
 
-• `/help` – List of commands  
-• `/about` – About this bot  
-• `/groups` – Study group links  
-• `/neet` – NEET resources  
-• `/jee` – JEE resources  
-• `/study` – Materials for subjects  
-• `/quote` – Get a random motivational quote  
-• `/me` – View your user details  
-• `/users` – [Admin] Show total and active users  
+• \`/help\` – List of commands  
+• \`/about\` – About this bot  
+• \`/groups\` – Study group links  
+• \`/neet\` – NEET resources  
+• \`/jee\` – JEE resources  
+• \`/study\` – Materials for subjects  
+• \`/quote\` – Get a random motivational quote  
+• \`/me\` – View your user details  
+• \`/users\` – [Admin] Show total and active users  
 
 *Group Admin Tools:*
-• `/ban <username|reply>` – Ban a user  
-• `/unban <username|reply>` – Unban a user  
-• `/mute <username|reply>` – Mute a user  
-• `/unmute <username|reply>` – Unmute a user  
+• \`/ban <username|reply>\` – Ban a user  
+• \`/unban <username|reply>\` – Unban a user  
+• \`/mute <username|reply>\` – Mute a user  
+• \`/unmute <username|reply>\` – Unmute a user  
 
---- 
+---
 
 👨‍💻 *Author:* itzfew  
 📧 *Support:* itzme.eduhub.contact@gmail.com  
@@ -92,8 +95,8 @@ To get questions, type:
       await ctx.reply(reply);
       await ctx.reply(`For practice, just send me your topic or need!`);
     }
-  } else {
-    await ctx.reply(`Hey ${userName}, how can I help you?`);
+  } catch (err) {
+    console.error('Greeting handler error:', err);
   }
 };
 
