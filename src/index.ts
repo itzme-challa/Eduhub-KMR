@@ -10,6 +10,7 @@ import { jee } from './commands/jee';
 import { groups } from './commands/groups';
 import { quizes } from './text';
 import { greeting } from './text';
+import { me } from './commands/me';
 import { development, production } from './core';
 import { isPrivateChat } from './utils/groupSettings';
 
@@ -27,6 +28,7 @@ bot.command('study', study());
 bot.command('neet', neet());
 bot.command('jee', jee());
 bot.command('groups', groups());
+bot.command('me', me());
 
 // Broadcast to all saved chat IDs
 bot.command('broadcast', async (ctx) => {
