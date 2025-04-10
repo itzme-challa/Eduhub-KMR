@@ -33,15 +33,42 @@ const generateLogo = async (text: string): Promise<Buffer> => {
   ctx.fillStyle = '#0f172a';
   ctx.fillRect(0, 0, width, height);
 
-  // ✍️ Text
+  // ✍️ Text config
   ctx.font = `bold 80px "${randomFont}"`;
-  ctx.fillStyle = '#facc15';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
+
+  // 🌈 Text color (solid or gradient)
+  const useGradient = Math.random() < 0.5; // 50% chance
+  if (useGradient) {
+    const gradient = ctx.createLinearGradient(0, 0, width, 0);
+    gradient.addColorStop(0, getRandomTextColor());
+    gradient.addColorStop(1, getRandomTextColor());
+    ctx.fillStyle = gradient;
+  } else {
+    ctx.fillStyle = getRandomTextColor();
+  }
+
   ctx.fillText(text, width / 2, height / 2);
 
   return canvas.toBuffer('image/png');
 };
+
+function getRandomTextColor(): string {
+  const colors = [
+    '#facc15', // Yellow
+    '#34d399', // Green
+    '#60a5fa', // Blue
+    '#f472b6', // Pink
+    '#c084fc', // Purple
+    '#f87171', // Red
+    '#fcd34d', // Amber
+    '#38bdf8', // Sky Blue
+    '#4ade80', // Lime Green
+    '#e879f9'  // Fuchsia
+  ];
+  return colors[Math.floor(Math.random() * colors.length)];
+}
 
 const logoCommand = () => async (ctx: Context) => {
   try {
