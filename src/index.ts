@@ -86,7 +86,23 @@ bot.command('reply', async (ctx) => {
     await ctx.reply(`Failed to send reply to \`${chatId}\``, { parse_mode: 'Markdown' });
   }
 });
+bot.command('users', async (ctx) => {
+  if (ctx.from?.id !== ADMIN_ID) return ctx.reply('You are not authorized to use this command.');
 
+  try {
+    const chatIds = await fetchChatIdsFromSheet();
+    const total = chatIds.length;
+    await ctx.reply(`👥 *Total Users:* ${total}`, { parse_mode: 'Markdown' });
+
+    // If you plan to add active logic later:
+    // const active = countActiveUsers(chatIds); // Your own logic
+    // await ctx.reply(`🟢 Active Users: ${active}`);
+  } catch (err) {
+    console.error('Failed to fetch users:', err);
+    await ctx.reply('❌ Error: Could not fetch users.');
+  }
+});
+ 
 // --- START HANDLER ---
 bot.start(async (ctx) => {
   if (isPrivateChat(ctx.chat.type)) {
