@@ -37,7 +37,7 @@ bot.command('broadcast', async (ctx) => {
   const msg = ctx.message.text?.split(' ').slice(1).join(' ');
   if (!msg) return ctx.reply('Usage:\n/broadcast Your message here');
 
-  const chatIds = getAllChatIds();
+  const chatIds = await fetchChatIdsFromSheet();
   let success = 0;
   for (const id of chatIds) {
     try {
