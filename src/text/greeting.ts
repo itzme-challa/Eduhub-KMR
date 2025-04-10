@@ -58,14 +58,22 @@ To get questions, type:
 
 *Available Commands:*
 
-• \`/help\` – List of commands  
-• \`/about\` – About this bot  
-• \`/groups\` – Study group links  
-• \`/neet\` – NEET resources  
-• \`/jee\` – JEE resources  
-• \`/study\` – Materials for subjects
+• `/help` – List of commands  
+• `/about` – About this bot  
+• `/groups` – Study group links  
+• `/neet` – NEET resources  
+• `/jee` – JEE resources  
+• `/study` – Materials for subjects  
+• `/quote` – Get a random motivational quote  
+• `/me` – View your user details  
+• `/users` – [Admin] Show total and active users  
 
----
+*Group Admin Tools:*
+• `/ban <username|reply>` – Ban a user  
+• `/unban <username|reply>` – Unban a user  
+• `/mute <username|reply>` – Mute a user  
+• `/unmute <username|reply>` – Unmute a user  
+
 
 👨‍💻 *Author:* itzfew  
 📧 *Support:* itzme.eduhub.contact@gmail.com  
