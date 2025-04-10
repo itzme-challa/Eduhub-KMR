@@ -3,13 +3,23 @@ import { createCanvas, registerFont } from 'canvas';
 import fs from 'fs';
 import path from 'path';
 
-// 🔐 Safe font registration
-const fontPath = path.resolve(__dirname, '../assets/fonts/Poppins-Bold.ttf');
-if (fs.existsSync(fontPath)) {
-  registerFont(fontPath, { family: 'Poppins' });
-} else {
-  console.warn('❌ Font not found at:', fontPath);
-}
+const fontsDir = path.resolve(__dirname, '../assets/fonts');
+
+// 🔁 Register all .ttf fonts in the folder and collect their names
+const fontFamilies: string[] = [];
+
+fs.readdirSync(fontsDir).forEach((file) => {
+  const filePath = path.join(fontsDir, file);
+  if (fs.statSync(filePath).isFile() && file.endsWith('.ttf')) {
+    const familyName = path.parse(file).name.replace(/-/g, ''); // Clean font name
+    try {
+      registerFont(filePath, { family: familyName });
+      fontFamilies.push(familyName);
+    } catch (e) {
+      console.warn(`❌ Failed to load font: ${file}`, e);
+    }
+  }
+});
 
 const generateLogo = async (text: string): Promise<Buffer> => {
   const width = 800;
@@ -17,13 +27,15 @@ const generateLogo = async (text: string): Promise<Buffer> => {
   const canvas = createCanvas(width, height);
   const ctx = canvas.getContext('2d');
 
-  // Background
-  ctx.fillStyle = '#0f172a'; // dark blue
+  const randomFont = fontFamilies[Math.floor(Math.random() * fontFamilies.length)] || 'sans-serif';
+
+  // 🎨 Background
+  ctx.fillStyle = '#0f172a';
   ctx.fillRect(0, 0, width, height);
 
-  // Text
-  ctx.font = 'bold 80px Poppins';
-  ctx.fillStyle = '#facc15'; // yellow
+  // ✍️ Text
+  ctx.font = `bold 80px "${randomFont}"`;
+  ctx.fillStyle = '#facc15';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
   ctx.fillText(text, width / 2, height / 2);
@@ -44,7 +56,10 @@ const logoCommand = () => async (ctx: Context) => {
     const logoText = match[1].trim();
     const imageBuffer = await generateLogo(logoText);
 
-    await ctx.replyWithPhoto({ source: imageBuffer }, { caption: `🖼️ Here's your logo for *${logoText}*`, parse_mode: 'Markdown' });
+    await ctx.replyWithPhoto({ source: imageBuffer }, {
+      caption: `🖼️ Here's your logo with a random font!`,
+      parse_mode: 'Markdown'
+    });
   } catch (err) {
     console.error('Logo command error:', err);
     await ctx.reply('⚠️ Failed to generate logo. Try again.');
