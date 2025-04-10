@@ -74,6 +74,7 @@ To get questions, type:
 • `/mute <username|reply>` – Mute a user  
 • `/unmute <username|reply>` – Unmute a user  
 
+--- 
 
 👨‍💻 *Author:* itzfew  
 📧 *Support:* itzme.eduhub.contact@gmail.com  
