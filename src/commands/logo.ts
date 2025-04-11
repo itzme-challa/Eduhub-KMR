@@ -6,7 +6,7 @@ import path from 'path';
 const fontsDir = path.resolve(__dirname, '../assets/fonts');
 const fontFamilies: string[] = [];
 
-// ✅ Register all .ttf and .otf fonts
+// 📦 Register all .ttf and .otf fonts in the folder
 fs.readdirSync(fontsDir).forEach((file) => {
   const filePath = path.join(fontsDir, file);
   if (fs.statSync(filePath).isFile() && /\.(ttf|otf)$/i.test(file)) {
@@ -20,43 +20,47 @@ fs.readdirSync(fontsDir).forEach((file) => {
   }
 });
 
-// 🎨 Logo Generator
 const generateLogo = async (text: string): Promise<Buffer> => {
   const width = 1000;
-  const height = 350;
+  const height = 400;
   const canvas = createCanvas(width, height);
   const ctx = canvas.getContext('2d');
 
   const randomFont = fontFamilies[Math.floor(Math.random() * fontFamilies.length)] || 'sans-serif';
-  const baseFontSize = 80;
 
-  // 🖼️ Background
+  // 🎨 Background
   ctx.fillStyle = '#0f172a';
   ctx.fillRect(0, 0, width, height);
 
-  // 🎲 Random decoration emojis
-  const emojis = ['✨', '🔥', '💥', '🎯', '🧠', '⚡', '🌟'];
-  const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
-  const decoratedText = `${randomEmoji} ${text.toUpperCase()} ${randomEmoji}`;
+  // 📚 Line splitting logic
+  const words = text.trim().split(/\s+/);
+  let line1 = '', line2 = '';
 
-  // 📐 Fit font size to width
+  if (words.length === 1) {
+    line1 = words[0];
+  } else if (words.length === 2) {
+    [line1, line2] = words;
+  } else {
+    line2 = words.pop()!;
+    line1 = words.join(' ');
+  }
+
+  // 🧠 Auto-fit font size (based on longest line)
+  const baseFontSize = 80;
   let fontSize = baseFontSize;
   do {
     ctx.font = `bold ${fontSize}px "${randomFont}"`;
     fontSize -= 2;
-  } while (ctx.measureText(decoratedText).width > width * 0.9 && fontSize > 10);
+  } while (
+    Math.max(ctx.measureText(line1).width, ctx.measureText(line2).width) > width * 0.85 &&
+    fontSize > 10
+  );
 
-  // ✨ Shadow
-  ctx.shadowColor = 'rgba(0,0,0,0.4)';
-  ctx.shadowBlur = 10;
-  ctx.shadowOffsetX = 3;
-  ctx.shadowOffsetY = 3;
-
-  // 💫 Text style
+  ctx.font = `bold ${fontSize}px "${randomFont}"`;
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
 
-  // 🎨 Gradient or Solid
+  // 💎 Text Fill Style
   const useGradient = Math.random() < 0.5;
   if (useGradient) {
     const gradient = ctx.createLinearGradient(0, 0, width, 0);
@@ -67,12 +71,23 @@ const generateLogo = async (text: string): Promise<Buffer> => {
     ctx.fillStyle = getRandomTextColor();
   }
 
-  // 🔁 Optional text rotation (e.g., ±10 degrees)
-  const rotation = (Math.random() * 20 - 10) * (Math.PI / 180); // between -10° to 10°
+  // 🌑 Multi-layer shadow
+  ctx.shadowColor = 'rgba(0,0,0,0.7)';
+  ctx.shadowBlur = 25;
+  ctx.shadowOffsetX = 6;
+  ctx.shadowOffsetY = 6;
+
+  // 🔁 Optional rotation
+  const angle = (Math.random() * 10 - 5) * (Math.PI / 180);
   ctx.save();
   ctx.translate(width / 2, height / 2);
-  ctx.rotate(rotation);
-  ctx.fillText(decoratedText, 0, 0);
+  ctx.rotate(angle);
+
+  // 🖊️ Draw text lines
+  const lineHeight = fontSize + 20;
+  if (line1) ctx.fillText(line1.toUpperCase(), 0, -lineHeight / 2);
+  if (line2) ctx.fillText(line2.toUpperCase(), 0, lineHeight / 2);
+
   ctx.restore();
 
   return canvas.toBuffer('image/png');
@@ -86,7 +101,7 @@ function getRandomTextColor(): string {
   return colors[Math.floor(Math.random() * colors.length)];
 }
 
-// 📦 Command Handler
+// 🧩 Command
 const logoCommand = () => async (ctx: Context) => {
   try {
     const message = ctx.message;
@@ -94,14 +109,14 @@ const logoCommand = () => async (ctx: Context) => {
     const match = text.match(/^\/gen(?:logo)?\s+(.+)/i);
 
     if (!match) {
-      return ctx.reply('❗ Usage: `/gen LogoName`', { parse_mode: 'Markdown' });
+      return ctx.reply('❗ Usage: `/gen LogoText`', { parse_mode: 'Markdown' });
     }
 
     const logoText = match[1].trim();
     const imageBuffer = await generateLogo(logoText);
 
     await ctx.replyWithPhoto({ source: imageBuffer }, {
-      caption: `🖼️ Here's your fancy logo with random font, style & decoration!`,
+      caption: `🖼️ Here's your logo with random font, strong shadows, and auto-styling.`,
       parse_mode: 'Markdown',
     });
   } catch (err) {
