@@ -82,7 +82,25 @@ export function me() {
 🗨️ *Chat ID:* \`${ctx.chat.id}\`
 🏷️ *Chat Type:* ${ctx.chat.type}
       `.trim();
+if (!userData && !isSelf && (username || userId)) {
+  const displayName = username ? `@${username}` : `User ID: ${userId}`;
+  const profileLink = username
+    ? `https://t.me/${username}`
+    : `tg://user?id=${userId}`;
 
+  const message = `
+⚠️ Full details not available (user hasn't interacted with the bot).
+
+*Here's what we can show:*
+
+🆔 *Input:* ${displayName}
+🔗 *Profile Link:* [Click Here](${profileLink})
+💡 Ask the user to message the bot once to unlock full details.
+  `.trim();
+
+  return ctx.reply(message, { parse_mode: 'Markdown' });
+}
+ 
       if (profilePhotoId) {
         await ctx.replyWithPhoto(profilePhotoId, {
           caption: message,
