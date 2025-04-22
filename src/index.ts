@@ -16,7 +16,6 @@ import { isPrivateChat } from './utils/groupSettings';
 import { banUser, unbanUser, muteUser, unmuteUser } from './commands/moderation';
 import { quote } from './commands/quote';
 import { logoCommand } from './commands/logo';
-import { pyq } from './commands/pyq';
 const BOT_TOKEN = process.env.BOT_TOKEN || '';
 const ENVIRONMENT = process.env.NODE_ENV || '';
 const ADMIN_ID = 6930703214;
@@ -38,7 +37,7 @@ bot.command('mute', muteUser());
 bot.command('unmute', unmuteUser());
 bot.command('quote', quote());
 bot.command('gen', logoCommand());
-bot.command('pyq', pyq());
+
 
 // Broadcast to all saved chat IDs
 bot.command('broadcast', async (ctx) => {
