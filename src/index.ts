@@ -1,7 +1,7 @@
 import { Telegraf } from 'telegraf';
 import { VercelRequest, VercelResponse } from '@vercel/node';
 import { getAllChatIds, saveChatId } from './utils/chatStore';
-import { fetchChatIdsFromSheet } from './utils/chatStore'; 
+import { fetchChatIdsFromSheet } from './utils/chatStore';
 import { saveToSheet } from './utils/saveToSheet';
 import { about, help } from './commands';
 import { study } from './commands/study';
@@ -17,6 +17,7 @@ import { isPrivateChat } from './utils/groupSettings';
 import { banUser, unbanUser, muteUser, unmuteUser } from './commands/moderation';
 import { quote } from './commands/quote';
 import { logoCommand } from './commands/logo';
+
 const BOT_TOKEN = process.env.BOT_TOKEN || '';
 const ENVIRONMENT = process.env.NODE_ENV || '';
 const ADMIN_ID = 6930703214;
@@ -98,24 +99,8 @@ bot.command('reply', async (ctx) => {
     await ctx.reply(`Failed to send reply to \`${chatId}\``, { parse_mode: 'Markdown' });
   }
 });
-bot.command('users', async (ctx) => {
-  if (ctx.from?.id !== ADMIN_ID) return ctx.reply('You are not authorized to use this command.');
 
-  try {
-    const chatIds = await fetchChatIdsFromSheet();
-    const total = chatIds.length;
-    await ctx.reply(`👥 *Total Users:* ${total}`, { parse_mode: 'Markdown' });
-
-    // If you plan to add active logic later:
-    // const active = countActiveUsers(chatIds); // Your own logic
-    // await ctx.reply(`🟢 Active Users: ${active}`);
-  } catch (err) {
-    console.error('Failed to fetch users:', err);
-    await ctx.reply('❌ Error: Could not fetch users.');
-  }
-});
- 
-// --- START HANDLER ---
+// User greeting and message handling
 bot.start(async (ctx) => {
   if (isPrivateChat(ctx.chat.type)) {
     await ctx.reply('Welcome! Use /help to explore commands.');
@@ -139,11 +124,13 @@ bot.on('message', async (ctx) => {
 
   // Notify admin once only
   if (chat.id !== ADMIN_ID && !alreadyNotified) {
-    await ctx.telegram.sendMessage(
-      ADMIN_ID,
-      `*New user started the bot!*\n\n*Name:* ${chat.first_name || ''}\n*Username:* @${chat.username || 'N/A'}\nChat ID: \`${chat.id}\``,
-      { parse_mode: 'Markdown' }
-    );
+    if (chat.type === 'private' && chat.first_name && chat.username) {
+      await ctx.telegram.sendMessage(
+        ADMIN_ID,
+        `*New user started the bot!*\n\n*Name:* ${chat.first_name}\n*Username:* @${chat.username}\nChat ID: \`${chat.id}\``,
+        { parse_mode: 'Markdown' }
+      );
+    }
   }
 
   // Handle /contact messages
