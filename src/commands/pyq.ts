@@ -1,7 +1,8 @@
 import { Context } from 'telegraf';
 import fetch from 'node-fetch';
-import { createCanvas, loadImage } from 'canvas';
+import { createCanvas } from 'canvas';
 import fs from 'fs';
+import path from 'path';
 
 interface Question {
   question_id: string;
@@ -44,7 +45,8 @@ export const pyq = () => async (ctx: Context) => {
     ctxCanvas.fillStyle = '#000000';
 
     // Draw the question text
-    ctxCanvas.fillText(`Question: ${randomQuestion.content}`, 20, 40);
+    const questionContent = randomQuestion.content.replace(/<\/?[^>]+(>|$)/g, ""); // Removing any HTML tags
+    ctxCanvas.fillText(`Question: ${questionContent}`, 20, 40);
 
     // Draw options
     let yOffset = 80;
@@ -54,7 +56,7 @@ export const pyq = () => async (ctx: Context) => {
     });
 
     // Save the image to a file
-    const outputFilePath = 'question_image.png';
+    const outputFilePath = path.join(__dirname, 'question_image.png');
     const buffer = canvas.toBuffer('image/png');
     fs.writeFileSync(outputFilePath, buffer);
 
