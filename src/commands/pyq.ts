@@ -1,5 +1,7 @@
 import { Context } from 'telegraf';
 import fetch from 'node-fetch';
+import { createCanvas, loadImage } from 'canvas';
+import fs from 'fs';
 
 interface Question {
   question_id: string;
@@ -27,16 +29,40 @@ export const pyq = () => async (ctx: Context) => {
     // Select a random question from the first element of the array
     const randomQuestion: Question = data[0].questions[Math.floor(Math.random() * data[0].questions.length)];
 
-    // Preparing question text and options
-    const questionText = `*Question:* ${randomQuestion.content}\n\n*Options:*`;
-    const optionsText = randomQuestion.options.map(
-      (opt) => `\n${opt.identifier}) ${opt.content}`
-    ).join('');
+    // Set up canvas size
+    const canvasWidth = 800;
+    const canvasHeight = 600;
+    const canvas = createCanvas(canvasWidth, canvasHeight);
+    const ctxCanvas = canvas.getContext('2d');
 
-    // Send the question to the user
-    const message = `${questionText}${optionsText}\n\n*Choose the correct option.*`;
+    // Draw background
+    ctxCanvas.fillStyle = '#ffffff';
+    ctxCanvas.fillRect(0, 0, canvasWidth, canvasHeight);
 
-    await ctx.reply(message, { parse_mode: 'Markdown' });
+    // Set up text styles
+    ctxCanvas.font = '20px Arial';
+    ctxCanvas.fillStyle = '#000000';
+
+    // Draw the question text
+    ctxCanvas.fillText(`Question: ${randomQuestion.content}`, 20, 40);
+
+    // Draw options
+    let yOffset = 80;
+    randomQuestion.options.forEach((opt) => {
+      ctxCanvas.fillText(`${opt.identifier}) ${opt.content}`, 20, yOffset);
+      yOffset += 40;
+    });
+
+    // Save the image to a file
+    const outputFilePath = 'question_image.png';
+    const buffer = canvas.toBuffer('image/png');
+    fs.writeFileSync(outputFilePath, buffer);
+
+    // Send the image to the user
+    await ctx.replyWithPhoto({ source: outputFilePath });
+
+    // Clean up the file after sending
+    fs.unlinkSync(outputFilePath);
 
   } catch (err) {
     console.error('Failed to fetch PYQ:', err);
