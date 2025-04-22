@@ -11,6 +11,7 @@ import { groups } from './commands/groups';
 import { quizes } from './text';
 import { greeting } from './text';
 import { me } from './commands/me';
+import { pyq } from './commands/pyq';
 import { development, production } from './core';
 import { isPrivateChat } from './utils/groupSettings';
 import { banUser, unbanUser, muteUser, unmuteUser } from './commands/moderation';
@@ -37,7 +38,7 @@ bot.command('mute', muteUser());
 bot.command('unmute', unmuteUser());
 bot.command('quote', quote());
 bot.command('gen', logoCommand());
-
+bot.command('pyq', pyq());
 
 // Broadcast to all saved chat IDs
 bot.command('broadcast', async (ctx) => {
