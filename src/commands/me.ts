@@ -64,7 +64,8 @@ export function me() {
         }
       }
 
-      const displayName = `${targetUser.first_name || ''} ${targetUser.last_name || ''}`.trim();
+      // Ensure targetUser exists (it might be undefined in case of an invalid user or group)
+      const displayName = `${targetUser?.first_name || ''} ${targetUser?.last_name || ''}`.trim();
       const mentionLink = username
         ? `https://t.me/${username}`
         : `tg://user?id=${userId}`;
@@ -76,13 +77,14 @@ export function me() {
 📛 *Username:* ${username ? '@' + username : 'N/A'}
 🆔 *User ID:* \`${userId}\`
 🔗 *Profile Link:* [Click Here](${mentionLink})
-🤖 *Is Bot:* ${targetUser.is_bot ? 'Yes' : 'No'}
+🤖 *Is Bot:* ${targetUser?.is_bot ? 'Yes' : 'No'}
 
 *💬 From Chat:*
-🗨️ *Chat ID:* \`${ctx.chat.id}\`
-🏷️ *Chat Type:* ${ctx.chat.type}
+🗨️ *Chat ID:* \`${ctx.chat?.id || 'N/A'}\`
+🏷️ *Chat Type:* ${ctx.chat?.type || 'N/A'}
       `.trim();
- 
+
+      // Check if profile photo exists and send it
       if (profilePhotoId) {
         await ctx.replyWithPhoto(profilePhotoId, {
           caption: message,
