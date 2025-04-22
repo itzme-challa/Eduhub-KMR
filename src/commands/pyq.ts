@@ -1,5 +1,4 @@
 import { Context } from 'telegraf';
-import fetch from 'node-fetch';
 import { createCanvas } from 'canvas';
 import fs from 'fs';
 import path from 'path';
@@ -16,10 +15,17 @@ interface Question {
   explanation: string;
 }
 
+// Dynamically import node-fetch
+const fetch = async () => {
+  const { default: fetch } = await import('node-fetch');
+  return fetch;
+};
+
 export const pyq = () => async (ctx: Context) => {
   try {
     // Fetching the JSON data for the questions
-    const res = await fetch('https://raw.githubusercontent.com/itzfew/Quizes/master/pyq/014be169-4893-5d08-a744-5ca0749e3c20.json');
+    const fetchFunction = await fetch(); // Import fetch dynamically
+    const res = await fetchFunction('https://raw.githubusercontent.com/itzfew/Quizes/master/pyq/014be169-4893-5d08-a744-5ca0749e3c20.json');
     const data = await res.json();
 
     // Ensure data is in the correct format
