@@ -1,6 +1,6 @@
 import { Context } from 'telegraf';
 
-const warnings: Record<number, number> = {}; // Chat-specific user warnings
+const warnings: Record<string, number> = {}; // Chat-specific user warnings
 
 const isAdmin = async (ctx: Context) => {
   const chatId = ctx.chat?.id;
@@ -12,8 +12,9 @@ const isAdmin = async (ctx: Context) => {
 };
 
 const getTargetUserId = async (ctx: Context): Promise<number | null> => {
-  if (ctx.message?.reply_to_message?.from?.id) {
-    return ctx.message.reply_to_message.from.id;
+  const replyMessage = ctx.message?.reply_to_message;
+  if (replyMessage?.from?.id) {
+    return replyMessage.from.id;
   }
 
   const username = ctx.message?.text?.split(' ')[1]?.replace('@', '');
@@ -28,13 +29,12 @@ const getTargetUserId = async (ctx: Context): Promise<number | null> => {
   }
 };
 
-const getUserTag = (ctx: Context) =>
-  ctx.message?.reply_to_message?.from?.username
-    ? `@${ctx.message.reply_to_message.from.username}`
-    : 'User';
+const getUserTag = (ctx: Context) => {
+  const replyMessage = ctx.message?.reply_to_message;
+  return replyMessage?.from?.username ? `@${replyMessage.from.username}` : 'User';
+};
 
 // ========== Moderation Commands ==========
-
 export const banUser = () => async (ctx: Context) => {
   if (!await isAdmin(ctx)) return ctx.reply('❌ Only admins can ban users.');
 
@@ -85,9 +85,7 @@ export const muteUser = () => async (ctx: Context) => {
   if (!userId) return ctx.reply('❌ User not found.');
 
   try {
-    await ctx.telegram.restrictChatMember(ctx.chat!.id, userId, {
-      permissions: { can_send_messages: false },
-    });
+    await ctx.telegram.restrictChatMember(ctx.chat!.id, userId, { permissions: { can_send_messages: false } });
     await ctx.reply(`🔇 ${getUserTag(ctx)} has been *muted*.`, { parse_mode: 'Markdown' });
   } catch {
     ctx.reply('❌ Failed to mute user.');
@@ -101,14 +99,7 @@ export const unmuteUser = () => async (ctx: Context) => {
   if (!userId) return ctx.reply('❌ User not found.');
 
   try {
-    await ctx.telegram.restrictChatMember(ctx.chat!.id, userId, {
-      permissions: {
-        can_send_messages: true,
-        can_send_media_messages: true,
-        can_send_other_messages: true,
-        can_add_web_page_previews: true,
-      },
-    });
+    await ctx.telegram.restrictChatMember(ctx.chat!.id, userId, { permissions: { can_send_messages: true, can_send_media_messages: true, can_send_other_messages: true, can_add_web_page_previews: true } });
     await ctx.reply(`🔊 ${getUserTag(ctx)} has been *unmuted*.`, { parse_mode: 'Markdown' });
   } catch {
     ctx.reply('❌ Failed to unmute user.');
@@ -140,14 +131,7 @@ export const promoteUser = () => async (ctx: Context) => {
   if (!userId) return ctx.reply('❌ User not found.');
 
   try {
-    await ctx.telegram.promoteChatMember(ctx.chat!.id, userId, {
-      can_change_info: true,
-      can_delete_messages: true,
-      can_invite_users: true,
-      can_restrict_members: true,
-      can_pin_messages: true,
-      can_promote_members: false,
-    });
+    await ctx.telegram.promoteChatMember(ctx.chat!.id, userId, { can_change_info: true, can_delete_messages: true, can_invite_users: true, can_restrict_members: true, can_pin_messages: true, can_promote_members: false });
     await ctx.reply(`⭐ ${getUserTag(ctx)} was *promoted to admin*.`, { parse_mode: 'Markdown' });
   } catch {
     ctx.reply('❌ Failed to promote user.');
@@ -161,14 +145,7 @@ export const demoteUser = () => async (ctx: Context) => {
   if (!userId) return ctx.reply('❌ User not found.');
 
   try {
-    await ctx.telegram.promoteChatMember(ctx.chat!.id, userId, {
-      can_change_info: false,
-      can_delete_messages: false,
-      can_invite_users: false,
-      can_restrict_members: false,
-      can_pin_messages: false,
-      can_promote_members: false,
-    });
+    await ctx.telegram.promoteChatMember(ctx.chat!.id, userId, { can_change_info: false, can_delete_messages: false, can_invite_users: false, can_restrict_members: false, can_pin_messages: false, can_promote_members: false });
     await ctx.reply(`⚙️ ${getUserTag(ctx)} was *demoted*.`, { parse_mode: 'Markdown' });
   } catch {
     ctx.reply('❌ Failed to demote user.');
@@ -179,11 +156,11 @@ export const userInfo = () => async (ctx: Context) => {
   const user = ctx.message?.reply_to_message?.from;
   if (!user) return ctx.reply('❌ Reply to a user to get their info.');
 
-  const info = `👤 *User Info:*\n` +
-    `ID: \`${user.id}\`\n` +
-    `Username: @${user.username || 'N/A'}\n` +
-    `First Name: ${user.first_name}\n` +
-    `Is Bot: ${user.is_bot ? 'Yes' : 'No'}`;
+  const info = `👤 *User Info:*\n` + 
+               `ID: \`${user.id}\`\n` +
+               `Username: @${user.username || 'N/A'}\n` +
+               `First Name: ${user.first_name}\n` +
+               `Is Bot: ${user.is_bot ? 'Yes' : 'No'}`;
 
   ctx.reply(info, { parse_mode: 'Markdown' });
 };
