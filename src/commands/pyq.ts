@@ -19,12 +19,13 @@ export const pyq = () => async (ctx: Context) => {
     const res = await fetch('https://raw.githubusercontent.com/itzfew/Quizes/master/pyq/014be169-4893-5d08-a744-5ca0749e3c20.json');
     const data = await res.json();
 
-    if (!data || !data.questions || data.questions.length === 0) {
+    // Ensure data is in the correct format
+    if (!data || !data[0]?.questions || data[0].questions.length === 0) {
       return ctx.reply('❌ No questions found.');
     }
 
-    // Select a random question
-    const randomQuestion: Question = data.questions[Math.floor(Math.random() * data.questions.length)];
+    // Select a random question from the first element of the array
+    const randomQuestion: Question = data[0].questions[Math.floor(Math.random() * data[0].questions.length)];
 
     // Preparing question text and options
     const questionText = `*Question:* ${randomQuestion.content}\n\n*Options:*`;
@@ -34,7 +35,7 @@ export const pyq = () => async (ctx: Context) => {
 
     // Send the question to the user
     const message = `${questionText}${optionsText}\n\n*Choose the correct option.*`;
-    
+
     await ctx.reply(message, { parse_mode: 'Markdown' });
 
   } catch (err) {
