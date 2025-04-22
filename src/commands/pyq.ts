@@ -16,7 +16,7 @@ interface Question {
 export const pyq = () => async (ctx: Context) => {
   try {
     // Fetching the JSON data for the questions
-    const res = await fetch('https://raw.githubusercontent.com/itzfew/Quizes/refs/heads/main/pyq/014be169-4893-5d08-a744-5ca0749e3c20.json');
+    const res = await fetch('https://raw.githubusercontent.com/itzfew/Quizes/master/pyq/014be169-4893-5d08-a744-5ca0749e3c20.json');
     const data = await res.json();
 
     if (!data || !data.questions || data.questions.length === 0) {
