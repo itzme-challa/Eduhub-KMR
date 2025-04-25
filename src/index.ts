@@ -12,6 +12,7 @@ import { quizes } from './text';
 import { greeting } from './text';
 import { development, production } from './core';
 import { isPrivateChat } from './utils/groupSettings';
+
 const BOT_TOKEN = process.env.BOT_TOKEN || '';
 const ENVIRONMENT = process.env.NODE_ENV || '';
 const ADMIN_ID = 6930703214;
@@ -26,6 +27,56 @@ bot.command('study', study());
 bot.command('neet', neet());
 bot.command('jee', jee());
 bot.command('groups', groups());
+
+// New command to show user count from Google Sheets
+bot.command('users', async (ctx) => {
+  if (ctx.from?.id !== ADMIN_ID) {
+    return ctx.reply('You are not authorized to use this command.');
+  }
+
+  try {
+    const chatIds = await fetchChatIdsFromSheet();
+    const totalUsers = chatIds.length;
+    
+    await ctx.reply(`📊 Total users: ${totalUsers}`, {
+      parse_mode: 'Markdown',
+      reply_markup: {
+        inline_keyboard: [
+          [{ text: 'Refresh', callback_data: 'refresh_users' }]
+        ]
+      }
+    });
+  } catch (err) {
+    console.error('Failed to fetch user count:', err);
+    await ctx.reply('❌ Error: Unable to fetch user count from Google Sheet.');
+  }
+});
+
+// Handle refresh button for user count
+bot.action('refresh_users', async (ctx) => {
+  if (ctx.from?.id !== ADMIN_ID) {
+    await ctx.answerCbQuery('Unauthorized');
+    return;
+  }
+
+  try {
+    const chatIds = await fetchChatIdsFromSheet();
+    const totalUsers = chatIds.length;
+    
+    await ctx.editMessageText(`📊 Total users: ${totalUsers} (refreshed)`, {
+      parse_mode: 'Markdown',
+      reply_markup: {
+        inline_keyboard: [
+          [{ text: 'Refresh', callback_data: 'refresh_users' }]
+        ]
+      }
+    });
+    await ctx.answerCbQuery('Refreshed!');
+  } catch (err) {
+    console.error('Failed to refresh user count:', err);
+    await ctx.answerCbQuery('Refresh failed');
+  }
+});
 
 // Broadcast to all saved chat IDs
 bot.command('broadcast', async (ctx) => {
