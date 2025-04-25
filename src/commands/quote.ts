@@ -1,51 +1,42 @@
 import { Context } from 'telegraf';
-import fetch from 'node-fetch'; // Static import of node-fetch
+import createDebug from 'debug';
 
-interface Quote {
-  quoteText: string;
-  quoteAuthor: string;
-}
+const debug = createDebug('bot:quotes');
 
-export const quote = () => async (ctx: Context) => {
+const quotes = () => async (ctx: Context) => {
+  debug('Triggered "quotes" handler');
+
+  if (!ctx.message || !('text' in ctx.message)) return;
+
+  const text = ctx.message.text.trim().toLowerCase();
+
+  // Help message for quote command
+  if (
+    ['quote', '/quote', 'quotes', '/quotes'].includes(text)
+  ) {
+    await ctx.reply(
+      `Hey! To get a random quote, just type "/quote" or "quotes".`
+    );
+    return;
+  }
+
   try {
-    // Ensure you are passing a valid string to fetch
-    const res = await fetch('https://raw.githubusercontent.com/itzfew/Eduhub-KMR/master/quotes.json');
-    const data: unknown = await res.json();
-    
-    // Type guard to ensure data is an array of Quote objects
-    const isQuoteArray = (data: unknown): data is Quote[] => {
-      return Array.isArray(data) && 
-        data.every(item => 
-          typeof item === 'object' && 
-          item !== null && 
-          'quoteText' in item && 
-          typeof item.quoteText === 'string'
-        );
-    };
+    const response = await fetch('https://raw.githubusercontent.com/itzfew/Eduhub-KMR/raw/refs/heads/main/quotes.json');
+    const allQuotes = await response.json();
 
-    if (!isQuoteArray(data)) {
-      throw new Error('Invalid quotes data format');
-    }
+    // Randomly pick a quote from the list
+    const randomQuote = allQuotes[Math.floor(Math.random() * allQuotes.length)];
 
-    const quotes: Quote[] = data;
+    const quoteText = randomQuote.quoteText;
+    const quoteAuthor = randomQuote.quoteAuthor;
 
-    if (quotes.length === 0) {
-      return ctx.reply('❌ No quotes found.');
-    }
-
-    const random = quotes[Math.floor(Math.random() * quotes.length)];
-    const message = `_"${random.quoteText}"_\n\n— *${random.quoteAuthor || 'Unknown'}*`;
-    const chatId = ctx.chat?.id;
-    
-    if (!chatId) return;
-    
-    await ctx.telegram.sendMessage(chatId, message, { parse_mode: 'Markdown' });
-
+    await ctx.reply(
+      `"${quoteText}"\n\n— ${quoteAuthor}`
+    );
   } catch (err) {
-    console.error('Failed to fetch quote:', err);
-    const chatId = ctx.chat?.id;
-    if (chatId) {
-      await ctx.telegram.sendMessage(chatId, '⚠️ Failed to fetch quote. Try again later.');
-    }
+    debug('Error fetching quotes:', err);
+    await ctx.reply('Oops! Failed to load quotes.');
   }
 };
+
+export { quote };
