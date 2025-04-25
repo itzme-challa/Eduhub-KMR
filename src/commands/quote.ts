@@ -1,7 +1,7 @@
 import { Context } from 'telegraf';
 
 const QUOTES_URL =
-  'https://raw.githubusercontent.com/itzfew/Eduhub-KMR/master/quotes.json';
+  'https://github.com/itzfew/Eduhub-KMR/raw/refs/heads/main/quotes.json';
 
 const quote = () => async (ctx: Context) => {
   try {
