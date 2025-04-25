@@ -17,6 +17,9 @@
   "functions": {
     "api/index.ts": {
       "runtime": "vercel-node@canary"
+    },
+    "api/**/*.ts": {
+      "runtime": "vercel-node@canary"
     }
   }
 }
