@@ -4,8 +4,19 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "api/index.ts"
+      "destination": "/api/index.ts"
     }
   ],
-  "redirects": [{ "source": "/", "destination": "/api", "permanent": false }]
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/api",
+      "permanent": false
+    }
+  ],
+  "functions": {
+    "api/index.ts": {
+      "runtime": "vercel-node@canary"
+    }
+  }
 }
