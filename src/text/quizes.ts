@@ -10,75 +10,63 @@ const quizes = () => async (ctx: Context) => {
 
   const text = ctx.message.text.trim().toLowerCase();
 
-  // Help message for generic commands
-  if (
-    ['quiz', '/quiz', 'quizes', '/quizes', 'random', '/random', 'question', 'questions', '/question', '/questions'].includes(text)
-  ) {
-    await ctx.reply(
-      `Hey! To get questions, type one of the following:\n\n` +
-      `→ For Biology: "bio 1", "/b1", or "biology 1"\n` +
-      `→ For Physics: "phy 2", "/p2", or "physics 2"\n` +
-      `→ For Chemistry: "chem 3", "/c3", or "chemistry 3"\n\n` +
-      `To get multiple random questions:\n` +
-      `→ "playbio 5" → 5 random bio questions\n` +
-      `→ "playphy 4" → 4 random physics questions\n` +
-      `→ "playchem 6" → 6 random chemistry questions`
-    );
-    return;
-  }
-
-  // Match commands like: playbio 5, bio 1, /bio1, /bio 1, etc.
-  const match = text.match(/^\/?(play)?(bio|b|biology|phy|p|physics|chem|c|chemistry)\s*([0-9]+)?$/i);
-  if (!match) return;
-
-  const isPlay = !!match[1]; // 'play' present
-  const rawSubject = match[2];
-  const countOrIndex = match[3] ? parseInt(match[3], 10) : 1;
+  // Match random commands: /pyqb 2, /pyqc 3, /pyqp, /pyq 4
+  const randomMatch = text.match(/^\/pyq(b|c|p)?\s*([0-9]+)?$/);
+  // Match direct question access: /b1, /c2, /p4
+  const indexMatch = text.match(/^\/(b|c|p)([0-9]+)$/);
 
   const subjectMap: Record<string, string> = {
-    bio: 'biology',
     b: 'biology',
-    biology: 'biology',
-    phy: 'physics',
-    p: 'physics',
-    physics: 'physics',
-    chem: 'chemistry',
     c: 'chemistry',
-    chemistry: 'chemistry'
+    p: 'physics'
   };
-
-  const subject = subjectMap[rawSubject];
-  if (!subject) return;
 
   try {
     const response = await fetch('https://raw.githubusercontent.com/itzfew/Eduhub-KMR/master/quiz.json');
     const allQuestions = await response.json();
 
-    const subjectQuestions = allQuestions.filter((q: any) => q.subject?.toLowerCase() === subject);
+    // Handle /pyq(b|c|p)? [count] → random mode
+    if (randomMatch) {
+      const rawSub = randomMatch[1];
+      const count = randomMatch[2] ? parseInt(randomMatch[2], 10) : 1;
 
-    if (!subjectQuestions.length) {
-      await ctx.reply(`No ${subject} questions available yet.`);
+      const subject = rawSub ? subjectMap[rawSub] : null;
+      let filtered = subject ? allQuestions.filter((q: any) => q.subject?.toLowerCase() === subject) : allQuestions;
+
+      if (!filtered.length) {
+        await ctx.reply(`No ${subject || 'NEET'} PYQs available.`);
+        return;
+      }
+
+      const shuffled = filtered.sort(() => 0.5 - Math.random()).slice(0, count);
+
+      for (const question of shuffled) {
+        await sendQuestion(ctx, question);
+      }
       return;
     }
 
-    const questionsToSend = [];
+    // Handle /b1, /p2, /c5 → direct index
+    if (indexMatch) {
+      const rawSub = indexMatch[1];
+      const index = parseInt(indexMatch[2], 10) - 1;
+      const subject = subjectMap[rawSub];
+      const filtered = allQuestions.filter((q: any) => q.subject?.toLowerCase() === subject);
 
-    if (isPlay) {
-      // Play mode → send random questions
-      const shuffled = subjectQuestions.sort(() => 0.5 - Math.random());
-      questionsToSend.push(...shuffled.slice(0, Math.min(countOrIndex, subjectQuestions.length)));
-    } else {
-      // Specific index requested (1-based index)
-      const index = countOrIndex - 1;
-      if (index >= 0 && index < subjectQuestions.length) {
-        questionsToSend.push(subjectQuestions[index]);
+      if (index >= 0 && index < filtered.length) {
+        await sendQuestion(ctx, filtered[index]);
       } else {
-        await ctx.reply(`Sorry, question ${countOrIndex} is not available in ${subject}.`);
-        return;
+        await ctx.reply(`Question ${index + 1} not found in ${subject}.`);
       }
     }
 
-    for (const question of questionsToSend) {
+  } catch (err) {
+    debug('Error fetching questions:', err);
+    await ctx.reply('Oops! Failed to load questions.');
+  }
+};
+
+const sendQuestion = async (ctx: Context, question: any) => {
   const options = [
     question.options.A,
     question.options.B,
@@ -87,24 +75,16 @@ const quizes = () => async (ctx: Context) => {
   ];
   const correctOptionIndex = ['A', 'B', 'C', 'D'].indexOf(question.correct_option);
 
-  // Send image if available
   if (question.image) {
     await ctx.replyWithPhoto({ url: question.image });
   }
 
-  // Send quiz poll
   await ctx.sendPoll(question.question, options, {
     type: 'quiz',
     correct_option_id: correctOptionIndex,
     is_anonymous: false,
     explanation: question.explanation || 'No explanation provided.',
   } as any);
-}
-
-  } catch (err) {
-    debug('Error fetching questions:', err);
-    await ctx.reply('Oops! Failed to load questions.');
-  }
 };
 
 export { quizes };
