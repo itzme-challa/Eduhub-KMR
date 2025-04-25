@@ -1,5 +1,5 @@
 import { Context } from 'telegraf';
-import { Chat, User } from 'telegraf/typings/core/types/typegram';
+import { User } from 'telegraf/typings/core/types/typegram';
 import { isPrivateChat } from '../utils/groupSettings';
 
 interface UserInfo {
@@ -17,15 +17,12 @@ interface UserInfo {
 export function me() {
   return async (ctx: Context) => {
     try {
-      // Get the target user (could be the command sender or mentioned user)
-      const targetUser = await getTargetUser(ctx);
-      
-      if (!targetUser) {
-        return ctx.reply('User not found.');
+      if (!ctx.from) {
+        return ctx.reply('Could not identify your user information.');
       }
 
-      // Get additional user info
-      const userInfo = await getUserInfo(ctx, targetUser);
+      // Get user info
+      const userInfo = await getUserInfo(ctx, ctx.from);
 
       if (isPrivateChat(ctx.chat?.type)) {
         // Private chat format
@@ -39,35 +36,6 @@ export function me() {
       await ctx.reply('An error occurred while processing your request.');
     }
   };
-}
-
-async function getTargetUser(ctx: Context): Promise<User | undefined> {
-  const messageText = 'text' in ctx.message ? ctx.message.text : '';
-  const mentionedUsername = messageText?.match(/@(\w+)/)?.[1];
-  const mentionedId = messageText?.match(/\d+/)?.[0];
-
-  // Case 1: Check if a username was mentioned (/me @username)
-  if (mentionedUsername) {
-    try {
-      const member = await ctx.getChatMember(`@${mentionedUsername}`);
-      return member.user;
-    } catch {
-      return undefined;
-    }
-  }
-
-  // Case 2: Check if a user ID was mentioned (/me 123456789)
-  if (mentionedId) {
-    try {
-      const member = await ctx.getChatMember(Number(mentionedId));
-      return member.user;
-    } catch {
-      return undefined;
-    }
-  }
-
-  // Case 3: Default to the command sender (/me with no arguments)
-  return ctx.from;
 }
 
 async function getUserInfo(ctx: Context, user: User): Promise<UserInfo> {
@@ -137,7 +105,7 @@ async function sendGroupUserInfo(ctx: Context, userInfo: UserInfo) {
   }[userInfo.status || 'unknown'];
 
   const text = `
-👤 *User Information* 👤
+👤 *Your Information* 👤
 
 ${statusEmoji} *${userInfo.status?.toUpperCase() || 'MEMBER'}* ${statusEmoji}
 
@@ -158,7 +126,8 @@ export function handleUserInfoRefresh() {
   return async (ctx: Context) => {
     try {
       await ctx.answerCbQuery();
-      const userInfo = await getUserInfo(ctx, ctx.from!);
+      if (!ctx.from) return;
+      const userInfo = await getUserInfo(ctx, ctx.from);
       await sendPrivateUserInfo(ctx, userInfo);
     } catch (error) {
       console.error('Error refreshing user info:', error);
