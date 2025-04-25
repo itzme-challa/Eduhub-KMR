@@ -8,7 +8,7 @@ const greeting = () => async (ctx: Context) => {
     debug('Triggered "greeting" text command');
 
     const message = ctx.message;
-    if (!message || !('text' in message)) return; // Ensure message has 'text' property
+    if (!message || !('text' in message)) return;
 
     const text = message.text.trim().toLowerCase();
     const user = ctx.from;
@@ -33,19 +33,13 @@ const greeting = () => async (ctx: Context) => {
 
         await ctx.replyWithMarkdown(`---
 
-To get questions, type:
+To get previous year questions, type:
 
-→ *Biology:* \`bio 1\`, \`/b1\`, or \`biology 1\`  
-→ *Physics:* \`phy 2\`, \`/p2\`, or \`physics 2\`  
-→ *Chemistry:* \`chem 3\`, \`/c3\`, or \`chemistry 3\`
-
----
-
-*Random Questions:*
-
-→ \`playbio 5\` → 5 random biology questions  
-→ \`playphy 4\` → 4 random physics questions  
-→ \`playchem 6\` → 6 random chemistry questions
+→ *Biology:* \`/pyqb\` → 1 random bio PYQ  
+→ *Biology:* \`/pyqb 2\` → 2 random bio PYQs  
+→ *Chemistry:* \`/pyqc\` or \`/pyqc 3\`  
+→ *Physics:* \`/pyqp\` or \`/pyqp 5\`  
+→ *Any Subject:* \`/pyq\` or \`/pyq 4\` → mixed random PYQs  
 
 ---
 
@@ -71,12 +65,6 @@ To get questions, type:
 • \`/me\` – View your user details  
 • \`/users\` – [Admin] Show total and active users  
 
-*Group Admin Tools:*
-• \`/ban <username|reply>\` – Ban a user  
-• \`/unban <username|reply>\` – Unban a user  
-• \`/mute <username|reply>\` – Mute a user  
-• \`/unmute <username|reply>\` – Unmute a user  
-
 ---
 
 👨‍💻 *Author:* itzfew  
@@ -93,10 +81,9 @@ To get questions, type:
         ];
         const reply = replies[Math.floor(Math.random() * replies.length)];
         await ctx.reply(reply);
-        await ctx.reply(`For practice, just send me your topic or need!`);
+        await ctx.reply(`Sorry, I don’t understand!`);
       }
     }
-    // Removed the fallback reply for unrecognized messages
   } catch (err) {
     console.error('Greeting handler error:', err);
   }
