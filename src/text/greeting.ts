@@ -8,7 +8,7 @@ const greeting = () => async (ctx: Context) => {
     debug('Triggered "greeting" text command');
 
     const message = ctx.message;
-    if (!message || typeof message.text !== 'string') return;
+    if (!message || !('text' in message)) return; // Ensure message has 'text' property
 
     const text = message.text.trim().toLowerCase();
     const user = ctx.from;
