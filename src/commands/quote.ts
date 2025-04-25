@@ -1,7 +1,5 @@
 import { Context } from 'telegraf';
-
-// Dynamically import node-fetch due to ESM issues
-const fetch = (...args: [RequestInfo, RequestInit?]) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
+import fetch from 'node-fetch'; // Static import of node-fetch
 
 interface Quote {
   quoteText: string;
@@ -10,6 +8,7 @@ interface Quote {
 
 export const quote = () => async (ctx: Context) => {
   try {
+    // Ensure you are passing a valid string to fetch
     const res = await fetch('https://raw.githubusercontent.com/itzfew/Eduhub-KMR/master/quotes.json');
     const data: unknown = await res.json();
     
