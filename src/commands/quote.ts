@@ -1,12 +1,13 @@
 import { Context } from 'telegraf';
-import fetch from 'node-fetch';
 
 const QUOTES_URL =
   'https://github.com/itzfew/Eduhub-KMR/raw/refs/heads/main/quotes.json';
 
 const quote = () => async (ctx: Context) => {
   try {
+    const fetch = (...args: any) => import('node-fetch').then(mod => mod.default(...args));
     const res = await fetch(QUOTES_URL);
+
     if (!res.ok) {
       throw new Error(`Failed to fetch quotes: ${res.statusText}`);
     }
