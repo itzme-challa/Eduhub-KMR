@@ -1,4 +1,5 @@
-import { Telegraf } from 'telegraf';
+import { Telegraf, Context } from 'telegraf';
+import { Update, Message } from 'telegraf/typings/core/types/typegram';
 import { VercelRequest, VercelResponse } from '@vercel/node';
 import { getAllChatIds, saveChatId } from './utils/chatStore';
 import { fetchChatIdsFromSheet } from './utils/chatStore';
@@ -150,8 +151,8 @@ bot.start(async (ctx) => {
   }
 });
 
-bot.hears(/^(hi|hello|hey|start|\/start)$/i, greeting);
-bot.command('quote', quote);
+bot.hears(/^(hi|hello|hey|start|\/start)$/i, (ctx) => greeting(ctx));
+bot.command('quote', (ctx) => quote(ctx));
 
 // --- MESSAGE HANDLER ---
 bot.on('message', async (ctx) => {
