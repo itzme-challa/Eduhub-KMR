@@ -1,27 +1,42 @@
 import { Context } from 'telegraf';
+import https from 'https';
 
 const QUOTES_URL =
   'https://raw.githubusercontent.com/itzfew/Eduhub-KMR/main/quotes.json';
 
 const quote = () => async (ctx: Context) => {
   try {
-    const fetch = (...args: any) => import('node-fetch').then(mod => mod.default(...args));
+    https.get(QUOTES_URL, (res) => {
+      let data = '';
 
-    const response = await fetch(QUOTES_URL);
-    const quotes = await response.json();
+      res.on('data', chunk => {
+        data += chunk;
+      });
 
-    if (!Array.isArray(quotes) || quotes.length === 0) {
-      await ctx.reply('No quotes found.');
-      return;
-    }
+      res.on('end', () => {
+        try {
+          const quotes = JSON.parse(data);
+          if (!Array.isArray(quotes)) {
+            ctx.reply('No quotes found.');
+            return;
+          }
 
-    const { quoteText, quoteAuthor } = quotes[Math.floor(Math.random() * quotes.length)];
-    const formatted = `_"${quoteText}"_\n\n– *${quoteAuthor || 'Unknown'}*`;
+          const random = quotes[Math.floor(Math.random() * quotes.length)];
+          const message = `_"${random.quoteText}"_\n\n– *${random.quoteAuthor || 'Unknown'}*`;
 
-    await ctx.reply(formatted, { parse_mode: 'Markdown' });
+          ctx.reply(message, { parse_mode: 'Markdown' });
+        } catch (err) {
+          console.error('Failed to parse quotes:', err);
+          ctx.reply('Error parsing quote data.');
+        }
+      });
+    }).on('error', (err) => {
+      console.error('Quote fetch error:', err);
+      ctx.reply('Failed to fetch quotes.');
+    });
   } catch (err) {
-    console.error('Failed to send quote:', err);
-    await ctx.reply('Failed to load quote. Try again later.');
+    console.error('Unexpected error:', err);
+    ctx.reply('Something went wrong.');
   }
 };
 
