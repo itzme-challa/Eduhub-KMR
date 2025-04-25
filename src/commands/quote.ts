@@ -1,42 +1,32 @@
 import { Context } from 'telegraf';
-import createDebug from 'debug';
+import fetch from 'node-fetch';
 
-const debug = createDebug('bot:quotes');
+interface Quote {
+  quoteText: string;
+  quoteAuthor: string;
+}
 
-const quotes = () => async (ctx: Context) => {
-  debug('Triggered "quotes" handler');
-
-  if (!ctx.message || !('text' in ctx.message)) return;
-
-  const text = ctx.message.text.trim().toLowerCase();
-
-  // Help message for quote command
-  if (
-    ['quote', '/quote', 'quotes', '/quotes'].includes(text)
-  ) {
-    await ctx.reply(
-      `Hey! To get a random quote, just type "/quote" or "quotes".`
-    );
-    return;
-  }
-
+export const quote = () => async (ctx: Context) => {
   try {
-    const response = await fetch('https://raw.githubusercontent.com/itzfew/Eduhub-KMR/raw/refs/heads/main/quotes.json');
-    const allQuotes = await response.json();
+    const res = await fetch('https://raw.githubusercontent.com/itzfew/Eduhub-KMR/master/quotes.json');
+    const quotes: Quote[] = await res.json();
 
-    // Randomly pick a quote from the list
-    const randomQuote = allQuotes[Math.floor(Math.random() * allQuotes.length)];
+    if (!quotes || quotes.length === 0) {
+      return ctx.reply('❌ No quotes found.');
+    }
 
-    const quoteText = randomQuote.quoteText;
-    const quoteAuthor = randomQuote.quoteAuthor;
+    const random = quotes[Math.floor(Math.random() * quotes.length)];
+    const message = `_"${random.quoteText}"_\n\n— *${random.quoteAuthor || 'Unknown'}*`;
 
-    await ctx.reply(
-      `"${quoteText}"\n\n— ${quoteAuthor}`
-    );
+    const chatId = ctx.chat?.id;
+    if (!chatId) return;
+
+    await ctx.telegram.sendMessage(chatId, message, { parse_mode: 'Markdown' });
   } catch (err) {
-    debug('Error fetching quotes:', err);
-    await ctx.reply('Oops! Failed to load quotes.');
+    console.error('Failed to fetch quote:', err);
+    const chatId = ctx.chat?.id;
+    if (chatId) {
+      await ctx.telegram.sendMessage(chatId, '⚠️ Failed to fetch quote. Try again later.');
+    }
   }
 };
-
-export { quote };
