@@ -1,6 +1,7 @@
 import { Telegraf } from 'telegraf';
 import { VercelRequest, VercelResponse } from '@vercel/node';
-import { getAllChatIds, saveChatId, fetchChatIdsFromSheet } from './utils/chatStore';
+import { getAllChatIds, saveChatId } from './utils/chatStore';
+import { fetchChatIdsFromSheet } from './utils/chatStore';
 import { saveToSheet } from './utils/saveToSheet';
 import { about, help } from './commands';
 import { study } from './commands/study';
@@ -21,19 +22,19 @@ if (!BOT_TOKEN) throw new Error('BOT_TOKEN not provided!');
 const bot = new Telegraf(BOT_TOKEN);
 
 // --- COMMANDS ---
-bot.command('about', about);
-bot.command('help', help);
-bot.command('study', study);
-bot.command('neet', neet);
-bot.command('jee', jee);
-bot.command('groups', groups);
-bot.command('quote', quote);
+bot.command('about', about());
+bot.command('help', help());
+bot.command('study', study());
+bot.command('neet', neet());
+bot.command('jee', jee());
+bot.command('groups', groups());
+bot.command('quote', quote());
 
 // Broadcast to all saved chat IDs
 bot.command('broadcast', async (ctx) => {
   if (ctx.from?.id !== ADMIN_ID) return ctx.reply('You are not authorized to use this command.');
 
-  const msg = ctx.message?.text?.split(' ').slice(1).join(' ');
+  const msg = ctx.message.text?.split(' ').slice(1).join(' ');
   if (!msg) return ctx.reply('Usage:\n/broadcast Your message here');
 
   let chatIds: number[] = [];
@@ -66,7 +67,7 @@ bot.command('broadcast', async (ctx) => {
 bot.command('reply', async (ctx) => {
   if (ctx.from?.id !== ADMIN_ID) return ctx.reply('You are not authorized to use this command.');
 
-  const parts = ctx.message?.text?.split(' ');
+  const parts = ctx.message.text?.split(' ');
   if (!parts || parts.length < 3) {
     return ctx.reply('Usage:\n/reply <chat_id> <message>');
   }
@@ -81,10 +82,10 @@ bot.command('reply', async (ctx) => {
 
   try {
     await ctx.telegram.sendMessage(chatId, `*Admin's Reply:*\n${message}`, { parse_mode: 'Markdown' });
-    await ctx.reply(`Reply sent to \`${chatId}\``, { parse_mode: 'Markdown' });
+    await ctx.reply(`Reply sent to ${chatId}`, { parse_mode: 'Markdown' });
   } catch (error) {
     console.error('Reply error:', error);
-    await ctx.reply(`Failed to send reply to \`${chatId}\``, { parse_mode: 'Markdown' });
+    await ctx.reply(`Failed to send reply to ${chatId}`, { parse_mode: 'Markdown' });
   }
 });
 
@@ -99,7 +100,7 @@ bot.start(async (ctx) => {
 // --- MESSAGE HANDLER ---
 bot.on('message', async (ctx) => {
   const chat = ctx.chat;
-  const msg = ctx.message;
+  const msg = ctx.message as { text?: string; reply_to_message?: { text?: string } };
   const chatType = chat.type;
 
   if (!chat?.id) return;
@@ -112,10 +113,10 @@ bot.on('message', async (ctx) => {
 
   // Notify admin once only
   if (chat.id !== ADMIN_ID && !alreadyNotified) {
-    if (chat.type === 'private' && chat.first_name && chat.username) {
+    if (chat.type === 'private' && 'first_name' in chat && 'username' in chat) {
       await ctx.telegram.sendMessage(
         ADMIN_ID,
-        `*New user started the bot!*\n\n*Name:* ${chat.first_name}\n*Username:* @${chat.username}\nChat ID: \`${chat.id}\``,
+        `*New user started the bot!*\n\n*Name:* ${chat.first_name}\n*Username:* @${chat.username}\nChat ID: ${chat.id}`,
         { parse_mode: 'Markdown' }
       );
     }
@@ -127,7 +128,7 @@ bot.on('message', async (ctx) => {
     if (userMessage) {
       await ctx.telegram.sendMessage(
         ADMIN_ID,
-        `*Contact Message from ${chat.first_name} (@${chat.username || 'N/A'})*\nChat ID: \`${chat.id}\`\n\n*Message:*\n${userMessage}`,
+        `*Contact Message from ${'first_name' in chat ? chat.first_name : 'Unknown'} (@${'username' in chat ? chat.username || 'N/A' : 'N/A'})*\nChat ID: ${chat.id}\n\nMessage:\n${userMessage}`,
         { parse_mode: 'Markdown' }
       );
       await ctx.reply('Your message has been sent to the admin!');
@@ -138,8 +139,8 @@ bot.on('message', async (ctx) => {
   }
 
   // Admin replies via swipe reply
-  if (chat.id === ADMIN_ID && msg.reply_to_message) {
-    const match = msg.reply_to_message.text?.match(/Chat ID: `(\d+)`/);
+  if (chat.id === ADMIN_ID && msg.reply_to_message?.text) {
+    const match = msg.reply_to_message.text.match(/Chat ID: (\d+)/);
     if (match) {
       const targetId = parseInt(match[1], 10);
       try {
