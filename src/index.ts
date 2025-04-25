@@ -1,7 +1,6 @@
 import { Telegraf } from 'telegraf';
 import { VercelRequest, VercelResponse } from '@vercel/node';
-import { getAllChatIds, saveChatId } from './utils/chatStore';
-import { fetchChatIdsFromSheet } from './utils/chatStore';
+import { getAllChatIds, saveChatId, fetchChatIdsFromSheet } from './utils/chatStore';
 import { saveToSheet } from './utils/saveToSheet';
 import { about, help } from './commands';
 import { study } from './commands/study';
@@ -22,19 +21,19 @@ if (!BOT_TOKEN) throw new Error('BOT_TOKEN not provided!');
 const bot = new Telegraf(BOT_TOKEN);
 
 // --- COMMANDS ---
-bot.command('about', about());
-bot.command('help', help());
-bot.command('study', study());
-bot.command('neet', neet());
-bot.command('jee', jee());
-bot.command('groups', groups());
-bot.command('quote', quote());
+bot.command('about', about);
+bot.command('help', help);
+bot.command('study', study);
+bot.command('neet', neet);
+bot.command('jee', jee);
+bot.command('groups', groups);
+bot.command('quote', quote);
 
 // Broadcast to all saved chat IDs
 bot.command('broadcast', async (ctx) => {
   if (ctx.from?.id !== ADMIN_ID) return ctx.reply('You are not authorized to use this command.');
 
-  const msg = ctx.message.text?.split(' ').slice(1).join(' ');
+  const msg = ctx.message?.text?.split(' ').slice(1).join(' ');
   if (!msg) return ctx.reply('Usage:\n/broadcast Your message here');
 
   let chatIds: number[] = [];
@@ -67,7 +66,7 @@ bot.command('broadcast', async (ctx) => {
 bot.command('reply', async (ctx) => {
   if (ctx.from?.id !== ADMIN_ID) return ctx.reply('You are not authorized to use this command.');
 
-  const parts = ctx.message.text?.split(' ');
+  const parts = ctx.message?.text?.split(' ');
   if (!parts || parts.length < 3) {
     return ctx.reply('Usage:\n/reply <chat_id> <message>');
   }
