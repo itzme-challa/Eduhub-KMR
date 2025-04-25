@@ -8,6 +8,7 @@ import { study } from './commands/study';
 import { neet } from './commands/neet';
 import { jee } from './commands/jee';
 import { groups } from './commands/groups';
+import { qoutes } from './commands/qoute';
 import { quizes } from './text';
 import { greeting } from './text';
 import { development, production } from './core';
@@ -28,6 +29,12 @@ bot.command('neet', neet());
 bot.command('jee', jee());
 bot.command('groups', groups());
 bot.command(['me', 'user', 'info'], me());
+bot.command('quote', quotes());
+bot.command('quotes', quotes());
+
+// Handle text messages that might be quotes requests
+bot.on(message('text'), quotes()); 
+
 
 // New command to show user count from Google Sheets
 bot.command('users', async (ctx) => {
