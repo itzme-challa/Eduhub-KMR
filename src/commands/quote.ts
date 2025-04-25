@@ -1,13 +1,15 @@
 import { Context } from 'telegraf';
-import fetch from 'node-fetch';
 
 interface Quote {
   quoteText: string;
   quoteAuthor: string;
 }
 
-export const quote = () => async (ctx: Context) => {
+export async function quote(ctx: Context) {
   try {
+    // Use dynamic import for node-fetch
+    const { default: fetch } = await import('node-fetch');
+    
     const res = await fetch('https://raw.githubusercontent.com/itzfew/Eduhub-KMR/master/quotes.json');
     const quotes: Quote[] = await res.json();
 
@@ -29,4 +31,4 @@ export const quote = () => async (ctx: Context) => {
       await ctx.telegram.sendMessage(chatId, '⚠️ Failed to fetch quote. Try again later.');
     }
   }
-};
+}
