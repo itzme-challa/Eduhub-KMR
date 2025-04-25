@@ -12,7 +12,7 @@ import { quizes } from './text';
 import { greeting } from './text';
 import { development, production } from './core';
 import { isPrivateChat } from './utils/groupSettings';
-
+import { me, handleUserInfoRefresh } from './commands/me';
 const BOT_TOKEN = process.env.BOT_TOKEN || '';
 const ENVIRONMENT = process.env.NODE_ENV || '';
 const ADMIN_ID = 6930703214;
@@ -27,6 +27,7 @@ bot.command('study', study());
 bot.command('neet', neet());
 bot.command('jee', jee());
 bot.command('groups', groups());
+bot.command(['me', 'user', 'info'], me());
 
 // New command to show user count from Google Sheets
 bot.command('users', async (ctx) => {
@@ -51,7 +52,7 @@ bot.command('users', async (ctx) => {
     await ctx.reply('❌ Error: Unable to fetch user count from Google Sheet.');
   }
 });
-
+bot.action('refresh_user_info', handleUserInfoRefresh());
 // Handle refresh button for user count
 bot.action('refresh_users', async (ctx) => {
   if (ctx.from?.id !== ADMIN_ID) {
