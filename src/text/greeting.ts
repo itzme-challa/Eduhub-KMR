@@ -95,10 +95,8 @@ To get questions, type:
         await ctx.reply(reply);
         await ctx.reply(`For practice, just send me your topic or need!`);
       }
-    } else {
-      // fallback reply for unrecognized message
-      await ctx.reply(`Sorry, I didn't understand that. Please check /help for all commands.`);
     }
+    // Removed the fallback reply for unrecognized messages
   } catch (err) {
     console.error('Greeting handler error:', err);
   }
