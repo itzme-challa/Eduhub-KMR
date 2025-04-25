@@ -1,5 +1,7 @@
 import { Context } from 'telegraf';
-import fetch from 'node-fetch';
+
+// Dynamically import node-fetch due to ESM issues
+const fetch = (...args: [RequestInfo, RequestInit?]) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 interface Quote {
   quoteText: string;
