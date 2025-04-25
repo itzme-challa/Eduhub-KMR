@@ -13,6 +13,8 @@ import { greeting } from './text';
 import { development, production } from './core';
 import { isPrivateChat } from './utils/groupSettings';
 import { me, handleUserInfoRefresh } from './commands/me';
+import { quote } from './commands/quote'; // Make sure path is correct 
+
 const BOT_TOKEN = process.env.BOT_TOKEN || '';
 const ENVIRONMENT = process.env.NODE_ENV || '';
 const ADMIN_ID = 6930703214;
@@ -146,6 +148,8 @@ bot.start(async (ctx) => {
     await greeting()(ctx);
   }
 });
+bot.hears(/^(hi|hello|hey|start|\/start)$/i, greeting());
+bot.command('quote', quote);
 
 // --- MESSAGE HANDLER ---
 bot.on('message', async (ctx) => {
