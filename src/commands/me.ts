@@ -107,7 +107,7 @@ async function sendGroupUserInfo(ctx: Context, userInfo: UserInfo) {
   const text = `
 👤 Your Information 👤
 
-{statusEmoji} ${userInfo.status?.toUpperCase() || 'MEMBER'} ${statusEmoji}
+${statusEmoji} ${userInfo.status?.toUpperCase() || 'MEMBER'} ${statusEmoji}
 
 📛 Name: ${userInfo.name}
 🔖 Username: ${userInfo.username ? '@' + userInfo.username : 'None'}
