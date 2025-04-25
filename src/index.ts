@@ -1,5 +1,4 @@
-import { Telegraf, Context } from 'telegraf';
-import { Update, Message } from 'telegraf/typings/core/types/typegram';
+import { Telegraf } from 'telegraf';
 import { VercelRequest, VercelResponse } from '@vercel/node';
 import { getAllChatIds, saveChatId } from './utils/chatStore';
 import { fetchChatIdsFromSheet } from './utils/chatStore';
@@ -14,7 +13,7 @@ import { greeting } from './text';
 import { development, production } from './core';
 import { isPrivateChat } from './utils/groupSettings';
 import { me, handleUserInfoRefresh } from './commands/me';
-import { quote } from './commands/quote';
+import { quote } from './commands/quote'; // Make sure path is correct 
 
 const BOT_TOKEN = process.env.BOT_TOKEN || '';
 const ENVIRONMENT = process.env.NODE_ENV || '';
@@ -24,13 +23,14 @@ if (!BOT_TOKEN) throw new Error('BOT_TOKEN not provided!');
 const bot = new Telegraf(BOT_TOKEN);
 
 // --- COMMANDS ---
-bot.command('about', about);
-bot.command('help', help);
-bot.command('study', study);
-bot.command('neet', neet);
-bot.command('jee', jee);
-bot.command('groups', groups);
-bot.command(['me', 'user', 'info'], me);
+bot.command('about', about());
+bot.command('help', help());
+bot.command('study', study());
+bot.command('neet', neet());
+bot.command('jee', jee());
+bot.command('groups', groups());
+bot.command(['me', 'user', 'info'], me());
+
 
 // New command to show user count from Google Sheets
 bot.command('users', async (ctx) => {
@@ -55,12 +55,10 @@ bot.command('users', async (ctx) => {
     await ctx.reply('❌ Error: Unable to fetch user count from Google Sheet.');
   }
 });
-
-bot.action('refresh_user_info', handleUserInfoRefresh);
-
+bot.action('refresh_user_info', handleUserInfoRefresh());
 // Handle refresh button for user count
 bot.action('refresh_users', async (ctx) => {
-  if (!ctx.from || ctx.from.id !== ADMIN_ID) {
+  if (ctx.from?.id !== ADMIN_ID) {
     await ctx.answerCbQuery('Unauthorized');
     return;
   }
@@ -86,7 +84,7 @@ bot.action('refresh_users', async (ctx) => {
 
 // Broadcast to all saved chat IDs
 bot.command('broadcast', async (ctx) => {
-  if (!ctx.from || ctx.from.id !== ADMIN_ID) return ctx.reply('You are not authorized to use this command.');
+  if (ctx.from?.id !== ADMIN_ID) return ctx.reply('You are not authorized to use this command.');
 
   const msg = ctx.message.text?.split(' ').slice(1).join(' ');
   if (!msg) return ctx.reply('Usage:\n/broadcast Your message here');
@@ -119,7 +117,7 @@ bot.command('broadcast', async (ctx) => {
 
 // Admin reply to user via command
 bot.command('reply', async (ctx) => {
-  if (!ctx.from || ctx.from.id !== ADMIN_ID) return ctx.reply('You are not authorized to use this command.');
+  if (ctx.from?.id !== ADMIN_ID) return ctx.reply('You are not authorized to use this command.');
 
   const parts = ctx.message.text?.split(' ');
   if (!parts || parts.length < 3) {
@@ -145,19 +143,20 @@ bot.command('reply', async (ctx) => {
 
 // User greeting and message handling
 bot.start(async (ctx) => {
-  if (ctx.chat && isPrivateChat(ctx.chat.type)) {
+  if (isPrivateChat(ctx.chat.type)) {
     await ctx.reply('Welcome! Use /help to explore commands.');
-    await greeting(ctx);
+    await greeting()(ctx);
   }
 });
-
-bot.hears(/^(hi|hello|hey|start|\/start)$/i, (ctx) => greeting(ctx));
-bot.command('quote', (ctx) => quote(ctx));
+bot.hears(/^(hi|hello|hey|start|\/start)$/i, greeting());
+bot.command('quote', quote);
 
 // --- MESSAGE HANDLER ---
 bot.on('message', async (ctx) => {
   const chat = ctx.chat;
-  const msg = ctx.message;
+  const msg = ctx.message as { text?: string; reply_to_message?: { text?: string } };
+  const chatType = chat.type;
+
   if (!chat?.id) return;
 
   // Save chat ID locally
@@ -178,10 +177,8 @@ bot.on('message', async (ctx) => {
   }
 
   // Handle /contact messages
-  if ('text' in msg && msg.text?.startsWith('/contact')) {
-    const userMessage = msg.text.replace('/contact', '').trim() || 
-      ('reply_to_message' in msg && 'text' in msg.reply_to_message ? msg.reply_to_message.text : undefined);
-    
+  if (msg.text?.startsWith('/contact')) {
+    const userMessage = msg.text.replace('/contact', '').trim() || msg.reply_to_message?.text;
     if (userMessage) {
       await ctx.telegram.sendMessage(
         ADMIN_ID,
@@ -196,14 +193,14 @@ bot.on('message', async (ctx) => {
   }
 
   // Admin replies via swipe reply
-  if (chat.id === ADMIN_ID && 'reply_to_message' in msg && msg.reply_to_message && 'text' in msg.reply_to_message) {
+  if (chat.id === ADMIN_ID && msg.reply_to_message?.text) {
     const match = msg.reply_to_message.text.match(/Chat ID: (\d+)/);
     if (match) {
       const targetId = parseInt(match[1], 10);
       try {
         await ctx.telegram.sendMessage(
           targetId,
-          `*Admin's Reply:*\n${'text' in msg ? msg.text : ''}`,
+          `*Admin's Reply:*\n${msg.text}`,
           { parse_mode: 'Markdown' }
         );
       } catch (err) {
@@ -214,11 +211,11 @@ bot.on('message', async (ctx) => {
   }
 
   // Run quiz for all chats
-  await quizes(ctx);
+  await quizes()(ctx);
 
   // Greet in private chats
-  if (isPrivateChat(chat.type)) {
-    await greeting(ctx);
+  if (isPrivateChat(chatType)) {
+    await greeting()(ctx);
   }
 });
 
