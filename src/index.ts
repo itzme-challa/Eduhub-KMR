@@ -12,8 +12,6 @@ import { quizes } from './text';
 import { greeting } from './text';
 import { development, production } from './core';
 import { isPrivateChat } from './utils/groupSettings';
-import { quote } from './commands/quote';
-
 const BOT_TOKEN = process.env.BOT_TOKEN || '';
 const ENVIRONMENT = process.env.NODE_ENV || '';
 const ADMIN_ID = 6930703214;
@@ -28,7 +26,6 @@ bot.command('study', study());
 bot.command('neet', neet());
 bot.command('jee', jee());
 bot.command('groups', groups());
-bot.command('quote', quote());
 
 // Broadcast to all saved chat IDs
 bot.command('broadcast', async (ctx) => {
