@@ -1,594 +1,244 @@
 [
-    {
-        "subject": "Biology",
-        "chapter": "Cell - The Unit of Life",
-        "question": "Which organelle is known as the 'powerhouse of the cell'?",
-        "options": {
-            "A": "Nucleus",
-            "B": "Mitochondrion",
-            "C": "Ribosome",
-            "D": "Endoplasmic reticulum"
-        },
-        "correct_option": "B",
-        "explanation": "Mitochondria are known as the 'powerhouse of the cell' because they produce ATP through oxidative phosphorylation.",
-        "image": ""
-    },
-    {
-        "subject": "Biology",
-        "chapter": "Plant Kingdom",
-        "question": "Which of the following is a characteristic of monocot plants?",
-        "options": {
-            "A": "Net-veined leaves",
-            "B": "Two cotyledons",
-            "C": "Parallel-veined leaves",
-            "D": "Tap root system"
-        },
-        "correct_option": "C",
-        "explanation": "Monocot plants typically have parallel-veined leaves, one cotyledon, and a fibrous root system.",
-        "image": ""
-    },
-    {
-        "subject": "Biology",
-        "chapter": "Human Physiology",
-        "question": "Which hormone is responsible for regulating blood sugar levels?",
-        "options": {
-            "A": "Insulin",
-            "B": "Adrenaline",
-            "C": "Thyroxine",
-            "D": "Cortisol"
-        },
-        "correct_option": "A",
-        "explanation": "Insulin, produced by the pancreas, helps regulate blood sugar levels by facilitating the uptake of glucose into cells.",
-        "image": ""
-    },
-    {
-        "subject": "Biology",
-        "chapter": "Human Physiology",
-        "question": "Which blood type is known as the universal donor?",
-        "options": {
-            "A": "Type A",
-            "B": "Type B",
-            "C": "Type AB",
-            "D": "Type O"
-        },
-        "correct_option": "D",
-        "explanation": "Type O blood is considered the universal donor because it lacks A and B antigens, reducing the risk of immune reactions.",
-        "image": ""
-    },
-    {
-        "subject": "Biology",
-        "chapter": "Genetics and Evolution",
-        "question": "Which process results in the formation of gametes?",
-        "options": {
-            "A": "Mitosis",
-            "B": "Meiosis",
-            "C": "Fertilization",
-            "D": "Binary fission"
-        },
-        "correct_option": "B",
-        "explanation": "Meiosis is the cell division process that produces gametes (sperm and egg cells) with half the number of chromosomes.",
-        "image": ""
-    },
-    {
-        "subject": "Biology",
-        "chapter": "Human Physiology",
-        "question": "Which vitamin is synthesized by the human body when exposed to sunlight?",
-        "options": {
-            "A": "Vitamin A",
-            "B": "Vitamin B12",
-            "C": "Vitamin C",
-            "D": "Vitamin D"
-        },
-        "correct_option": "D",
-        "explanation": "Vitamin D is synthesized in the skin upon exposure to ultraviolet (UV) rays from sunlight.",
-        "image": ""
-    },
-    {
-        "subject": "Biology",
-        "chapter": "Cell - The Unit of Life",
-        "question": "What is the primary function of the large intestine?",
-        "options": {
-            "A": "Nutrient absorption",
-            "B": "Water absorption",
-            "C": "Protein digestion",
-            "D": "Fat emulsification"
-        },
-        "correct_option": "B",
-        "explanation": "The large intestine primarily absorbs water from indigestible food matter, forming solid waste (feces).",
-        "image": ""
-    },
-    {
-        "subject": "Biology",
-        "chapter": "Structural Organisation in Animals",
-        "question": "Which of the following is a vestigial organ in humans?",
-        "options": {
-            "A": "Liver",
-            "B": "Appendix",
-            "C": "Heart",
-            "D": "Kidney"
-        },
-        "correct_option": "B",
-        "explanation": "The appendix is considered a vestigial organ in humans, having lost most of its original function through evolution.",
-        "image": ""
-    },
-    {
-        "subject": "Biology",
-        "chapter": "Plant Physiology",
-        "question": "What is the term for the symbiotic relationship between fungi and plant roots?",
-        "options": {
-            "A": "Lichen",
-            "B": "Mycorrhiza",
-            "C": "Rhizobium",
-            "D": "Epiphyte"
-        },
-        "correct_option": "B",
-        "explanation": "Mycorrhiza refers to the mutualistic association between fungi and plant roots, enhancing nutrient uptake.",
-        "image": ""
-    },
-    {
-        "subject": "Biology",
-        "chapter": "Human Physiology",
-        "question": "What is the main function of hemoglobin in the blood?",
-        "options": {
-            "A": "Digesting proteins",
-            "B": "Transporting oxygen",
-            "C": "Clotting blood",
-            "D": "Fighting infections"
-        },
-        "correct_option": "B",
-        "explanation": "Hemoglobin in red blood cells binds to oxygen in the lungs and transports it to tissues throughout the body.",
-        "image": ""
-    },
-    {
-        "subject": "Physics",
-        "chapter": "Gravitation",
-        "question": "What is the acceleration due to gravity on Earth?",
-        "options": {
-            "A": "9.8 m/s²",
-            "B": "8.9 m/s²",
-            "C": "10.2 m/s²",
-            "D": "9.2 m/s²"
-        },
-        "correct_option": "A",
-        "explanation": "The standard acceleration due to gravity on Earth is 9.8 m/s².",
-        "image": ""
-    },
-    {
-        "subject": "Physics",
-        "chapter": "Work, Energy and Power",
-        "question": "Which physical quantity is measured in Joules?",
-        "options": {
-            "A": "Force",
-            "B": "Power",
-            "C": "Energy",
-            "D": "Velocity"
-        },
-        "correct_option": "C",
-        "explanation": "Energy is measured in Joules (J) in the SI system.",
-        "image": ""
-    },
-    {
-        "subject": "Physics",
-        "chapter": "Thermodynamics",
-        "question": "Which law states that energy can neither be created nor destroyed?",
-        "options": {
-            "A": "First Law of Thermodynamics",
-            "B": "Zeroth Law of Thermodynamics",
-            "C": "Second Law of Thermodynamics",
-            "D": "Law of Conservation of Momentum"
-        },
-        "correct_option": "A",
-        "explanation": "The First Law of Thermodynamics is a version of the law of conservation of energy for thermodynamic systems.",
-        "image": ""
-    },
-    {
-        "subject": "Physics",
-        "chapter": "Optics",
-        "question": "Which mirror always forms a virtual, erect, and diminished image?",
-        "options": {
-            "A": "Concave mirror",
-            "B": "Convex mirror",
-            "C": "Plane mirror",
-            "D": "None"
-        },
-        "correct_option": "B",
-        "explanation": "Convex mirrors always produce virtual, erect, and diminished images regardless of the object's position.",
-        "image": ""
-    },
-    {
-        "subject": "Physics",
-        "chapter": "Waves",
-        "question": "What is the unit of frequency?",
-        "options": {
-            "A": "Hertz",
-            "B": "Newton",
-            "C": "Joule",
-            "D": "Decibel"
-        },
-        "correct_option": "A",
-        "explanation": "Frequency is measured in Hertz (Hz), which is equivalent to one cycle per second.",
-        "image": ""
-    },
-    {
-        "subject": "Physics",
-        "chapter": "Current Electricity",
-        "question": "Ohm’s Law states that current is directly proportional to:",
-        "options": {
-            "A": "Voltage",
-            "B": "Power",
-            "C": "Resistance",
-            "D": "Energy"
-        },
-        "correct_option": "A",
-        "explanation": "Ohm’s Law: V = IR, which shows that current (I) is directly proportional to voltage (V).",
-        "image": ""
-    },
-    {
-        "subject": "Physics",
-        "chapter": "Electromagnetic Induction",
-        "question": "Who discovered electromagnetic induction?",
-        "options": {
-            "A": "Ampere",
-            "B": "Faraday",
-            "C": "Maxwell",
-            "D": "Ohm"
-        },
-        "correct_option": "B",
-        "explanation": "Michael Faraday discovered electromagnetic induction in 1831.",
-        "image": ""
-    },
-    {
-        "subject": "Physics",
-        "chapter": "Modern Physics",
-        "question": "Which particle has no charge?",
-        "options": {
-            "A": "Proton",
-            "B": "Neutron",
-            "C": "Electron",
-            "D": "Positron"
-        },
-        "correct_option": "B",
-        "explanation": "Neutrons are electrically neutral particles found in the nucleus of atoms.",
-        "image": ""
-    },
-    {
-        "subject": "Physics",
-        "chapter": "Electrostatics",
-        "question": "Coulomb's law is applicable to:",
-        "options": {
-            "A": "Current carrying wires",
-            "B": "Stationary point charges",
-            "C": "Moving charges",
-            "D": "Charged capacitors"
-        },
-        "correct_option": "B",
-        "explanation": "Coulomb's law applies to the electrostatic force between two stationary point charges.",
-        "image": ""
-    },
-    {
-        "subject": "Physics",
-        "chapter": "Kinetic Theory of Gases",
-        "question": "The pressure of an ideal gas is due to:",
-        "options": {
-            "A": "Collision of atoms with each other",
-            "B": "Collision of atoms with the container walls",
-            "C": "Temperature of gas",
-            "D": "Volume of gas"
-        },
-        "correct_option": "B",
-        "explanation": "In kinetic theory, pressure arises from molecules colliding with the container walls.",
-        "image": ""
-    },
-    {
-        "subject": "Chemistry",
-        "chapter": "Some Basic Concepts of Chemistry",
-        "question": "Which of the following is the SI unit of amount of substance?",
-        "options": {
-            "A": "Kilogram",
-            "B": "Mole",
-            "C": "Liter",
-            "D": "Gram"
-        },
-        "correct_option": "B",
-        "explanation": "The SI unit of the amount of substance is the mole.",
-        "image": ""
-    },
-    {
-        "subject": "Chemistry",
-        "chapter": "Structure of Atom",
-        "question": "Which of the following particles has the least mass?",
-        "options": {
-            "A": "Neutron",
-            "B": "Proton",
-            "C": "Electron",
-            "D": "Alpha particle"
-        },
-        "correct_option": "C",
-        "explanation": "Electron has the least mass among the subatomic particles listed.",
-        "image": ""
-    },
-    {
-        "subject": "Chemistry",
-        "chapter": "Periodic Table",
-        "question": "What is the period number of an element with the electronic configuration 2, 8, 4?",
-        "options": {
-            "A": "2",
-            "B": "3",
-            "C": "4",
-            "D": "5"
-        },
-        "correct_option": "B",
-        "explanation": "The number of shells determines the period, so 2, 8, 4 means 3 shells → Period 3.",
-        "image": ""
-    },
-    {
-        "subject": "Chemistry",
-        "chapter": "Chemical Bonding",
-        "question": "Which of the following is a polar covalent molecule?",
-        "options": {
-            "A": "O2",
-            "B": "H2",
-            "C": "HCl",
-            "D": "Cl2"
-        },
-        "correct_option": "C",
-        "explanation": "HCl has a difference in electronegativity between H and Cl, making it polar.",
-        "image": ""
-    },
-    {
-        "subject": "Chemistry",
-        "chapter": "States of Matter",
-        "question": "Which of the following gases will diffuse the fastest?",
-        "options": {
-            "A": "Cl2",
-            "B": "O2",
-            "C": "H2",
-            "D": "CO2"
-        },
-        "correct_option": "C",
-        "explanation": "According to Graham’s law, lighter gases diffuse faster. H2 is the lightest.",
-        "image": ""
-    },
-    {
-        "subject": "Chemistry",
-        "chapter": "Thermodynamics",
-        "question": "Which of the following quantities is a state function?",
-        "options": {
-            "A": "Work",
-            "B": "Heat",
-            "C": "Internal Energy",
-            "D": "Path"
-        },
-        "correct_option": "C",
-        "explanation": "Internal energy depends only on the state of the system, not the path.",
-        "image": ""
-    },
-    {
-        "subject": "Chemistry",
-        "chapter": "Equilibrium",
-        "question": "At equilibrium:",
-        "options": {
-            "A": "Forward reaction stops",
-            "B": "Backward reaction stops",
-            "C": "Rates of forward and backward reactions are equal",
-            "D": "Concentrations of reactants and products are equal"
-        },
-        "correct_option": "C",
-        "explanation": "At equilibrium, the rate of the forward and backward reactions become equal.",
-        "image": ""
-    },
-    {
-        "subject": "Chemistry",
-        "chapter": "Redox Reactions",
-        "question": "Oxidation involves:",
-        "options": {
-            "A": "Gain of electrons",
-            "B": "Loss of electrons",
-            "C": "Gain of protons",
-            "D": "Loss of neutrons"
-        },
-        "correct_option": "B",
-        "explanation": "Oxidation is defined as the loss of electrons.",
-        "image": ""
-    },
-    {
-        "subject": "Chemistry",
-        "chapter": "Hydrogen",
-        "question": "Which of the following is used in the manufacture of margarine?",
-        "options": {
-            "A": "Hydrogen",
-            "B": "Oxygen",
-            "C": "Nitrogen",
-            "D": "Helium"
-        },
-        "correct_option": "A",
-        "explanation": "Hydrogen is used in the hydrogenation of oils to make margarine.",
-        "image": ""
-    },
-    {
-        "subject": "Chemistry",
-        "chapter": "The s-Block Element",
-        "question": "Which alkali metal is the most reactive?",
-        "options": {
-            "A": "Sodium",
-            "B": "Potassium",
-            "C": "Cesium",
-            "D": "Lithium"
-        },
-        "correct_option": "C",
-        "explanation": "Reactivity increases down the group. Cesium is more reactive than others listed.",
-        "image": ""
-    },
-    {
-        "subject": "Chemistry",
-        "chapter": "Organic Chemistry - Basics",
-        "question": "IUPAC name of CH3CH2OH is:",
-        "options": {
-            "A": "Ethyl alcohol",
-            "B": "Ethanol",
-            "C": "Ethene",
-            "D": "Methanol"
-        },
-        "correct_option": "B",
-        "explanation": "According to IUPAC, CH3CH2OH is named as Ethanol.",
-        "image": ""
-    },
-    {
-        "subject": "biology",
-        "chapter": "biomolecules",
-        "question": "A non-proteinaceous enzyme is",
-        "options": {
-            "A": "Iysozyme",
-            "B": "ribozyme",
-            "C": "ligase",
-            "D": "deoxyribonuclease"
-        },
-        "correct_option": "B",
-        "explanation": "A ribozyme is a ribonucleic acid (RNA) enzyme that catalyses a chemical reaction in a similar way to that of a protein enzyme. These are found in ribosomes and are also called catalytic RNAs.",
-        "image": ""
-    },
-    {
-        "subject": "chemistry",
-        "chapter": "ionic-equilibrum",
-        "question": "Which of these is least likely to act as a lewis base ?",
-        "options": {
-            "A": "BF3",
-            "B": "PF3",
-            "C": "CO",
-            "D": "F$$-$$"
-        },
-        "correct_option": "A",
-        "explanation": "BF3 acts as Lewis acid. It is electron pair acceptor.",
-        "image": ""
-    },
-    {
-        "subject": "biology",
-        "chapter": "body-fluids-and-its-circulation",
-        "question": "Name the blood cells, whose reduction in number can cause clotting disorder, leading to excessive loss of blood from the body.",
-        "options": {
-            "A": "Erythrocytes",
-            "B": "Leucocytes",
-            "C": "Neutrophils",
-            "D": "Thrombocytes"
-        },
-        "correct_option": "D",
-        "explanation": "Thrombocytes are called blood platelets. They play an important role in blood clotting and release chemicals which lead to the formation of a plug at the site of damage, thus preventing blood loss.",
-        "image": ""
-    },
-    {
-        "subject": "chemistry",
-        "chapter": "ionic-equilibrum",
-        "question": "Which of the following fluro-compounds is most likely to behave as a Lewis base ?",
-        "options": {
-            "A": "BF3",
-            "B": "PF3",
-            "C": "CF4",
-            "D": "SiF4"
-        },
-        "correct_option": "B",
-        "explanation": "PF3 is a Lewis base because it has a lone pair on the phosphorus atom.",
-        "image": ""
-    },
-    {
-        "subject": "biology",
-        "chapter": "body-fluids-and-its-circulation",
-        "question": "Erythropoiesis starts in",
-        "options": {
-            "A": "spleen",
-            "B": "red bone marrow",
-            "C": "kidney",
-            "D": "liver"
-        },
-        "correct_option": "B",
-        "explanation": "Red bone marrow becomes the principal site of erythropoiesis from 6 months onwards in fetal development.",
-        "image": ""
-    },
-    {
-        "subject": "biology",
-        "chapter": "reproductive-health",
-        "question": "Embryo with more than 16 blastgomeres formed due to in vitro fertilization is transferred into",
-        "options": {
-            "A": "fimbriae",
-            "B": "cervix",
-            "C": "uterus",
-            "D": "fallopian tube"
-        },
-        "correct_option": "C",
-        "explanation": "Embryo with more than 16 blastomeres is transferred into the uterus (intra-uterine transfer, IUT).",
-        "image": ""
-    },
-    {
-        "subject": "biology",
-        "chapter": "biodiversity-and-conservation",
-        "question": "The region of Biosphere Reserve which is legally protected and where no human activity is allowed is known as :",
-        "options": {
-            "A": "Transition zone",
-            "B": "Restoration zone",
-            "C": "Buffer zone",
-            "D": "Core zone"
-        },
-        "correct_option": "D",
-        "explanation": "Core zone of a biosphere reserve is an undisturbed and legally protected ecosystem where no human activity is permitted.",
-        "image": ""
-    },
-    {
-        "subject": "biology",
-        "chapter": "sexual-reproduction-in-flowering-plants",
-        "question": "Which one of the following may require pollinators, but is genetically similar to autogamy?",
-        "options": {
-            "A": "Apogamy",
-            "B": "Cleistogamy",
-            "C": "Geitonogamy",
-            "D": "Xenogamy"
-        },
-        "correct_option": "C",
-        "explanation": "Geitonogamy involves pollen transfer between different flowers of the same plant, hence genetically similar to autogamy.",
-        "image": ""
-    },
-    {
-        "subject": "physics",
-        "chapter": "semiconductor-electronics",
-        "question": "For a p-type semiconductor, which of the following statements is true?",
-        "options": {
-            "A": "Holes are the majority carriers and trivalent atoms are the dopants.",
-            "B": "Holes are the majority carriers and pentavalent atoms are the dopants.",
-            "C": "Electrons are the majority carriers and pentavalent atoms are the dopants",
-            "D": "Electrons are the majority carriers and trivalent atoms are the dopants."
-        },
-        "correct_option": "A",
-        "explanation": "In p-type semiconductor, an intrinsic semiconductor is doped with trivalent impurities, that creates deficiencies of valence electrons called holes which are majority charge carriers.",
-        "image": ""
-    },
-    {
-        "subject": "biology",
-        "chapter": "chemical-coordination-and-integration",
-        "question": "A chemical signal that has both endocrine and neural roles is",
-        "options": {
-            "A": "epinephrine",
-            "B": "cortisol",
-            "C": "melatonin",
-            "D": "calcitonin."
-        },
-        "correct_option": "A",
-        "explanation": "Epinephrine has two roles as a hormone and as a neurotransmitter.",
-        "image": ""
-    },
-    {
-        "subject": "physics",
-        "chapter": "gravitation",
-        "question": "The kinetic energies of a planet in an elliptical orbit about the Sun, at positions A, B and C are KA, KB and KC, respectively. AC is the major axis and SB is perpendicular to AC at the position of the Sun S as shown in the figure.",
-        "options": {
-            "A": "KA < KB < KC",
-            "B": "KA > KB > KC",
-            "C": "KB < KA < KC",
-            "D": "KB > KA > KC"
-        },
-        "correct_option": "B",
-        "explanation": "Speed of the planet will be maximum when its distance from the sun is minimum as mvr = constant.",
-        "image": "https://neetcare-image.cdn.examgoal.net/1qpqahkka42m8vz/026398ad-536b-4002-bc25-78353ce615cf/5da120f0-9465-11ea-aedc-f1c8d8e0194b/file-1qpqahkka42m8w0-333w.png"
-    },
   {
-    "subject": "biology",
+    "subject": "Biology",
+    "chapter": "Cell - The Unit of Life",
+    "question": "Which organelle is known as the 'powerhouse of the cell'?",
+    "options": {
+      "A": "Nucleus",
+      "B": "Mitochondrion",
+      "C": "Ribosome",
+      "D": "Endoplasmic reticulum"
+    },
+    "correct_option": "B",
+    "explanation": "Mitochondria are known as the 'powerhouse of the cell' because they produce ATP through oxidative phosphorylation.",
+    "image": ""
+  },
+  {
+    "subject": "Biology",
+    "chapter": "Plant Kingdom",
+    "question": "Which of the following is a characteristic of monocot plants?",
+    "options": {
+      "A": "Net-veined leaves",
+      "B": "Two cotyledons",
+      "C": "Parallel-veined leaves",
+      "D": "Tap root system"
+    },
+    "correct_option": "C",
+    "explanation": "Monocot plants typically have parallel-veined leaves, one cotyledon, and a fibrous root system.",
+    "image": ""
+  },
+  {
+    "subject": "Biology",
+    "chapter": "Human Physiology",
+    "question": "Which hormone is responsible for regulating blood sugar levels?",
+    "options": {
+      "A": "Insulin",
+      "B": "Adrenaline",
+      "C": "Thyroxine",
+      "D": "Cortisol"
+    },
+    "correct_option": "A",
+    "explanation": "Insulin, produced by the pancreas, helps regulate blood sugar levels by facilitating the uptake of glucose into cells.",
+    "image": ""
+  },
+  {
+    "subject": "Biology",
+    "chapter": "Human Physiology",
+    "question": "Which blood type is known as the universal donor?",
+    "options": {
+      "A": "Type A",
+      "B": "Type B",
+      "C": "Type AB",
+      "D": "Type O"
+    },
+    "correct_option": "D",
+    "explanation": "Type O blood is considered the universal donor because it lacks A and B antigens, reducing the risk of immune reactions.",
+    "image": ""
+  },
+  {
+    "subject": "Biology",
+    "chapter": "Genetics and Evolution",
+    "question": "Which process results in the formation of gametes?",
+    "options": {
+      "A": "Mitosis",
+      "B": "Meiosis",
+      "C": "Fertilization",
+      "D": "Binary fission"
+    },
+    "correct_option": "B",
+    "explanation": "Meiosis is the cell division process that produces gametes (sperm and egg cells) with half the number of chromosomes.",
+    "image": ""
+  },
+  {
+    "subject": "Biology",
+    "chapter": "Human Physiology",
+    "question": "Which vitamin is synthesized by the human body when exposed to sunlight?",
+    "options": {
+      "A": "Vitamin A",
+      "B": "Vitamin B12",
+      "C": "Vitamin C",
+      "D": "Vitamin D"
+    },
+    "correct_option": "D",
+    "explanation": "Vitamin D is synthesized in the skin upon exposure to ultraviolet (UV) rays from sunlight.",
+    "image": ""
+  },
+  {
+    "subject": "Biology",
+    "chapter": "Cell - The Unit of Life",
+    "question": "What is the primary function of the large intestine?",
+    "options": {
+      "A": "Nutrient absorption",
+      "B": "Water absorption",
+      "C": "Protein digestion",
+      "D": "Fat emulsification"
+    },
+    "correct_option": "B",
+    "explanation": "The large intestine primarily absorbs water from indigestible food matter, forming solid waste (feces).",
+    "image": ""
+  },
+  {
+    "subject": "Biology",
+    "chapter": "Structural Organisation in Animals",
+    "question": "Which of the following is a vestigial organ in humans?",
+    "options": {
+      "A": "Liver",
+      "B": "Appendix",
+      "C": "Heart",
+      "D": "Kidney"
+    },
+    "correct_option": "B",
+    "explanation": "The appendix is considered a vestigial organ in humans, having lost most of its original function through evolution.",
+    "image": ""
+  },
+  {
+    "subject": "Biology",
+    "chapter": "Plant Physiology",
+    "question": "What is the term for the symbiotic relationship between fungi and plant roots?",
+    "options": {
+      "A": "Lichen",
+      "B": "Mycorrhiza",
+      "C": "Rhizobium",
+      "D": "Epiphyte"
+    },
+    "correct_option": "B",
+    "explanation": "Mycorrhiza refers to the mutualistic association between fungi and plant roots, enhancing nutrient uptake.",
+    "image": ""
+  },
+  {
+    "subject": "Biology",
+    "chapter": "Human Physiology",
+    "question": "What is the main function of hemoglobin in the blood?",
+    "options": {
+      "A": "Digesting proteins",
+      "B": "Transporting oxygen",
+      "C": "Clotting blood",
+      "D": "Fighting infections"
+    },
+    "correct_option": "B",
+    "explanation": "Hemoglobin in red blood cells binds to oxygen in the lungs and transports it to tissues throughout the body.",
+    "image": ""
+  },
+  {
+    "subject": "Biology",
+    "chapter": "biomolecules",
+    "question": "A non-proteinaceous enzyme is",
+    "options": {
+      "A": "Iysozyme",
+      "B": "ribozyme",
+      "C": "ligase",
+      "D": "deoxyribonuclease"
+    },
+    "correct_option": "B",
+    "explanation": "A ribozyme is a ribonucleic acid (RNA) enzyme that catalyses a chemical reaction in a similar way to that of a protein enzyme. These are found in ribosomes and are also called catalytic RNAs.",
+    "image": ""
+  },
+  {
+    "subject": "Biology",
+    "chapter": "body-fluids-and-its-circulation",
+    "question": "Name the blood cells, whose reduction in number can cause clotting disorder, leading to excessive loss of blood from the body.",
+    "options": {
+      "A": "Erythrocytes",
+      "B": "Leucocytes",
+      "C": "Neutrophils",
+      "D": "Thrombocytes"
+    },
+    "correct_option": "D",
+    "explanation": "Thrombocytes are called blood platelets. They play an important role in blood clotting and release chemicals which lead to the formation of a plug at the site of damage, thus preventing blood loss.",
+    "image": ""
+  },
+  {
+    "subject": "Biology",
+    "chapter": "body-fluids-and-its-circulation",
+    "question": "Erythropoiesis starts in",
+    "options": {
+      "A": "spleen",
+      "B": "red bone marrow",
+      "C": "kidney",
+      "D": "liver"
+    },
+    "correct_option": "B",
+    "explanation": "Red bone marrow becomes the principal site of erythropoiesis from 6 months onwards in fetal development.",
+    "image": ""
+  },
+  {
+    "subject": "Biology",
+    "chapter": "reproductive-health",
+    "question": "Embryo with more than 16 blastgomeres formed due to in vitro fertilization is transferred into",
+    "options": {
+      "A": "fimbriae",
+      "B": "cervix",
+      "C": "uterus",
+      "D": "fallopian tube"
+    },
+    "correct_option": "C",
+    "explanation": "Embryo with more than 16 blastomeres is transferred into the uterus (intra-uterine transfer, IUT).",
+    "image": ""
+  },
+  {
+    "subject": "Biology",
+    "chapter": "biodiversity-and-conservation",
+    "question": "The region of Biosphere Reserve which is legally protected and where no human activity is allowed is known as :",
+    "options": {
+      "A": "Transition zone",
+      "B": "Restoration zone",
+      "C": "Buffer zone",
+      "D": "Core zone"
+    },
+    "correct_option": "D",
+    "explanation": "Core zone of a biosphere reserve is an undisturbed and legally protected ecosystem where no human activity is permitted.",
+    "image": ""
+  },
+  {
+    "subject": "Biology",
+    "chapter": "sexual-reproduction-in-flowering-plants",
+    "question": "Which one of the following may require pollinators, but is genetically similar to autogamy?",
+    "options": {
+      "A": "Apogamy",
+      "B": "Cleistogamy",
+      "C": "Geitonogamy",
+      "D": "Xenogamy"
+    },
+    "correct_option": "C",
+    "explanation": "Geitonogamy involves pollen transfer between different flowers of the same plant, hence genetically similar to autogamy.",
+    "image": ""
+  },
+  {
+    "subject": "Biology",
+    "chapter": "chemical-coordination-and-integration",
+    "question": "A chemical signal that has both endocrine and neural roles is",
+    "options": {
+      "A": "epinephrine",
+      "B": "cortisol",
+      "C": "melatonin",
+      "D": "calcitonin."
+    },
+    "correct_option": "A",
+    "explanation": "Epinephrine has two roles as a hormone and as a neurotransmitter.",
+    "image": ""
+  },
+  {
+    "subject": "Biology",
     "chapter": "morphology-of-flowering-plants",
     "question": "Which of the following statement is not correct?",
     "options": {
@@ -602,7 +252,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "biomolecules",
     "question": "The major role of minor elements inside living organisms is to act as",
     "options": {
@@ -616,7 +266,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "locomotion-and-movement",
     "question": "The H-zone in the skeletal muscle fibre is due to",
     "options": {
@@ -626,11 +276,11 @@
       "D": "the central gap between myosin filaments in the A-band."
     },
     "correct_option": "A",
-    "explanation": "Central part of thick filament, not overlapped by thin filaments is called the ‘H’ zone. ‘H’ zone is also called Hensen’s Line.",
+    "explanation": "Central part of thick filament, not overlapped by thin filaments is called the 'H' zone. 'H' zone is also called Hensen's Line.",
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "principles-of-inheritance-and-variation",
     "question": "Among the following characters, which one was not considered by Mendel in his experiments on pea?",
     "options": {
@@ -644,7 +294,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "plant-kingdom",
     "question": "Select the correct statement",
     "options": {
@@ -658,7 +308,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "cell-the-unit-of-life",
     "question": "Which type of substance would face difficulty to pass through the cell membrane?",
     "options": {
@@ -672,7 +322,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "animal-kingdom",
     "question": "Metagenesis refers to",
     "options": {
@@ -686,7 +336,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "animal-kingdom",
     "question": "Which group of animals belong to the same phylum?",
     "options": {
@@ -700,7 +350,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "sexual-reproduction-in-flowering-plants",
     "question": "Double fertilisation is exhibited by",
     "options": {
@@ -714,7 +364,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "biological-classification",
     "question": "The imperfect fungi which are decomposers of litter and help in mineral cycling belong to",
     "options": {
@@ -728,7 +378,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "organisms-and-populations",
     "question": "The term 'niche' refers to",
     "options": {
@@ -742,7 +392,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "human-health-and-disease",
     "question": "Which one of the following is a viral disease?",
     "options": {
@@ -756,7 +406,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "photosynthesis-in-higher-plants",
     "question": "Which of the following is a C4 plant?",
     "options": {
@@ -770,7 +420,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "plant-growth-and-development",
     "question": "Which hormone is responsible for apical dominance?",
     "options": {
@@ -784,7 +434,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "breathing-and-exchange-of-gases",
     "question": "Most of the oxygen in blood is transported as",
     "options": {
@@ -798,7 +448,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "body-fluids-and-circulation",
     "question": "The 'lub' sound of the heart is produced due to",
     "options": {
@@ -812,7 +462,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "neural-control-and-coordination",
     "question": "Nodes of Ranvier are found in",
     "options": {
@@ -826,7 +476,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "chemical-coordination-and-integration",
     "question": "The hormone that regulates basal metabolic rate is",
     "options": {
@@ -840,7 +490,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "ecosystem",
     "question": "Which of the following is the major producer in a pond ecosystem?",
     "options": {
@@ -854,7 +504,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "strategies-for-enhancement-in-food-production",
     "question": "Artificial insemination means",
     "options": {
@@ -868,7 +518,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "microbes-in-human-welfare",
     "question": "Which of the following is used in the production of ethanol?",
     "options": {
@@ -882,7 +532,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "principles-of-inheritance-and-variation",
     "question": "Mendel's law of independent assortment is applicable when",
     "options": {
@@ -896,7 +546,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "molecular-basis-of-inheritance",
     "question": "Which enzyme is responsible for unzipping the DNA helix during replication?",
     "options": {
@@ -910,7 +560,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "evolution",
     "question": "Industrial melanism is an example of",
     "options": {
@@ -924,7 +574,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "reproductive-health",
     "question": "Which method is considered a barrier method of contraception?",
     "options": {
@@ -938,7 +588,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "biotechnology-principles-and-processes",
     "question": "The restriction enzymes were discovered by",
     "options": {
@@ -952,7 +602,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "biotechnology-and-its-applications",
     "question": "Bt toxin gene has been cloned from",
     "options": {
@@ -966,7 +616,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "organisms-and-populations",
     "question": "A population growing in a habitat with limited resources shows",
     "options": {
@@ -980,7 +630,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "environmental-issues",
     "question": "Which of the following is the most abundant greenhouse gas?",
     "options": {
@@ -994,7 +644,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "biomolecules",
     "question": "Which of the following is a disaccharide?",
     "options": {
@@ -1008,7 +658,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "photosynthesis-in-higher-plants",
     "question": "Which of the following is the primary acceptor of electrons in the light reaction of photosynthesis?",
     "options": {
@@ -1022,7 +672,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "respiration-in-plants",
     "question": "The respiratory quotient (RQ) of fat is",
     "options": {
@@ -1036,7 +686,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "plant-growth-and-development",
     "question": "Which plant hormone promotes seed dormancy?",
     "options": {
@@ -1050,7 +700,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "digestion-and-absorption",
     "question": "Bile salts help in digestion of",
     "options": {
@@ -1064,7 +714,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "breathing-and-exchange-of-gases",
     "question": "The maximum volume of air a person can inhale after a normal expiration is called",
     "options": {
@@ -1078,7 +728,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "body-fluids-and-circulation",
     "question": "Which of the following prevents backflow of blood in the heart?",
     "options": {
@@ -1092,7 +742,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "excretory-products-and-their-elimination",
     "question": "The basic filtration unit of the kidney is",
     "options": {
@@ -1106,7 +756,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "locomotion-and-movement",
     "question": "Actin and myosin are found in",
     "options": {
@@ -1120,7 +770,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "neural-control-and-coordination",
     "question": "Nodes of Ranvier are found in",
     "options": {
@@ -1134,7 +784,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "chemical-coordination-and-integration",
     "question": "Thyroxine is secreted by",
     "options": {
@@ -1148,7 +798,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "reproduction-in-organisms",
     "question": "Which of the following is a unisexual flower?",
     "options": {
@@ -1162,7 +812,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "sexual-reproduction-in-flowering-plants",
     "question": "Double fertilization is a characteristic of",
     "options": {
@@ -1176,7 +826,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "human-reproduction",
     "question": "In human females, meiosis-II is completed",
     "options": {
@@ -1190,7 +840,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "reproductive-health",
     "question": "The technique called 'GIFT' is recommended for",
     "options": {
@@ -1204,7 +854,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "principles-of-inheritance-and-variation",
     "question": "Which of the following is an example of polygenic inheritance?",
     "options": {
@@ -1218,7 +868,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "molecular-basis-of-inheritance",
     "question": "The Okazaki fragments are joined by",
     "options": {
@@ -1232,7 +882,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "evolution",
     "question": "Which of the following is considered the first genetic material?",
     "options": {
@@ -1246,7 +896,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "human-health-and-disease",
     "question": "The cause of malaria is",
     "options": {
@@ -1260,7 +910,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "strategies-for-enhancement-in-food-production",
     "question": "Which technique is used for selecting desirable recombinants?",
     "options": {
@@ -1274,7 +924,7 @@
     "image": ""
   },
   {
-    "subject": "biology",
+    "subject": "Biology",
     "chapter": "microbes-in-human-welfare",
     "question": "Which microbe is used in alcohol production?",
     "options": {
@@ -1288,567 +938,189 @@
     "image": ""
   },
   {
-    "subject": "physics",
-    "chapter": "units-and-measurements",
-    "question": "Which of the following pairs has the same dimensions?",
+    "subject": "Chemistry",
+    "chapter": "Some Basic Concepts of Chemistry",
+    "question": "Which of the following is the SI unit of amount of substance?",
     "options": {
-      "A": "Impulse and momentum",
-      "B": "Force and power",
-      "C": "Torque and energy",
-      "D": "Work and velocity"
-    },
-    "correct_option": "A",
-    "explanation": "Impulse and momentum both have the dimensions of MLT⁻¹.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "motion-in-a-straight-line",
-    "question": "A particle moves with uniform acceleration. The displacement-time graph is a:",
-    "options": {
-      "A": "Straight line",
-      "B": "Parabola",
-      "C": "Hyperbola",
-      "D": "Circle"
+      "A": "Kilogram",
+      "B": "Mole",
+      "C": "Liter",
+      "D": "Gram"
     },
     "correct_option": "B",
-    "explanation": "For uniform acceleration, displacement is a quadratic function of time: s = ut + ½at².",
+    "explanation": "The SI unit of the amount of substance is the mole.",
     "image": ""
   },
   {
-    "subject": "physics",
-    "chapter": "laws-of-motion",
-    "question": "The inertia of a body depends on its:",
+    "subject": "Chemistry",
+    "chapter": "Structure of Atom",
+    "question": "Which of the following particles has the least mass?",
     "options": {
-      "A": "Velocity",
-      "B": "Volume",
-      "C": "Mass",
-      "D": "Acceleration"
+      "A": "Neutron",
+      "B": "Proton",
+      "C": "Electron",
+      "D": "Alpha particle"
     },
     "correct_option": "C",
-    "explanation": "Inertia is the tendency of a body to resist change in motion and is proportional to mass.",
+    "explanation": "Electron has the least mass among the subatomic particles listed.",
     "image": ""
   },
   {
-    "subject": "physics",
-    "chapter": "work-energy-and-power",
-    "question": "A body of mass 5 kg is lifted up by 10 m. The work done is (g = 10 m/s²):",
-    "options": {
-      "A": "50 J",
-      "B": "500 J",
-      "C": "5 J",
-      "D": "100 J"
-    },
-    "correct_option": "B",
-    "explanation": "Work done = mgh = 5 × 10 × 10 = 500 J.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "system-of-particles-and-rotational-motion",
-    "question": "The moment of inertia of a thin ring about its diameter is:",
-    "options": {
-      "A": "MR²",
-      "B": "½MR²",
-      "C": "¼MR²",
-      "D": "½MR"
-    },
-    "correct_option": "B",
-    "explanation": "Moment of inertia of a ring about its diameter is (½)MR².",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "gravitation",
-    "question": "The weight of a body is maximum at:",
-    "options": {
-      "A": "Equator",
-      "B": "Poles",
-      "C": "Centre of Earth",
-      "D": "Mountains"
-    },
-    "correct_option": "B",
-    "explanation": "g is maximum at poles due to minimal centrifugal effect and Earth's shape.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "mechanical-properties-of-solids",
-    "question": "Which modulus is involved in the change of shape at constant volume?",
-    "options": {
-      "A": "Young’s modulus",
-      "B": "Bulk modulus",
-      "C": "Shear modulus",
-      "D": "Modulus of rigidity"
-    },
-    "correct_option": "C",
-    "explanation": "Shear modulus (also called modulus of rigidity) relates to shape change without volume change.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "mechanical-properties-of-fluids",
-    "question": "The pressure at a depth h in a liquid of density ρ is:",
-    "options": {
-      "A": "ρgh",
-      "B": "ρh",
-      "C": "gh",
-      "D": "h/ρg"
-    },
-    "correct_option": "A",
-    "explanation": "Hydrostatic pressure = ρgh.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "thermal-properties-of-matter",
-    "question": "The temperature at which Celsius and Fahrenheit scales read the same is:",
-    "options": {
-      "A": "0°",
-      "B": "100°",
-      "C": "-40°",
-      "D": "-273°"
-    },
-    "correct_option": "C",
-    "explanation": "At -40°, both Celsius and Fahrenheit scales read the same.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "thermodynamics",
-    "question": "Which law states that entropy of the universe always increases?",
-    "options": {
-      "A": "Zeroth law",
-      "B": "First law",
-      "C": "Second law",
-      "D": "Third law"
-    },
-    "correct_option": "C",
-    "explanation": "The second law of thermodynamics states that the total entropy of an isolated system can never decrease.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "kinetic-theory-of-gases",
-    "question": "In kinetic theory, pressure of an ideal gas is given by:",
-    "options": {
-      "A": "½ m n c²",
-      "B": "⅓ ρ c²",
-      "C": "½ ρ c²",
-      "D": "⅔ ρ c²"
-    },
-    "correct_option": "B",
-    "explanation": "Pressure P = (1/3)ρc², where ρ is density and c is rms speed.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "oscillations",
-    "question": "The time period of a simple pendulum is proportional to:",
-    "options": {
-      "A": "Length",
-      "B": "√Length",
-      "C": "1/√Length",
-      "D": "1/Length"
-    },
-    "correct_option": "B",
-    "explanation": "T = 2π√(L/g), so time period is proportional to √L.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "waves",
-    "question": "Speed of sound in a medium depends on:",
-    "options": {
-      "A": "Wavelength only",
-      "B": "Frequency only",
-      "C": "Properties of medium",
-      "D": "Amplitude"
-    },
-    "correct_option": "C",
-    "explanation": "Speed of sound is determined by medium's elasticity and density, not by frequency.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "ray-optics",
-    "question": "The angle of incidence for which the angle of refraction is 90° is called:",
-    "options": {
-      "A": "Brewster angle",
-      "B": "Critical angle",
-      "C": "Glancing angle",
-      "D": "Reflex angle"
-    },
-    "correct_option": "B",
-    "explanation": "Critical angle is the angle of incidence where refraction angle becomes 90°, leading to total internal reflection.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "wave-optics",
-    "question": "In Young’s double slit experiment, fringe width is directly proportional to:",
-    "options": {
-      "A": "Wavelength",
-      "B": "Distance between slits",
-      "C": "Slit width",
-      "D": "Refractive index"
-    },
-    "correct_option": "A",
-    "explanation": "Fringe width β = λD/d; it's directly proportional to wavelength λ.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "electrostatics",
-    "question": "The SI unit of electric field is:",
-    "options": {
-      "A": "N",
-      "B": "N/C",
-      "C": "V",
-      "D": "C/N"
-    },
-    "correct_option": "B",
-    "explanation": "Electric field E = F/q, so unit is N/C.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "current-electricity",
-    "question": "Ohm’s law is valid for:",
-    "options": {
-      "A": "Diodes",
-      "B": "Electrolytes",
-      "C": "Vacuum tubes",
-      "D": "Metallic conductors"
-    },
-    "correct_option": "D",
-    "explanation": "Ohm’s law applies to metallic conductors where V ∝ I.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "moving-charges-and-magnetism",
-    "question": "A current carrying conductor produces:",
-    "options": {
-      "A": "Electric field only",
-      "B": "Magnetic field only",
-      "C": "Electric and magnetic fields",
-      "D": "No field"
-    },
-    "correct_option": "C",
-    "explanation": "A current-carrying wire generates both electric and magnetic fields around it.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "magnetism-and-matter",
-    "question": "The SI unit of magnetic moment is:",
-    "options": {
-      "A": "A/m",
-      "B": "Am²",
-      "C": "Tm²",
-      "D": "A/m²"
-    },
-    "correct_option": "B",
-    "explanation": "Magnetic moment M = current × area, so unit is A·m².",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "electromagnetic-induction",
-    "question": "Lenz’s law is based on the law of conservation of:",
-    "options": {
-      "A": "Charge",
-      "B": "Momentum",
-      "C": "Mass",
-      "D": "Energy"
-    },
-    "correct_option": "D",
-    "explanation": "Lenz’s law opposes the cause of induced EMF to conserve energy.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "alternating-current",
-    "question": "In a purely resistive AC circuit, the current and voltage are:",
-    "options": {
-      "A": "In phase",
-      "B": "Out of phase by 90°",
-      "C": "Opposite in phase",
-      "D": "None of these"
-    },
-    "correct_option": "A",
-    "explanation": "In a purely resistive circuit, voltage and current vary sinusoidally and are in phase.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "electromagnetic-waves",
-    "question": "The electromagnetic wave does not require a medium because:",
-    "options": {
-      "A": "It is a longitudinal wave",
-      "B": "It travels at infinite speed",
-      "C": "It consists of changing electric and magnetic fields",
-      "D": "It has very short wavelength"
-    },
-    "correct_option": "C",
-    "explanation": "EM waves are self-sustaining due to mutually generating electric and magnetic fields.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "dual-nature-of-radiation-and-matter",
-    "question": "Which experiment proved the particle nature of light?",
-    "options": {
-      "A": "Photoelectric effect",
-      "B": "Young's experiment",
-      "C": "Polarization",
-      "D": "Diffraction"
-    },
-    "correct_option": "A",
-    "explanation": "Photoelectric effect shows that light behaves like particles (photons) delivering energy in quanta.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "atoms",
-    "question": "In hydrogen atom, the total energy of the electron in the nth orbit is:",
-    "options": {
-      "A": "Directly proportional to n",
-      "B": "Inversely proportional to n",
-      "C": "Directly proportional to 1/n²",
-      "D": "Inversely proportional to n²"
-    },
-    "correct_option": "D",
-    "explanation": "Eₙ = –13.6/n² eV, hence energy ∝ 1/n² (inverse square).",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "nuclei",
-    "question": "The mass defect of a nucleus is due to:",
-    "options": {
-      "A": "Loss of electrons",
-      "B": "Presence of neutrons",
-      "C": "Binding energy",
-      "D": "Nuclear forces"
-    },
-    "correct_option": "C",
-    "explanation": "Mass defect converts into binding energy which holds the nucleus together.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "semiconductor-electronics",
-    "question": "A p-n junction diode is used as:",
-    "options": {
-      "A": "Amplifier",
-      "B": "Oscillator",
-      "C": "Rectifier",
-      "D": "Filter"
-    },
-    "correct_option": "C",
-    "explanation": "A p-n junction allows current in one direction and blocks in other – used as rectifier.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "communication-systems",
-    "question": "In amplitude modulation:",
-    "options": {
-      "A": "Amplitude of carrier wave is changed",
-      "B": "Frequency of carrier wave is changed",
-      "C": "Phase of carrier wave is changed",
-      "D": "None of these"
-    },
-    "correct_option": "A",
-    "explanation": "In AM, the amplitude of the carrier wave varies with the signal.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "gravitation",
-    "question": "The escape velocity from Earth depends on:",
-    "options": {
-      "A": "Mass of the body",
-      "B": "Mass of Earth only",
-      "C": "Radius of Earth only",
-      "D": "Both mass and radius of Earth"
-    },
-    "correct_option": "D",
-    "explanation": "vₑ = √(2GM/R), so it depends on both mass and radius of the Earth.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "mechanical-properties-of-fluids",
-    "question": "The SI unit of surface tension is:",
-    "options": {
-      "A": "N/m",
-      "B": "J/m",
-      "C": "N/m²",
-      "D": "N·m"
-    },
-    "correct_option": "A",
-    "explanation": "Surface tension = Force/Length, unit is N/m.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "thermodynamics",
-    "question": "Which law states that heat cannot spontaneously flow from a colder body to a hotter body?",
-    "options": {
-      "A": "Zeroth law",
-      "B": "First law",
-      "C": "Second law",
-      "D": "Third law"
-    },
-    "correct_option": "C",
-    "explanation": "Second law of thermodynamics states that heat cannot flow from cold to hot spontaneously.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "kinematics",
-    "question": "If a body is moving with uniform acceleration, its velocity-time graph will be:",
-    "options": {
-      "A": "A curve",
-      "B": "A straight line parallel to time axis",
-      "C": "A straight line with constant slope",
-      "D": "A parabola"
-    },
-    "correct_option": "C",
-    "explanation": "In uniform acceleration, velocity increases linearly with time, giving a straight line with constant slope.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "laws-of-motion",
-    "question": "The property of a body to resist change in its state is called:",
-    "options": {
-      "A": "Impulse",
-      "B": "Momentum",
-      "C": "Inertia",
-      "D": "Force"
-    },
-    "correct_option": "C",
-    "explanation": "Inertia is the tendency of a body to resist a change in its state of motion or rest.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "work-energy-and-power",
-    "question": "Work done is said to be zero when:",
-    "options": {
-      "A": "Displacement is zero",
-      "B": "Force is zero",
-      "C": "Both force and displacement are perpendicular",
-      "D": "All of these"
-    },
-    "correct_option": "D",
-    "explanation": "W = F·d·cosθ; work is zero when force is zero, displacement is zero, or angle = 90°.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "system-of-particles-and-rotational-motion",
-    "question": "The moment of inertia of a ring about its diameter is:",
-    "options": {
-      "A": "MR²",
-      "B": "½MR²",
-      "C": "¼MR²",
-      "D": "0"
-    },
-    "correct_option": "B",
-    "explanation": "For a ring about its diameter, I = ½MR².",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "mechanical-properties-of-solids",
-    "question": "Young’s modulus is defined as the ratio of:",
-    "options": {
-      "A": "Stress to strain",
-      "B": "Strain to stress",
-      "C": "Force to area",
-      "D": "Force to length"
-    },
-    "correct_option": "A",
-    "explanation": "Young’s modulus (Y) = stress/strain.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "thermal-properties-of-matter",
-    "question": "The temperature at which Celsius and Fahrenheit scales are equal is:",
-    "options": {
-      "A": "0°",
-      "B": "–273°",
-      "C": "–40°",
-      "D": "100°"
-    },
-    "correct_option": "C",
-    "explanation": "C = F = –40° is the point where both scales show the same reading.",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "kinetic-theory",
-    "question": "Degree of freedom of a monoatomic gas is:",
+    "subject": "Chemistry",
+    "chapter": "Periodic Table",
+    "question": "What is the period number of an element with the electronic configuration 2, 8, 4?",
     "options": {
       "A": "2",
       "B": "3",
-      "C": "5",
-      "D": "6"
+      "C": "4",
+      "D": "5"
     },
     "correct_option": "B",
-    "explanation": "Monoatomic gas has 3 translational degrees of freedom.",
+    "explanation": "The number of shells determines the period, so 2, 8, 4 means 3 shells → Period 3.",
     "image": ""
   },
   {
-    "subject": "physics",
-    "chapter": "oscillations",
-    "question": "The SI unit of angular frequency is:",
+    "subject": "Chemistry",
+    "chapter": "Chemical Bonding",
+    "question": "Which of the following is a polar covalent molecule?",
     "options": {
-      "A": "rad/s",
-      "B": "Hz",
-      "C": "s",
-      "D": "m/s"
-    },
-    "correct_option": "A",
-    "explanation": "Angular frequency (ω) is measured in radians per second (rad/s).",
-    "image": ""
-  },
-  {
-    "subject": "physics",
-    "chapter": "waves",
-    "question": "The speed of sound in a medium depends on:",
-    "options": {
-      "A": "Only density",
-      "B": "Only elasticity",
-      "C": "Both elasticity and density",
-      "D": "Neither"
+      "A": "O2",
+      "B": "H2",
+      "C": "HCl",
+      "D": "Cl2"
     },
     "correct_option": "C",
-    "explanation": "v = √(E/ρ); speed depends on elasticity and density of the medium.",
+    "explanation": "HCl has a difference in electronegativity between H and Cl, making it polar.",
     "image": ""
   },
   {
-    "subject": "physics",
-    "chapter": "electrostatics",
-    "question": "Coulomb’s law in vector form is:",
+    "subject": "Chemistry",
+    "chapter": "States of Matter",
+    "question": "Which of the following gases will diffuse the fastest?",
     "options": {
-      "A": "F = kq₁q₂/r",
-      "B": "F = kq₁q₂/r² r̂",
-      "C": "F = kq₁q₂r̂",
-      "D": "F = kq₁q₂/r²"
+      "A": "Cl2",
+      "B": "O2",
+      "C": "H2",
+      "D": "CO2"
+    },
+    "correct_option": "C",
+    "explanation": "According to Graham’s law, lighter gases diffuse faster. H2 is the lightest.",
+    "image": ""
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Thermodynamics",
+    "question": "Which of the following quantities is a state function?",
+    "options": {
+      "A": "Work",
+      "B": "Heat",
+      "C": "Internal Energy",
+      "D": "Path"
+    },
+    "correct_option": "C",
+    "explanation": "Internal energy depends only on the state of the system, not the path.",
+    "image": ""
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Equilibrium",
+    "question": "At equilibrium:",
+    "options": {
+      "A": "Forward reaction stops",
+      "B": "Backward reaction stops",
+      "C": "Rates of forward and backward reactions are equal",
+      "D": "Concentrations of reactants and products are equal"
+    },
+    "correct_option": "C",
+    "explanation": "At equilibrium, the rate of the forward and backward reactions become equal.",
+    "image": ""
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Redox Reactions",
+    "question": "Oxidation involves:",
+    "options": {
+      "A": "Gain of electrons",
+      "B": "Loss of electrons",
+      "C": "Gain of protons",
+      "D": "Loss of neutrons"
     },
     "correct_option": "B",
-    "explanation": "Coulomb's law vector form: F = kq₁q₂/r² × r̂.",
+    "explanation": "Oxidation is defined as the loss of electrons.",
     "image": ""
   },
   {
-    "subject": "chemistry",
+    "subject": "Chemistry",
+    "chapter": "Hydrogen",
+    "question": "Which of the following is used in the manufacture of margarine?",
+    "options": {
+      "A": "Hydrogen",
+      "B": "Oxygen",
+      "C": "Nitrogen",
+      "D": "Helium"
+    },
+    "correct_option": "A",
+    "explanation": "Hydrogen is used in the hydrogenation of oils to make margarine.",
+    "image": ""
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "The s-Block Element",
+    "question": "Which alkali metal is the most reactive?",
+    "options": {
+      "A": "Sodium",
+      "B": "Potassium",
+      "C": "Cesium",
+      "D": "Lithium"
+    },
+    "correct_option": "C",
+    "explanation": "Reactivity increases down the group. Cesium is more reactive than others listed.",
+    "image": ""
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "Organic Chemistry - Basics",
+    "question": "IUPAC name of CH3CH2OH is:",
+    "options": {
+      "A": "Ethyl alcohol",
+      "B": "Ethanol",
+      "C": "Ethene",
+      "D": "Methanol"
+    },
+    "correct_option": "B",
+    "explanation": "According to IUPAC, CH3CH2OH is named as Ethanol.",
+    "image": ""
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "ionic-equilibrum",
+    "question": "Which of these is least likely to act as a lewis base ?",
+    "options": {
+      "A": "BF3",
+      "B": "PF3",
+      "C": "CO",
+      "D": "F$$-$$"
+    },
+    "correct_option": "A",
+    "explanation": "BF3 acts as Lewis acid. It is electron pair acceptor.",
+    "image": ""
+  },
+  {
+    "subject": "Chemistry",
+    "chapter": "ionic-equilibrum",
+    "question": "Which of the following fluro-compounds is most likely to behave as a Lewis base ?",
+    "options": {
+      "A": "BF3",
+      "B": "PF3",
+      "C": "CF4",
+      "D": "SiF4"
+    },
+    "correct_option": "B",
+    "explanation": "PF3 is a Lewis base because it has a lone pair on the phosphorus atom.",
+    "image": ""
+  },
+  {
+    "subject": "Chemistry",
     "chapter": "some-basic-concepts-of-chemistry",
     "question": "Which of the following is a unit of molarity?",
     "options": {
@@ -1862,7 +1134,7 @@
     "image": ""
   },
   {
-    "subject": "chemistry",
+    "subject": "Chemistry",
     "chapter": "structure-of-atom",
     "question": "The number of orbitals in a d-subshell is:",
     "options": {
@@ -1876,7 +1148,7 @@
     "image": ""
   },
   {
-    "subject": "chemistry",
+    "subject": "Chemistry",
     "chapter": "classification-of-elements-and-periodicity",
     "question": "Which of the following has the highest electronegativity?",
     "options": {
@@ -1890,7 +1162,7 @@
     "image": ""
   },
   {
-    "subject": "chemistry",
+    "subject": "Chemistry",
     "chapter": "chemical-bonding-and-molecular-structure",
     "question": "Which of the following molecules has a linear shape?",
     "options": {
@@ -1904,7 +1176,7 @@
     "image": ""
   },
   {
-    "subject": "chemistry",
+    "subject": "Chemistry",
     "chapter": "states-of-matter",
     "question": "Which gas shows deviation from ideal behavior at high pressure?",
     "options": {
@@ -1918,7 +1190,7 @@
     "image": ""
   },
   {
-    "subject": "chemistry",
+    "subject": "Chemistry",
     "chapter": "thermodynamics",
     "question": "Which of the following is a state function?",
     "options": {
@@ -1932,7 +1204,7 @@
     "image": ""
   },
   {
-    "subject": "chemistry",
+    "subject": "Chemistry",
     "chapter": "equilibrium",
     "question": "At equilibrium, the rate of the forward reaction is:",
     "options": {
@@ -1946,7 +1218,7 @@
     "image": ""
   },
   {
-    "subject": "chemistry",
+    "subject": "Chemistry",
     "chapter": "redox-reactions",
     "question": "In the reaction: Zn + Cu²⁺ → Zn²⁺ + Cu, Zn is:",
     "options": {
@@ -1960,7 +1232,7 @@
     "image": ""
   },
   {
-    "subject": "chemistry",
+    "subject": "Chemistry",
     "chapter": "hydrogen",
     "question": "Which of the following is the lightest element?",
     "options": {
@@ -1974,7 +1246,7 @@
     "image": ""
   },
   {
-    "subject": "chemistry",
+    "subject": "Chemistry",
     "chapter": "the-s-block-element",
     "question": "Which alkali metal is the most reactive?",
     "options": {
@@ -1988,7 +1260,7 @@
     "image": ""
   },
   {
-    "subject": "chemistry",
+    "subject": "Chemistry",
     "chapter": "the-p-block-element",
     "question": "Which of the following is a noble gas?",
     "options": {
@@ -2002,7 +1274,7 @@
     "image": ""
   },
   {
-    "subject": "chemistry",
+    "subject": "Chemistry",
     "chapter": "organic-chemistry-some-basic-principles-and-techniques",
     "question": "Which is the correct IUPAC name for CH₃-CH₂-COOH?",
     "options": {
@@ -2016,7 +1288,7 @@
     "image": ""
   },
   {
-    "subject": "chemistry",
+    "subject": "Chemistry",
     "chapter": "hydrocarbons",
     "question": "Which of the following is an alkyne?",
     "options": {
@@ -2030,7 +1302,7 @@
     "image": ""
   },
   {
-    "subject": "chemistry",
+    "subject": "Chemistry",
     "chapter": "environmental-chemistry",
     "question": "Which of the following is a greenhouse gas?",
     "options": {
@@ -2044,7 +1316,7 @@
     "image": ""
   },
   {
-    "subject": "chemistry",
+    "subject": "Chemistry",
     "chapter": "solid-state",
     "question": "Which type of solid has the highest melting point?",
     "options": {
@@ -2058,7 +1330,7 @@
     "image": ""
   },
   {
-    "subject": "chemistry",
+    "subject": "Chemistry",
     "chapter": "solutions",
     "question": "Which of the following is a colligative property?",
     "options": {
@@ -2072,7 +1344,7 @@
     "image": ""
   },
   {
-    "subject": "chemistry",
+    "subject": "Chemistry",
     "chapter": "electrochemistry",
     "question": "What is the unit of cell potential?",
     "options": {
@@ -2086,7 +1358,7 @@
     "image": ""
   },
   {
-    "subject": "chemistry",
+    "subject": "Chemistry",
     "chapter": "chemical-kinetics",
     "question": "For a zero-order reaction, the rate is:",
     "options": {
@@ -2100,7 +1372,7 @@
     "image": ""
   },
   {
-    "subject": "chemistry",
+    "subject": "Chemistry",
     "chapter": "surface-chemistry",
     "question": "Which of the following is used as a catalyst in the Haber process?",
     "options": {
@@ -2114,7 +1386,7 @@
     "image": ""
   },
   {
-    "subject": "chemistry",
+    "subject": "Chemistry",
     "chapter": "general-principles-and-processes-of-isolation-of-elements",
     "question": "Froth flotation process is used for the concentration of:",
     "options": {
@@ -2128,7 +1400,7 @@
     "image": ""
   },
   {
-    "subject": "chemistry",
+    "subject": "Chemistry",
     "chapter": "the-solid-state",
     "question": "Which type of defect does not change the density of a solid?",
     "options": {
@@ -2142,7 +1414,7 @@
     "image": ""
   },
   {
-    "subject": "chemistry",
+    "subject": "Chemistry",
     "chapter": "solutions",
     "question": "Which of the following will show the maximum elevation in boiling point for 1 molal solution?",
     "options": {
@@ -2156,7 +1428,7 @@
     "image": ""
   },
   {
-    "subject": "chemistry",
+    "subject": "Chemistry",
     "chapter": "electrochemistry",
     "question": "Which of the following has the highest standard electrode potential?",
     "options": {
@@ -2170,7 +1442,7 @@
     "image": ""
   },
   {
-    "subject": "chemistry",
+    "subject": "Chemistry",
     "chapter": "chemical-kinetics",
     "question": "Half-life of a first-order reaction depends on:",
     "options": {
@@ -2184,7 +1456,7 @@
     "image": ""
   },
   {
-    "subject": "chemistry",
+    "subject": "Chemistry",
     "chapter": "surface-chemistry",
     "question": "Which type of colloid is formed when a gas is dispersed in liquid?",
     "options": {
@@ -2198,7 +1470,7 @@
     "image": ""
   },
   {
-    "subject": "chemistry",
+    "subject": "Chemistry",
     "chapter": "general-principles-and-processes-of-isolation-of-elements",
     "question": "Which reducing agent is used in the extraction of iron from its oxide ore in the blast furnace?",
     "options": {
@@ -2212,7 +1484,7 @@
     "image": ""
   },
   {
-    "subject": "chemistry",
+    "subject": "Chemistry",
     "chapter": "the-p-block-element",
     "question": "The most acidic oxide among the following is:",
     "options": {
@@ -2226,7 +1498,7 @@
     "image": ""
   },
   {
-    "subject": "chemistry",
+    "subject": "Chemistry",
     "chapter": "organic-chemistry-some-basic-principles-and-techniques",
     "question": "Which method is used to estimate nitrogen in an organic compound?",
     "options": {
@@ -2240,7 +1512,7 @@
     "image": ""
   },
   {
-    "subject": "chemistry",
+    "subject": "Chemistry",
     "chapter": "hydrocarbons",
     "question": "Which hydrocarbon gives yellow sooty flame on combustion?",
     "options": {
@@ -2254,7 +1526,7 @@
     "image": ""
   },
   {
-    "subject": "chemistry",
+    "subject": "Chemistry",
     "chapter": "environmental-chemistry",
     "question": "Which of the following causes ozone depletion?",
     "options": {
@@ -2265,6 +1537,734 @@
     },
     "correct_option": "B",
     "explanation": "CFCs (Chlorofluorocarbons) release chlorine radicals that destroy ozone in the stratosphere.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Gravitation",
+    "question": "What is the acceleration due to gravity on Earth?",
+    "options": {
+      "A": "9.8 m/s²",
+      "B": "8.9 m/s²",
+      "C": "10.2 m/s²",
+      "D": "9.2 m/s²"
+    },
+    "correct_option": "A",
+    "explanation": "The standard acceleration due to gravity on Earth is 9.8 m/s².",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Work, Energy and Power",
+    "question": "Which physical quantity is measured in Joules?",
+    "options": {
+      "A": "Force",
+      "B": "Power",
+      "C": "Energy",
+      "D": "Velocity"
+    },
+    "correct_option": "C",
+    "explanation": "Energy is measured in Joules (J) in the SI system.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Thermodynamics",
+    "question": "Which law states that energy can neither be created nor destroyed?",
+    "options": {
+      "A": "First Law of Thermodynamics",
+      "B": "Zeroth Law of Thermodynamics",
+      "C": "Second Law of Thermodynamics",
+      "D": "Law of Conservation of Momentum"
+    },
+    "correct_option": "A",
+    "explanation": "The First Law of Thermodynamics is a version of the law of conservation of energy for thermodynamic systems.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Optics",
+    "question": "Which mirror always forms a virtual, erect, and diminished image?",
+    "options": {
+      "A": "Concave mirror",
+      "B": "Convex mirror",
+      "C": "Plane mirror",
+      "D": "None"
+    },
+    "correct_option": "B",
+    "explanation": "Convex mirrors always produce virtual, erect, and diminished images regardless of the object's position.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Waves",
+    "question": "What is the unit of frequency?",
+    "options": {
+      "A": "Hertz",
+      "B": "Newton",
+      "C": "Joule",
+      "D": "Decibel"
+    },
+    "correct_option": "A",
+    "explanation": "Frequency is measured in Hertz (Hz), which is equivalent to one cycle per second.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Current Electricity",
+    "question": "Ohm’s Law states that current is directly proportional to:",
+    "options": {
+      "A": "Voltage",
+      "B": "Power",
+      "C": "Resistance",
+      "D": "Energy"
+    },
+    "correct_option": "A",
+    "explanation": "Ohm’s Law: V = IR, which shows that current (I) is directly proportional to voltage (V).",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Electromagnetic Induction",
+    "question": "Who discovered electromagnetic induction?",
+    "options": {
+      "A": "Ampere",
+      "B": "Faraday",
+      "C": "Maxwell",
+      "D": "Ohm"
+    },
+    "correct_option": "B",
+    "explanation": "Michael Faraday discovered electromagnetic induction in 1831.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Modern Physics",
+    "question": "Which particle has no charge?",
+    "options": {
+      "A": "Proton",
+      "B": "Neutron",
+      "C": "Electron",
+      "D": "Positron"
+    },
+    "correct_option": "B",
+    "explanation": "Neutrons are electrically neutral particles found in the nucleus of atoms.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Electrostatics",
+    "question": "Coulomb's law is applicable to:",
+    "options": {
+      "A": "Current carrying wires",
+      "B": "Stationary point charges",
+      "C": "Moving charges",
+      "D": "Charged capacitors"
+    },
+    "correct_option": "B",
+    "explanation": "Coulomb's law applies to the electrostatic force between two stationary point charges.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "Kinetic Theory of Gases",
+    "question": "The pressure of an ideal gas is due to:",
+    "options": {
+      "A": "Collision of atoms with each other",
+      "B": "Collision of atoms with the container walls",
+      "C": "Temperature of gas",
+      "D": "Volume of gas"
+    },
+    "correct_option": "B",
+    "explanation": "In kinetic theory, pressure arises from molecules colliding with the container walls.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "semiconductor-electronics",
+    "question": "For a p-type semiconductor, which of the following statements is true?",
+    "options": {
+      "A": "Holes are the majority carriers and trivalent atoms are the dopants.",
+      "B": "Holes are the majority carriers and pentavalent atoms are the dopants.",
+      "C": "Electrons are the majority carriers and pentavalent atoms are the dopants",
+      "D": "Electrons are the majority carriers and trivalent atoms are the dopants."
+    },
+    "correct_option": "A",
+    "explanation": "In p-type semiconductor, an intrinsic semiconductor is doped with trivalent impurities, that creates deficiencies of valence electrons called holes which are majority charge carriers.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "gravitation",
+    "question": "The kinetic energies of a planet in an elliptical orbit about the Sun, at positions A, B and C are KA, KB and KC, respectively. AC is the major axis and SB is perpendicular to AC at the position of the Sun S as shown in the figure.",
+    "options": {
+      "A": "KA < KB < KC",
+      "B": "KA > KB > KC",
+      "C": "KB < KA < KC",
+      "D": "KB > KA > KC"
+    },
+    "correct_option": "B",
+    "explanation": "Speed of the planet will be maximum when its distance from the sun is minimum as mvr = constant.",
+    "image": "https://neetcare-image.cdn.examgoal.net/1qpqahkka42m8vz/026398ad-536b-4002-bc25-78353ce615cf/5da120f0-9465-11ea-aedc-f1c8d8e0194b/file-1qpqahkka42m8w0-333w.png"
+  },
+  {
+    "subject": "Physics",
+    "chapter": "units-and-measurements",
+    "question": "Which of the following pairs has the same dimensions?",
+    "options": {
+      "A": "Impulse and momentum",
+      "B": "Force and power",
+      "C": "Torque and energy",
+      "D": "Work and velocity"
+    },
+    "correct_option": "A",
+    "explanation": "Impulse and momentum both have the dimensions of MLT⁻¹.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "motion-in-a-straight-line",
+    "question": "A particle moves with uniform acceleration. The displacement-time graph is a:",
+    "options": {
+      "A": "Straight line",
+      "B": "Parabola",
+      "C": "Hyperbola",
+      "D": "Circle"
+    },
+    "correct_option": "B",
+    "explanation": "For uniform acceleration, displacement is a quadratic function of time: s = ut + ½at².",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "laws-of-motion",
+    "question": "The inertia of a body depends on its:",
+    "options": {
+      "A": "Velocity",
+      "B": "Volume",
+      "C": "Mass",
+      "D": "Acceleration"
+    },
+    "correct_option": "C",
+    "explanation": "Inertia is the tendency of a body to resist change in motion and is proportional to mass.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "work-energy-and-power",
+    "question": "A body of mass 5 kg is lifted up by 10 m. The work done is (g = 10 m/s²):",
+    "options": {
+      "A": "50 J",
+      "B": "500 J",
+      "C": "5 J",
+      "D": "100 J"
+    },
+    "correct_option": "B",
+    "explanation": "Work done = mgh = 5 × 10 × 10 = 500 J.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "system-of-particles-and-rotational-motion",
+    "question": "The moment of inertia of a thin ring about its diameter is:",
+    "options": {
+      "A": "MR²",
+      "B": "½MR²",
+      "C": "¼MR²",
+      "D": "½MR"
+    },
+    "correct_option": "B",
+    "explanation": "Moment of inertia of a ring about its diameter is (½)MR².",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "gravitation",
+    "question": "The weight of a body is maximum at:",
+    "options": {
+      "A": "Equator",
+      "B": "Poles",
+      "C": "Centre of Earth",
+      "D": "Mountains"
+    },
+    "correct_option": "B",
+    "explanation": "g is maximum at poles due to minimal centrifugal effect and Earth's shape.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "mechanical-properties-of-solids",
+    "question": "Which modulus is involved in the change of shape at constant volume?",
+    "options": {
+      "A": "Young’s modulus",
+      "B": "Bulk modulus",
+      "C": "Shear modulus",
+      "D": "Modulus of rigidity"
+    },
+    "correct_option": "C",
+    "explanation": "Shear modulus (also called modulus of rigidity) relates to shape change without volume change.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "mechanical-properties-of-fluids",
+    "question": "The pressure at a depth h in a liquid of density ρ is:",
+    "options": {
+      "A": "ρgh",
+      "B": "ρh",
+      "C": "gh",
+      "D": "h/ρg"
+    },
+    "correct_option": "A",
+    "explanation": "Hydrostatic pressure = ρgh.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "thermal-properties-of-matter",
+    "question": "The temperature at which Celsius and Fahrenheit scales read the same is:",
+    "options": {
+      "A": "0°",
+      "B": "100°",
+      "C": "-40°",
+      "D": "-273°"
+    },
+    "correct_option": "C",
+    "explanation": "At -40°, both Celsius and Fahrenheit scales read the same.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "thermodynamics",
+    "question": "Which law states that entropy of the universe always increases?",
+    "options": {
+      "A": "Zeroth law",
+      "B": "First law",
+      "C": "Second law",
+      "D": "Third law"
+    },
+    "correct_option": "C",
+    "explanation": "The second law of thermodynamics states that the total entropy of an isolated system can never decrease.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "kinetic-theory-of-gases",
+    "question": "In kinetic theory, pressure of an ideal gas is given by:",
+    "options": {
+      "A": "½ m n c²",
+      "B": "⅓ ρ c²",
+      "C": "½ ρ c²",
+      "D": "⅔ ρ c²"
+    },
+    "correct_option": "B",
+    "explanation": "Pressure P = (1/3)ρc², where ρ is density and c is rms speed.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "oscillations",
+    "question": "The time period of a simple pendulum is proportional to:",
+    "options": {
+      "A": "Length",
+      "B": "√Length",
+      "C": "1/√Length",
+      "D": "1/Length"
+    },
+    "correct_option": "B",
+    "explanation": "T = 2π√(L/g), so time period is proportional to √L.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "waves",
+    "question": "Speed of sound in a medium depends on:",
+    "options": {
+      "A": "Wavelength only",
+      "B": "Frequency only",
+      "C": "Properties of medium",
+      "D": "Amplitude"
+    },
+    "correct_option": "C",
+    "explanation": "Speed of sound is determined by medium's elasticity and density, not by frequency.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "ray-optics",
+    "question": "The angle of incidence for which the angle of refraction is 90° is called:",
+    "options": {
+      "A": "Brewster angle",
+      "B": "Critical angle",
+      "C": "Glancing angle",
+      "D": "Reflex angle"
+    },
+    "correct_option": "B",
+    "explanation": "Critical angle is the angle of incidence where refraction angle becomes 90°, leading to total internal reflection.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "wave-optics",
+    "question": "In Young’s double slit experiment, fringe width is directly proportional to:",
+    "options": {
+      "A": "Wavelength",
+      "B": "Distance between slits",
+      "C": "Slit width",
+      "D": "Refractive index"
+    },
+    "correct_option": "A",
+    "explanation": "Fringe width β = λD/d; it's directly proportional to wavelength λ.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "electrostatics",
+    "question": "The SI unit of electric field is:",
+    "options": {
+      "A": "N",
+      "B": "N/C",
+      "C": "V",
+      "D": "C/N"
+    },
+    "correct_option": "B",
+    "explanation": "Electric field E = F/q, so unit is N/C.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "current-electricity",
+    "question": "Ohm’s law is valid for:",
+    "options": {
+      "A": "Diodes",
+      "B": "Electrolytes",
+      "C": "Vacuum tubes",
+      "D": "Metallic conductors"
+    },
+    "correct_option": "D",
+    "explanation": "Ohm’s law applies to metallic conductors where V ∝ I.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "moving-charges-and-magnetism",
+    "question": "A current carrying conductor produces:",
+    "options": {
+      "A": "Electric field only",
+      "B": "Magnetic field only",
+      "C": "Electric and magnetic fields",
+      "D": "No field"
+    },
+    "correct_option": "C",
+    "explanation": "A current-carrying wire generates both electric and magnetic fields around it.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "magnetism-and-matter",
+    "question": "The SI unit of magnetic moment is:",
+    "options": {
+      "A": "A/m",
+      "B": "Am²",
+      "C": "Tm²",
+      "D": "A/m²"
+    },
+    "correct_option": "B",
+    "explanation": "Magnetic moment M = current × area, so unit is A·m².",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "electromagnetic-induction",
+    "question": "Lenz’s law is based on the law of conservation of:",
+    "options": {
+      "A": "Charge",
+      "B": "Momentum",
+      "C": "Mass",
+      "D": "Energy"
+    },
+    "correct_option": "D",
+    "explanation": "Lenz’s law opposes the cause of induced EMF to conserve energy.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "alternating-current",
+    "question": "In a purely resistive AC circuit, the current and voltage are:",
+    "options": {
+      "A": "In phase",
+      "B": "Out of phase by 90°",
+      "C": "Opposite in phase",
+      "D": "None of these"
+    },
+    "correct_option": "A",
+    "explanation": "In a purely resistive circuit, voltage and current vary sinusoidally and are in phase.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "electromagnetic-waves",
+    "question": "The electromagnetic wave does not require a medium because:",
+    "options": {
+      "A": "It is a longitudinal wave",
+      "B": "It travels at infinite speed",
+      "C": "It consists of changing electric and magnetic fields",
+      "D": "It has very short wavelength"
+    },
+    "correct_option": "C",
+    "explanation": "EM waves are self-sustaining due to mutually generating electric and magnetic fields.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "dual-nature-of-radiation-and-matter",
+    "question": "Which experiment proved the particle nature of light?",
+    "options": {
+      "A": "Photoelectric effect",
+      "B": "Young's experiment",
+      "C": "Polarization",
+      "D": "Diffraction"
+    },
+    "correct_option": "A",
+    "explanation": "Photoelectric effect shows that light behaves like particles (photons) delivering energy in quanta.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "atoms",
+    "question": "In hydrogen atom, the total energy of the electron in the nth orbit is:",
+    "options": {
+      "A": "Directly proportional to n",
+      "B": "Inversely proportional to n",
+      "C": "Directly proportional to 1/n²",
+      "D": "Inversely proportional to n²"
+    },
+    "correct_option": "D",
+    "explanation": "Eₙ = –13.6/n² eV, hence energy ∝ 1/n² (inverse square).",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "nuclei",
+    "question": "The mass defect of a nucleus is due to:",
+    "options": {
+      "A": "Loss of electrons",
+      "B": "Presence of neutrons",
+      "C": "Binding energy",
+      "D": "Nuclear forces"
+    },
+    "correct_option": "C",
+    "explanation": "Mass defect converts into binding energy which holds the nucleus together.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "semiconductor-electronics",
+    "question": "A p-n junction diode is used as:",
+    "options": {
+      "A": "Amplifier",
+      "B": "Oscillator",
+      "C": "Rectifier",
+      "D": "Filter"
+    },
+    "correct_option": "C",
+    "explanation": "A p-n junction allows current in one direction and blocks in other – used as rectifier.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "communication-systems",
+    "question": "In amplitude modulation:",
+    "options": {
+      "A": "Amplitude of carrier wave is changed",
+      "B": "Frequency of carrier wave is changed",
+      "C": "Phase of carrier wave is changed",
+      "D": "None of these"
+    },
+    "correct_option": "A",
+    "explanation": "In AM, the amplitude of the carrier wave varies with the signal.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "gravitation",
+    "question": "The escape velocity from Earth depends on:",
+    "options": {
+      "A": "Mass of the body",
+      "B": "Mass of Earth only",
+      "C": "Radius of Earth only",
+      "D": "Both mass and radius of Earth"
+    },
+    "correct_option": "D",
+    "explanation": "vₑ = √(2GM/R), so it depends on both mass and radius of the Earth.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "mechanical-properties-of-fluids",
+    "question": "The SI unit of surface tension is:",
+    "options": {
+      "A": "N/m",
+      "B": "J/m",
+      "C": "N/m²",
+      "D": "N·m"
+    },
+    "correct_option": "A",
+    "explanation": "Surface tension = Force/Length, unit is N/m.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "thermodynamics",
+    "question": "Which law states that heat cannot spontaneously flow from a colder body to a hotter body?",
+    "options": {
+      "A": "Zeroth law",
+      "B": "First law",
+      "C": "Second law",
+      "D": "Third law"
+    },
+    "correct_option": "C",
+    "explanation": "Second law of thermodynamics states that heat cannot flow from cold to hot spontaneously.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "kinematics",
+    "question": "If a body is moving with uniform acceleration, its velocity-time graph will be:",
+    "options": {
+      "A": "A curve",
+      "B": "A straight line parallel to time axis",
+      "C": "A straight line with constant slope",
+      "D": "A parabola"
+    },
+    "correct_option": "C",
+    "explanation": "In uniform acceleration, velocity increases linearly with time, giving a straight line with constant slope.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "laws-of-motion",
+    "question": "The property of a body to resist change in its state is called:",
+    "options": {
+      "A": "Impulse",
+      "B": "Momentum",
+      "C": "Inertia",
+      "D": "Force"
+    },
+    "correct_option": "C",
+    "explanation": "Inertia is the tendency of a body to resist a change in its state of motion or rest.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "work-energy-and-power",
+    "question": "Work done is said to be zero when:",
+    "options": {
+      "A": "Displacement is zero",
+      "B": "Force is zero",
+      "C": "Both force and displacement are perpendicular",
+      "D": "All of these"
+    },
+    "correct_option": "D",
+    "explanation": "W = F·d·cosθ; work is zero when force is zero, displacement is zero, or angle = 90°.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "system-of-particles-and-rotational-motion",
+    "question": "The moment of inertia of a ring about its diameter is:",
+    "options": {
+      "A": "MR²",
+      "B": "½MR²",
+      "C": "¼MR²",
+      "D": "0"
+    },
+    "correct_option": "B",
+    "explanation": "For a ring about its diameter, I = ½MR².",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "mechanical-properties-of-solids",
+    "question": "Young’s modulus is defined as the ratio of:",
+    "options": {
+      "A": "Stress to strain",
+      "B": "Strain to stress",
+      "C": "Force to area",
+      "D": "Force to length"
+    },
+    "correct_option": "A",
+    "explanation": "Young’s modulus (Y) = stress/strain.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "thermal-properties-of-matter",
+    "question": "The temperature at which Celsius and Fahrenheit scales are equal is:",
+    "options": {
+      "A": "0°",
+      "B": "–273°",
+      "C": "–40°",
+      "D": "100°"
+    },
+    "correct_option": "C",
+    "explanation": "C = F = –40° is the point where both scales show the same reading.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "kinetic-theory",
+    "question": "Degree of freedom of a monoatomic gas is:",
+    "options": {
+      "A": "2",
+      "B": "3",
+      "C": "5",
+      "D": "6"
+    },
+    "correct_option": "B",
+    "explanation": "Monoatomic gas has 3 translational degrees of freedom.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "oscillations",
+    "question": "The SI unit of angular frequency is:",
+    "options": {
+      "A": "rad/s",
+      "B": "Hz",
+      "C": "s",
+      "D": "m/s"
+    },
+    "correct_option": "A",
+    "explanation": "Angular frequency (ω) is measured in radians per second (rad/s).",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "waves",
+    "question": "The speed of sound in a medium depends on:",
+    "options": {
+      "A": "Only density",
+      "B": "Only elasticity",
+      "C": "Both elasticity and density",
+      "D": "Neither"
+    },
+    "correct_option": "C",
+    "explanation": "v = √(E/ρ); speed depends on elasticity and density of the medium.",
+    "image": ""
+  },
+  {
+    "subject": "Physics",
+    "chapter": "electrostatics",
+    "question": "Coulomb’s law in vector form is:",
+    "options": {
+      "A": "F = kq₁q₂/r",
+      "B": "F = kq₁q₂/r² r̂",
+      "C": "F = kq₁q₂r̂",
+      "D": "F = kq₁q₂/r²"
+    },
+    "correct_option": "B",
+    "explanation": "Coulomb's law vector form: F = kq₁q₂/r² × r̂.",
     "image": ""
   }
 ]
