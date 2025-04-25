@@ -105,15 +105,15 @@ async function sendGroupUserInfo(ctx: Context, userInfo: UserInfo) {
   }[userInfo.status || 'unknown'];
 
   const text = `
-👤 *Your Information* 👤
+👤 Your Information 👤
 
-${statusEmoji} *${userInfo.status?.toUpperCase() || 'MEMBER'}* ${statusEmoji}
+{statusEmoji} ${userInfo.status?.toUpperCase() || 'MEMBER'} ${statusEmoji}
 
-📛 *Name:* ${userInfo.name}
-🔖 *Username:* ${userInfo.username ? '@' + userInfo.username : 'None'}
-📅 *Join Date:* ${userInfo.joinDate}
+📛 Name: ${userInfo.name}
+🔖 Username: ${userInfo.username ? '@' + userInfo.username : 'None'}
+📅 Join Date: ${userInfo.joinDate}
 
-_This information is visible to everyone in the group._
+This information is visible to everyone in the group.
   `;
 
   await ctx.replyWithHTML(text, {
