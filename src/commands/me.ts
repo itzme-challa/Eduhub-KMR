@@ -131,9 +131,9 @@ export function handleUserInfoRefresh() {
       if (!ctx.from || !ctx.chat || !ctx.chat.type) return;
       const userInfo = await getUserInfo(ctx, ctx.from);
       await sendPrivateUserInfo(ctx, userInfo);
-    } catch (error) {
-      console.error('Error refreshing user info:', error);
-      await ctx.answerCbQuery({ text: 'Error refreshing', show_alert: true });
-    }
+      } catch (error) {
+  console.error('Error refreshing user info:', error);
+  await ctx.answerCbQuery('Error refreshing', { show_alert: true });
+  }
   };
 }
