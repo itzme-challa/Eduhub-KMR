@@ -12,7 +12,8 @@ import { quizes } from './text';
 import { greeting } from './text';
 import { development, production } from './core';
 import { isPrivateChat } from './utils/groupSettings';
-import { me } from './commands/me'; 
+import { me } from './commands/me';
+
 const BOT_TOKEN = process.env.BOT_TOKEN || '';
 const ENVIRONMENT = process.env.NODE_ENV || '';
 const ADMIN_ID = 6930703214;
@@ -38,7 +39,7 @@ bot.command('users', async (ctx) => {
   try {
     const chatIds = await fetchChatIdsFromSheet();
     const totalUsers = chatIds.length;
-    
+
     await ctx.reply(`📊 Total users: ${totalUsers}`, {
       parse_mode: 'Markdown',
       reply_markup: {
@@ -47,6 +48,7 @@ bot.command('users', async (ctx) => {
         ]
       }
     });
+
   } catch (err) {
     console.error('Failed to fetch user count:', err);
     await ctx.reply('❌ Error: Unable to fetch user count from Google Sheet.');
@@ -63,7 +65,7 @@ bot.action('refresh_users', async (ctx) => {
   try {
     const chatIds = await fetchChatIdsFromSheet();
     const totalUsers = chatIds.length;
-    
+
     await ctx.editMessageText(`📊 Total users: ${totalUsers} (refreshed)`, {
       parse_mode: 'Markdown',
       reply_markup: {
@@ -73,6 +75,7 @@ bot.action('refresh_users', async (ctx) => {
       }
     });
     await ctx.answerCbQuery('Refreshed!');
+
   } catch (err) {
     console.error('Failed to refresh user count:', err);
     await ctx.answerCbQuery('Refresh failed');
@@ -83,10 +86,8 @@ bot.action('refresh_users', async (ctx) => {
 bot.command('broadcast', async (ctx) => {
   if (ctx.from?.id !== ADMIN_ID) return ctx.reply('You are not authorized to use this command.');
 
-  const msg = ctx.message.text?.split(' ').slice(1).join(' ') || '';
-  const isReply = ctx.message.reply_to_message;
-  
-  if (!msg && !isReply) return ctx.reply('Usage:\n/broadcast Your message here or reply to a message.');
+  const msg = ctx.message.text?.split(' ').slice(1).join(' ');
+  if (!msg) return ctx.reply('Usage:\n/broadcast Your message here');
 
   let chatIds: number[] = [];
 
@@ -102,24 +103,9 @@ bot.command('broadcast', async (ctx) => {
   }
 
   let success = 0;
-  const content = isReply ? isReply.text : msg;
-  const mediaType = isReply ? isReply.media_type : undefined;  // Check if media is present
-
   for (const id of chatIds) {
     try {
-      if (mediaType) {
-        // Send image/file if it's a media message
-        if (isReply.photo) {
-          await ctx.telegram.sendPhoto(id, isReply.photo[0].file_id, { caption: content });
-        } else if (isReply.video) {
-          await ctx.telegram.sendVideo(id, isReply.video.file_id, { caption: content });
-        } else if (isReply.document) {
-          await ctx.telegram.sendDocument(id, isReply.document.file_id, { caption: content });
-        }
-      } else {
-        // Send text message if it's not media
-        await ctx.telegram.sendMessage(id, content);
-      }
+      await ctx.telegram.sendMessage(id, msg);
       success++;
     } catch (err) {
       console.log(`Failed to send to ${id}`, err);
@@ -166,7 +152,7 @@ bot.start(async (ctx) => {
 // --- MESSAGE HANDLER ---
 bot.on('message', async (ctx) => {
   const chat = ctx.chat;
-  const msg = ctx.message as { text?: string; reply_to_message?: { text?: string; photo?: any; video?: any; document?: any } };
+  const message = ctx.message;
   const chatType = chat.type;
 
   if (!chat?.id) return;
@@ -189,8 +175,10 @@ bot.on('message', async (ctx) => {
   }
 
   // Handle /contact messages
-  if (msg.text?.startsWith('/contact')) {
-    const userMessage = msg.text.replace('/contact', '').trim() || msg.reply_to_message?.text;
+  if ('text' in message && message.text?.startsWith('/contact')) {
+    const userMessage = message.text.replace('/contact', '').trim() || 
+      ('reply_to_message' in message && message.reply_to_message && 'text' in message.reply_to_message ? message.reply_to_message.text : undefined);
+    
     if (userMessage) {
       await ctx.telegram.sendMessage(
         ADMIN_ID,
@@ -205,16 +193,18 @@ bot.on('message', async (ctx) => {
   }
 
   // Admin replies via swipe reply
-  if (chat.id === ADMIN_ID && msg.reply_to_message?.text) {
-    const match = msg.reply_to_message.text.match(/Chat ID: (\d+)/);
+  if (chat.id === ADMIN_ID && 'reply_to_message' in message && message.reply_to_message && 'text' in message.reply_to_message && message.reply_to_message.text) {
+    const match = message.reply_to_message.text.match(/Chat ID: (\d+)/);
     if (match) {
       const targetId = parseInt(match[1], 10);
       try {
-        await ctx.telegram.sendMessage(
-          targetId,
-          `*Admin's Reply:*\n${msg.text}`,
-          { parse_mode: 'Markdown' }
-        );
+        if ('text' in message) {
+          await ctx.telegram.sendMessage(
+            targetId,
+            `*Admin's Reply:*\n${message.text}`,
+            { parse_mode: 'Markdown' }
+          );
+        }
       } catch (err) {
         console.error('Failed to send swipe reply:', err);
       }
