@@ -1,5 +1,4 @@
 import { Context } from 'telegraf';
-import fetch from 'node-fetch';
 import { createCanvas } from 'canvas';
 
 interface Question {
@@ -9,6 +8,9 @@ interface Question {
 
 export const quizimg = () => async (ctx: Context) => {
   try {
+    // Dynamic import of fetch
+    const fetch = (await import('node-fetch')).default;
+
     const response = await fetch('https://raw.githubusercontent.com/itzfew/Quizes/refs/heads/main/pyq/014be169-4893-5d08-a744-5ca0749e3c20.json');
     const data = await response.json();
 
