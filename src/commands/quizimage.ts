@@ -1,77 +1,64 @@
 import { Context } from "telegraf";
-import { createCanvas } from "canvas";
+import fs from "fs";
 import path from "path";
-import fs from "fs/promises";
+import { createCanvas, loadImage, registerFont } from "canvas";
 
-interface Option {
-  identifier: string;
-  content: string;
-}
-
-interface Question {
-  question_id: string;
-  content: string;
-  options: Option[];
-  correct_options: string[];
-  explanation: string;
-}
-
-interface QuizData {
-  questions: Question[];
-}
-
-function cleanHTML(input: string): string {
-  return input
-    .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<\/?[^>]+(>|$)/g, '')
-    .replace(/\$\$/g, '');
-}
+// Optional: register a custom font if needed
+// registerFont('path-to-your-font.ttf', { family: 'CustomFont' });
 
 export async function quizimg(ctx: Context) {
   try {
-    const filePath = path.join(__dirname, "..", "data", "quiz", "014be169-4893-5d08-a744-5ca0749e3c20.json");
-    const fileData = await fs.readFile(filePath, "utf-8");
-    const data = JSON.parse(fileData) as QuizData[];
+    // Load the local JSON file
+    const filePath = path.join(__dirname, "../data/quiz/014be169-4893-5d08-a744-5ca0749e3c20.json");
+    const rawData = fs.readFileSync(filePath, "utf-8");
+    const jsonData = JSON.parse(rawData) as { questions: any[] }[];
 
-    const questions = data[0]?.questions;
+    // Pick a random question
+    const allQuestions = jsonData.flatMap(q => q.questions);
+    const randomQuestion = allQuestions[Math.floor(Math.random() * allQuestions.length)];
 
-    if (!questions || questions.length === 0) {
-      await ctx.reply("❌ No questions found.");
+    if (!randomQuestion) {
+      await ctx.reply("❌ Error: No questions found.");
       return;
     }
 
-    const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+    // Canvas settings
+    const width = 1000;
+    const margin = 50;
+    let textContent = randomQuestion.content.replace(/<br\s*\/?>/gi, "\n").replace(/\$\$/g, ""); // clean HTML
+    const optionsText = randomQuestion.options.map(
+      (opt: any) => `${opt.identifier}) ${opt.content.replace(/\$\$/g, "").replace(/<br\s*\/?>/gi, "\n")}`
+    ).join("\n\n");
 
-    const questionText = cleanHTML(randomQuestion.content);
-    const options = randomQuestion.options.map(opt => `${opt.identifier}. ${cleanHTML(opt.content)}`).join('\n');
+    textContent += "\n\n" + optionsText;
 
-    const canvas = createCanvas(1080, 1080);
-    const ctx2d = canvas.getContext('2d');
-
-    // Background white
-    ctx2d.fillStyle = "#ffffff";
-    ctx2d.fillRect(0, 0, canvas.width, canvas.height);
-
-    // Text settings
-    ctx2d.fillStyle = "#000000";
-    ctx2d.font = "bold 30px Arial";
-
-    let y = 60;
+    const lines = textContent.split("\n");
     const lineHeight = 40;
+    const height = Math.max(400, margin * 2 + lines.length * lineHeight);
 
-    const lines = (questionText + '\n\n' + options).split('\n');
+    const canvas = createCanvas(width, height);
+    const ctx2d = canvas.getContext("2d");
 
+    // Background
+    ctx2d.fillStyle = "#ffffff";
+    ctx2d.fillRect(0, 0, width, height);
+
+    // Text
+    ctx2d.fillStyle = "#000000";
+    ctx2d.font = "bold 24px sans-serif";
+
+    let y = margin;
     for (const line of lines) {
-      ctx2d.fillText(line.trim(), 50, y);
+      ctx2d.fillText(line.trim(), margin, y);
       y += lineHeight;
     }
 
     const buffer = canvas.toBuffer();
 
-    await ctx.replyWithPhoto({ source: buffer }, { caption: "Here's your random quiz!" });
-
+    // Send the image
+    await ctx.replyWithPhoto({ source: buffer }, { caption: `📝 Random Quiz\nSubject: ${randomQuestion.subject}\nChapter: ${randomQuestion.chapter}` });
   } catch (error) {
     console.error(error);
-    await ctx.reply("❌ Error fetching quiz.");
+    await ctx.reply("❌ Error fetching quiz image.");
   }
 }
