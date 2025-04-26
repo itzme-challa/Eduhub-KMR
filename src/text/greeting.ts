@@ -64,7 +64,7 @@ To get previous year questions, type:
 • \`/quote\` – Get a random motivational quote  
 • \`/me\` – View your user details  
 • \`/users\` – [Admin] Show total and active users  
-
+• \`/quiz\` – Get Quizes Of all exams-PYQs  
 ---
 
 👨‍💻 *Author:* itzfew  
