@@ -1,20 +1,26 @@
 import { Context } from 'telegraf';
-import { createCanvas, loadImage } from 'canvas';
-import quizData from '../data/quiz/014be169-4893-5d08-a744-5ca0749e3c20.json';
-import fs from 'fs';
+import { createCanvas } from 'canvas';
 import path from 'path';
+import fs from 'fs';
+import quizData from '../data/quiz/014be169-4893-5d08-a744-5ca0749e3c20.json'; // Ensure the path is correct
 
 export const quizImage = () => async (ctx: Context) => {
   try {
-    const questions = quizData.questions;
-    if (!questions || questions.length === 0) {
+    // Log to check if quizData is loaded correctly
+    console.log('Loaded quiz data:', quizData);
+
+    // Check if quizData.questions exists and is an array
+    if (!quizData || !Array.isArray(quizData.questions) || quizData.questions.length === 0) {
       await ctx.reply('No quiz questions available right now.');
       return;
     }
 
     // Pick a random question
-    const randomIndex = Math.floor(Math.random() * questions.length);
-    const question = questions[randomIndex];
+    const randomIndex = Math.floor(Math.random() * quizData.questions.length);
+    const question = quizData.questions[randomIndex];
+
+    // Log to check if a valid question was picked
+    console.log('Selected question:', question);
 
     // Create canvas
     const width = 800;
@@ -31,6 +37,7 @@ export const quizImage = () => async (ctx: Context) => {
     ctx2d.font = 'bold 28px Sans-serif';
     ctx2d.fillText('Random Quiz Question', 50, 50);
 
+    // Question text
     ctx2d.font = '20px Sans-serif';
     const wrapText = (text: string, x: number, y: number, maxWidth: number, lineHeight: number) => {
       const words = text.split(' ');
@@ -64,7 +71,7 @@ export const quizImage = () => async (ctx: Context) => {
     // Save to buffer
     const buffer = canvas.toBuffer('image/png');
 
-    // Save temporarily (optional)
+    // Save temporarily
     const tempPath = path.join(__dirname, 'temp_quiz.png');
     fs.writeFileSync(tempPath, buffer);
 
