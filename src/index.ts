@@ -83,8 +83,11 @@ bot.action('refresh_users', async (ctx) => {
 bot.command('broadcast', async (ctx) => {
   if (ctx.from?.id !== ADMIN_ID) return ctx.reply('You are not authorized to use this command.');
 
-  const msg = ctx.message.text?.split(' ').slice(1).join(' ');
-  if (!msg) return ctx.reply('Usage:\n/broadcast Your message here');
+  // Check if the message is a reply
+  const msg = ctx.message.reply_to_message || ctx.message.text;
+  if (!msg) {
+    return ctx.reply('Usage:\n/broadcast Your message here or reply to a message to broadcast it.');
+  }
 
   let chatIds: number[] = [];
 
@@ -102,7 +105,22 @@ bot.command('broadcast', async (ctx) => {
   let success = 0;
   for (const id of chatIds) {
     try {
-      await ctx.telegram.sendMessage(id, msg);
+      // Check if the message is a text, image, or file and handle accordingly
+      if (msg.text) {
+        await ctx.telegram.sendMessage(id, msg.text);
+      } else if (msg.photo) {
+        await ctx.telegram.sendPhoto(id, msg.photo[0].file_id);
+      } else if (msg.document) {
+        await ctx.telegram.sendDocument(id, msg.document.file_id);
+      } else if (msg.audio) {
+        await ctx.telegram.sendAudio(id, msg.audio.file_id);
+      } else if (msg.video) {
+        await ctx.telegram.sendVideo(id, msg.video.file_id);
+      } else if (msg.sticker) {
+        await ctx.telegram.sendSticker(id, msg.sticker.file_id);
+      } else if (msg.quiz) {
+        await ctx.telegram.sendPoll(id, msg.quiz.question, msg.quiz.options);
+      }
       success++;
     } catch (err) {
       console.log(`Failed to send to ${id}`, err);
@@ -112,7 +130,7 @@ bot.command('broadcast', async (ctx) => {
   await ctx.reply(`✅ Broadcast sent to ${success} users.`);
 });
 
-// Admin reply to user via command
+// Admin reply to user via command (this part remains the same, no change needed)
 bot.command('reply', async (ctx) => {
   if (ctx.from?.id !== ADMIN_ID) return ctx.reply('You are not authorized to use this command.');
 
