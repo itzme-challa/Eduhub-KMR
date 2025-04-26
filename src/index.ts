@@ -13,6 +13,8 @@ import { greeting } from './text';
 import { development, production } from './core';
 import { isPrivateChat } from './utils/groupSettings';
 import { me } from './commands/me'; 
+import { quote } from './commands/quotes';
+
 const BOT_TOKEN = process.env.BOT_TOKEN || '';
 const ENVIRONMENT = process.env.NODE_ENV || '';
 const ADMIN_ID = 6930703214;
@@ -28,7 +30,7 @@ bot.command('neet', neet());
 bot.command('jee', jee());
 bot.command('groups', groups());
 bot.command(['me', 'user', 'info'], me());
-
+bot.command('quote', quote());
 
 // New command to show user count from Google Sheets
 bot.command('users', async (ctx) => {
