@@ -17,7 +17,7 @@ interface ExamCategory {
 
 let examsData: ExamCategory[] = [];
 
-export function quizes() {
+export function playquiz() {
   return async (ctx: Context) => {
     const text = ctx.message?.text;
 
