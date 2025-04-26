@@ -33,7 +33,9 @@ bot.command('jee', jee());
 bot.command('groups', groups());
 bot.command(['me', 'user', 'info'], me());
 bot.command('quote', quote());
-bot.command('quizimg', quizimg());
+bot.command("quizimg", (ctx) => {
+  quizimg(ctx);
+});
 // New command to show user count from Google Sheets
 bot.command('users', async (ctx) => {
   if (ctx.from?.id !== ADMIN_ID) {
