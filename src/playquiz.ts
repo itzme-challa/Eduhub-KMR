@@ -140,31 +140,32 @@ export function handleQuizActions() {
       return;
     }
 
-    // Selecting a paper
-    if (callbackData.startsWith('paper_')) {
-      const metaId = callbackData.replace('paper_', '');
+// Selecting a paper
+if (callbackData.startsWith('paper_')) {
+  const metaId = callbackData.replace('paper_', '');
 
-      let selectedPaper: Paper | undefined;
-      for (const exam of examsData) {
-        const paper = exam.papers.find(p => p.metaId === metaId);
-        if (paper) {
-          selectedPaper = paper;
-          break;
-        }
-      }
-
-      if (!selectedPaper) {
-        await ctx.answerCbQuery('Paper not found.');
-        return;
-      }
-
-      const playLink = `https://quizes.pages.dev/play?title=${encodeURIComponent(selectedPaper.title)}&metaId=${selectedPaper.metaId}`;
-
-      await ctx.reply(`▶️ [Start ${selectedPaper.title}](${playLink})`, {
-        parse_mode: 'Markdown',
-        disable_web_page_preview: true
-      });
-      await ctx.answerCbQuery();
+  let selectedPaper: Paper | undefined;
+  for (const exam of examsData) {
+    const paper = exam.papers.find(p => p.metaId === metaId);
+    if (paper) {
+      selectedPaper = paper;
+      break;
     }
+  }
+
+  if (!selectedPaper) {
+    await ctx.answerCbQuery('Paper not found.');
+    return;
+  }
+
+  const safeTitle = selectedPaper.title.replace(//g, '\').replace(//g, '\');
+  const playLink = `https://quizes.pages.dev/play?title=${encodeURIComponent(selectedPaper.title)}&metaId=${selectedPaper.metaId}`;
+
+  await ctx.reply(`▶️ [Start ${safeTitle}](${playLink})`, {
+    parse_mode: 'Markdown',
+    disable_web_page_preview: true
+  });
+  await ctx.answerCbQuery();
+}
   };
 }
