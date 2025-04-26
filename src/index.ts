@@ -12,7 +12,7 @@ import { quizes } from './text';
 import { greeting } from './text';
 import { development, production } from './core';
 import { isPrivateChat } from './utils/groupSettings';
-import { me, handleUserInfoRefresh } from './commands/me'; 
+import { me } from './commands/me'; 
 const BOT_TOKEN = process.env.BOT_TOKEN || '';
 const ENVIRONMENT = process.env.NODE_ENV || '';
 const ADMIN_ID = 6930703214;
