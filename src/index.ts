@@ -14,7 +14,8 @@ import { development, production } from './core';
 import { isPrivateChat } from './utils/groupSettings';
 import { me } from './commands/me'; 
 import { quote } from './commands/quotes';
-import { quizes, handleQuizActions } from './playquiz'; // adjust path if needed
+import { playquiz, handleQuizActions } from './playquiz'; 
+// <-- Correct file path based on where you saved playquiz.ts
 
 const BOT_TOKEN = process.env.BOT_TOKEN || '';
 const ENVIRONMENT = process.env.NODE_ENV || '';
