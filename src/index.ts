@@ -14,6 +14,8 @@ import { development, production } from './core';
 import { isPrivateChat } from './utils/groupSettings';
 import { me } from './commands/me'; 
 import { quote } from './commands/quotes';
+import { quizimg } from './commands/quizimage';
+
 
 const BOT_TOKEN = process.env.BOT_TOKEN || '';
 const ENVIRONMENT = process.env.NODE_ENV || '';
@@ -31,7 +33,7 @@ bot.command('jee', jee());
 bot.command('groups', groups());
 bot.command(['me', 'user', 'info'], me());
 bot.command('quote', quote());
-
+bot.command('quizimg', quizimg());
 // New command to show user count from Google Sheets
 bot.command('users', async (ctx) => {
   if (ctx.from?.id !== ADMIN_ID) {
