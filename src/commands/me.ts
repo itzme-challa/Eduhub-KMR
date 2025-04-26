@@ -17,14 +17,14 @@ interface UserInfo {
 export function me() {
   return async (ctx: Context) => {
     try {
-      if (!ctx.from) {
+      if (!ctx.from || !ctx.chat || !ctx.chat.type) {
         return ctx.reply('Could not identify your user information.');
       }
 
       // Get user info
       const userInfo = await getUserInfo(ctx, ctx.from);
 
-      if (isPrivateChat(ctx.chat?.type)) {
+      if (isPrivateChat(ctx.chat.type)) {
         // Private chat format
         await sendPrivateUserInfo(ctx, userInfo);
       } else {
@@ -45,7 +45,7 @@ async function getUserInfo(ctx: Context, user: User): Promise<UserInfo> {
 
   // Get user status in groups (if in a group)
   let status = 'member';
-  if (!isPrivateChat(ctx.chat?.type)) {
+  if (ctx.chat && !isPrivateChat(ctx.chat.type)) {
     try {
       const member = await ctx.getChatMember(user.id);
       status = member.status;
@@ -59,8 +59,8 @@ async function getUserInfo(ctx: Context, user: User): Promise<UserInfo> {
     name: `${user.first_name}${user.last_name ? ' ' + user.last_name : ''}`,
     username: user.username,
     isBot: user.is_bot,
-    isPremium: 'is_premium' in user ? user.is_premium : undefined,
-    languageCode: user.language_code,
+    isPremium: (user as any).is_premium ?? undefined,
+    languageCode: user.language_code ?? 'Unknown',
     status,
     joinDate: joinDate.toLocaleDateString(),
     lastActive: lastActive.toLocaleString(),
@@ -75,8 +75,8 @@ async function sendPrivateUserInfo(ctx: Context, userInfo: UserInfo) {
 📛 *Name:* ${userInfo.name}
 🔖 *Username:* ${userInfo.username ? '@' + userInfo.username : 'None'}
 🤖 *Bot:* ${userInfo.isBot ? 'Yes' : 'No'}
-💎 *Premium:* ${userInfo.isPremium ? 'Yes' : 'No' || 'Unknown'}
-🌐 *Language:* ${userInfo.languageCode || 'Unknown'}
+💎 *Premium:* ${userInfo.isPremium === undefined ? 'Unknown' : (userInfo.isPremium ? 'Yes' : 'No')}
+🌐 *Language:* ${userInfo.languageCode}
 📅 *Join Date:* ${userInfo.joinDate}
 ⏱ *Last Active:* ${userInfo.lastActive}
 
@@ -117,7 +117,9 @@ This information is visible to everyone in the group.
   `;
 
   await ctx.replyWithHTML(text, {
-    reply_to_message_id: ctx.message?.message_id,
+    reply_parameters: {
+      message_id: ctx.message?.message_id!,
+    },
   });
 }
 
@@ -126,12 +128,12 @@ export function handleUserInfoRefresh() {
   return async (ctx: Context) => {
     try {
       await ctx.answerCbQuery();
-      if (!ctx.from) return;
+      if (!ctx.from || !ctx.chat || !ctx.chat.type) return;
       const userInfo = await getUserInfo(ctx, ctx.from);
       await sendPrivateUserInfo(ctx, userInfo);
     } catch (error) {
       console.error('Error refreshing user info:', error);
-      await ctx.answerCbQuery('Error refreshing', true);
+      await ctx.answerCbQuery({ text: 'Error refreshing', show_alert: true });
     }
   };
 }
