@@ -1,4 +1,5 @@
 import { Context } from 'telegraf';
+import { Message, CallbackQuery } from 'telegraf/typings/core/types/typegram';
 import axios from 'axios';
 
 interface Paper {
@@ -21,7 +22,8 @@ const ITEMS_PER_PAGE = 6; // show 6 items per page
 
 export function playquiz() {
   return async (ctx: Context) => {
-    const text = ctx.message?.text;
+    const message = ctx.message as Message.TextMessage | undefined; // FIX 1
+    const text = message?.text;
 
     if (text?.startsWith('/quiz')) {
       try {
@@ -94,7 +96,7 @@ async function showPapers(ctx: Context, examTitle: string, page: number) {
   if (end < exam.papers.length) {
     navButtons.push({ text: '➡️ Next', callback_data: `papers_${examTitle}_page_${page + 1}` });
   }
-  
+
   keyboard.push([{ text: '🔙 Back to Exams', callback_data: `exams_page_0` }]);
   if (navButtons.length > 0) {
     keyboard.push(navButtons);
@@ -110,7 +112,8 @@ async function showPapers(ctx: Context, examTitle: string, page: number) {
 
 export function handleQuizActions() {
   return async (ctx: Context) => {
-    const callbackData = ctx.callbackQuery?.data;
+    const callbackQuery = ctx.callbackQuery as CallbackQuery.DataCallbackQuery | undefined; // FIX 2
+    const callbackData = callbackQuery?.data;
 
     if (!callbackData) return;
 
@@ -140,31 +143,33 @@ export function handleQuizActions() {
       return;
     }
 
-// Selecting a paper
-if (callbackData.startsWith('paper_')) {
-  const metaId = callbackData.replace('paper_', '');
+    // Selecting a paper
+    if (callbackData.startsWith('paper_')) {
+      const metaId = callbackData.replace('paper_', '');
 
-  let selectedPaper: Paper | undefined;
-  for (const exam of examsData) {
-    const paper = exam.papers.find(p => p.metaId === metaId);
-    if (paper) {
-      selectedPaper = paper;
-      break;
+      let selectedPaper: Paper | undefined;
+      for (const exam of examsData) {
+        const paper = exam.papers.find(p => p.metaId === metaId);
+        if (paper) {
+          selectedPaper = paper;
+          break;
+        }
+      }
+
+      if (!selectedPaper) {
+        await ctx.answerCbQuery('Paper not found.');
+        return;
+      }
+
+      const playLink = `https://quizes.pages.dev/play?metaId=${selectedPaper.metaId}`;
+
+      await ctx.replyWithMarkdownV2(`▶️ [Start ${escapeMarkdown(selectedPaper.title)}](${playLink})`); // FIX 3
+      await ctx.answerCbQuery();
     }
-  }
-
-  if (!selectedPaper) {
-    await ctx.answerCbQuery('Paper not found.');
-    return;
-  }
-
-  const playLink = `https://quizes.pages.dev/play?metaId=${selectedPaper.metaId}`; // only metaId now!
-
-  await ctx.reply(`▶️ [Start ${selectedPaper.title}](${playLink})`, {
-    parse_mode: 'Markdown',
-    disable_web_page_preview: true
-  });
-  await ctx.answerCbQuery();
-}
   };
+}
+
+// Utility function to escape MarkdownV2 special characters
+function escapeMarkdown(text: string): string {
+  return text.replace(/([_*()~`>#+\-=|{}.!\)/g, '\\$1');
 }
