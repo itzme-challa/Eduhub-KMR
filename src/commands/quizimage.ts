@@ -1,6 +1,7 @@
 import { Context } from "telegraf";
-import fetch from "node-fetch";
-import { createCanvas, loadImage } from "canvas";
+import { createCanvas } from "canvas";
+import path from "path";
+import fs from "fs/promises";
 
 interface Option {
   identifier: string;
@@ -28,13 +29,9 @@ function cleanHTML(input: string): string {
 
 export async function quizimg(ctx: Context) {
   try {
-    const response = await fetch("https://raw.githubusercontent.com/itzfew/Quizes/refs/heads/main/pyq/014be169-4893-5d08-a744-5ca0749e3c20.json");
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-    const data = await response.json() as QuizData[];
+    const filePath = path.join(__dirname, "..", "data", "quiz", "014be169-4893-5d08-a744-5ca0749e3c20.json");
+    const fileData = await fs.readFile(filePath, "utf-8");
+    const data = JSON.parse(fileData) as QuizData[];
 
     const questions = data[0]?.questions;
 
