@@ -158,10 +158,9 @@ if (callbackData.startsWith('paper_')) {
     return;
   }
 
-  const safeTitle = selectedPaper.title.replace(//g, '\').replace(//g, '\');
-  const playLink = `https://quizes.pages.dev/play?title=${encodeURIComponent(selectedPaper.title)}&metaId=${selectedPaper.metaId}`;
+  const playLink = `https://quizes.pages.dev/play?metaId=${selectedPaper.metaId}`; // only metaId now!
 
-  await ctx.reply(`▶️ [Start ${safeTitle}](${playLink})`, {
+  await ctx.reply(`▶️ [Start ${selectedPaper.title}](${playLink})`, {
     parse_mode: 'Markdown',
     disable_web_page_preview: true
   });
