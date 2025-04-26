@@ -53,7 +53,6 @@ bot.command('users', async (ctx) => {
     await ctx.reply('❌ Error: Unable to fetch user count from Google Sheet.');
   }
 });
-bot.action('refresh_user_info', handleUserInfoRefresh());
 // Handle refresh button for user count
 bot.action('refresh_users', async (ctx) => {
   if (ctx.from?.id !== ADMIN_ID) {
