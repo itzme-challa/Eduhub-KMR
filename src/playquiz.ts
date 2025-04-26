@@ -17,6 +17,8 @@ interface ExamCategory {
 
 let examsData: ExamCategory[] = [];
 
+const ITEMS_PER_PAGE = 6; // show 6 items per page
+
 export function playquiz() {
   return async (ctx: Context) => {
     const text = ctx.message?.text;
@@ -28,15 +30,7 @@ export function playquiz() {
           examsData = response.data;
         }
 
-        const keyboard = examsData.map((exam) => {
-          return [{ text: exam.title, callback_data: `exam_${exam.title}` }];
-        });
-
-        await ctx.reply('📝 Choose an exam:', {
-          reply_markup: {
-            inline_keyboard: keyboard
-          }
-        });
+        await showExams(ctx, 0);
 
       } catch (err) {
         console.error('Failed to fetch exams.json', err);
@@ -46,40 +40,108 @@ export function playquiz() {
   };
 }
 
+async function showExams(ctx: Context, page: number) {
+  const start = page * ITEMS_PER_PAGE;
+  const end = start + ITEMS_PER_PAGE;
+  const examsPage = examsData.slice(start, end);
+
+  const keyboard = examsPage.map((exam) => {
+    return [{ text: exam.title, callback_data: `exam_${exam.title}` }];
+  });
+
+  const navButtons: any[] = [];
+
+  if (page > 0) {
+    navButtons.push({ text: '⬅️ Previous', callback_data: `exams_page_${page - 1}` });
+  }
+  if (end < examsData.length) {
+    navButtons.push({ text: '➡️ Next', callback_data: `exams_page_${page + 1}` });
+  }
+  if (navButtons.length > 0) {
+    keyboard.push(navButtons);
+  }
+
+  await ctx.reply('📝 Choose an exam:', {
+    reply_markup: {
+      inline_keyboard: keyboard
+    }
+  });
+}
+
+async function showPapers(ctx: Context, examTitle: string, page: number) {
+  const exam = examsData.find(e => e.title === examTitle);
+  if (!exam) {
+    await ctx.answerCbQuery('Exam not found.');
+    return;
+  }
+
+  const start = page * ITEMS_PER_PAGE;
+  const end = start + ITEMS_PER_PAGE;
+  const papersPage = exam.papers.slice(start, end);
+
+  const keyboard = papersPage.map((paper) => {
+    return [{
+      text: paper.title,
+      callback_data: `paper_${paper.metaId}`
+    }];
+  });
+
+  const navButtons: any[] = [];
+
+  if (page > 0) {
+    navButtons.push({ text: '⬅️ Previous', callback_data: `papers_${examTitle}_page_${page - 1}` });
+  }
+  if (end < exam.papers.length) {
+    navButtons.push({ text: '➡️ Next', callback_data: `papers_${examTitle}_page_${page + 1}` });
+  }
+  
+  keyboard.push([{ text: '🔙 Back to Exams', callback_data: `exams_page_0` }]);
+  if (navButtons.length > 0) {
+    keyboard.push(navButtons);
+  }
+
+  await ctx.editMessageText(`📚 Choose a paper for *${examTitle}*`, {
+    parse_mode: 'Markdown',
+    reply_markup: {
+      inline_keyboard: keyboard
+    }
+  });
+}
+
 export function handleQuizActions() {
   return async (ctx: Context) => {
     const callbackData = ctx.callbackQuery?.data;
 
     if (!callbackData) return;
 
-    // If user selects an exam
-    if (callbackData.startsWith('exam_')) {
-      const examTitle = callbackData.replace('exam_', '');
-
-      const exam = examsData.find(e => e.title === examTitle);
-      if (!exam) {
-        await ctx.answerCbQuery('Exam not found.');
-        return;
-      }
-
-      const papersKeyboard = exam.papers.map(paper => {
-        return [{
-          text: `${paper.title}`,
-          callback_data: `paper_${paper.metaId}`
-        }];
-      });
-
-      await ctx.editMessageText(`📚 Choose a paper for *${examTitle}*`, {
-        parse_mode: 'Markdown',
-        reply_markup: {
-          inline_keyboard: papersKeyboard
-        }
-      });
+    // Pagination for exams
+    if (callbackData.startsWith('exams_page_')) {
+      const page = parseInt(callbackData.replace('exams_page_', ''));
+      await showExams(ctx, page);
       await ctx.answerCbQuery();
+      return;
     }
 
-    // If user selects a paper
-    else if (callbackData.startsWith('paper_')) {
+    // Pagination for papers
+    if (callbackData.startsWith('papers_')) {
+      const [_, examTitleRaw, __, pageStr] = callbackData.split('_');
+      const examTitle = decodeURIComponent(examTitleRaw);
+      const page = parseInt(pageStr);
+      await showPapers(ctx, examTitle, page);
+      await ctx.answerCbQuery();
+      return;
+    }
+
+    // Selecting an exam
+    if (callbackData.startsWith('exam_')) {
+      const examTitle = callbackData.replace('exam_', '');
+      await showPapers(ctx, examTitle, 0);
+      await ctx.answerCbQuery();
+      return;
+    }
+
+    // Selecting a paper
+    if (callbackData.startsWith('paper_')) {
       const metaId = callbackData.replace('paper_', '');
 
       let selectedPaper: Paper | undefined;
