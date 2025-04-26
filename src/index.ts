@@ -14,7 +14,7 @@ import { development, production } from './core';
 import { isPrivateChat } from './utils/groupSettings';
 import { me } from './commands/me'; 
 import { quote } from './commands/quotes';
-import { quizes, handleQuizActions } from './quizes'; // adjust path if needed
+import { quizes, handleQuizActions } from './playquiz'; // adjust path if needed
 
 const BOT_TOKEN = process.env.BOT_TOKEN || '';
 const ENVIRONMENT = process.env.NODE_ENV || '';
@@ -33,7 +33,7 @@ bot.command('groups', groups());
 bot.command(['me', 'user', 'info'], me());
 bot.command('quote', quote());
 // after all command handlers
-bot.command('quiz', quizes());
+bot.command('quiz', playquiz());  // <--- use the middleware
 
 // New command to show user count from Google Sheets
 bot.command('users', async (ctx) => {
@@ -151,7 +151,7 @@ bot.start(async (ctx) => {
 });
 
 // and for button clicks:
-bot.on('callback_query', handleQuizActions());  
+bot.on('callback_query', handleQuizActions());
 
 // --- MESSAGE HANDLER ---
 bot.on('message', async (ctx) => {
