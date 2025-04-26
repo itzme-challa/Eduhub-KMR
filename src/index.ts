@@ -14,7 +14,7 @@ import { development, production } from './core';
 import { isPrivateChat } from './utils/groupSettings';
 import { me } from './commands/me'; 
 import { quote } from './commands/quotes';
-import { quizes, handleQuizActions } from './text/quizes'; // adjust path if needed
+import { quizes, handleQuizActions } from './quizes'; // adjust path if needed
 
 const BOT_TOKEN = process.env.BOT_TOKEN || '';
 const ENVIRONMENT = process.env.NODE_ENV || '';
