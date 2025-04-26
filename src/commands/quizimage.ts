@@ -6,20 +6,24 @@ interface Question {
   options: { identifier: string; content: string }[];
 }
 
+interface QuizData {
+  questions: Question[];
+}
+
 export const quizimg = () => async (ctx: Context) => {
   try {
     // Dynamic import of fetch
     const fetch = (await import('node-fetch')).default;
 
     const response = await fetch('https://raw.githubusercontent.com/itzfew/Quizes/refs/heads/main/pyq/014be169-4893-5d08-a744-5ca0749e3c20.json');
-    const data = await response.json();
+    const data = (await response.json()) as QuizData[];
 
-    const questions: Question[] = data[0]?.questions;
-    if (!questions || questions.length === 0) {
+    if (!data || data.length === 0 || !data[0].questions) {
       await ctx.reply('❌ No questions available.');
       return;
     }
 
+    const questions = data[0].questions;
     const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
 
     // Create canvas
@@ -55,7 +59,7 @@ export const quizimg = () => async (ctx: Context) => {
 
   } catch (error) {
     console.error('Error sending quiz image:', error);
-    await ctx.reply('❌ Error fetching quiz.');
+    await ctx.reply('❌ Error fetching quiz. Please try again later.');
   }
 };
 
