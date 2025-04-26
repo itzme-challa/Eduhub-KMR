@@ -1,5 +1,5 @@
 import { Context } from 'telegraf';
-import { Message, CallbackQuery } from 'telegraf/typings/core/types/typegram';
+import { CallbackQuery } from '@telegraf/types'; // correct types
 import axios from 'axios';
 
 interface Paper {
@@ -22,10 +22,8 @@ const ITEMS_PER_PAGE = 6; // show 6 items per page
 
 export function playquiz() {
   return async (ctx: Context) => {
-    const message = ctx.message as Message.TextMessage | undefined; // FIX 1
-    const text = message?.text;
-
-    if (text?.startsWith('/quiz')) {
+    const message = ctx.message;
+    if (message && 'text' in message && message.text.startsWith('/quiz')) {
       try {
         if (examsData.length === 0) {
           const response = await axios.get<ExamCategory[]>('https://raw.githubusercontent.com/itzfew/Eduhub-KMR/refs/heads/main/src/exams.json');
@@ -48,7 +46,7 @@ async function showExams(ctx: Context, page: number) {
   const examsPage = examsData.slice(start, end);
 
   const keyboard = examsPage.map((exam) => {
-    return [{ text: exam.title, callback_data: `exam_${exam.title}` }];
+    return [{ text: exam.title, callback_data: `exam_${encodeURIComponent(exam.title)}` }];
   });
 
   const navButtons: any[] = [];
@@ -73,7 +71,9 @@ async function showExams(ctx: Context, page: number) {
 async function showPapers(ctx: Context, examTitle: string, page: number) {
   const exam = examsData.find(e => e.title === examTitle);
   if (!exam) {
-    await ctx.answerCbQuery('Exam not found.');
+    if (ctx.callbackQuery && 'id' in ctx.callbackQuery) {
+      await ctx.answerCbQuery('Exam not found.');
+    }
     return;
   }
 
@@ -91,10 +91,10 @@ async function showPapers(ctx: Context, examTitle: string, page: number) {
   const navButtons: any[] = [];
 
   if (page > 0) {
-    navButtons.push({ text: '⬅️ Previous', callback_data: `papers_${examTitle}_page_${page - 1}` });
+    navButtons.push({ text: '⬅️ Previous', callback_data: `papers_${encodeURIComponent(examTitle)}_page_${page - 1}` });
   }
   if (end < exam.papers.length) {
-    navButtons.push({ text: '➡️ Next', callback_data: `papers_${examTitle}_page_${page + 1}` });
+    navButtons.push({ text: '➡️ Next', callback_data: `papers_${encodeURIComponent(examTitle)}_page_${page + 1}` });
   }
 
   keyboard.push([{ text: '🔙 Back to Exams', callback_data: `exams_page_0` }]);
@@ -112,10 +112,10 @@ async function showPapers(ctx: Context, examTitle: string, page: number) {
 
 export function handleQuizActions() {
   return async (ctx: Context) => {
-    const callbackQuery = ctx.callbackQuery as CallbackQuery.DataCallbackQuery | undefined; // FIX 2
-    const callbackData = callbackQuery?.data;
+    const callbackQuery = ctx.callbackQuery;
+    if (!callbackQuery || !('data' in callbackQuery)) return;
 
-    if (!callbackData) return;
+    const callbackData = callbackQuery.data;
 
     // Pagination for exams
     if (callbackData.startsWith('exams_page_')) {
@@ -137,7 +137,7 @@ export function handleQuizActions() {
 
     // Selecting an exam
     if (callbackData.startsWith('exam_')) {
-      const examTitle = callbackData.replace('exam_', '');
+      const examTitle = decodeURIComponent(callbackData.replace('exam_', ''));
       await showPapers(ctx, examTitle, 0);
       await ctx.answerCbQuery();
       return;
@@ -163,13 +163,10 @@ export function handleQuizActions() {
 
       const playLink = `https://quizes.pages.dev/play?metaId=${selectedPaper.metaId}`;
 
-      await ctx.replyWithMarkdownV2(`▶️ [Start ${escapeMarkdown(selectedPaper.title)}](${playLink})`); // FIX 3
+      await ctx.replyWithMarkdownV2(`▶️ [Start ${selectedPaper.title}](${playLink})`, {
+        disable_web_page_preview: true
+      });
       await ctx.answerCbQuery();
     }
   };
-}
-
-// Utility function to escape MarkdownV2 special characters
-function escapeMarkdown(text: string): string {
-  return text.replace(/([_*()~`>#+\-=|{}.!\)/g, '\\$1');
 }
