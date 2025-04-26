@@ -14,8 +14,7 @@ import { development, production } from './core';
 import { isPrivateChat } from './utils/groupSettings';
 import { me } from './commands/me'; 
 import { quote } from './commands/quotes';
-import { registerQuizHandlers } from './quizes';
-registerQuizHandlers(bot);
+import { quizes, handleQuizActions } from './text/quizes'; // adjust path if needed
 
 const BOT_TOKEN = process.env.BOT_TOKEN || '';
 const ENVIRONMENT = process.env.NODE_ENV || '';
@@ -33,6 +32,9 @@ bot.command('jee', jee());
 bot.command('groups', groups());
 bot.command(['me', 'user', 'info'], me());
 bot.command('quote', quote());
+// after all command handlers
+bot.command('quiz', quizes());
+
 // New command to show user count from Google Sheets
 bot.command('users', async (ctx) => {
   if (ctx.from?.id !== ADMIN_ID) {
@@ -81,7 +83,6 @@ bot.action('refresh_users', async (ctx) => {
     await ctx.answerCbQuery('Refresh failed');
   }
 });
-
 // Broadcast to all saved chat IDs
 bot.command('broadcast', async (ctx) => {
   if (ctx.from?.id !== ADMIN_ID) return ctx.reply('You are not authorized to use this command.');
@@ -148,6 +149,9 @@ bot.start(async (ctx) => {
     await greeting()(ctx);
   }
 });
+
+// and for button clicks:
+bot.on('callback_query', handleQuizActions());  
 
 // --- MESSAGE HANDLER ---
 bot.on('message', async (ctx) => {
