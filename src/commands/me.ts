@@ -53,6 +53,22 @@ async function getUserInfo(ctx: Context, user: User): Promise<UserInfo> {
     }
   }
 
+  const accountAgeDays = Math.floor((now.getTime() - createdAt.getTime()) / (1000 * 60 * 60 * 24)) || 0; // Ensure it never becomes undefined
+
+  return {
+    id: user.id,
+    name: `${user.first_name}${user.last_name ? ' ' + user.last_name : ''}`,
+    username: user.username,
+    isBot: user.is_bot,
+    isPremium: (user as any).is_premium ?? undefined,
+    languageCode: user.language_code ?? 'Unknown',
+    status,
+    joinDate: joinDate.toLocaleDateString(),
+    lastActive: lastActive.toLocaleString(),
+    accountAgeDays, // Ensures this is always a number
+  };
+}
+
   const accountAgeDays = Math.floor((now.getTime() - createdAt.getTime()) / (1000 * 60 * 60 * 24));
 
   return {
