@@ -1,4 +1,5 @@
 import { Context } from 'telegraf';
+import { Markup } from 'telegraf';
 import { CallbackQuery } from '@telegraf/types'; // correct types
 import axios from 'axios';
 
@@ -102,13 +103,11 @@ async function showPapers(ctx: Context, examTitle: string, page: number) {
     keyboard.push(navButtons);
   }
 
-  await ctx.editMessageText(`📚 Choose a paper for *${examTitle}*`, {
-    parse_mode: 'Markdown',
-    reply_markup: {
-      inline_keyboard: keyboard
-    }
-  });
-}
+await ctx.editMessageText(`📚 Choose a paper for *${examTitle}*`, {
+  parse_mode: 'MarkdownV2',
+  disable_web_page_preview: true,
+  reply_markup: Markup.inlineKeyboard(keyboard).reply_markup
+});
 
 export function handleQuizActions() {
   return async (ctx: Context) => {
