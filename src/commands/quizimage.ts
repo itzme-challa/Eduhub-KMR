@@ -1,85 +1,80 @@
-import { Context } from 'telegraf';
-import { createCanvas } from 'canvas';
+import { Context } from "telegraf";
+import fetch from "node-fetch";
+import { createCanvas, loadImage } from "canvas";
+
+interface Option {
+  identifier: string;
+  content: string;
+}
 
 interface Question {
+  question_id: string;
   content: string;
-  options: { identifier: string; content: string }[];
+  options: Option[];
+  correct_options: string[];
+  explanation: string;
 }
 
 interface QuizData {
   questions: Question[];
 }
 
-export const quizimg = () => async (ctx: Context) => {
+function cleanHTML(input: string): string {
+  return input
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/?[^>]+(>|$)/g, '')
+    .replace(/\$\$/g, '');
+}
+
+export async function quizimg(ctx: Context) {
   try {
-    // Dynamic import of fetch
-    const fetch = (await import('node-fetch')).default;
+    const response = await fetch("https://raw.githubusercontent.com/itzfew/Quizes/refs/heads/main/pyq/014be169-4893-5d08-a744-5ca0749e3c20.json");
 
-    const response = await fetch('https://raw.githubusercontent.com/itzfew/Quizes/refs/heads/main/pyq/014be169-4893-5d08-a744-5ca0749e3c20.json');
-    const data = (await response.json()) as QuizData[];
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
 
-    if (!data || data.length === 0 || !data[0].questions) {
-      await ctx.reply('❌ No questions available.');
+    const data = await response.json() as QuizData[];
+
+    const questions = data[0]?.questions;
+
+    if (!questions || questions.length === 0) {
+      await ctx.reply("❌ No questions found.");
       return;
     }
 
-    const questions = data[0].questions;
     const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
 
-    // Create canvas
-    const width = 1000;
-    const height = 600;
-    const canvas = createCanvas(width, height);
+    const questionText = cleanHTML(randomQuestion.content);
+    const options = randomQuestion.options.map(opt => `${opt.identifier}. ${cleanHTML(opt.content)}`).join('\n');
+
+    const canvas = createCanvas(1080, 1080);
     const ctx2d = canvas.getContext('2d');
 
-    // White background
-    ctx2d.fillStyle = 'white';
-    ctx2d.fillRect(0, 0, width, height);
+    // Background white
+    ctx2d.fillStyle = "#ffffff";
+    ctx2d.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Text style
-    ctx2d.fillStyle = 'black';
-    ctx2d.font = '20px sans-serif';
-    ctx2d.textBaseline = 'top';
+    // Text settings
+    ctx2d.fillStyle = "#000000";
+    ctx2d.font = "bold 30px Arial";
 
-    let textY = 20;
+    let y = 60;
+    const lineHeight = 40;
 
-    // Draw question
-    const questionText = randomQuestion.content.replace(/<br>/g, '\n').replace(/<\/?[^>]+(>|$)/g, '').replace(/\$\$/g, '');
-    wrapText(ctx2d, "Q. " + questionText, 20, textY, width - 40, 28);
+    const lines = (questionText + '\n\n' + options).split('\n');
 
-    // Draw options
-    randomQuestion.options.forEach((option, idx) => {
-      textY += 120 + idx * 60;
-      wrapText(ctx2d, `${option.identifier}. ${option.content.replace(/\$\$/g, '')}`, 40, textY, width - 80, 26);
-    });
+    for (const line of lines) {
+      ctx2d.fillText(line.trim(), 50, y);
+      y += lineHeight;
+    }
 
-    // Send the image
     const buffer = canvas.toBuffer();
-    await ctx.replyWithPhoto({ source: buffer }, { caption: '🧪 Random Quiz' });
+
+    await ctx.replyWithPhoto({ source: buffer }, { caption: "Here's your random quiz!" });
 
   } catch (error) {
-    console.error('Error sending quiz image:', error);
-    await ctx.reply('❌ Error fetching quiz. Please try again later.');
+    console.error(error);
+    await ctx.reply("❌ Error fetching quiz.");
   }
-};
-
-// Helper function for wrapping text
-function wrapText(ctx: any, text: string, x: number, y: number, maxWidth: number, lineHeight: number) {
-  const words = text.split(' ');
-  let line = '';
-
-  for (let n = 0; n < words.length; n++) {
-    const testLine = line + words[n] + ' ';
-    const metrics = ctx.measureText(testLine);
-    const testWidth = metrics.width;
-
-    if (testWidth > maxWidth && n > 0) {
-      ctx.fillText(line, x, y);
-      line = words[n] + ' ';
-      y += lineHeight;
-    } else {
-      line = testLine;
-    }
-  }
-  ctx.fillText(line, x, y);
 }
