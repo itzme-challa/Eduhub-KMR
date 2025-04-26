@@ -12,36 +12,41 @@ interface UserInfo {
   status?: string;
   joinDate?: string;
   lastActive?: string;
-  accountAgeDays?: number;
+  accountAgeDays: number; // Account age in days
 }
 
 export function me() {
   return async (ctx: Context) => {
     try {
       if (!ctx.from || !ctx.chat || !ctx.chat.type) {
-        return ctx.reply('❌ Could not identify your user information.');
+        return ctx.reply('Could not identify your user information.');
       }
 
+      // Get user info
       const userInfo = await getUserInfo(ctx, ctx.from);
 
       if (isPrivateChat(ctx.chat.type)) {
+        // Private chat format
         await sendPrivateUserInfo(ctx, userInfo);
       } else {
+        // Group chat format
         await sendGroupUserInfo(ctx, userInfo);
       }
     } catch (error) {
-      console.error('Error in /me command:', error);
-      await ctx.reply('❌ An error occurred while processing your request.');
+      console.error('Error in me command:', error);
+      await ctx.reply('An error occurred while processing your request.');
     }
   };
 }
 
 async function getUserInfo(ctx: Context, user: User): Promise<UserInfo> {
   const now = new Date();
-  const createdAt = new Date(user.id / 4194304 + 1420070400000); // Approximation using Telegram ID (not perfect)
-
-  const joinDate = new Date(now.getTime() - Math.random() * 30 * 24 * 60 * 60 * 1000); // Random for now
-  const lastActive = new Date(now.getTime() - Math.random() * 24 * 60 * 60 * 1000); // Random for now
+  
+  // Approximation for user account creation based on user ID
+  const createdAt = new Date(user.id / 4194304 + 1420070400000); // Rough calculation using Telegram ID
+  
+  const joinDate = new Date(now.getTime() - Math.random() * 30 * 24 * 60 * 60 * 1000); // Random for demo
+  const lastActive = new Date(now.getTime() - Math.random() * 24 * 60 * 60 * 1000); // Random for demo
 
   let status = 'member';
   if (ctx.chat && !isPrivateChat(ctx.chat.type)) {
@@ -53,7 +58,8 @@ async function getUserInfo(ctx: Context, user: User): Promise<UserInfo> {
     }
   }
 
-  const accountAgeDays = Math.floor((now.getTime() - createdAt.getTime()) / (1000 * 60 * 60 * 24)) || 0; // Ensure it never becomes undefined
+  // Calculate account age in days
+  const accountAgeDays = Math.floor((now.getTime() - createdAt.getTime()) / (1000 * 60 * 60 * 24)) || 0; 
 
   return {
     id: user.id,
@@ -69,37 +75,21 @@ async function getUserInfo(ctx: Context, user: User): Promise<UserInfo> {
   };
 }
 
-  const accountAgeDays = Math.floor((now.getTime() - createdAt.getTime()) / (1000 * 60 * 60 * 24));
-
-  return {
-    id: user.id,
-    name: `${user.first_name}${user.last_name ? ' ' + user.last_name : ''}`,
-    username: user.username,
-    isBot: user.is_bot,
-    isPremium: (user as any).is_premium ?? undefined,
-    languageCode: user.language_code ?? 'Unknown',
-    status,
-    joinDate: joinDate.toLocaleDateString(),
-    lastActive: lastActive.toLocaleString(),
-    accountAgeDays,
-  };
-}
-
 async function sendPrivateUserInfo(ctx: Context, userInfo: UserInfo) {
   const text = `
-👤 *Your Telegram Info* 👤
+👤 *Your Information* 👤
 
 🆔 *ID:* \`${userInfo.id}\`
 📛 *Name:* ${userInfo.name}
 🔖 *Username:* ${userInfo.username ? '@' + userInfo.username : 'None'}
 🤖 *Bot:* ${userInfo.isBot ? 'Yes' : 'No'}
 💎 *Premium:* ${userInfo.isPremium === undefined ? 'Unknown' : (userInfo.isPremium ? 'Yes' : 'No')}
-🌐 *Language:* ${formatLanguage(userInfo.languageCode)}
-📅 *Joined Platform:* ${userInfo.joinDate}
+🌐 *Language:* ${userInfo.languageCode}
+📅 *Join Date:* ${userInfo.joinDate}
 ⏱ *Last Active:* ${userInfo.lastActive}
-📅 *Account Age:* ${userInfo.accountAgeDays} days
+📆 *Account Age:* ${userInfo.accountAgeDays} days
 
-_This information is private._
+_This information is only visible to you._
   `;
 
   await ctx.reply(text, {
@@ -119,36 +109,36 @@ async function sendGroupUserInfo(ctx: Context, userInfo: UserInfo) {
   }[userInfo.status || 'unknown'];
 
   const text = `
-👥 *Group Info*
+👤 Your Information 👤
 
-${statusEmoji} *Status:* ${userInfo.status?.toUpperCase() || 'MEMBER'}
+${statusEmoji} ${userInfo.status?.toUpperCase() || 'MEMBER'} ${statusEmoji}
 
-📛 *Name:* ${userInfo.name}
-🔖 *Username:* ${userInfo.username ? '@' + userInfo.username : 'None'}
-📅 *Join Date:* ${userInfo.joinDate}
-⏱ *Last Active:* ${userInfo.lastActive}
+📛 Name: ${userInfo.name}
+🔖 Username: ${userInfo.username ? '@' + userInfo.username : 'None'}
+📅 Join Date: ${userInfo.joinDate}
+📆 Account Age: ${userInfo.accountAgeDays} days
 
-_This information is public to this group._
+This information is visible to everyone in the group.
   `;
 
-  await ctx.reply(text, {
-    parse_mode: 'Markdown',
+  await ctx.replyWithHTML(text, {
     reply_parameters: {
-      message_id: ctx.message?.message_id,
+      message_id: ctx.message?.message_id!,
     },
   });
 }
 
-function formatLanguage(code: string | undefined): string {
-  if (!code) return 'Unknown';
-  const languages: Record<string, string> = {
-    en: 'English',
-    hi: 'Hindi',
-    ru: 'Russian',
-    es: 'Spanish',
-    zh: 'Chinese',
-    ar: 'Arabic',
-    // add more if needed
+// Handle refresh button (no refresh button now)
+export function handleUserInfoRefresh() {
+  return async (ctx: Context) => {
+    try {
+      await ctx.answerCbQuery();
+      if (!ctx.from || !ctx.chat || !ctx.chat.type) return;
+      const userInfo = await getUserInfo(ctx, ctx.from);
+      await sendPrivateUserInfo(ctx, userInfo);
+    } catch (error) {
+      console.error('Error refreshing user info:', error);
+      await ctx.answerCbQuery('Error refreshing', { show_alert: true });
+    }
   };
-  return languages[code] || `Unknown (${code})`;
 }
