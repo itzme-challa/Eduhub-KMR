@@ -26,7 +26,7 @@ export function playquiz() {
     if (text?.startsWith('/quiz')) {
       try {
         if (examsData.length === 0) {
-          const response = await axios.get<ExamCategory[]>('https://raw.githubusercontent.com/itzfew/Quizes/refs/heads/main/neet/exams.json');
+          const response = await axios.get<ExamCategory[]>('https://raw.githubusercontent.com/itzfew/Eduhub-KMR/refs/heads/main/src/exams.json');
           examsData = response.data;
         }
 
