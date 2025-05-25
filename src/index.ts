@@ -227,6 +227,19 @@ bot.on('message', async (ctx) => {
   }
 
   // Run quiz for all chats
-  await quizes()(ctx);
+    await quizes()(ctx);
 
-  // G
+  // Greet in private chats
+  if (isPrivateChat(chatType)) {
+    await greeting()(ctx);
+  }
+});
+
+// --- DEPLOYMENT ---
+export const startVercel = async (req: VercelRequest, res: VercelResponse) => {
+  await production(req, res, bot);
+};
+
+if (ENVIRONMENT !== 'production') {
+  development(bot);
+}
