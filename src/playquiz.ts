@@ -163,9 +163,12 @@ export function handleQuizActions() {
 
       const playLink = `https://quizes.pages.dev/play?metaId=${selectedPaper.metaId}`;
 
-      await ctx.replyWithMarkdownV2(`▶️ [Start ${selectedPaper.title}](${playLink})`, {
-        disable_web_page_preview: true
-      });
+      await ctx.replyWithMarkdownV2(
+        `▶️ [Start ${selectedPaper.title}](${playLink})`,
+        {
+          disable_web_page_preview: true,
+        } as any
+      );
       await ctx.answerCbQuery();
     }
   };
