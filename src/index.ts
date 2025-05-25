@@ -23,21 +23,22 @@ const ADMIN_ID = 6930703214;
 if (!BOT_TOKEN) throw new Error('BOT_TOKEN not provided!');
 const bot = new Telegraf(BOT_TOKEN);
 
-// Store pending question submissions
-interface PendingQuestion {
+// Store temporary question data
+interface QuestionData {
   subject: string;
   chapter: string;
-  count: number;
   questions: Array<{
     question: string;
     options: { [key: string]: string };
     correct_option: string;
     explanation: string;
-    image?: string;
+    image: string;
   }>;
+  count: number;
+  current: number;
 }
 
-const pendingSubmissions: { [key: number]: PendingQuestion } = {};
+const questionDataMap = new Map<number, QuestionData>();
 
 // --- COMMANDS ---
 bot.command('about', about());
@@ -49,6 +50,153 @@ bot.command('groups', groups());
 bot.command(['me', 'user', 'info'], me());
 bot.command('quote', quote());
 bot.command('quiz', playquiz());
+
+// Add question commands
+bot.command(/^add([a-zA-Z]+)(?:_+([a-zA-Z_]+))?$/, async (ctx) => {
+  if (ctx.from?.id !== ADMIN_ID) {
+    return ctx.reply('You are not authorized to use this command.');
+  }
+
+  const match = ctx.message.text?.match(/^\/add([a-zA-Z]+)(?:_+([a-zA-Z_]+))?\s+(\d+)$/);
+  if (!match) {
+    return ctx.reply('Invalid format. Use:\n/addBiology\n/addBiology__Plant_Kingdom 10');
+  }
+
+  const subject = match[1].charAt(0).toUpperCase() + match[1].slice(1).toLowerCase();
+  let chapter = match[2] ? match[2].replace(/_/g, ' ') : 'Random';
+  const count = parseInt(match[3], 10);
+
+  if (isNaN(count) || count <= 0) {
+    return ctx.reply('Please provide a valid number of questions (e.g., 10)');
+  }
+
+  // Initialize question data
+  questionDataMap.set(ctx.chat.id, {
+    subject,
+    chapter,
+    questions: [],
+    count,
+    current: 0
+  });
+
+  await ctx.reply(
+    `📝 Preparing to add ${count} ${subject} questions${chapter !== 'Random' ? ` (Chapter: ${chapter})` : ''}.\n\n` +
+    'Please send each question in the following format:\n\n' +
+    '*Question text*\n' +
+    'A) Option 1\n' +
+    'B) Option 2\n' +
+    'C) Option 3\n' +
+    'D) Option 4\n' +
+    '*Correct: A*\n' +
+    '*Explanation: Explanation text*\n' +
+    '*Image: image_url (optional)*',
+    { parse_mode: 'Markdown' }
+  );
+});
+
+// Handle question input
+bot.on('message', async (ctx) => {
+  if (ctx.from?.id !== ADMIN_ID) {
+    // Handle non-admin messages normally (existing message handler logic)
+    return;
+  }
+
+  const chatId = ctx.chat.id;
+  const questionData = questionDataMap.get(chatId);
+  if (!questionData) return;
+
+  const messageText = ctx.message.text;
+  if (!messageText) return;
+
+  try {
+    // Parse the question
+    const lines = messageText.split('\n').filter(line => line.trim() !== '');
+    if (lines.length < 6) {
+      await ctx.reply('Invalid format. Please provide all required fields.');
+      return;
+    }
+
+    const question = lines[0].trim();
+    const options: { [key: string]: string } = {};
+    let correct_option = '';
+    let explanation = '';
+    let image = '';
+
+    for (let i = 1; i < lines.length; i++) {
+      const line = lines[i].trim();
+      if (line.match(/^[A-D]\)/)) {
+        const optionParts = line.split(')');
+        const optionKey = optionParts[0].trim();
+        const optionValue = optionParts.slice(1).join(')').trim();
+        options[optionKey] = optionValue;
+      } else if (line.toLowerCase().startsWith('*correct:')) {
+        correct_option = line.replace(/^\*correct:\s*/i, '').replace(/\*$/, '').trim();
+      } else if (line.toLowerCase().startsWith('*explanation:')) {
+        explanation = line.replace(/^\*explanation:\s*/i, '').replace(/\*$/, '').trim();
+      } else if (line.toLowerCase().startsWith('*image:')) {
+        image = line.replace(/^\*image:\s*/i, '').replace(/\*$/, '').trim();
+      }
+    }
+
+    // Validate the question
+    if (!question || Object.keys(options).length < 4 || !correct_option || !explanation) {
+      await ctx.reply('Missing required fields. Each question must have:\n- Question text\n- 4 options (A-D)\n- Correct answer\n- Explanation');
+      return;
+    }
+
+    // Add to questions array
+    questionData.questions.push({
+      question,
+      options,
+      correct_option,
+      explanation,
+      image: image || ''
+    });
+
+    questionData.current++;
+
+    // Check if we've collected all questions
+    if (questionData.current >= questionData.count) {
+      // Save all questions to Firebase
+      const questionsRef = ref(db, 'questions');
+      const formattedQuestions = questionData.questions.map(q => ({
+        subject: questionData.subject,
+        chapter: questionData.chapter,
+        question: q.question,
+        options: q.options,
+        correct_option: q.correct_option,
+        explanation: q.explanation,
+        image: q.image,
+        addedAt: Date.now()
+      }));
+
+      try {
+        await Promise.all(
+          formattedQuestions.map(question => {
+            const newQuestionRef = push(ref(db, 'questions'));
+            return set(newQuestionRef, question);
+          })
+        );
+
+        await ctx.reply(
+          `✅ Successfully added ${questionData.count} ${questionData.subject} questions` +
+          `${questionData.chapter !== 'Random' ? ` (Chapter: ${questionData.chapter})` : ''} to the database!`
+        );
+      } catch (error) {
+        console.error('Firebase save error:', error);
+        await ctx.reply('❌ Error: Failed to save questions to database.');
+      }
+
+      // Clear the question data
+      questionDataMap.delete(chatId);
+    } else {
+      await ctx.reply(`Question ${questionData.current}/${questionData.count} added. Please send the next question.`);
+    }
+  } catch (error) {
+    console.error('Question parsing error:', error);
+    await ctx.reply('Error processing the question. Please check the format and try again.');
+  }
+});
 
 // New command to show user count from Google Sheets
 bot.command('users', async (ctx) => {
@@ -155,50 +303,6 @@ bot.command('reply', async (ctx) => {
   }
 });
 
-// Handle /add<subject> or /add<Subject>__<Chapter> commands
-bot.command(/add[A-Za-z]+(__[A-Za-z_]+)?/, async (ctx) => {
-  if (ctx.from?.id !== ADMIN_ID) {
-    return ctx.reply('You are not authorized to use this command.');
-  }
-
-  const command = ctx.message.text?.split(' ')[0].substring(1); // Remove leading '/'
-  const countStr = ctx.message.text?.split(' ')[1];
-  const count = parseInt(countStr, 10);
-
-  if (!countStr || isNaN(count) || count <= 0) {
-    return ctx.reply('Please specify a valid number of questions.\nExample: /addBiology 10 or /addBiology__Plant_Kingdom 11');
-  }
-
-  let subject = '';
-  let chapter = 'Random';
-
-  if (command.includes('__')) {
-    const [subj, chp] = command.split('__');
-    subject = subj.replace('add', '').replace(/_/g, ' ');
-    chapter = chp.replace(/_/g, ' ');
-  } else {
-    subject = command.replace('add', '').replace(/_/g, ' ');
-  }
-
-  // Store pending submission
-  pendingSubmissions[ctx.from.id] = {
-    subject,
-    chapter,
-    count,
-    questions: [],
-  };
-
-  await ctx.reply(`Okay, please share ${count} questions for *${subject}* (Chapter: *${chapter}*). Send each question in the format:\n\n` +
-    `Question: <question>\n` +
-    `A: <option A>\n` +
-    `B: <option B>\n` +
-    `C: <option C>\n` +
-    `D: <option D>\n` +
-    `Correct: <A/B/C/D>\n` +
-    `Explanation: <explanation>\n` +
-    `Image: <optional image URL>`, { parse_mode: 'Markdown' });
-});
-
 // User greeting and message handling
 bot.start(async (ctx) => {
   if (isPrivateChat(ctx.chat.type)) {
@@ -212,8 +316,13 @@ bot.on('callback_query', handleQuizActions());
 
 // --- MESSAGE HANDLER ---
 bot.on('message', async (ctx) => {
+  // Skip if it's an admin adding questions
+  if (ctx.from?.id === ADMIN_ID && questionDataMap.has(ctx.chat.id)) {
+    return;
+  }
+
   const chat = ctx.chat;
-  const msg = ctx.message as any; // Avoid TS for ctx.message.poll
+  const msg = ctx.message as any; // avoid TS for ctx.message.poll
   const chatType = chat.type;
 
   if (!chat?.id) return;
@@ -240,6 +349,7 @@ bot.on('message', async (ctx) => {
   if (msg.text?.startsWith('/contact')) {
     const userMessage = msg.text.replace('/contact', '').trim() || msg.reply_to_message?.text;
     if (userMessage) {
+      // Safely check properties for chat
       const firstName = 'first_name' in chat ? chat.first_name : 'Unknown';
       const username = 'username' in chat && typeof chat.username === 'string' ? `@${chat.username}` : 'N/A';
 
@@ -269,77 +379,7 @@ bot.on('message', async (ctx) => {
     return;
   }
 
-  // Handle question submissions from admin
-  if (chat.id === ADMIN_ID && pendingSubmissions[chat.id]) {
-    const submission = pendingSubmissions[chat.id];
-    const text = msg.text;
-
-    if (text) {
-      // Parse question format
-      const questionMatch = text.match(/Question:([\s\S]*?)(?=(?:A:|$))/i);
-      const optionsMatchA = text.match(/A:([\s\S]*?)(?=(?:B:|$))/i);
-      const optionsMatchB = text.match(/B:([\s\S]*?)(?=(?:C:|$))/i);
-      const optionsMatchC = text.match(/C:([\s\S]*?)(?=(?:D:|$))/i);
-      const optionsMatchD = text.match(/D:([\s\S]*?)(?=(?:Correct:|$))/i);
-      const correctMatch = text.match(/Correct:([A-D])(?=(?:Explanation:|$))/i);
-      const explanationMatch = text.match(/Explanation:([\s\S]*?)(?=(?:Image:|$))/i);
-      const imageMatch = text.match(/Image:([\s\S]*?)$/i);
-
-      if (questionMatch && optionsMatchA && optionsMatchB && optionsMatchC && optionsMatchD && correctMatch && explanationMatch) {
-        const question = {
-          subject: submission.subject,
-          chapter: submission.chapter,
-          question: questionMatch[1].trim(),
-          options: {
-            A: optionsMatchA[1].trim(),
-            B: optionsMatchB[1].trim(),
-            C: optionsMatchC[1].trim(),
-            D: optionsMatchD[1].trim(),
-          },
-          correct_option: correctMatch[1].trim(),
-          explanation: explanationMatch[1].trim(),
-          image: imageMatch ? imageMatch[1].trim() : '',
-        };
-
-        submission.questions.push(question);
-
-        if (submission.questions.length < submission.count) {
-          await ctx.reply(
-            `Question ${submission.questions.length} saved. Please send the next question (${submission.questions.length + 1}/${submission.count}).`
-          );
-        } else {
-          // Save all questions to Firebase
-          try {
-            const questionsRef = ref(db, 'questions');
-            for (const q of submission.questions) {
-              const newQuestionRef = push(questionsRef);
-              await set(newQuestionRef, q);
-            }
-            await ctx.reply(`✅ Successfully added ${submission.count} questions to *${submission.subject}* (Chapter: *${submission.chapter}*).`);
-            delete pendingSubmissions[chat.id];
-          } catch (error) {
-            console.error('Failed to save questions to Firebase:', error);
-            await ctx.reply('❌ Error: Unable to save questions to Firebase.');
-          }
-        }
-      } else {
-        await ctx.reply(
-          'Invalid question format. Please use:\n\n' +
-          'Question: <question>\n' +
-          'A: <option A>\n' +
-          'B: <option B>\n' +
-          'C: <option C>\n' +
-          'D: <option D>\n' +
-          'Correct: <A/B/C/D>\n' +
-          'Explanation: <explanation>\n' +
-          'Image: <optional image URL>'
-        );
-      }
-      return;
-    }
-  }
-
-  // Detect Telegram Poll and send JSON to admin
+  // === Detect Telegram Poll and send JSON to admin ===
   if (msg.poll) {
     const poll = msg.poll;
     const pollJson = JSON.stringify(poll, null, 2);
