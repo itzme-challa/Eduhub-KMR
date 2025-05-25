@@ -1,4 +1,4 @@
-import { Telegraf } from 'telegraf';
+import { Telegraf, Context } from 'telegraf';
 import { VercelRequest, VercelResponse } from '@vercel/node';
 import { getAllChatIds, saveChatId, fetchChatIdsFromSheet } from './utils/chatStore';
 import { saveToSheet } from './utils/saveToSheet';
@@ -152,7 +152,7 @@ bot.on('callback_query', handleQuizActions());
 // --- MESSAGE HANDLER ---
 bot.on('message', async (ctx) => {
   const chat = ctx.chat;
-  const msg = ctx.message as { text?: string; reply_to_message?: { text?: string } };
+  const msg = ctx.message as any; // avoid TS for ctx.message.poll
   const chatType = chat.type;
 
   if (!chat?.id) return;
@@ -163,12 +163,13 @@ bot.on('message', async (ctx) => {
   // Save to Google Sheet and check if user is new
   const alreadyNotified = await saveToSheet(chat);
 
-  // Notify admin once only
+  // Notify admin once only for new users (private chat)
   if (chat.id !== ADMIN_ID && !alreadyNotified) {
-    if (chat.type === 'private' && 'first_name' in chat && 'username' in chat) {
+    if (chat.type === 'private' && 'first_name' in chat) {
+      const usernameText = 'username' in chat && typeof chat.username === 'string' ? `@${chat.username}` : 'N/A';
       await ctx.telegram.sendMessage(
         ADMIN_ID,
-        `*New user started the bot!*\n\n*Name:* ${chat.first_name}\n*Username:* @${chat.username}\nChat ID: ${chat.id}`,
+        `*New user started the bot!*\n\n*Name:* ${chat.first_name}\n*Username:* ${usernameText}\nChat ID: ${chat.id}`,
         { parse_mode: 'Markdown' }
       );
     }
@@ -208,38 +209,24 @@ bot.on('message', async (ctx) => {
     return;
   }
 
-  // Convert quiz message text to JSON and forward to admin
-  if (msg.text && msg.text.toLowerCase().startsWith('quiz:')) {
-    try {
-      const quizText = msg.text.slice(5).trim();
-      // Basic attempt to parse quiz text to JSON
-      // You might want to improve this parsing logic
-      const quizJson = JSON.stringify({ quiz: quizText }, null, 2);
+  // === Detect Telegram Poll and send JSON to admin ===
+  if (msg.poll) {
+    // Poll object from Telegram message
+    const poll = msg.poll;
+    const pollJson = JSON.stringify(poll, null, 2);
 
-      // Reply to user with JSON (or confirmation)
-      await ctx.reply(`Your quiz has been converted to JSON:\n\`\`\`json\n${quizJson}\n\`\`\``, { parse_mode: 'Markdown' });
+    await ctx.reply('Thanks for sending a poll! Your poll data has been sent to the admin.');
 
-      // Forward the JSON to admin
-      await ctx.telegram.sendMessage(ADMIN_ID, `New quiz JSON from @${ctx.from?.username || 'unknown'}:\n\`\`\`json\n${quizJson}\n\`\`\``, { parse_mode: 'Markdown' });
-    } catch (err) {
-      await ctx.reply('Failed to convert quiz to JSON.');
-    }
+    await ctx.telegram.sendMessage(
+      ADMIN_ID,
+      `📊 *New Telegram Poll received from @${ctx.from?.username || 'unknown'}:*\n\`\`\`json\n${pollJson}\n\`\`\``,
+      { parse_mode: 'Markdown' }
+    );
+
+    return;
   }
 
   // Run quiz for all chats
   await quizes()(ctx);
 
-  // Greet in private chats
-  if (isPrivateChat(chatType)) {
-    await greeting()(ctx);
-  }
-});
-
-// --- DEPLOYMENT ---
-export const startVercel = async (req: VercelRequest, res: VercelResponse) => {
-  await production(req, res, bot);
-};
-
-if (ENVIRONMENT !== 'production') {
-  development(bot);
-}
+  // G
