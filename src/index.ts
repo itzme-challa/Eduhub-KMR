@@ -1,6 +1,7 @@
 import { Telegraf, Context } from 'telegraf';
 import { VercelRequest, VercelResponse } from '@vercel/node';
 import { getAllChatIds, saveChatId, fetchChatIdsFromSheet } from './utils/chatStore';
+import { db, ref, push, set } from './utils/firebase';
 import { saveToSheet } from './utils/saveToSheet';
 import { about, help } from './commands';
 import { study } from './commands/study';
@@ -211,20 +212,40 @@ bot.on('message', async (ctx) => {
 
   // === Detect Telegram Poll and send JSON to admin ===
   if (msg.poll) {
-    // Poll object from Telegram message
-    const poll = msg.poll;
-    const pollJson = JSON.stringify(poll, null, 2);
+  const poll = msg.poll;
+  const pollJson = JSON.stringify(poll, null, 2);
 
+  // Save poll data to Firebase Realtime Database under /polls/
+  try {
+    const pollsRef = ref(db, 'polls');
+    const newPollRef = push(pollsRef);
+    await set(newPollRef, {
+      poll,
+      from: {
+        id: ctx.from?.id,
+        username: ctx.from?.username || null,
+        first_name: ctx.from?.first_name || null,
+        last_name: ctx.from?.last_name || null,
+      },
+      chat: {
+        id: ctx.chat.id,
+        type: ctx.chat.type,
+      },
+      receivedAt: Date.now(),
+    });
+  } catch (error) {
+    console.error('Firebase save error:', error);
+  } 
     await ctx.reply('Thanks for sending a poll! Your poll data has been sent to the admin.');
 
-    await ctx.telegram.sendMessage(
-      ADMIN_ID,
-      `📊 *New Telegram Poll received from @${ctx.from?.username || 'unknown'}:*\n\`\`\`json\n${pollJson}\n\`\`\``,
-      { parse_mode: 'Markdown' }
-    );
+await ctx.telegram.sendMessage(
+    ADMIN_ID,
+    `📊 *New Telegram Poll received from @${ctx.from?.username || 'unknown'}:*\n\`\`\`json\n${pollJson}\n\`\`\``,
+    { parse_mode: 'Markdown' }
+  );
 
-    return;
-  }
+  return;
+}
 
   // Run quiz for all chats
     await quizes()(ctx);
