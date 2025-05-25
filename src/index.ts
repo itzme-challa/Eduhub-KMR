@@ -1,7 +1,6 @@
 import { Telegraf } from 'telegraf';
 import { VercelRequest, VercelResponse } from '@vercel/node';
-import { getAllChatIds, saveChatId } from './utils/chatStore';
-import { fetchChatIdsFromSheet } from './utils/chatStore';
+import { getAllChatIds, saveChatId, fetchChatIdsFromSheet } from './utils/chatStore';
 import { saveToSheet } from './utils/saveToSheet';
 import { about, help } from './commands';
 import { study } from './commands/study';
@@ -44,11 +43,11 @@ bot.command('users', async (ctx) => {
     const chatIds = await fetchChatIdsFromSheet();
     const totalUsers = chatIds.length;
 
-    await ctx.reply(`📊 Total users: ${totalUsers}`, { 
-      parse_mode: 'Markdown', 
-      reply_markup: { 
-        inline_keyboard: [[{ text: 'Refresh', callback_data: 'refresh_users' }]] 
-      } 
+    await ctx.reply(`📊 Total users: ${totalUsers}`, {
+      parse_mode: 'Markdown',
+      reply_markup: {
+        inline_keyboard: [[{ text: 'Refresh', callback_data: 'refresh_users' }]],
+      },
     });
   } catch (err) {
     console.error('Failed to fetch user count:', err);
@@ -67,11 +66,11 @@ bot.action('refresh_users', async (ctx) => {
     const chatIds = await fetchChatIdsFromSheet();
     const totalUsers = chatIds.length;
 
-    await ctx.editMessageText(`📊 Total users: ${totalUsers} (refreshed)`, { 
-      parse_mode: 'Markdown', 
-      reply_markup: { 
-        inline_keyboard: [[{ text: 'Refresh', callback_data: 'refresh_users' }]] 
-      } 
+    await ctx.editMessageText(`📊 Total users: ${totalUsers} (refreshed)`, {
+      parse_mode: 'Markdown',
+      reply_markup: {
+        inline_keyboard: [[{ text: 'Refresh', callback_data: 'refresh_users' }]],
+      },
     });
     await ctx.answerCbQuery('Refreshed!');
   } catch (err) {
@@ -139,35 +138,23 @@ bot.command('reply', async (ctx) => {
   }
 });
 
-// Quiz submission handler
-bot.on('message', async (ctx) => {
-  const message = ctx.message;
-  const chat = ctx.chat;
-  
-  // Check if the message is a quiz submission (contains question and options)
-  if (message.text && isQuizMessage(message.text)) {
-    try {
-      // Convert the quiz to JSON format
-      const quizJson = convertQuizToJson(message.text);
-      
-      // Send the JSON back to the user
-      await ctx.replyWithMarkdown(`Here's your quiz in JSON format:\n\`\`\`json\n${JSON.stringify(quizJson, null, 2)}\n\`\`\``);
-      
-      // Forward the original message and JSON to admin
-      await ctx.forwardMessage(ADMIN_ID);
-      await ctx.telegram.sendMessage(
-        ADMIN_ID,
-        `*Quiz Submission from ${chat.first_name || 'Unknown'} (@${chat.username || 'N/A'})*\nChat ID: ${chat.id}\n\n*JSON Format:*\n\`\`\`json\n${JSON.stringify(quizJson, null, 2)}\n\`\`\``,
-        { parse_mode: 'Markdown' }
-      );
-    } catch (error) {
-      console.error('Error processing quiz:', error);
-      await ctx.reply('There was an error processing your quiz. Please check the format and try again.');
-    }
-    return;
+// User greeting and message handling
+bot.start(async (ctx) => {
+  if (isPrivateChat(ctx.chat.type)) {
+    await ctx.reply('Welcome! Use /help to explore commands.');
+    await greeting()(ctx);
   }
+});
 
-  // Rest of your existing message handling...
+// Handle button clicks (quiz)
+bot.on('callback_query', handleQuizActions());
+
+// --- MESSAGE HANDLER ---
+bot.on('message', async (ctx) => {
+  const chat = ctx.chat;
+  const msg = ctx.message as { text?: string; reply_to_message?: { text?: string } };
+  const chatType = chat.type;
+
   if (!chat?.id) return;
 
   // Save chat ID locally
@@ -188,12 +175,16 @@ bot.on('message', async (ctx) => {
   }
 
   // Handle /contact messages
-  if (message.text?.startsWith('/contact')) {
-    const userMessage = message.text.replace('/contact', '').trim() || (message.reply_to_message?.text || '');
+  if (msg.text?.startsWith('/contact')) {
+    const userMessage = msg.text.replace('/contact', '').trim() || msg.reply_to_message?.text;
     if (userMessage) {
+      // Safely check properties for chat
+      const firstName = 'first_name' in chat ? chat.first_name : 'Unknown';
+      const username = 'username' in chat && typeof chat.username === 'string' ? `@${chat.username}` : 'N/A';
+
       await ctx.telegram.sendMessage(
         ADMIN_ID,
-        `*Contact Message from ${'first_name' in chat ? chat.first_name : 'Unknown'} (@${'username' in chat ? chat.username || 'N/A' : 'N/A'})*\nChat ID: ${chat.id}\n\nMessage:\n${userMessage}`,
+        `*Contact Message from ${firstName} (${username})*\nChat ID: ${chat.id}\n\nMessage:\n${userMessage}`,
         { parse_mode: 'Markdown' }
       );
       await ctx.reply('Your message has been sent to the admin!');
@@ -204,16 +195,12 @@ bot.on('message', async (ctx) => {
   }
 
   // Admin replies via swipe reply
-  if (chat.id === ADMIN_ID && message.reply_to_message?.text) {
-    const match = message.reply_to_message.text.match(/Chat ID: (\d+)/);
+  if (chat.id === ADMIN_ID && msg.reply_to_message?.text) {
+    const match = msg.reply_to_message.text.match(/Chat ID: (\d+)/);
     if (match) {
       const targetId = parseInt(match[1], 10);
       try {
-        await ctx.telegram.sendMessage(
-          targetId,
-          `*Admin's Reply:*\n${message.text}`,
-          { parse_mode: 'Markdown' }
-        );
+        await ctx.telegram.sendMessage(targetId, `*Admin's Reply:*\n${msg.text}`, { parse_mode: 'Markdown' });
       } catch (err) {
         console.error('Failed to send swipe reply:', err);
       }
@@ -221,99 +208,32 @@ bot.on('message', async (ctx) => {
     return;
   }
 
+  // Convert quiz message text to JSON and forward to admin
+  if (msg.text && msg.text.toLowerCase().startsWith('quiz:')) {
+    try {
+      const quizText = msg.text.slice(5).trim();
+      // Basic attempt to parse quiz text to JSON
+      // You might want to improve this parsing logic
+      const quizJson = JSON.stringify({ quiz: quizText }, null, 2);
+
+      // Reply to user with JSON (or confirmation)
+      await ctx.reply(`Your quiz has been converted to JSON:\n\`\`\`json\n${quizJson}\n\`\`\``, { parse_mode: 'Markdown' });
+
+      // Forward the JSON to admin
+      await ctx.telegram.sendMessage(ADMIN_ID, `New quiz JSON from @${ctx.from?.username || 'unknown'}:\n\`\`\`json\n${quizJson}\n\`\`\``, { parse_mode: 'Markdown' });
+    } catch (err) {
+      await ctx.reply('Failed to convert quiz to JSON.');
+    }
+  }
+
   // Run quiz for all chats
   await quizes()(ctx);
 
   // Greet in private chats
-  if (isPrivateChat(chat.type)) {
+  if (isPrivateChat(chatType)) {
     await greeting()(ctx);
   }
 });
-
-// Helper function to check if a message is a quiz
-function isQuizMessage(text: string): boolean {
-  // Simple check for common quiz patterns
-  const quizPatterns = [
-    /question:/i,
-    /q:/i,
-    /options?:/i,
-    /a\)/i,
-    /b\)/i,
-    /c\)/i,
-    /d\)/i
-  ];
-  
-  return quizPatterns.some(pattern => pattern.test(text));
-}
-
-// Helper function to convert quiz text to JSON
-function convertQuizToJson(quizText: string): any {
-  const lines = quizText.split('\n').filter(line => line.trim() !== '');
-  const quiz: any = {
-    question: '',
-    options: [],
-    correctAnswer: '',
-    explanation: ''
-  };
-
-  for (const line of lines) {
-    if (line.match(/^(question|q):/i)) {
-      quiz.question = line.replace(/^(question|q):\s*/i, '').trim();
-    } 
-    else if (line.match(/^(options?):/i)) {
-      // Options might be on the same line or following lines
-      const optionsText = line.replace(/^(options?):\s*/i, '');
-      if (optionsText) {
-        quiz.options = quiz.options.concat(extractOptions(optionsText));
-      }
-    }
-    else if (line.match(/^[a-d]\)/i)) {
-      quiz.options = quiz.options.concat(extractOptions(line));
-    }
-    else if (line.match(/^(correct answer|answer):/i)) {
-      quiz.correctAnswer = line.replace(/^(correct answer|answer):\s*/i, '').trim();
-    }
-    else if (line.match(/^(explanation|explain):/i)) {
-      quiz.explanation = line.replace(/^(explanation|explain):\s*/i, '').trim();
-    }
-    else if (quiz.question && !quiz.options.length) {
-      // If we have a question but no options yet, this might be part of the question
-      quiz.question += '\n' + line.trim();
-    }
-  }
-
-  return quiz;
-}
-
-// Helper function to extract options from text
-function extractOptions(text: string): string[] {
-  const options: string[] = [];
-  // Split by option markers (a), b), etc.)
-  const optionRegex = /([a-d])\)\s*([^\n]+)/gi;
-  let match;
-  
-  while ((match = optionRegex.exec(text)) !== null) {
-    options.push(match[2].trim());
-  }
-  
-  // If no options found with markers, try splitting by lines
-  if (options.length === 0) {
-    return text.split('\n').map(opt => opt.trim()).filter(opt => opt !== '');
-  }
-  
-  return options;
-}
-
-// User greeting and message handling
-bot.start(async (ctx) => {
-  if (isPrivateChat(ctx.chat.type)) {
-    await ctx.reply('Welcome! Use /help to explore commands.');
-    await greeting()(ctx);
-  }
-});
-
-// Handle button clicks
-bot.on('callback_query', handleQuizActions());
 
 // --- DEPLOYMENT ---
 export const startVercel = async (req: VercelRequest, res: VercelResponse) => {
