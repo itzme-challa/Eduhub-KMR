@@ -23,6 +23,22 @@ const ADMIN_ID = 6930703214;
 if (!BOT_TOKEN) throw new Error('BOT_TOKEN not provided!');
 const bot = new Telegraf(BOT_TOKEN);
 
+// Store pending question submissions
+interface PendingQuestion {
+  subject: string;
+  chapter: string;
+  count: number;
+  questions: Array<{
+    question: string;
+    options: { [key: string]: string };
+    correct_option: string;
+    explanation: string;
+    image?: string;
+  }>;
+}
+
+const pendingSubmissions: { [key: number]: PendingQuestion } = {};
+
 // --- COMMANDS ---
 bot.command('about', about());
 bot.command('help', help());
@@ -139,6 +155,50 @@ bot.command('reply', async (ctx) => {
   }
 });
 
+// Handle /add<subject> or /add<Subject>__<Chapter> commands
+bot.command(/add[A-Za-z]+(__[A-Za-z_]+)?/, async (ctx) => {
+  if (ctx.from?.id !== ADMIN_ID) {
+    return ctx.reply('You are not authorized to use this command.');
+  }
+
+  const command = ctx.message.text?.split(' ')[0].substring(1); // Remove leading '/'
+  const countStr = ctx.message.text?.split(' ')[1];
+  const count = parseInt(countStr, 10);
+
+  if (!countStr || isNaN(count) || count <= 0) {
+    return ctx.reply('Please specify a valid number of questions.\nExample: /addBiology 10 or /addBiology__Plant_Kingdom 11');
+  }
+
+  let subject = '';
+  let chapter = 'Random';
+
+  if (command.includes('__')) {
+    const [subj, chp] = command.split('__');
+    subject = subj.replace('add', '').replace(/_/g, ' ');
+    chapter = chp.replace(/_/g, ' ');
+  } else {
+    subject = command.replace('add', '').replace(/_/g, ' ');
+  }
+
+  // Store pending submission
+  pendingSubmissions[ctx.from.id] = {
+    subject,
+    chapter,
+    count,
+    questions: [],
+  };
+
+  await ctx.reply(`Okay, please share ${count} questions for *${subject}* (Chapter: *${chapter}*). Send each question in the format:\n\n` +
+    `Question: <question>\n` +
+    `A: <option A>\n` +
+    `B: <option B>\n` +
+    `C: <option C>\n` +
+    `D: <option D>\n` +
+    `Correct: <A/B/C/D>\n` +
+    `Explanation: <explanation>\n` +
+    `Image: <optional image URL>`, { parse_mode: 'Markdown' });
+});
+
 // User greeting and message handling
 bot.start(async (ctx) => {
   if (isPrivateChat(ctx.chat.type)) {
@@ -153,7 +213,7 @@ bot.on('callback_query', handleQuizActions());
 // --- MESSAGE HANDLER ---
 bot.on('message', async (ctx) => {
   const chat = ctx.chat;
-  const msg = ctx.message as any; // avoid TS for ctx.message.poll
+  const msg = ctx.message as any; // Avoid TS for ctx.message.poll
   const chatType = chat.type;
 
   if (!chat?.id) return;
@@ -180,7 +240,6 @@ bot.on('message', async (ctx) => {
   if (msg.text?.startsWith('/contact')) {
     const userMessage = msg.text.replace('/contact', '').trim() || msg.reply_to_message?.text;
     if (userMessage) {
-      // Safely check properties for chat
       const firstName = 'first_name' in chat ? chat.first_name : 'Unknown';
       const username = 'username' in chat && typeof chat.username === 'string' ? `@${chat.username}` : 'N/A';
 
@@ -210,45 +269,115 @@ bot.on('message', async (ctx) => {
     return;
   }
 
-  // === Detect Telegram Poll and send JSON to admin ===
-  if (msg.poll) {
-  const poll = msg.poll;
-  const pollJson = JSON.stringify(poll, null, 2);
+  // Handle question submissions from admin
+  if (chat.id === ADMIN_ID && pendingSubmissions[chat.id]) {
+    const submission = pendingSubmissions[chat.id];
+    const text = msg.text;
 
-  // Save poll data to Firebase Realtime Database under /polls/
-  try {
-    const pollsRef = ref(db, 'polls');
-    const newPollRef = push(pollsRef);
-    await set(newPollRef, {
-      poll,
-      from: {
-        id: ctx.from?.id,
-        username: ctx.from?.username || null,
-        first_name: ctx.from?.first_name || null,
-        last_name: ctx.from?.last_name || null,
-      },
-      chat: {
-        id: ctx.chat.id,
-        type: ctx.chat.type,
-      },
-      receivedAt: Date.now(),
-    });
-  } catch (error) {
-    console.error('Firebase save error:', error);
-  } 
+    if (text) {
+      // Parse question format
+      const questionMatch = text.match(/Question:([\s\S]*?)(?=(?:A:|$))/i);
+      const optionsMatchA = text.match(/A:([\s\S]*?)(?=(?:B:|$))/i);
+      const optionsMatchB = text.match(/B:([\s\S]*?)(?=(?:C:|$))/i);
+      const optionsMatchC = text.match(/C:([\s\S]*?)(?=(?:D:|$))/i);
+      const optionsMatchD = text.match(/D:([\s\S]*?)(?=(?:Correct:|$))/i);
+      const correctMatch = text.match(/Correct:([A-D])(?=(?:Explanation:|$))/i);
+      const explanationMatch = text.match(/Explanation:([\s\S]*?)(?=(?:Image:|$))/i);
+      const imageMatch = text.match(/Image:([\s\S]*?)$/i);
+
+      if (questionMatch && optionsMatchA && optionsMatchB && optionsMatchC && optionsMatchD && correctMatch && explanationMatch) {
+        const question = {
+          subject: submission.subject,
+          chapter: submission.chapter,
+          question: questionMatch[1].trim(),
+          options: {
+            A: optionsMatchA[1].trim(),
+            B: optionsMatchB[1].trim(),
+            C: optionsMatchC[1].trim(),
+            D: optionsMatchD[1].trim(),
+          },
+          correct_option: correctMatch[1].trim(),
+          explanation: explanationMatch[1].trim(),
+          image: imageMatch ? imageMatch[1].trim() : '',
+        };
+
+        submission.questions.push(question);
+
+        if (submission.questions.length < submission.count) {
+          await ctx.reply(
+            `Question ${submission.questions.length} saved. Please send the next question (${submission.questions.length + 1}/${submission.count}).`
+          );
+        } else {
+          // Save all questions to Firebase
+          try {
+            const questionsRef = ref(db, 'questions');
+            for (const q of submission.questions) {
+              const newQuestionRef = push(questionsRef);
+              await set(newQuestionRef, q);
+            }
+            await ctx.reply(`✅ Successfully added ${submission.count} questions to *${submission.subject}* (Chapter: *${submission.chapter}*).`);
+            delete pendingSubmissions[chat.id];
+          } catch (error) {
+            console.error('Failed to save questions to Firebase:', error);
+            await ctx.reply('❌ Error: Unable to save questions to Firebase.');
+          }
+        }
+      } else {
+        await ctx.reply(
+          'Invalid question format. Please use:\n\n' +
+          'Question: <question>\n' +
+          'A: <option A>\n' +
+          'B: <option B>\n' +
+          'C: <option C>\n' +
+          'D: <option D>\n' +
+          'Correct: <A/B/C/D>\n' +
+          'Explanation: <explanation>\n' +
+          'Image: <optional image URL>'
+        );
+      }
+      return;
+    }
+  }
+
+  // Detect Telegram Poll and send JSON to admin
+  if (msg.poll) {
+    const poll = msg.poll;
+    const pollJson = JSON.stringify(poll, null, 2);
+
+    // Save poll data to Firebase Realtime Database under /polls/
+    try {
+      const pollsRef = ref(db, 'polls');
+      const newPollRef = push(pollsRef);
+      await set(newPollRef, {
+        poll,
+        from: {
+          id: ctx.from?.id,
+          username: ctx.from?.username || null,
+          first_name: ctx.from?.first_name || null,
+          last_name: ctx.from?.last_name || null,
+        },
+        chat: {
+          id: ctx.chat.id,
+          type: ctx.chat.type,
+        },
+        receivedAt: Date.now(),
+      });
+    } catch (error) {
+      console.error('Firebase save error:', error);
+    }
     await ctx.reply('Thanks for sending a poll! Your poll data has been sent to the admin.');
 
-await ctx.telegram.sendMessage(
-    ADMIN_ID,
-    `📊 *New Telegram Poll received from @${ctx.from?.username || 'unknown'}:*\n\`\`\`json\n${pollJson}\n\`\`\``,
-    { parse_mode: 'Markdown' }
-  );
+    await ctx.telegram.sendMessage(
+      ADMIN_ID,
+      `📊 *New Telegram Poll received from @${ctx.from?.username || 'unknown'}:*\n\`\`\`json\n${pollJson}\n\`\`\``,
+      { parse_mode: 'Markdown' }
+    );
 
-  return;
-}
+    return;
+  }
 
   // Run quiz for all chats
-    await quizes()(ctx);
+  await quizes()(ctx);
 
   // Greet in private chats
   if (isPrivateChat(chatType)) {
